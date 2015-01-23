@@ -1,0 +1,27 @@
+unsetopt correct
+autoload -Uz up-line-or-beginning-search
+autoload -Uz down-line-or-beginning-search
+zle -N up-line-or-beginning-search
+zle -N down-line-or-beginning-search
+bindkey '\eOA' up-line-or-beginning-search
+bindkey '\e[A' up-line-or-beginning-search
+bindkey '\eOB' down-line-or-beginning-search
+bindkey '\e[B' down-line-or-beginning-search
+
+zstyle ':prompt:grml:right:setup' items
+zstyle ':prompt:grml:left:setup' items change-root user at host path vcs percent
+
+source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+# aliases
+#alias ppu='archnews && sudo pacman -Syu && cower -u'
+alias svim='sudo vim'
+alias tmux='tmux -2'
+alias gap='git add --patch'
+alias nagi-push='rsync -rlptDzv --rsh=ssh --delete ~/w/nagios/objects/ root@10.85.5.218:/etc/nagios/objects'
+alias ports='lsof -i -P -sTCP:LISTEN'
+alias dstat='/usr/bin/dstat -cdnpmgs --top-bio --top-cpu'
+alias ssh='TERM=xterm-256color /usr/bin/ssh'
+
+# functions
+twitch() { /usr/bin/livestreamer twitch.tv/$1 }
