@@ -36,42 +36,43 @@ browser = chromium
 #size_hints = false
 
 [colors]
-foreground      = #e8dfd6
-foreground_bold = #e8dfd6
-cursor          = #e8dfd6
-background      = #021b21
+foreground      = #c5c8c6
+foreground_bold = #c5c8c6
+cursor          = #c5c8c6
+background      = #1d1f21
 
 # black
-color0  = #032c36
-color8  = #065f73
+color0  = #282a2e
+color8  = #373b41
 
 # red
-color1  = #c2454e
-color9  = #ef5847
+color1  = #a54242
+color9  = #cc6666
 
 # green
-color2  = #7cbf9e
-color10 = #a2d9b1
+color2  = #8c9440
+color10 = #b5bd68
 
 # yellow
-color3  = #8a7a63
-color11 = #beb090
+color3  = #de935f
+color11 = #f0c674
 
 # blue
-color4  = #2e3340
-color12 = #61778d
+color4  = #5f819d
+color12 = #81a2be
 
 # magenta
-color5  = #ff5879
-color13 = #ff99a1
+color5  = #85678f
+color13 = #b294bb
 
 # cyan
-color6  = #44b5b1
-color14 = #9ed9d8
+color6  = #5e8d87
+color14 = #8abeb7
 
 # white
-color7  = #f2f1b9
-color15 = #f6f6c9
+color7  = #707880
+color15 = #c5c8c6
+
 
 [hints]
 #font = Monospace 12
