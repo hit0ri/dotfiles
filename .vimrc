@@ -11,7 +11,7 @@ Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-fugitive'
 Plugin 'chriskempson/vim-tomorrow-theme'
 Plugin 'godlygeek/tabular'
-Plugin 'Valloric/YouCompleteMe'
+Plugin 'Shougo/neocomplete.vim'
 Plugin 'bling/vim-airline'
 Plugin 'Raimondi/delimitMate'
 Plugin 'tejr/vim-nagios'
@@ -22,14 +22,14 @@ call vundle#end()
 filetype plugin indent on
 
 
-let g:airline_powerline_fonts=1
+let g:airline_powerline_fonts=0
 let g:airline#extensions#tabline#enabled=1
-let g:airline#extensions#tabline#left_sep=' '
-let g:airline#extensions#tabline#left_alt_sep='|'
-let g:airline_left_sep = ''
-let g:airline_left_alt_sep = ''
-let g:airline_right_sep = ''
-let g:airline_right_alt_sep = ''
+
+let g:neocomplete#enable_at_startup = 1
+let g:neocomplete#enable_smart_case = 1
+let g:neocomplete#enable_auto_select = 1
+" <TAB>: completion.
+inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 
 map <leader>a :BufstopModeFast<CR>
 
