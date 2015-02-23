@@ -9,7 +9,7 @@ allow_bold = true
 dynamic_title = true
 urgent_on_bell = true
 clickable_url = true
-font = Monospace 10
+font = Sauce Code Powerline 10
 scrollback_lines = 10000
 search_wrap = true
 #icon_name = terminal
@@ -26,7 +26,7 @@ cursor_blink = off
 cursor_shape = block
 
 # $BROWSER is used by default
-browser = chromium
+browser = google-chrome-stable
 
 # word characters used for word selection
 # (default if unset: all graphic non-punctuation/space characters)
