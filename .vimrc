@@ -2,6 +2,9 @@ set nocompatible
 filetype off
 
 let mapleader = ","
+
+" Install vundle:
+"git clone --depth=1 https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
