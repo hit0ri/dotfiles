@@ -26,7 +26,7 @@ filetype plugin indent on
 
 
 let g:airline_powerline_fonts=1
-let g:airline#extensions#tabline#enabled=1
+let g:airline#extensions#tabline#enabled=0
 
 let g:neocomplete#enable_at_startup = 1
 let g:neocomplete#enable_smart_case = 1
