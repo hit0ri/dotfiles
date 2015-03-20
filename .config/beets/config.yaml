@@ -1,0 +1,9 @@
+library: ~/.config/beets/library.db
+color: yes
+plugins: fetchart embedart
+import:
+    move: yes
+paths:
+    default: $albumartist/$year - $album%aunique{}/$track $title
+fetchart:
+    cautious: true
