@@ -9,7 +9,7 @@ allow_bold = true
 dynamic_title = true
 urgent_on_bell = true
 clickable_url = true
-font = Sauce Code Powerline 10
+font = Monospace 10
 scrollback_lines = 10000
 search_wrap = true
 #icon_name = terminal
@@ -36,32 +36,25 @@ browser = google-chrome-stable
 #size_hints = false
 
 [colors]
-foreground      = #c5c8c6
-background      = #1d1f21
-# black
-color0  = #1d1f21
-color8  = #969896
-# red
-color1  = #cc6666
-color9  = #cc6666
-# green
-color2  = #b5bd68
-color10 = #b5bd68
-# yellow
-color3  = #f0c674
-color11 = #f0c674
-# blue
-color4  = #81a2be
-color12 = #81a2be
-# magenta
-color5  = #b294bb
-color13 = #b294bb
-# cyan
-color6  = #8abeb7
-color14 = #8abeb7
-# white
-color7  = #c5c8c6
-color15 = #ffffff
+background = #1d1d1d
+foreground = #FFFFFF
+cursor  = #606163
+color0  = #000000
+color1  = #c64552
+color2  = #2E8B57
+color3  = #de9e4e
+color4  = #479ebb
+color5  = #75314b
+color6  = #618485
+color7  = #FFFFFF
+color8  = #3F3B40
+color9  = #c64552
+color10 = #2E8B57
+color11 = #de9e4e
+color12 = #479ebb
+color13 = #75314b
+color14 = #618485
+color15 = #FFFFFF
 
 
 [hints]
