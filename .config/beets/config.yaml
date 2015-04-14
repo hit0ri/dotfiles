@@ -1,5 +1,6 @@
 library: ~/.config/beets/library.db
-color: yes
+ui:
+    color: yes
 plugins: fetchart embedart
 import:
     move: yes
