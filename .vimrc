@@ -17,7 +17,7 @@ Plugin 'godlygeek/tabular'
 Plugin 'Shougo/neocomplete.vim'
 Plugin 'bling/vim-airline'
 Plugin 'Raimondi/delimitMate'
-Plugin 'tejr/vim-nagios'
+"Plugin 'tejr/vim-nagios'
 Plugin 'kien/ctrlp.vim'
 Plugin 'mihaifm/bufstop'
 
@@ -32,6 +32,7 @@ let g:airline_right_sep = ''
 let g:neocomplete#enable_at_startup = 1
 let g:neocomplete#enable_smart_case = 1
 let g:neocomplete#enable_auto_select = 1
+
 " <TAB>: completion.
 inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 
@@ -42,8 +43,12 @@ syntax on
 set number
 set colorcolumn=80
 set t_Co=256
-colorscheme Tomorrow-Night
+"colorscheme Tomorrow-Night
 "set background=dark
+set scrolloff=3
+set sidescrolloff=5
+set sidescroll=1
+set nowrap
 
 
 set shiftwidth=4
