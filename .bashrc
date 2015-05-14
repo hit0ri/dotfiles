@@ -66,9 +66,21 @@ function sprunge {
     curl -F 'sprunge=<-' http://sprunge.us
 }
 
+function ix {
+    curl -F 'f:1=<-' http://ix.io
+}
+
 # Aliases
+alias ..='cd ../'
+alias ...='cd ../../'
+alias ....='cd ../../../'
+alias .....='cd ../../../../'
+
+alias la='ls -a'
+alias lla='ll -a'
+
 alias svim='sudo vim'
 alias tmux='tmux -2'
 alias gap='git add --patch'
 alias ports='lsof -i -P -sTCP:LISTEN'
-alias dstat='/usr/bin/dstat -cdnpmgs --top-bio --top-cpu'
+alias dstats='/usr/bin/dstat -cdnpmgs --top-bio --top-cpu'
