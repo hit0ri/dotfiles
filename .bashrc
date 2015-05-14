@@ -29,6 +29,10 @@ set_prompt () {
     Reset='\[\e[00m\]'
     FancyX='\342\234\227'
     Checkmark='\342\234\223'
+    Cloud='\342\230\201'
+    Skull='\342\230\240'
+    WarningSign='\342\232\240'
+    HighVoltage='\342\232\241'
 
     # Add a bright white exit status for the last command
     # PS1="$White\$? "
@@ -36,17 +40,17 @@ set_prompt () {
     # If it was successful, print a green check mark. Otherwise, print
     # a red X.
     if [[ $Last_Command == 0 ]]; then
-        PS1+="$Green$Checkmark "
+        PS1+="$Green$Cloud  "
     else
-        PS1+="$Red$FancyX "
+        PS1+="$Red$Cloud  "
     fi
     # If root, just print the host in red. Otherwise, print the current user
     # and host in green.
-    if [[ $EUID == 0 ]]; then
-        PS1+="$Red\\h "
-    else
-        PS1+="$Green\\u@\\h "
-    fi
+    # if [[ $EUID == 0 ]]; then
+    #     PS1+="$Red\\h "
+    # else
+    #     PS1+="$Green\\u@\\h "
+    # fi
     # Print the working directory and prompt marker in blue, and reset
     # the text color to the default.
     PS1+="$Blue\\w$(__git_ps1) \\\$$Reset "
