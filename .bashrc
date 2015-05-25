@@ -9,6 +9,8 @@ fi
 # export SYSTEMD_PAGER=
 
 # User specific aliases and functions
+EDITOR=/usr/bin/vim
+
 # Line wrap on window resize
 shopt -s checkwinsize
 
