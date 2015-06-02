@@ -20,6 +20,7 @@ Plugin 'Raimondi/delimitMate'
 "Plugin 'tejr/vim-nagios'
 Plugin 'kien/ctrlp.vim'
 Plugin 'mihaifm/bufstop'
+Plugin 'chrisbra/csv.vim'
 
 call vundle#end()
 filetype plugin indent on
@@ -32,6 +33,8 @@ let g:airline_right_sep = ''
 let g:neocomplete#enable_at_startup = 1
 let g:neocomplete#enable_smart_case = 1
 let g:neocomplete#enable_auto_select = 1
+
+let b:csv_arrange_align = 'lll'
 
 " <TAB>: completion.
 inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
