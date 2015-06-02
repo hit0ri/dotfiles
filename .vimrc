@@ -46,7 +46,7 @@ syntax on
 set number
 set colorcolumn=80
 set t_Co=256
-"colorscheme Tomorrow-Night
+colorscheme Tomorrow-Night
 "set background=dark
 set scrolloff=3
 set sidescrolloff=5
@@ -78,15 +78,15 @@ set viminfo='10,\"100,:20,%,n~/.viminfo
 
 " Restore cursor to file position in previous editing session
 function! ResCur()
-  if line("'\"") <= line("$")
-    normal! g`"
-    return 1
-  endif
+    if line("'\"") <= line("$")
+        normal! g`"
+        return 1
+    endif
 endfunction
 
 augroup resCur
-  autocmd!
-  autocmd BufWinEnter * call ResCur()
+    autocmd!
+    autocmd BufWinEnter * call ResCur()
 augroup END
 
 "set pastetoggle=<leader>p
