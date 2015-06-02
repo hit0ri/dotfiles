@@ -43,7 +43,7 @@ syntax on
 set number
 set colorcolumn=80
 set t_Co=256
-"colorscheme Tomorrow-Night
+colorscheme Tomorrow-Night
 "set background=dark
 set scrolloff=3
 set sidescrolloff=5
