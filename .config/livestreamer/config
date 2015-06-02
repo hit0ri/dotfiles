@@ -1,5 +1,3 @@
 player=mpv --cache=2048
 default-stream=best
-# enable for totem
-#player-continuous-http
 loglevel=warning
