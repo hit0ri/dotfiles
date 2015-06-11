@@ -45,14 +45,21 @@ set noshowmode
 
 let g:neocomplete#enable_at_startup = 1
 let g:neocomplete#enable_smart_case = 1
-let g:neocomplete#enable_auto_select = 1
+" let g:neocomplete#enable_auto_select = 1
+let g:neocomplete#enable_fuzzy_completion = 1
+let g:neocomplete#enable_camel_case = 1
+" For smart TAB completion.
+inoremap <expr><TAB>  pumvisible() ? "\<C-n>" :
+            \ <SID>check_back_space() ? "\<TAB>" :
+            \ neocomplete#start_manual_complete()
+function! s:check_back_space() "{{{
+    let col = col('.') - 1
+    return !col || getline('.')[col - 1]  =~ '\s'
+endfunction"}}}
 
 let b:csv_arrange_align = 'lll'
 
 " let g:indent_guides_start_level = 2
-
-" <TAB>: completion.
-inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
 
 map <leader>a :BufstopModeFast<CR>
 
