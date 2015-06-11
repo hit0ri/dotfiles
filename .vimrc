@@ -51,18 +51,32 @@ colorscheme Tomorrow-Night
 set scrolloff=3
 set sidescrolloff=5
 set sidescroll=1
-set nowrap
+set wrap
+set linebreak
 
-
-set shiftwidth=4
+" Default indentation settings
 set tabstop=4
-set expandtab
 set softtabstop=4
-set shiftround
-set autoindent
+set shiftwidth=4
+set expandtab
+
+"set shiftround
+"set autoindent
+
+" Indentation
+autocmd FileType python setlocal ts=4 sts=4 sw=4 et
+autocmd FileType yaml setlocal ts=2 sts=2 sw=2 et noai nosr
+autocmd FileType html setlocal ts=2 sts=2 sw=2 et
+
+" Treat .rss files as XML
+autocmd BufNewFile,BufRead *.rss setfiletype xml
+
 
 " Remove trailing white spaces on save
 autocmd BufWritePre * :%s/\s\+$//e
+
+" Reload vimrc on save
+autocmd! bufwritepost .vimrc source $MYVIMRC
 
 "set timeoutlen=100
 
