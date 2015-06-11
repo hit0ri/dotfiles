@@ -33,16 +33,15 @@ Plug 'chriskempson/vim-tomorrow-theme'
 call plug#end()
 filetype plugin indent on
 
-" plug
 let g:plug_window = 'new'
 
-" lightline
 let g:lightline = {
     \ 'colorscheme': 'Tomorrow_Night',
     \ }
 set noshowmode
 
 " let g:airline_powerline_fonts = 0
+
 
 let g:neocomplete#enable_at_startup = 1
 let g:neocomplete#enable_smart_case = 1
