@@ -97,7 +97,7 @@ augroup reload_vimrc
     autocmd bufwritepost $MYVIMRC nested source $MYVIMRC
 augroup END
 
-"set timeoutlen=100
+" set timeoutlen=100
 
 " Fix indentation gg=G (Alternative: :retab)
 
