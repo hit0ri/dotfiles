@@ -9,7 +9,7 @@ fi
 # export SYSTEMD_PAGER=
 
 # User specific aliases and functions
-EDITOR=/usr/bin/vim
+EDITOR=vim
 
 # Line wrap on window resize
 shopt -s checkwinsize
@@ -78,6 +78,7 @@ alias ...='cd ../../'
 alias ....='cd ../../../'
 alias .....='cd ../../../../'
 
+alias l='ls -l'
 alias la='ls -a'
 alias lla='ll -a'
 
@@ -85,4 +86,4 @@ alias svim='sudo vim'
 alias tmux='tmux -2'
 alias gap='git add --patch'
 alias ports='lsof -i -P -sTCP:LISTEN'
-alias dstats='/usr/bin/dstat -cdnpmgs --top-bio --top-cpu'
+alias dstats='dstat -cdnpmgs --top-bio --top-cpu'
