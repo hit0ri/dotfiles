@@ -3,38 +3,54 @@ filetype off
 
 let mapleader = ","
 
-" Install vundle:
-"git clone --depth=1 https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
+" Install vim-plug
+" curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+"     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+call plug#begin('~/.vim/plugged')
 
-Plugin 'gmarik/Vundle.vim'
-Plugin 'tpope/vim-sensible'
-Plugin 'tpope/vim-surround'
-Plugin 'tpope/vim-fugitive'
-Plugin 'chriskempson/vim-tomorrow-theme'
-Plugin 'godlygeek/tabular'
-Plugin 'Shougo/neocomplete.vim'
-Plugin 'bling/vim-airline'
-Plugin 'Raimondi/delimitMate'
-"Plugin 'tejr/vim-nagios'
-Plugin 'kien/ctrlp.vim'
-Plugin 'mihaifm/bufstop'
-Plugin 'chrisbra/csv.vim'
+Plug 'tpope/vim-sensible'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-fugitive'
+Plug 'airblade/vim-gitgutter'
+Plug 'tpope/vim-eunuch'
+Plug 'tpope/vim-commentary'
+Plug 'godlygeek/tabular'
+Plug 'Raimondi/delimitMate'
+Plug 'kien/ctrlp.vim'
+Plug 'mihaifm/bufstop'
+Plug 'chrisbra/csv.vim'
+Plug 'itchyny/lightline.vim'
+Plug 'Shougo/neocomplete.vim'
+" Plug 'nathanaelkane/vim-indent-guides'
+" Plug 'bling/vim-airline'
+" Plug 'tejr/vim-nagios'
 
-call vundle#end()
+" Colorschemes
+Plug 'chriskempson/vim-tomorrow-theme'
+" Plug 'whatyouhide/vim-gotham'
+
+
+call plug#end()
 filetype plugin indent on
 
+" plug
+let g:plug_window = 'new'
 
-let g:airline_powerline_fonts=0
-let g:airline_left_sep = ''
-let g:airline_right_sep = ''
+" lightline
+let g:lightline = {
+    \ 'colorscheme': 'Tomorrow_Night',
+    \ }
+set noshowmode
+
+" let g:airline_powerline_fonts = 0
 
 let g:neocomplete#enable_at_startup = 1
 let g:neocomplete#enable_smart_case = 1
 let g:neocomplete#enable_auto_select = 1
 
 let b:csv_arrange_align = 'lll'
+
+" let g:indent_guides_start_level = 2
 
 " <TAB>: completion.
 inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
@@ -45,10 +61,10 @@ map <leader>a :BufstopModeFast<CR>
 syntax on
 set number
 set colorcolumn=80
-set t_Co=256
+" set t_Co=256
 colorscheme Tomorrow-Night
-"set background=dark
-set scrolloff=3
+" set background=dark
+set scrolloff=5
 set sidescrolloff=5
 set sidescroll=1
 set wrap
@@ -60,8 +76,8 @@ set softtabstop=4
 set shiftwidth=4
 set expandtab
 
-"set shiftround
-"set autoindent
+" set shiftround
+" set autoindent
 
 " Indentation
 autocmd FileType python setlocal ts=4 sts=4 sw=4 et
@@ -103,7 +119,7 @@ augroup resCur
     autocmd BufWinEnter * call ResCur()
 augroup END
 
-"set pastetoggle=<leader>p
+" set pastetoggle=<leader>p
 set pastetoggle=<F2>
 
 " Seach selected text
