@@ -92,7 +92,10 @@ autocmd BufNewFile,BufRead *.rss setfiletype xml
 autocmd BufWritePre * :%s/\s\+$//e
 
 " Reload vimrc on save
-autocmd! bufwritepost .vimrc source $MYVIMRC
+augroup reload_vimrc
+    autocmd!
+    autocmd bufwritepost $MYVIMRC nested source $MYVIMRC
+augroup END
 
 "set timeoutlen=100
 
