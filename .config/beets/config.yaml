@@ -1,10 +1,15 @@
 library: ~/.config/beets/library.db
 ui:
     color: yes
-plugins: fetchart embedart
+plugins: fetchart embedart convert
 import:
     move: yes
 paths:
     default: $albumartist/$year - $album%aunique{}/$track $title
 fetchart:
     cautious: true
+convert:
+  auto: yes
+  never_convert_lossy_files: yes
+  formats:
+    mp3: ffmpeg -i $source -y -vn -aq 0 $dest
