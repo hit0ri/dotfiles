@@ -20,7 +20,9 @@ Plug 'kien/ctrlp.vim'
 Plug 'mihaifm/bufstop'
 Plug 'chrisbra/csv.vim'
 Plug 'itchyny/lightline.vim'
+Plug 'davidhalter/jedi-vim'
 Plug 'Shougo/neocomplete.vim'
+" Plug 'hynek/vim-python-pep8-indent'
 " Plug 'nathanaelkane/vim-indent-guides'
 " Plug 'bling/vim-airline'
 " Plug 'tejr/vim-nagios'
@@ -29,18 +31,23 @@ Plug 'Shougo/neocomplete.vim'
 Plug 'chriskempson/vim-tomorrow-theme'
 " Plug 'whatyouhide/vim-gotham'
 
-
 call plug#end()
 filetype plugin indent on
 
+
 let g:plug_window = 'new'
+
 
 let g:lightline = {
     \ 'colorscheme': 'Tomorrow_Night',
     \ }
 set noshowmode
 
+
 " let g:airline_powerline_fonts = 0
+
+
+" let g:jedi#force_py_version = 3
 
 
 let g:neocomplete#enable_at_startup = 1
@@ -56,8 +63,20 @@ function! s:check_back_space() "{{{
     let col = col('.') - 1
     return !col || getline('.')[col - 1]  =~ '\s'
 endfunction"}}}
+" Use neocomplete with jedi-vim
+autocmd FileType python setlocal omnifunc=jedi#completions
+let g:jedi#completions_enabled = 0
+let g:jedi#auto_vim_configuration = 0
+if !exists('g:neocomplete#force_omni_input_patterns')
+    let g:neocomplete#force_omni_input_patterns = {}
+endif
+let g:neocomplete#force_omni_input_patterns.python =
+            \ '\h\w*\|[^. \t]\.\w*'
+            " \ '\%([^. \t]\.\|^\s*@\|^\s*from\s.\+import \|^\s*from \|^\s*import \)\w*'
+
 
 let b:csv_arrange_align = 'lll'
+
 
 " let g:indent_guides_start_level = 2
 
