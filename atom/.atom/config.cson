@@ -1,0 +1,40 @@
+"*":
+  welcome:
+    showOnStartup: false
+  core: {}
+  editor:
+    invisibles: {}
+    showIndentGuide: true
+    tabLength: 4
+  "autocomplete-plus": {}
+  minimap:
+    plugins:
+      "git-diff": true
+  "git-diff":
+    showIconsInEditorGutter: true
+  linter:
+    ignoredLinterErrors: [
+      "pylama"
+    ]
+    lintOnFly: false
+    showErrorPanel: false
+  "linter-pylama":
+    ignoreErrorsAndWarnings: "E501,D100,D103"
+    pylamaVersion: "internal"
+  "atom-beautify":
+    python_indent_size: 4
+  tabs:
+    enableVcsColoring: true
+  "linter-csslint": {}
+".basic.html.text":
+  editor:
+    tabLength: 2
+".html.jinja.text":
+  editor:
+    tabLength: 2
+".css.source":
+  editor:
+    tabLength: 2
+".js.source":
+  editor:
+    tabLength: 2
