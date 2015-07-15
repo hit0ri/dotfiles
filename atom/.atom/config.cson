@@ -23,18 +23,20 @@
     pylamaVersion: "internal"
   "atom-beautify":
     python_indent_size: 4
+    _analyticsUserId: "f210b306-d44f-4ffa-8307-e9f9c3f1195d"
   tabs:
     enableVcsColoring: true
   "linter-csslint": {}
-".basic.html.text":
-  editor:
-    tabLength: 2
+  "linter-shellcheck": {}
 ".html.jinja.text":
   editor:
     tabLength: 2
-".css.source":
+".basic.html.text":
   editor:
     tabLength: 2
 ".js.source":
+  editor:
+    tabLength: 2
+".css.source":
   editor:
     tabLength: 2
