@@ -37,24 +37,44 @@ browser = chromium
 
 [colors]
 # visibone
-foreground = #ffffff
-background = #000000
-color0     = #666666
-color1     = #cc6666
-color2     = #66cc99
-color3     = #cc9966
-color4     = #6699cc
-color5     = #cc6699
-color6     = #66cccc
-color7     = #cccccc
-color8     = #999999
-color9     = #ff9999
-color10    = #99ffcc
-color11    = #ffcc99
-color12    = #99ccff
-color13    = #ff99cc
-color14    = #99ffff
-color15    = #ffffff
+# foreground = #ffffff
+# background = #000000
+# color0     = #666666
+# color1     = #cc6666
+# color2     = #66cc99
+# color3     = #cc9966
+# color4     = #6699cc
+# color5     = #cc6699
+# color6     = #66cccc
+# color7     = #cccccc
+# color8     = #999999
+# color9     = #ff9999
+# color10    = #99ffcc
+# color11    = #ffcc99
+# color12    = #99ccff
+# color13    = #ff99cc
+# color14    = #99ffff
+# color15    = #ffffff
+
+# base16-ocean
+foreground = #c0c5ce
+background = #2b303b
+color0     = #2b303b
+color1     = #bf616a
+color2     = #a3be8c
+color3     = #ebcb8b
+color4     = #8fa1b3
+color5     = #b48ead
+color6     = #96b5b4
+color7     = #c0c5ce
+color8     = #65737e
+color9     = #bf616a
+color10    = #a3be8c
+color11    = #ebcb8b
+color12    = #8fa1b3
+color13    = #b48ead
+color14    = #96b5b4
+color15    = #eff1f5
 
 [hints]
 #font = Monospace 12
