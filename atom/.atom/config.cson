@@ -6,6 +6,7 @@
     invisibles: {}
     showIndentGuide: true
     tabLength: 4
+    fontFamily: "Input Mono"
   "autocomplete-plus": {}
   minimap:
     plugins:
@@ -28,15 +29,15 @@
     enableVcsColoring: true
   "linter-csslint": {}
   "linter-shellcheck": {}
-".html.jinja.text":
-  editor:
-    tabLength: 2
 ".basic.html.text":
   editor:
     tabLength: 2
-".js.source":
+".html.jinja.text":
   editor:
     tabLength: 2
 ".css.source":
+  editor:
+    tabLength: 2
+".js.source":
   editor:
     tabLength: 2
