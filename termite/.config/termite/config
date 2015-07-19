@@ -9,7 +9,7 @@ allow_bold = true
 dynamic_title = true
 urgent_on_bell = true
 clickable_url = true
-font = DejaVu Sans Mono 10
+font = Input Mono 10
 scrollback_lines = 10000
 search_wrap = true
 #icon_name = terminal
@@ -36,45 +36,46 @@ browser = chromium
 #size_hints = false
 
 [colors]
-# visibone
-# foreground = #ffffff
-# background = #000000
-# color0     = #666666
-# color1     = #cc6666
-# color2     = #66cc99
-# color3     = #cc9966
-# color4     = #6699cc
-# color5     = #cc6699
-# color6     = #66cccc
-# color7     = #cccccc
-# color8     = #999999
-# color9     = #ff9999
-# color10    = #99ffcc
-# color11    = #ffcc99
-# color12    = #99ccff
-# color13    = #ff99cc
-# color14    = #99ffff
-# color15    = #ffffff
-
 # base16-ocean
-foreground = #c0c5ce
-background = #2b303b
-color0     = #2b303b
-color1     = #bf616a
-color2     = #a3be8c
-color3     = #ebcb8b
-color4     = #8fa1b3
-color5     = #b48ead
-color6     = #96b5b4
-color7     = #c0c5ce
-color8     = #65737e
-color9     = #bf616a
-color10    = #a3be8c
-color11    = #ebcb8b
-color12    = #8fa1b3
-color13    = #b48ead
-color14    = #96b5b4
-color15    = #eff1f5
+# foreground = #c0c5ce
+# background = #2b303b
+# color0     = #2b303b
+# color1     = #bf616a
+# color2     = #a3be8c
+# color3     = #ebcb8b
+# color4     = #8fa1b3
+# color5     = #b48ead
+# color6     = #96b5b4
+# color7     = #c0c5ce
+# color8     = #65737e
+# color9     = #bf616a
+# color10    = #a3be8c
+# color11    = #ebcb8b
+# color12    = #8fa1b3
+# color13    = #b48ead
+# color14    = #96b5b4
+# color15    = #eff1f5
+
+# Trim Yer Beard
+# by franksn
+foreground = #daba8b
+background = #191716
+color0     = #0f0e0d
+color1     = #845336
+color2     = #57553c
+color3     = #a17e3e
+color4     = #43454f
+color5     = #604848
+color6     = #5c6652
+color7     = #a18b62
+color8     = #383332
+color9     = #8c4f4a
+color10    = #898471
+color11    = #c8b491
+color12    = #65788f
+color13    = #755e4a
+color14    = #718062
+color15    = #bc9d66
 
 [hints]
 #font = Monospace 12
