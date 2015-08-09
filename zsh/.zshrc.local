@@ -21,6 +21,7 @@ alias gap='git add --patch'
 alias ports='lsof -i -P -sTCP:LISTEN'
 alias dstats='dstat -cdnpmgs --top-bio --top-cpu'
 alias ssh='TERM=xterm-256color ssh'
+alias vim='subl3'
 
 # functions
 twitch() {
