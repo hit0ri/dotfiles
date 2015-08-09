@@ -1,0 +1,30 @@
+{
+	"in_process_packages":
+	[
+	],
+	"installed_packages":
+	[
+		"Alignment",
+		"All Autocomplete",
+		"Ansible",
+		"AnsibleSnippets",
+		"BracketHighlighter",
+		"Emmet",
+		"Generic Config",
+		"Git",
+		"GitGutter",
+		"HTML5",
+		"INI",
+		"Jinja2",
+		"Markdown Preview",
+		"Package Control",
+		"PKGBUILD",
+		"SideBarEnhancements",
+		"SSH Config",
+		"SublimeLinter",
+		"SublimeLinter-shellcheck",
+		"Theme - Spacegray",
+		"Tomorrow Color Schemes",
+		"Vagrant"
+	]
+}
