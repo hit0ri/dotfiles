@@ -2,7 +2,8 @@ typeset -U path
 path=(~/bin $path)
 
 export WINEDLLOVERRIDES="winemenubuilder.exe=d"
-export BROWSER=google-chrome-stable
+export BROWSER=chromium
+export EDITOR=subl3
 
 #bspwm
 PANEL_FIFO=/tmp/panel-fifo
