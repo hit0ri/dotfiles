@@ -51,7 +51,7 @@ PROMPT_COMMAND='set_prompt'
 
 # Functions
 function twitch {
-	/usr/bin/livestreamer twitch.tv/$1
+	mpv "http://twitch.tv/$1"
 }
 
 function sprunge {
@@ -72,6 +72,7 @@ alias l='ls -l'
 alias la='ls -a'
 alias lla='ll -a'
 
+alias vim='subl3'
 alias svim='sudo vim'
 alias tmux='tmux -2'
 alias gap='git add --patch'
