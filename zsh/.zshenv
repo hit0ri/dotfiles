@@ -1,8 +1,9 @@
 typeset -U path
-path=(~/bin $path)
+path=(~/bin ~/go/bin $path)
 
 export WINEDLLOVERRIDES="winemenubuilder.exe=d"
 export BROWSER=chromium
+export GOPATH=~/go
 
 #bspwm
 PANEL_FIFO=/tmp/panel-fifo
