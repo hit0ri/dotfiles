@@ -5,8 +5,8 @@ EDITOR=vim
 shopt -s checkwinsize
 
 # Git prompt
-if [[ -f /usr/share/git-core/contrib/completion/git-prompt.sh ]]; then
-    . /usr/share/git-core/contrib/completion/git-prompt.sh
+if [[ -f /usr/share/git/completion/git-prompt.sh ]]; then
+    . /usr/share/git/completion/git-prompt.sh
     export GIT_PS1_SHOWDIRTYSTATE=true
     export GIT_PS1_SHOWUNTRACKEDFILES=true
 fi
