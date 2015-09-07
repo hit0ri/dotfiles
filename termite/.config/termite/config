@@ -61,7 +61,8 @@ browser = chromium
 
 # base16-eighties dark
 foreground = #d3d0c8
-background = #2d2d2d
+# background = #2d2d2d
+background = rgba(45, 45, 45, 0.98)
 color0     = #2d2d2d
 color1     = #f2777a
 color2     = #99cc99
