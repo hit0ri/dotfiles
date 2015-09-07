@@ -4,6 +4,9 @@ EDITOR=vim
 # Line wrap on window resize
 shopt -s checkwinsize
 
+# Colors for ls
+eval $(dircolors ~/.dircolors)
+
 # Git prompt
 if [[ -f /usr/share/git/completion/git-prompt.sh ]]; then
     . /usr/share/git/completion/git-prompt.sh
