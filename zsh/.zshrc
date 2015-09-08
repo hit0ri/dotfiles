@@ -51,34 +51,6 @@ zstyle ':completion:*:history-words' remove-all-dups yes
 zstyle ':completion:*:history-words' stop yes
 
 
-# Prompt
-autoload -Uz promptinit
-promptinit
-autoload -Uz colors
-colors
-setopt prompt_subst
-
-if [[ -f /usr/share/zsh/site-contrib/powerline.zsh ]]; then
-    source /usr/share/zsh/site-contrib/powerline.zsh
-fi
-
-
-# source /usr/share/git/git-prompt.sh
-# export RPROMPT='$(__git_ps1)'
-# PROMPT="%{$fg_bold[green]%}%n%{$reset_color%}@%{$fg_bold[blue]%}%m%{$reset_color%} %{$fg[yellow]%}%~%{$reset_color%}%  "
-# prompt redhat
-
-# Colors for ls
-eval $(dircolors ~/.dircolors)
-
-
-# Open new window in same directory by pressing C-S-T
-if [[ -n $VTE_VERSION ]]; then
-    source /etc/profile.d/vte.sh
-    __vte_prompt_command
-fi
-
-
 # Help
 autoload -U run-help
 autoload run-help-git
@@ -165,6 +137,33 @@ alias xc='xclip -o | i'
 
 # Functions
 twitch() { mpv "http://twitch.tv/$1" }
+
+# Prompt
+autoload -Uz promptinit
+promptinit
+autoload -Uz colors
+colors
+setopt prompt_subst
+
+if [[ -f /usr/share/zsh/site-contrib/powerline.zsh ]]; then
+    source /usr/share/zsh/site-contrib/powerline.zsh
+fi
+
+
+# source /usr/share/git/git-prompt.sh
+# export RPROMPT='$(__git_ps1)'
+# PROMPT="%{$fg_bold[green]%}%n%{$reset_color%}@%{$fg_bold[blue]%}%m%{$reset_color%} %{$fg[yellow]%}%~%{$reset_color%}%  "
+# prompt redhat
+
+# Colors for ls
+eval $(dircolors ~/.dircolors)
+
+
+# Open new window in same directory by pressing C-S-T
+if [[ -n $VTE_VERSION ]]; then
+    source /etc/profile.d/vte.sh
+    __vte_prompt_command
+fi
 
 
 # Syntax highlighting (must be at the end of the .zshrc)
