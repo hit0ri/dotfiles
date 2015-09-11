@@ -19,13 +19,12 @@ Plug 'Raimondi/delimitMate'
 Plug 'kien/ctrlp.vim'
 Plug 'mihaifm/bufstop'
 Plug 'chrisbra/csv.vim'
-Plug 'itchyny/lightline.vim'
+Plug 'bling/vim-airline'
 Plug 'davidhalter/jedi-vim'
 Plug 'Shougo/neocomplete.vim'
 " Plug 'hynek/vim-python-pep8-indent'
 " Plug 'nathanaelkane/vim-indent-guides'
-" Plug 'bling/vim-airline'
-" Plug 'tejr/vim-nagios'
+Plug 'tejr/vim-nagios'
 
 " Colorschemes
 Plug 'w0ng/vim-hybrid'
@@ -39,13 +38,9 @@ filetype plugin indent on
 let g:plug_window = 'new'
 
 
-let g:lightline = {
-    \ 'colorscheme': '16color',
-    \ }
-set noshowmode
-
-
-" let g:airline_powerline_fonts = 0
+let g:airline_powerline_fonts = 1
+let g:airline#extensions#tabline#enabled = 0
+let g:airline_theme = 'tomorrow'
 
 
 " let g:jedi#force_py_version = 3
