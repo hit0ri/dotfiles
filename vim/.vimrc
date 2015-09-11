@@ -28,7 +28,7 @@ Plug 'Shougo/neocomplete.vim'
 " Plug 'tejr/vim-nagios'
 
 " Colorschemes
-Plug 'chriskempson/base16-vim'
+Plug 'w0ng/vim-hybrid'
 " Plug 'chriskempson/vim-tomorrow-theme'
 " Plug 'whatyouhide/vim-gotham'
 
@@ -88,8 +88,8 @@ syntax on
 set number
 set colorcolumn=80
 set t_Co=256
-colorscheme base16-eighties
-set background=dark
+colorscheme hybrid
+" set background=dark
 set scrolloff=5
 set sidescrolloff=5
 set sidescroll=1
