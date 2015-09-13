@@ -54,7 +54,6 @@ zstyle ':completion:*:history-words' stop yes
 # Help
 autoload -U run-help
 autoload run-help-git
-unalias run-help
 alias help='run-help'
 
 # Key bindings
@@ -120,8 +119,10 @@ alias chown='chown -c --preserve-root'
 alias chgrp='chgrp -c --preserve-root'
 
 alias grep='grep --color=auto'
-alias ls='ls --color=auto --show-control-chars --group-directories-first -AhXF'
-alias ll='ls --color=auto --show-control-chars --group-directories-first -AlhXF'
+alias ls='ls --color=auto --show-control-chars --group-directories-first -hXF'
+alias ll='ls --color=auto --show-control-chars --group-directories-first -lhXF'
+alias lsa='ls --color=auto --show-control-chars --group-directories-first -AhXF'
+alias lla='ls --color=auto --show-control-chars --group-directories-first -AlhXF'
 alias dmesg='dmesg -exL'
 
 alias svim='sudo vim'
