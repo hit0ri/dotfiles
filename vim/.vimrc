@@ -22,9 +22,10 @@ Plug 'chrisbra/csv.vim'
 Plug 'bling/vim-airline'
 Plug 'davidhalter/jedi-vim'
 Plug 'Shougo/neocomplete.vim'
+Plug 'Firef0x/PKGBUILD.vim'
+Plug 'tejr/vim-nagios'
 " Plug 'hynek/vim-python-pep8-indent'
 " Plug 'nathanaelkane/vim-indent-guides'
-Plug 'tejr/vim-nagios'
 
 " Colorschemes
 Plug 'w0ng/vim-hybrid'
