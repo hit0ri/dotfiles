@@ -1,2 +1,3 @@
 xrdb -merge ~/.Xresources &
 powerline-daemon -q &
+redshift -l 49.55778:25.64162 -t 5700:3700 &> /dev/null &
