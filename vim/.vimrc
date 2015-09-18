@@ -109,6 +109,8 @@ autocmd FileType html setlocal ts=2 sts=2 sw=2 et
 " Treat .rss files as XML
 autocmd BufNewFile,BufRead *.rss setfiletype xml
 
+" Limit the width of text to 72 characters when editing email
+autocmd BufRead /tmp/mutt-* set textwidth=72
 
 " Remove trailing white spaces on save
 autocmd BufWritePre * :%s/\s\+$//e
