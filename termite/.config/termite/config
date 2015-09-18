@@ -9,12 +9,12 @@ allow_bold = true
 dynamic_title = true
 urgent_on_bell = true
 clickable_url = true
-font = Hack 10
+font = Source Code Pro 10
 scrollback_lines = 10000
 search_wrap = true
 #icon_name = terminal
 # font size 10 (cols 94, lines 28)
-geometry = 754x450
+geometry = 754x452
 # font size 11 (cols 94, lines 28)
 # geometry = 942x506
 
