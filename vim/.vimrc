@@ -3,6 +3,7 @@ filetype off
 
 let mapleader = ","
 
+" --------------------------------------
 " Install vim-plug
 " curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
 "     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
@@ -24,6 +25,7 @@ Plug 'davidhalter/jedi-vim'
 Plug 'Shougo/neocomplete.vim'
 Plug 'Firef0x/PKGBUILD.vim'
 Plug 'tejr/vim-nagios'
+Plug 'chase/vim-ansible-yaml'
 " Plug 'hynek/vim-python-pep8-indent'
 " Plug 'nathanaelkane/vim-indent-guides'
 
@@ -36,17 +38,22 @@ call plug#end()
 filetype plugin indent on
 
 
+" Plug: vim-plug
 let g:plug_window = 'new'
 
-
+" Plug: vim-airline
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 0
 let g:airline_theme = 'tomorrow'
 
+" Plug: vim-ansible-yaml
+let g:ansible_options = {'documentation_mapping': '<C-K>'}
 
+
+" Plug: jedi-vim
 " let g:jedi#force_py_version = 3
 
-
+" Plug: neocomplete.vim
 let g:neocomplete#enable_at_startup = 1
 let g:neocomplete#enable_smart_case = 1
 " let g:neocomplete#enable_auto_select = 1
@@ -71,11 +78,13 @@ let g:neocomplete#force_omni_input_patterns.python =
             \ '\h\w*\|[^. \t]\.\w*'
             " \ '\%([^. \t]\.\|^\s*@\|^\s*from\s.\+import \|^\s*from \|^\s*import \)\w*'
 
-
+" Plug: csv.vim
 let b:csv_arrange_align = 'lll'
 
 
+" Plug: vim-indent-guides
 " let g:indent_guides_start_level = 2
+" --------------------------------------
 
 map <leader>a :BufstopModeFast<CR>
 
