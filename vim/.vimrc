@@ -3,7 +3,9 @@ filetype off
 
 let mapleader = ","
 
-" --------------------------------------
+
+" Plugin list: "
+" ----------------------------------------------------------------------------
 " Install vim-plug
 " curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
 "     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
@@ -11,7 +13,10 @@ call plug#begin('~/.vim/plugged')
 
 Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-surround'
+Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-fugitive'
+Plug 'scrooloose/syntastic'
+Plug 'easymotion/vim-easymotion'
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-eunuch'
 Plug 'tpope/vim-commentary'
@@ -38,35 +43,63 @@ call plug#end()
 filetype plugin indent on
 
 
-" Plug: vim-plug
+" Plugin settings: "
+" ----------------------------------------------------------------------------
+" vim-plug
+" -------------------------------------
 let g:plug_window = 'new'
 
-" Plug: vim-airline
+
+" syntastic
+" -------------------------------------
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 0
+let g:syntastic_check_on_open = 0
+let g:syntastic_check_on_wq = 0
+let g:syntastic_python_python_exec = '/usr/bin/python3'
+let g:syntastic_loc_list_height = 2
+
+
+" vim-easymotion
+" -------------------------------------
+map  / <Plug>(easymotion-sn)
+omap / <Plug>(easymotion-tn)
+map  n <Plug>(easymotion-next)
+map  N <Plug>(easymotion-prev)
+map <Leader>l <Plug>(easymotion-lineforward)
+map <Leader>j <Plug>(easymotion-j)
+map <Leader>k <Plug>(easymotion-k)
+map <Leader>h <Plug>(easymotion-linebackward)
+
+
+" vim-airline
+" -------------------------------------
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 0
 let g:airline_theme = 'tomorrow'
+let g:airline#extensions#syntastic#enabled = 1
 
-" Plug: vim-ansible-yaml
+
+" vim-ansible-yaml
+" -------------------------------------
 let g:ansible_options = {'documentation_mapping': '<C-K>'}
 
 
-" Plug: jedi-vim
-" let g:jedi#force_py_version = 3
+" jedi-vim
+" -------------------------------------
+let g:jedi#force_py_version = 3
 
-" Plug: neocomplete.vim
+
+" neocomplete.vim
+" -------------------------------------
 let g:neocomplete#enable_at_startup = 1
 let g:neocomplete#enable_smart_case = 1
-" let g:neocomplete#enable_auto_select = 1
 let g:neocomplete#enable_fuzzy_completion = 1
 let g:neocomplete#enable_camel_case = 1
-" For smart TAB completion.
-inoremap <expr><TAB>  pumvisible() ? "\<C-n>" :
-            \ <SID>check_back_space() ? "\<TAB>" :
-            \ neocomplete#start_manual_complete()
-function! s:check_back_space() "{{{
-    let col = col('.') - 1
-    return !col || getline('.')[col - 1]  =~ '\s'
-endfunction"}}}
+
+" key-mappings
+inoremap <expr><C-g>     neocomplete#undo_completion()
+
 " Use neocomplete with jedi-vim
 autocmd FileType python setlocal omnifunc=jedi#completions
 let g:jedi#completions_enabled = 0
@@ -74,18 +107,22 @@ let g:jedi#auto_vim_configuration = 0
 if !exists('g:neocomplete#force_omni_input_patterns')
     let g:neocomplete#force_omni_input_patterns = {}
 endif
-let g:neocomplete#force_omni_input_patterns.python =
-            \ '\h\w*\|[^. \t]\.\w*'
-            " \ '\%([^. \t]\.\|^\s*@\|^\s*from\s.\+import \|^\s*from \|^\s*import \)\w*'
+let g:neocomplete#force_omni_input_patterns.python = '\h\w*\|[^. \t]\.\w*'
 
-" Plug: csv.vim
+
+" csv.vim
+" -------------------------------------
 let b:csv_arrange_align = 'lll'
 
 
-" Plug: vim-indent-guides
-" let g:indent_guides_start_level = 2
-" --------------------------------------
 
+" vim-indent-guides
+" -------------------------------------
+" let g:indent_guides_start_level = 2
+
+
+" VIM settings: "
+" ----------------------------------------------------------------------------
 map <leader>a :BufstopModeFast<CR>
 
 
@@ -169,3 +206,10 @@ set hlsearch
 
 " Press Space to turn off highlighting and clear any message already displayed
 nnoremap <silent> <Space> :nohlsearch<Bar>:echo<CR>
+
+" Search vim help for subject under cursor
+set keywordprg=:help
+
+" Resize buffer
+nnoremap <silent> <Leader>+ :exe "resize " . (winheight(0) * 3/2)<CR>
+nnoremap <silent> <Leader>- :exe "resize " . (winheight(0) * 2/3)<CR>
