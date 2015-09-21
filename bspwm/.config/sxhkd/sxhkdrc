@@ -8,6 +8,9 @@ super + alt + Escape
 super + w
 	bspc window -c
 
+super + shift + W
+    bspc monitor -f next
+
 super + t
 	bspc desktop -l next
 
@@ -89,6 +92,15 @@ super + Escape
 	pkill -USR1 -x sxhkd
 
 # volume control
+super + F12
+	pulseaudio-ctl up
+
+super + F11
+	pulseaudio-ctl down
+
+super + F10
+	pulseaudio-ctl mute
+
 XF86AudioRaiseVolume
 	pulseaudio-ctl up
 
@@ -107,3 +119,6 @@ alt + Print
 
 super + shift + f
     thunar
+
+super + F9
+    eject -T
