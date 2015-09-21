@@ -62,10 +62,6 @@ let g:syntastic_loc_list_height = 2
 
 " vim-easymotion
 " -------------------------------------
-map  / <Plug>(easymotion-sn)
-omap / <Plug>(easymotion-tn)
-map  n <Plug>(easymotion-next)
-map  N <Plug>(easymotion-prev)
 map <Leader>l <Plug>(easymotion-lineforward)
 map <Leader>j <Plug>(easymotion-j)
 map <Leader>k <Plug>(easymotion-k)
@@ -213,3 +209,6 @@ set keywordprg=:help
 " Resize buffer
 nnoremap <silent> <Leader>+ :exe "resize " . (winheight(0) * 3/2)<CR>
 nnoremap <silent> <Leader>- :exe "resize " . (winheight(0) * 2/3)<CR>
+
+" Replace selected text
+vnoremap <C-r> "hy:%s/<C-r>h//gc<left><left><left>"
