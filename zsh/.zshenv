@@ -15,3 +15,7 @@ export EDITOR=vim
 export GOPATH=~/go
 export WINEDLLOVERRIDES=winemenubuilder.exe,mscoree,mshtml=d
 
+# bspwm
+export PANEL_FIFO=/tmp/panel-fifo
+export PANEL_HEIGHT=24
+export PANEL_FONT_FAMILY="source code pro-10"
