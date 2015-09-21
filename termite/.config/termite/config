@@ -129,6 +129,7 @@ browser = chromium
 foreground = #c5c8c6
 # background = #1d1f21
 background = rgba(29, 31, 33, 0.98)
+cursor     = #4a4b4d
 color0     = #282a2e
 color1     = #a54242
 color2     = #8c9440
