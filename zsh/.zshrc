@@ -8,7 +8,7 @@ export WORDCHARS='*?_[]~=&;!#$%^(){}'
 HISTFILE=~/.histfile
 HISTSIZE=3000
 SAVEHIST=3000
-setopt inc_append_history \
+setopt share_history \
     extended_history \
     hist_ignore_dups \
     hist_reduce_blanks \
