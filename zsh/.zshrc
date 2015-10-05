@@ -147,10 +147,15 @@ autoload -Uz colors
 colors
 setopt prompt_subst
 
+# arch
 if [[ -f /usr/share/zsh/site-contrib/powerline.zsh ]]; then
     source /usr/share/zsh/site-contrib/powerline.zsh
 fi
 
+# fedora
+if [[ -f /usr/share/powerline/zsh/powerline.zsh ]]; then
+    source /usr/share/powerline/zsh/powerline.zsh
+fi
 
 # source /usr/share/git/git-prompt.sh
 # export RPROMPT='$(__git_ps1)'
@@ -162,10 +167,10 @@ eval $(dircolors ~/.dircolors)
 
 
 # Open new window in same directory by pressing C-S-T
-if [[ -n $VTE_VERSION ]]; then
-    source /etc/profile.d/vte.sh
-    __vte_prompt_command
-fi
+# if [[ -n $VTE_VERSION ]]; then
+#     source /etc/profile.d/vte.sh
+#     __vte_prompt_command
+# fi
 
 
 # Syntax highlighting (must be at the end of the .zshrc)
