@@ -127,12 +127,16 @@ set number
 set colorcolumn=80
 set t_Co=256
 colorscheme hybrid
-" set background=dark
+set background=dark
 set scrolloff=5
 set sidescrolloff=5
 set sidescroll=1
 set wrap
 set linebreak
+set wildmenu
+set showmatch
+" Allow switching buffer even if current buffer contains unsaved changes
+set hidden
 
 " Default indentation settings
 set tabstop=4
