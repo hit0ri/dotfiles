@@ -163,6 +163,9 @@ fi
 # prompt redhat
 
 # Colors for ls
+if [[ ! -f ~/.dircolors ]]; then
+    dircolors -p > ~/.dircolors
+fi
 eval $(dircolors ~/.dircolors)
 
 
