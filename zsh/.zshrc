@@ -147,15 +147,11 @@ autoload -Uz colors
 colors
 setopt prompt_subst
 
-# arch
-if [[ -f /usr/share/zsh/site-contrib/powerline.zsh ]]; then
-    source /usr/share/zsh/site-contrib/powerline.zsh
-fi
-
-# fedora
-if [[ -f /usr/share/powerline/zsh/powerline.zsh ]]; then
-    source /usr/share/powerline/zsh/powerline.zsh
-fi
+for f in /usr/share/zsh/site-contrib/powerline.zsh \
+         /usr/share/powerline/zsh/powerline.zsh \
+         /usr/share/powerline/bindings/zsh/powerline.zsh; do
+    [[ -f "$f" ]] && source "$f"
+done
 
 # source /usr/share/git/git-prompt.sh
 # export RPROMPT='$(__git_ps1)'
