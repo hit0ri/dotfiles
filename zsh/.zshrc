@@ -29,6 +29,8 @@ setopt auto_cd \
 autoload -Uz compinit
 compinit
 # rehash executables in PATH
+zstyle ':completion:*' accept-exact '*(N)'
+zstyle ':completion:*' use-cache true
 zstyle ':completion:*' rehash true
 zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 # zstyle ':completion:*:descriptions' format '%U%B%d%b%u'
