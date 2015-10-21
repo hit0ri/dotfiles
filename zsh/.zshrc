@@ -130,6 +130,7 @@ alias dmesg='dmesg -exL'
 
 alias svim='sudo vim'
 alias dstats='dstat -cdnpmgs --top-bio --top-cpu'
+alias lsports='ss -tunalp | cat'
 
 # bins
 alias i='curl -F "f:1=<-" ix.io'
@@ -141,6 +142,10 @@ alias xc='xclip -o | i'
 
 # Functions
 twitch() { mpv "http://twitch.tv/$1" }
+pbx() {
+    curl -sF "c=@${1:--}" -w "%{redirect_url}" 'https://ptpb.pw/?r=1' \
+        -o /dev/stderr | xsel -l /dev/null -b
+}
 
 # Prompt
 autoload -Uz promptinit
