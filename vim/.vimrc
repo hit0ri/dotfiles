@@ -31,6 +31,7 @@ Plug 'Shougo/neocomplete.vim'
 Plug 'Firef0x/PKGBUILD.vim'
 Plug 'tejr/vim-nagios'
 Plug 'chase/vim-ansible-yaml'
+Plug 'zainin/vim-mikrotik'
 " Plug 'hynek/vim-python-pep8-indent'
 " Plug 'nathanaelkane/vim-indent-guides'
 
