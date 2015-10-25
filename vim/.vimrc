@@ -42,8 +42,7 @@ Plug 'moll/vim-node'
 " Plug 'nathanaelkane/vim-indent-guides'
 
 " Colorschemes
-Plug 'w0ng/vim-hybrid'
-" Plug 'chriskempson/vim-tomorrow-theme'
+Plug 'chriskempson/base16-vim'
 " Plug 'whatyouhide/vim-gotham'
 
 call plug#end()
@@ -79,7 +78,7 @@ map <Leader>h <Plug>(easymotion-linebackward)
 " -------------------------------------
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 0
-let g:airline_theme = 'tomorrow'
+let g:airline_theme = 'base16'
 let g:airline#extensions#syntastic#enabled = 1
 
 
@@ -149,7 +148,7 @@ syntax on
 set number
 set colorcolumn=80
 set t_Co=256
-colorscheme hybrid
+colorscheme base16-default
 set background=dark
 set scrolloff=5
 set sidescrolloff=5
