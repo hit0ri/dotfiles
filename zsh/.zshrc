@@ -1,5 +1,5 @@
 typeset -U path
-path=(~/go/bin ~/bin $path)
+path=(~/.node_modules/bin ~/go/bin ~/bin $path)
 
 export KEYTIMEOUT=10
 export WORDCHARS='*?_[]~=&;!#$%^(){}'
