@@ -141,10 +141,26 @@ alias xc='xclip -o | i'
 
 
 # Functions
-twitch() { mpv "http://twitch.tv/$1" }
+twitch() {
+    mpv "http://twitch.tv/$1"
+}
 pbx() {
     curl -sF "c=@${1:--}" -w "%{redirect_url}" 'https://ptpb.pw/?r=1' \
         -o /dev/stderr | xsel -l /dev/null -b
+}
+
+get_git_branch() {
+    if [[ -d .git ]]; then
+        read -r branch < .git/HEAD
+        branch=" (${branch##*/}) "
+    else
+        branch=" "
+    fi
+}
+
+precmd() {
+    print -Pn "\e];%n %~\a"
+    get_git_branch
 }
 
 # Prompt
@@ -154,16 +170,7 @@ autoload -Uz colors
 colors
 setopt prompt_subst
 
-for f in /usr/share/zsh/site-contrib/powerline.zsh \
-         /usr/share/powerline/zsh/powerline.zsh \
-         /usr/share/powerline/bindings/zsh/powerline.zsh; do
-    [[ -f "$f" ]] && source "$f"
-done
-
-# source /usr/share/git/git-prompt.sh
-# export RPROMPT='$(__git_ps1)'
-# PROMPT="%{$fg_bold[green]%}%n%{$reset_color%}@%{$fg_bold[blue]%}%m%{$reset_color%} %{$fg[yellow]%}%~%{$reset_color%}%  "
-# prompt redhat
+PROMPT='%{$fg_bold[green]%}%n%{$reset_color%}@%{$fg_bold[blue]%}%m%{$reset_color%} %{$fg[yellow]%}%~%{$reset_color%}${branch}'
 
 # Colors for ls
 if [[ ! -f ~/.dircolors ]]; then
