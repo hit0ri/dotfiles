@@ -6,6 +6,7 @@
     default = simple
 
 [alias]
+    p = push origin master
     co = checkout
     ci = commit
     st = status -s
