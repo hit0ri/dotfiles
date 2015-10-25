@@ -32,6 +32,12 @@ Plug 'Firef0x/PKGBUILD.vim'
 Plug 'tejr/vim-nagios'
 Plug 'chase/vim-ansible-yaml'
 Plug 'zainin/vim-mikrotik'
+Plug 'lfilho/cosco.vim'
+Plug 'elzr/vim-json'
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
+Plug 'pangloss/vim-javascript'
+Plug 'moll/vim-node'
 " Plug 'hynek/vim-python-pep8-indent'
 " Plug 'nathanaelkane/vim-indent-guides'
 
@@ -116,6 +122,22 @@ let b:csv_arrange_align = 'lll'
 " vim-indent-guides
 " -------------------------------------
 " let g:indent_guides_start_level = 2
+
+
+" vim-json
+" -------------------------------------
+let g:vim_json_syntax_conceal = 1
+
+
+" cosco.vim
+" -------------------------------------
+autocmd FileType javascript,css nnoremap <silent> <Leader>; :call cosco#commaOrSemiColon()<CR>
+autocmd FileType javascript,css inoremap <silent> <Leader>; <c-o>:call cosco#commaOrSemiColon()<CR>
+
+
+" base16-vim
+" -------------------------------------
+let base16colorspace=256
 
 
 " VIM settings: "
