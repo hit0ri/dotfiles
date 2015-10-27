@@ -153,7 +153,7 @@ set background=dark
 set scrolloff=5
 set sidescrolloff=5
 set sidescroll=1
-set wrap
+set nowrap
 set linebreak
 set wildmenu
 set showmatch
