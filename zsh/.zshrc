@@ -170,7 +170,13 @@ autoload -Uz colors
 colors
 setopt prompt_subst
 
-PROMPT='%{$fg_bold[green]%}%n%{$reset_color%}@%{$fg_bold[blue]%}%m%{$reset_color%} %{$fg[yellow]%}%~%{$reset_color%}${branch}'
+if [[ -n "$SSH_CLIENT" ]] || [[ -n "$SSH_CONNECTION" ]] || [[ -n "$SSH_TTY" ]]
+then
+    PROMPT='%{$fg_bold[green]%}%n%{$reset_color%}@%{$fg_bold[blue]%}%m%{$reset_color%} %{$fg[yellow]%}%~%{$reset_color%}${branch}'
+else
+    PROMPT='%{$fg_bold[green]%}%n%{$reset_color%} %{$fg[yellow]%}%~%{$reset_color%}${branch}'
+
+fi
 
 # Colors for ls
 if [[ ! -f ~/.dircolors ]]; then
