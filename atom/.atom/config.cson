@@ -1,43 +1,39 @@
 "*":
   welcome:
     showOnStartup: false
-  core: {}
   editor:
     invisibles: {}
+    fontFamily: "Hack"
+    scrollPastEnd: true
     showIndentGuide: true
+    fontSize: 12
     tabLength: 4
-    fontFamily: "Input Mono"
-  "autocomplete-plus": {}
-  minimap:
-    plugins:
-      "git-diff": true
-  "git-diff":
-    showIconsInEditorGutter: true
-  linter:
-    ignoredLinterErrors: [
-      "pylama"
+  core:
+    disabledPackages: [
+      "metrics"
+      "exception-reporting"
     ]
-    lintOnFly: false
-    showErrorPanel: false
-  "linter-pylama":
-    ignoreErrorsAndWarnings: "E501,D100,D103"
-    pylamaVersion: "internal"
-  "atom-beautify":
-    python_indent_size: 4
-    _analyticsUserId: "f210b306-d44f-4ffa-8307-e9f9c3f1195d"
+  "autocomplete-plus": {}
+  "find-and-replace": {}
+  "fuzzy-finder": {}
+  "markdown-preview": {}
+  "spell-check": {}
+  "status-bar": {}
   tabs:
     enableVcsColoring: true
-  "linter-csslint": {}
-  "linter-shellcheck": {}
+    usePreviewTabs: true
+  minimap: {}
+  linter:
+    errorPanelHeight: 64
 ".basic.html.text":
-  editor:
-    tabLength: 2
-".html.jinja.text":
   editor:
     tabLength: 2
 ".css.source":
   editor:
     tabLength: 2
 ".js.source":
+  editor:
+    tabLength: 2
+".source.yaml":
   editor:
     tabLength: 2
