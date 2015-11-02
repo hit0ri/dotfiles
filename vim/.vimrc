@@ -181,7 +181,7 @@ autocmd BufNewFile,BufRead *.rss setfiletype xml
 autocmd BufRead /tmp/mutt-* set textwidth=72
 
 " Remove trailing white spaces on save
-" autocmd BufWritePre * :%s/\s\+$//e
+autocmd BufWritePre * :%s/\s\+$//e
 
 " Reload vimrc on save
 augroup reload_vimrc
