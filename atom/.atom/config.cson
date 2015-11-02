@@ -3,10 +3,9 @@
     showOnStartup: false
   editor:
     invisibles: {}
-    fontFamily: "Hack"
+    fontFamily: "Source Code Pro"
     scrollPastEnd: true
     showIndentGuide: true
-    fontSize: 12
     tabLength: 4
   core:
     disabledPackages: [
@@ -29,6 +28,7 @@
   minimap: {}
   linter:
     errorPanelHeight: 64
+  "one-dark-ui": {}
 ".basic.html.text":
   editor:
     tabLength: 2
@@ -39,5 +39,8 @@
   editor:
     tabLength: 2
 ".source.yaml":
+  editor:
+    tabLength: 2
+".jade.source":
   editor:
     tabLength: 2
