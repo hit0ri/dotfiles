@@ -13,6 +13,10 @@
       "metrics"
       "exception-reporting"
     ]
+    themes: [
+      "one-dark-ui"
+      "base16-tomorrow-dark-theme"
+    ]
   "autocomplete-plus": {}
   "find-and-replace": {}
   "fuzzy-finder": {}
