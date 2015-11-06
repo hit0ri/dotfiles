@@ -29,18 +29,20 @@
   linter:
     errorPanelHeight: 64
   "one-dark-ui": {}
+  "atom-beautify":
+    analytics: false
 ".basic.html.text":
   editor:
     tabLength: 2
-".css.source":
-  editor:
-    tabLength: 2
-".js.source":
+".jade.source":
   editor:
     tabLength: 2
 ".source.yaml":
   editor:
     tabLength: 2
-".jade.source":
+".js.source":
+  editor:
+    tabLength: 2
+".css.source":
   editor:
     tabLength: 2

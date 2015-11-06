@@ -1,6 +1,6 @@
 atom-beautify@0.28.16
 atom-jade@0.3.0
-emmet@2.3.13
+emmet@2.3.14
 file-icons@1.6.11
 javascript-snippets@1.0.0
 language-ansible@0.1.3
@@ -15,6 +15,6 @@ linter-js-yaml@1.2.0
 linter-jshint@1.2.1
 linter-jsonlint@1.0.1
 linter-shellcheck@1.0.2
-merge-conflicts@1.3.6
-minimap@4.15.2
+merge-conflicts@1.3.7
+minimap@4.16.0
 
