@@ -122,8 +122,8 @@ alias chown='chown -c --preserve-root'
 alias chgrp='chgrp -c --preserve-root'
 
 alias grep='grep --color=auto'
-alias ls='ls --color=auto --show-control-chars --group-directories-first -hXF'
-alias ll='ls --color=auto --show-control-chars --group-directories-first -lhXF'
+alias  ls='ls --color=auto --show-control-chars --group-directories-first -hXF'
+alias  ll='ls --color=auto --show-control-chars --group-directories-first -lhXF'
 alias lsa='ls --color=auto --show-control-chars --group-directories-first -AhXF'
 alias lla='ls --color=auto --show-control-chars --group-directories-first -AlhXF'
 alias dmesg='dmesg -exL'
@@ -144,6 +144,7 @@ alias xc='xclip -o | i'
 twitch() {
     mpv "http://twitch.tv/$1"
 }
+
 pbx() {
     curl -sF "c=@${1:--}" -w "%{redirect_url}" 'https://ptpb.pw/?r=1' \
         -o /dev/stderr | xsel -l /dev/null -b
@@ -152,9 +153,15 @@ pbx() {
 get_git_branch() {
     if [[ -d .git ]]; then
         read -r branch < .git/HEAD
-        branch=" %{$fg[red]%}<%{$reset_color%}%{$fg[white]%}${branch##*/}%{$reset_color%}%{$fg[red]%}>%{$reset_color%}"
+        branch="%{$fg[red]%}<%{$reset_color%}%{$fg[white]%}${branch##*/}%{$reset_color%}%{$fg[red]%}>%{$reset_color%}"
     else
         branch=""
+    fi
+}
+
+ssh_state() {
+    if [[ -n "$SSH_CLIENT" || -n "$SSH_CONNECTION" || -n "$SSH_TTY" ]]; then
+        print "%{$fg[red]%}<%{$reset_color%}%{$fg[white]%}%m%{$fg[red]%}>%{$reset_color%} "
     fi
 }
 
@@ -162,22 +169,6 @@ precmd() {
     print -Pn "\e];%n %~\a"
     get_git_branch
 }
-
-ssh_state() {
-    if [[ -n "$SSH_CLIENT" ]] ||
-       [[ -n "$SSH_CONNECTION" ]] ||
-       [[ -n "$SSH_TTY" ]]; then
-        print "%{$fg[red]%}<%{$reset_color%}%{$fg[white]%}%m%{$fg[red]%}>%{$reset_color%} "
-    fi
-}
-
-error_code() {
-    if [[ $? -ne 0 ]]; then
-        print "%{$fg[white]%}<%{$reset_color%}%{$fg_bold[red]%}%?%{$reset_color%}%{$fg[white]%}>%{$reset_color%}"
-    fi
-}
-
-last_command="%(?.>>.<<)"
 
 
 # Prompt
@@ -187,9 +178,8 @@ autoload -Uz colors
 colors
 setopt prompt_subst
 
-PROMPT='$(ssh_state)%{$fg[red]%}<%{$reset_color%}%{$fg[white]%}%~%{$fg[red]%}>%{$reset_color%}
-%{$fg_bold[white]%}$last_command%{$reset_color%} '
-RPROMPT='$(error_code)%{$reset_color%}${branch}'
+PROMPT=' $(ssh_state)%{$fg[red]%}>>%{$reset_color%} '
+RPROMPT='${branch} %~'
 
 # Colors for ls
 if [[ ! -f ~/.dircolors ]]; then
@@ -199,18 +189,13 @@ eval "$(dircolors ~/.dircolors)"
 
 
 # Open new window in same directory by pressing C-S-T
-# if [[ -n $VTE_VERSION ]]; then
-#     source /etc/profile.d/vte.sh
-#     __vte_prompt_command
-# fi
+if [[ -n $VTE_VERSION ]]; then
+    source /etc/profile.d/vte.sh
+    __vte_prompt_command
+fi
 
 
 # Syntax highlighting (must be at the end of the .zshrc)
 if [[ -f /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]]; then
     source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 fi
-
-# base16 colors
-# git clone https://github.com/chriskempson/base16-shell.git ~/.config/base16-shell
-BASE16_SHELL="$HOME/.config/base16-shell/base16-tomorrow.dark.sh"
-[[ -s "$BASE16_SHELL" ]] && source "$BASE16_SHELL"
