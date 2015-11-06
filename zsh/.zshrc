@@ -152,9 +152,9 @@ pbx() {
 get_git_branch() {
     if [[ -d .git ]]; then
         read -r branch < .git/HEAD
-        branch=" (${branch##*/}) "
+        branch=" %{$fg[red]%}<%{$reset_color%}%{$fg[white]%}${branch##*/}%{$reset_color%}%{$fg[red]%}>%{$reset_color%}"
     else
-        branch=" "
+        branch=""
     fi
 }
 
@@ -163,6 +163,23 @@ precmd() {
     get_git_branch
 }
 
+ssh_state() {
+    if [[ -n "$SSH_CLIENT" ]] ||
+       [[ -n "$SSH_CONNECTION" ]] ||
+       [[ -n "$SSH_TTY" ]]; then
+        print "%{$fg[red]%}<%{$reset_color%}%{$fg[white]%}%m%{$fg[red]%}>%{$reset_color%} "
+    fi
+}
+
+error_code() {
+    if [[ $? -ne 0 ]]; then
+        print "%{$fg[white]%}<%{$reset_color%}%{$fg_bold[red]%}%?%{$reset_color%}%{$fg[white]%}>%{$reset_color%}"
+    fi
+}
+
+last_command="%(?.>>.<<)"
+
+
 # Prompt
 autoload -Uz promptinit
 promptinit
@@ -170,13 +187,9 @@ autoload -Uz colors
 colors
 setopt prompt_subst
 
-if [[ -n "$SSH_CLIENT" ]] || [[ -n "$SSH_CONNECTION" ]] || [[ -n "$SSH_TTY" ]]
-then
-    PROMPT='%{$fg_bold[green]%}%n%{$reset_color%}@%{$fg_bold[blue]%}%m%{$reset_color%} %{$fg[yellow]%}%~%{$reset_color%}${branch}'
-else
-    PROMPT='%{$fg_bold[green]%}%n%{$reset_color%} %{$fg[yellow]%}%~%{$reset_color%}${branch}'
-
-fi
+PROMPT='$(ssh_state)%{$fg[red]%}<%{$reset_color%}%{$fg[white]%}%~%{$fg[red]%}>%{$reset_color%}
+%{$fg_bold[white]%}$last_command%{$reset_color%} '
+RPROMPT='$(error_code)%{$reset_color%}${branch}'
 
 # Colors for ls
 if [[ ! -f ~/.dircolors ]]; then
@@ -199,5 +212,5 @@ fi
 
 # base16 colors
 # git clone https://github.com/chriskempson/base16-shell.git ~/.config/base16-shell
-BASE16_SHELL="$HOME/.config/base16-shell/base16-default.dark.sh"
+BASE16_SHELL="$HOME/.config/base16-shell/base16-tomorrow.dark.sh"
 [[ -s "$BASE16_SHELL" ]] && source "$BASE16_SHELL"
