@@ -148,7 +148,7 @@ syntax on
 set number
 set colorcolumn=80
 set t_Co=256
-colorscheme base16-tomorrow
+colorscheme base16-railscasts
 set background=dark
 set scrolloff=5
 set sidescrolloff=5

@@ -16,7 +16,7 @@ search_wrap = true
 # font size 10 (cols 94, lines 28)
 geometry = 754x479
 # font size 11 (cols 94, lines 28)
-# geometry = 942x506
+# geometry = 848x534
 
 # 0.0: opaque, 1.0: transparent
 transparency = 0.0
@@ -101,39 +101,102 @@ browser = chromium
 # color20 = #A7ADBA
 # color21 = #CDD3DE
 
-# Base16 Tomorrow
-# Scheme: Chris Kempson (http://chriskempson.com)
-foreground      = #c5c8c6
-foreground_bold = #c5c8c6
-cursor          = #A65F52
-background      = #1d1f21
-# 16 color space
-color0  = #1d1f21
-color1  = #cc6666
-color2  = #b5bd68
-color3  = #f0c674
-color4  = #81a2be
-color5  = #b294bb
-color6  = #8abeb7
-color7  = #c5c8c6
-color8  = #969896
-color9  = #cc6666
-color10 = #b5bd68
-color11 = #f0c674
-color12 = #81a2be
-color13 = #b294bb
-color14 = #8abeb7
-color15 = #ffffff
-# 256 color space
-color16 = #de935f
-color17 = #a3685a
-color18 = #282a2e
-color19 = #373b41
-color20 = #b4b7b4
-color21 = #e0e0e0
+# # Base16 Tomorrow
+# # Scheme: Chris Kempson (http://chriskempson.com)
+# foreground      = #c5c8c6
+# foreground_bold = #c5c8c6
+# cursor          = #A65F52
+# background      = #1d1f21
+# # 16 color space
+# color0  = #1d1f21
+# color1  = #cc6666
+# color2  = #b5bd68
+# color3  = #f0c674
+# color4  = #81a2be
+# color5  = #b294bb
+# color6  = #8abeb7
+# color7  = #c5c8c6
+# color8  = #969896
+# color9  = #cc6666
+# color10 = #b5bd68
+# color11 = #f0c674
+# color12 = #81a2be
+# color13 = #b294bb
+# color14 = #8abeb7
+# color15 = #ffffff
+# # 256 color space
+# color16 = #de935f
+# color17 = #a3685a
+# color18 = #282a2e
+# color19 = #373b41
+# color20 = #b4b7b4
+# color21 = #e0e0e0
 
-# s3r0 modified
-# by earplit
+# # Base16 Ocean
+# # Scheme: Chris Kempson (http://chriskempson.com)
+# foreground      = #c0c5ce
+# foreground_bold = #c0c5ce
+# cursor          = #608a86
+# background      = #2b303b
+# # 16 color space
+# color0  = #2b303b
+# color1  = #bf616a
+# color2  = #a3be8c
+# color3  = #ebcb8b
+# color4  = #8fa1b3
+# color5  = #b48ead
+# color6  = #96b5b4
+# color7  = #c0c5ce
+# color8  = #65737e
+# color9  = #bf616a
+# color10 = #a3be8c
+# color11 = #ebcb8b
+# color12 = #8fa1b3
+# color13 = #b48ead
+# color14 = #96b5b4
+# color15 = #eff1f5
+# # 256 color space
+# color16 = #d08770
+# color17 = #ab7967
+# color18 = #343d46
+# color19 = #4f5b66
+# color20 = #a7adba
+# color21 = #dfe1e8
+
+# Base16 Railscasts
+# Scheme: Ryan Bates (http://railscasts.com)
+
+foreground      = #e6e1dc
+foreground_bold = #e6e1dc
+cursor          = #5d5f6d
+background      = #2b2b2b
+# 16 color space
+color0  = #2b2b2b
+color1  = #da4939
+color2  = #a5c261
+color3  = #ffc66d
+color4  = #6d9cbe
+color5  = #b6b3eb
+color6  = #519f50
+color7  = #e6e1dc
+color8  = #5a647e
+color9  = #da4939
+color10 = #a5c261
+color11 = #ffc66d
+color12 = #6d9cbe
+color13 = #b6b3eb
+color14 = #519f50
+color15 = #f9f7f3
+# 256 color space
+color16 = #cc7833
+color17 = #bc9458
+color18 = #272935
+color19 = #3a4055
+color20 = #d4cfc9
+color21 = #f4f1ed
+
+# # s3r0 modified
+# # by earplit
 # foreground = #c0b18b
 # background = #1f1f1f
 # color0     = #4a3637
@@ -153,8 +216,8 @@ color21 = #e0e0e0
 # color14    = #6d715e
 # color15    = #c0b18b
 
-# hund
-# by hund
+# # hund
+# # by hund
 # foreground = #ffffff
 # background = #161616
 # color0     = #222222
@@ -174,8 +237,8 @@ color21 = #e0e0e0
 # color14    = #42717b
 # color15    = #cccccc
 
-# hybrid
-# w0ng
+# # hybrid
+# # w0ng
 # foreground = #c5c8c6
 # # background = #1d1f21
 # background = rgba(29, 31, 33, 0.98)
