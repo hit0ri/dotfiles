@@ -8,31 +8,33 @@ export WORDCHARS='*?_[]~=&;!#$%^(){}'
 HISTFILE=~/.histfile
 HISTSIZE=3000
 SAVEHIST=3000
-setopt share_history \
-    extended_history \
-    hist_ignore_dups \
-    hist_reduce_blanks \
-    hist_fcntl_lock \
-    hist_ignore_space \
 
+setopt share_history \
+  extended_history \
+  hist_ignore_dups \
+  hist_reduce_blanks \
+  hist_fcntl_lock \
+  hist_ignore_space \
 
 # Options
 setopt auto_cd \
-    pushd_silent \
-    complete_aliases \
-    glob_dots \
-    interactive_comments \
-    # extended_glob
+  pushd_silent \
+  complete_aliases \
+  glob_dots \
+  interactive_comments \
+  # extended_glob
 
 
 # Completion
 autoload -Uz compinit
 compinit
+
 # rehash executables in PATH
 zstyle ':completion:*' accept-exact '*(N)'
 zstyle ':completion:*' use-cache true
 zstyle ':completion:*' rehash true
 zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
+
 # zstyle ':completion:*:descriptions' format '%U%B%d%b%u'
 zstyle ':completion:*:descriptions' format $'%{\e[0;31m%}completing %B%d%b%{\e[0m%}'
 zstyle ':completion:*:warnings' format $'%{\e[0;31m%}No matches for:%{\e[0m%} %d'
@@ -62,18 +64,18 @@ alias help='run-help'
 # Key bindings
 typeset -gA key
 key=(
-    'left'      "${terminfo[kcub1]}"
-    'right'     "${terminfo[kcuf1]}"
-    'up'        "${terminfo[kcuu1]}"
-    'down'      "${terminfo[kcud1]}"
-    'backspace' "${terminfo[kbs]}"
-    'delete'    "${terminfo[kdch1]}"
-    'insert'    "${terminfo[kich1]}"
-    'home'      "${terminfo[khome]}"
-    'end'       "${terminfo[kend]}"
-    'page-up'   "${terminfo[kpp]}"
-    'page-down' "${terminfo[knp]}"
-    'shift-tab' "${terminfo[kcbt]}"
+  'left'      "${terminfo[kcub1]}"
+  'right'     "${terminfo[kcuf1]}"
+  'up'        "${terminfo[kcuu1]}"
+  'down'      "${terminfo[kcud1]}"
+  'backspace' "${terminfo[kbs]}"
+  'delete'    "${terminfo[kdch1]}"
+  'insert'    "${terminfo[kich1]}"
+  'home'      "${terminfo[khome]}"
+  'end'       "${terminfo[kend]}"
+  'page-up'   "${terminfo[kpp]}"
+  'page-down' "${terminfo[knp]}"
+  'shift-tab' "${terminfo[kcbt]}"
 )
 
 bindkey -e
@@ -82,19 +84,15 @@ zle -N up-line-or-beginning-search
 zle -N down-line-or-beginning-search
 
 bindkey ' '       magic-space
-# alt arrow [left,right]
-bindkey '^[[1;3D' backward-word
-bindkey '^[[1;3C' forward-word
-# ctrl arrow [left,right]
-bindkey '^[[1;5D' backward-word
-bindkey '^[[1;5C' forward-word
-# arrow [up,down]
-bindkey '^[[A'    up-line-or-beginning-search
-bindkey '^[[B'    down-line-or-beginning-search
-# home
-bindkey '^[[H'    beginning-of-line
-# end
-bindkey '^[[F'    end-of-line
+
+bindkey '^[[1;3D' backward-word                  # alt  arrow left
+bindkey '^[[1;3C' forward-word                   # alt  arrow right
+bindkey '^[[1;5D' backward-word                  # ctrl arrow left
+bindkey '^[[1;5C' forward-word                   # ctrl arrow right
+bindkey '^[[A'    up-line-or-beginning-search    # arrow up
+bindkey '^[[B'    down-line-or-beginning-search  # arrow down
+bindkey '^[[H'    beginning-of-line              # home
+bindkey '^[[F'    end-of-line                    # end
 
 bindkey "${key[up]}"        up-line-or-beginning-search
 bindkey "${key[down]}"      down-line-or-beginning-search
@@ -142,40 +140,40 @@ alias xc='xclip -o | i'
 
 # Functions
 twitch() {
-    mpv "http://twitch.tv/$1"
+  mpv "http://twitch.tv/$1"
 }
 
 pbx() {
-    curl -sF "c=@${1:--}" -w "%{redirect_url}" 'https://ptpb.pw/?r=1' \
-        -o /dev/stderr | xsel -l /dev/null -b
+  curl -sF "c=@${1:--}" -w "%{redirect_url}" 'https://ptpb.pw/?r=1' \
+    -o /dev/stderr | xsel -l /dev/null -b
 }
 
 get_git_branch() {
-    if [[ -d .git ]]; then
-        read -r branch < .git/HEAD
-        branch="%{$fg[red]%}<%{$reset_color%}%{$fg[white]%}${branch##*/}%{$reset_color%}%{$fg[red]%}>%{$reset_color%}"
-    else
-        branch=""
-    fi
+  if [[ -d .git ]]; then
+    read -r branch < .git/HEAD
+    branch="%{$fg[green]%}<%{$reset_color%}%{$fg[white]%}${branch##*/}%{$reset_color%}%{$fg[green]%}>%{$reset_color%}"
+  else
+    branch=""
+  fi
 }
 
 ssh_state() {
-    if [[ -n "$SSH_CLIENT" || -n "$SSH_CONNECTION" || -n "$SSH_TTY" ]]; then
-        print "%{$fg[red]%}<%{$reset_color%}%{$fg[white]%}%m%{$fg[red]%}>%{$reset_color%} "
-    fi
+  if [[ -n "$SSH_CLIENT" || -n "$SSH_CONNECTION" || -n "$SSH_TTY" ]]; then
+    print "%{$fg[blue]%}<%{$reset_color%}%{$fg[white]%}%m%{$fg[blue]%}>%{$reset_color%} "
+  fi
 }
 
 mkdirf() {
-    mkdir -p "$1" && cd "$_"
+  mkdir -p "$1" && cd "$_"
 }
 
 cdl() {
-    cd "$1" && ls
+  cd "$1" && ls
 }
 
 precmd() {
-    print -Pn "\e];%n %~\a"
-    get_git_branch
+  print -Pn "\e];%n %~\a"
+  get_git_branch
 }
 
 
@@ -186,24 +184,24 @@ autoload -Uz colors
 colors
 setopt prompt_subst
 
-PROMPT=' $(ssh_state)%{$fg[red]%}>>%{$reset_color%} '
+PROMPT=' $(ssh_state)%{$fg[green]%}>>%{$reset_color%} '
 RPROMPT='${branch} %~'
 
 # Colors for ls
 if [[ ! -f ~/.dircolors ]]; then
-    dircolors -p > ~/.dircolors
+  dircolors -p > ~/.dircolors
 fi
 eval "$(dircolors ~/.dircolors)"
 
 
 # Open new window in same directory by pressing C-S-T
 if [[ -n $VTE_VERSION ]]; then
-    source /etc/profile.d/vte.sh
-    __vte_prompt_command
+  source /etc/profile.d/vte.sh
+  __vte_prompt_command
 fi
 
 
 # Syntax highlighting (must be at the end of the .zshrc)
 if [[ -f /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]]; then
-    source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+  source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 fi
