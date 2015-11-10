@@ -1,5 +1,6 @@
-atom-beautify@0.28.16
+atom-beautify@0.28.17
 atom-jade@0.3.0
+atom-ternjs@0.8.4
 emmet@2.3.14
 file-icons@1.6.11
 gruvbox@1.0.5

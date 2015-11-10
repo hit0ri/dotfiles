@@ -30,18 +30,19 @@
   "one-dark-ui": {}
   "atom-beautify":
     analytics: false
+  "linter-jshint": {}
 ".basic.html.text":
   editor:
     tabLength: 2
-".jade.source":
-  editor:
-    tabLength: 2
-".source.yaml":
+".css.source":
   editor:
     tabLength: 2
 ".js.source":
   editor:
     tabLength: 2
-".css.source":
+".source.yaml":
+  editor:
+    tabLength: 2
+".jade.source":
   editor:
     tabLength: 2
