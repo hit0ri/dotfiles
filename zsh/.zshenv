@@ -13,7 +13,7 @@ export LESS_TERMCAP_us=$'\E[01;32m'
 export BROWSER=google-chrome
 export EDITOR=vim
 export GOPATH=~/go
-export WINEDLLOVERRIDES=winemenubuilder.exe,mscoree,mshtml=d
+export WINEDLLOVERRIDES=winemenubuilder.exe,mscoree,mshtml=
 
 # bspwm
 export PANEL_FIFO=/tmp/panel-fifo
