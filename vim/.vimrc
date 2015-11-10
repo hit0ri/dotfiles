@@ -42,7 +42,8 @@ Plug 'moll/vim-node'
 " Plug 'nathanaelkane/vim-indent-guides'
 
 " Colorschemes
-Plug 'chriskempson/base16-vim'
+Plug 'morhetz/gruvbox'
+" Plug 'chriskempson/base16-vim'
 " Plug 'whatyouhide/vim-gotham'
 
 call plug#end()
@@ -78,7 +79,7 @@ map <Leader>h <Plug>(easymotion-linebackward)
 " -------------------------------------
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 0
-let g:airline_theme = 'base16'
+let g:airline_theme = 'gruvbox'
 let g:airline#extensions#syntastic#enabled = 1
 
 
@@ -136,7 +137,7 @@ autocmd FileType javascript,css inoremap <silent> <Leader>; <c-o>:call cosco#com
 
 " base16-vim
 " -------------------------------------
-let base16colorspace=256
+" let base16colorspace=256
 
 
 " VIM settings: "
@@ -148,7 +149,7 @@ syntax on
 set number
 set colorcolumn=80
 set t_Co=256
-colorscheme base16-railscasts
+colorscheme gruvbox
 set background=dark
 set scrolloff=5
 set sidescrolloff=5
