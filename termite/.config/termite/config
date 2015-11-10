@@ -39,68 +39,6 @@ browser = chromium
 #size_hints = false
 
 [colors]
-# # Base16 Eighties
-# # Scheme: Chris Kempson (http://chriskempson.com)
-# foreground      = #d3d0c8
-# foreground_bold = #d3d0c8
-# cursor          = #56505F
-# Background      = #2d2d2d
-# # 16 color space
-# color0  = #2d2d2d
-# color1  = #f2777a
-# color2  = #99cc99
-# color3  = #ffcc66
-# color4  = #6699cc
-# color5  = #cc99cc
-# color6  = #66cccc
-# color7  = #d3d0c8
-# color8  = #747369
-# color9  = #f2777a
-# color10 = #99cc99
-# color11 = #ffcc66
-# color12 = #6699cc
-# color13 = #cc99cc
-# color14 = #66cccc
-# color15 = #f2f0ec
-# # 256 color space
-# color16 = #f99157
-# color17 = #d27b53
-# color18 = #393939
-# color19 = #515151
-# color20 = #a09f93
-# color21 = #e8e6df
-
-# # Base16 OceanicNext
-# # Scheme: https://github.com/voronianski/oceanic-next-color-scheme
-# foreground      = #C0C5CE
-# foreground_bold = #C0C5CE
-# cursor          = #C0C5CE
-# background      = #1B2B34
-# # 16 color space
-# color0  = #1B2B34
-# color1  = #EC5f67
-# color2  = #99C794
-# color3  = #FAC863
-# color4  = #6699CC
-# color5  = #C594C5
-# color6  = #5FB3B3
-# color7  = #C0C5CE
-# color8  = #65737E
-# color9  = #EC5f67
-# color10 = #99C794
-# color11 = #FAC863
-# color12 = #6699CC
-# color13 = #C594C5
-# color14 = #5FB3B3
-# color15 = #D8DEE9
-# # 256 color space
-# color16 = #F99157
-# color17 = #AB7967
-# color18 = #343D46
-# color19 = #4F5B66
-# color20 = #A7ADBA
-# color21 = #CDD3DE
-
 # # Base16 Tomorrow
 # # Scheme: Chris Kempson (http://chriskempson.com)
 # foreground      = #c5c8c6
@@ -131,69 +69,6 @@ browser = chromium
 # color19 = #373b41
 # color20 = #b4b7b4
 # color21 = #e0e0e0
-
-# # Base16 Ocean
-# # Scheme: Chris Kempson (http://chriskempson.com)
-# foreground      = #c0c5ce
-# foreground_bold = #c0c5ce
-# cursor          = #608a86
-# background      = #2b303b
-# # 16 color space
-# color0  = #2b303b
-# color1  = #bf616a
-# color2  = #a3be8c
-# color3  = #ebcb8b
-# color4  = #8fa1b3
-# color5  = #b48ead
-# color6  = #96b5b4
-# color7  = #c0c5ce
-# color8  = #65737e
-# color9  = #bf616a
-# color10 = #a3be8c
-# color11 = #ebcb8b
-# color12 = #8fa1b3
-# color13 = #b48ead
-# color14 = #96b5b4
-# color15 = #eff1f5
-# # 256 color space
-# color16 = #d08770
-# color17 = #ab7967
-# color18 = #343d46
-# color19 = #4f5b66
-# color20 = #a7adba
-# color21 = #dfe1e8
-
-# Base16 Railscasts
-# Scheme: Ryan Bates (http://railscasts.com)
-
-foreground      = #e6e1dc
-foreground_bold = #e6e1dc
-cursor          = #5d5f6d
-background      = #2b2b2b
-# 16 color space
-color0  = #2b2b2b
-color1  = #da4939
-color2  = #a5c261
-color3  = #ffc66d
-color4  = #6d9cbe
-color5  = #b6b3eb
-color6  = #519f50
-color7  = #e6e1dc
-color8  = #5a647e
-color9  = #da4939
-color10 = #a5c261
-color11 = #ffc66d
-color12 = #6d9cbe
-color13 = #b6b3eb
-color14 = #519f50
-color15 = #f9f7f3
-# 256 color space
-color16 = #cc7833
-color17 = #bc9458
-color18 = #272935
-color19 = #3a4055
-color20 = #d4cfc9
-color21 = #f4f1ed
 
 # # s3r0 modified
 # # by earplit
@@ -259,6 +134,60 @@ color21 = #f4f1ed
 # color13    = #b294bb
 # color14    = #8abeb7
 # color15    = #c5c8c6
+
+# gruvbox dark
+# by morhetz
+foreground      = #ebdbb2
+foreground_bold = #ebdbb2
+# hard contrast: background = #1d2021
+background = #282828
+# soft contrast: background = #32302f
+color0   = #282828
+color1   = #cc241d
+color2   = #98971a
+color3   = #d79921
+color4   = #458588
+color5   = #b16286
+color6   = #689d6a
+color7   = #a89984
+color8   = #928374
+color9   = #fb4934
+color10  = #b8bb26
+color11  = #fabd2f
+color12  = #83a598
+color13  = #d3869b
+color14  = #8ec07c
+color15  = #ebdbb2
+color24  = #076678
+color66  = #427b58
+color88  = #9d0006
+color96  = #8f3f71
+color100 = #79740e
+color108 = #8ec07c
+color109 = #83a598
+color130 = #af3a03
+color136 = #b57614
+color142 = #b8bb26
+color167 = #fb4934
+color175 = #d3869b
+color208 = #fe8019
+color214 = #fabd2f
+color223 = #ebdbb2
+color228 = #f2e5bc
+color229 = #fbf1c7
+color230 = #f9f5d7
+color234 = #1d2021
+color235 = #282828
+color236 = #32302f
+color237 = #3c3836
+color239 = #504945
+color241 = #665c54
+color243 = #7c6f64
+color244 = #928374
+color245 = #928374
+color246 = #a89984
+color248 = #bdae93
+color250 = #d5c4a1
 
 [hints]
 #font = Monospace 12

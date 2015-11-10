@@ -13,8 +13,8 @@
       "exception-reporting"
     ]
     themes: [
-      "one-dark-ui"
-      "base16-tomorrow-dark-theme"
+      "nucleus-dark-ui"
+      "gruvbox"
     ]
   "autocomplete-plus": {}
   "find-and-replace": {}
