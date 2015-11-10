@@ -9,12 +9,12 @@ allow_bold = true
 dynamic_title = true
 urgent_on_bell = true
 clickable_url = true
-font = Source Code Pro 10
+font = Fira Mono 10
 scrollback_lines = 10000
 search_wrap = true
 #icon_name = terminal
 # font size 10 (cols 94, lines 28)
-geometry = 754x479
+geometry = 754x478
 # font size 11 (cols 94, lines 28)
 # geometry = 848x534
 

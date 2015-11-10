@@ -3,7 +3,7 @@
     showOnStartup: false
   editor:
     invisibles: {}
-    fontFamily: "Source Code Pro"
+    fontFamily: "Fira Mono"
     scrollPastEnd: true
     showIndentGuide: true
     tabLength: 4
