@@ -172,7 +172,6 @@ cdl() {
 }
 
 precmd() {
-  print -Pn "\e];%n %~\a"
   get_git_branch
 }
 
