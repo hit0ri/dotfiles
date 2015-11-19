@@ -6,6 +6,7 @@
     fontFamily: "Fira Mono"
     scrollPastEnd: true
     showIndentGuide: true
+    tabLength: 4
   core:
     disabledPackages: [
       "metrics"
