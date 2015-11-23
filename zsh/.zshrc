@@ -151,7 +151,7 @@ pbx() {
 get_git_branch() {
   if [[ -d .git ]]; then
     read -r branch < .git/HEAD
-    branch="%{$fg[green]%}<%{$reset_color%}%{$fg[white]%}${branch##*/}%{$reset_color%}%{$fg[green]%}>%{$reset_color%}"
+    branch="%{$fg_bold[magenta]%}${branch##*/}%{$reset_color%}"
   else
     branch=""
   fi
@@ -159,7 +159,7 @@ get_git_branch() {
 
 ssh_state() {
   if [[ -n "$SSH_CLIENT" || -n "$SSH_CONNECTION" || -n "$SSH_TTY" ]]; then
-    print "%{$fg[blue]%}<%{$reset_color%}%{$fg[white]%}%m%{$fg[blue]%}>%{$reset_color%} "
+    print "%{$fg_bold[cyan]%}<%{$reset_color%}%{$fg_bold[white]%}%m%{$fg_bold[cyan]%}>%{$reset_color%} "
   fi
 }
 
@@ -183,8 +183,8 @@ autoload -Uz colors
 colors
 setopt prompt_subst
 
-PROMPT=' $(ssh_state)%{$fg[green]%}>>%{$reset_color%} '
-RPROMPT='${branch} %~'
+PROMPT='$(ssh_state)%{$fg_bold[red]%}>%{$fg_bold[yellow]%}>%{$fg_bold[green]%}>%{$reset_color%} '
+RPROMPT='${branch} %{$fg_bold[blue]%}%~%{$reset_color%}'
 
 # Colors for ls
 if [[ ! -f ~/.dircolors ]]; then
