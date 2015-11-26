@@ -40,6 +40,7 @@ Plug 'pangloss/vim-javascript'
 Plug 'moll/vim-node'
 " Plug 'hynek/vim-python-pep8-indent'
 Plug 'nathanaelkane/vim-indent-guides'
+Plug 'ntpeters/vim-better-whitespace'
 
 " Colorschemes
 Plug 'morhetz/gruvbox'
@@ -137,11 +138,13 @@ autocmd FileType javascript,css nnoremap <silent> <Leader>; :call cosco#commaOrS
 autocmd FileType javascript,css inoremap <silent> <Leader>; <c-o>:call cosco#commaOrSemiColon()<CR>
 
 
-" base16-vim
+" vim-better-whitespace
 " -------------------------------------
-" let base16colorspace=256
+autocmd BufWritePre * StripWhitespace
 
 
+
+" ----------------------------------------------------------------------------
 " VIM settings: "
 " ----------------------------------------------------------------------------
 map <leader>a :BufstopModeFast<CR>
@@ -182,9 +185,6 @@ autocmd BufNewFile,BufRead *.rss setfiletype xml
 
 " Limit the width of text to 72 characters when editing email
 autocmd BufRead /tmp/mutt-* set textwidth=72
-
-" Remove trailing white spaces on save
-autocmd BufWritePre * :%s/\s\+$//e
 
 " Reload vimrc on save
 augroup reload_vimrc
