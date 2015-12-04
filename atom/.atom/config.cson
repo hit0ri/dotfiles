@@ -3,7 +3,7 @@
     showOnStartup: false
   editor:
     invisibles: {}
-    fontFamily: "Fira Mono"
+    fontFamily: "Meslo LG S"
     scrollPastEnd: true
     showIndentGuide: true
     tabLength: 4
