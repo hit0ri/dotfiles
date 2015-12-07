@@ -13,10 +13,8 @@ font = Meslo LG S 10
 scrollback_lines = 10000
 search_wrap = true
 #icon_name = terminal
-# font size 10 (cols 94, lines 28)
-geometry = 754x478
-# font size 11 (cols 94, lines 28)
-# geometry = 848x534
+# 94 cols, 29 lines
+geometry = 754x495
 
 # 0.0: opaque, 1.0: transparent
 transparency = 0.0
