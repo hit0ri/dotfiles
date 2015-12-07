@@ -235,9 +235,6 @@ zstyle ':completion:*:-command-:*:'    verbose false
 # complete manual by their section
 zstyle ':completion:*:manuals' separate-sections true
 
-# provide .. as a completion
-zstyle ':completion:*' special-dirs ..
-
 # history
 zstyle ':completion:*:history-words' list false
 zstyle ':completion:*:history-words' remove-all-dups yes
