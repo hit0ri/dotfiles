@@ -18,4 +18,4 @@ export WINEDLLOVERRIDES=winemenubuilder.exe,mscoree,mshtml=
 # bspwm
 export PANEL_FIFO=/tmp/panel-fifo
 export PANEL_HEIGHT=24
-export PANEL_FONT_FAMILY="Meslo LG S-10"
+export PANEL_FONT_FAMILY="Meslo LG S DZ-9"
