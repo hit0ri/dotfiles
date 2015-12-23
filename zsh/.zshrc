@@ -104,7 +104,7 @@ alias i='curl -F "f:1=<-" ix.io'
 alias s='curl -F "sprunge=<-" sprunge.us'
 alias p='curl -F "c=@-" https://ptpb.pw'
 # upload highlighted text
-alias xc='xclip -o | i'
+alias xc='xsel -o | i'
 
 
 # Functions
