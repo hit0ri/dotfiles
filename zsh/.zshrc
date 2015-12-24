@@ -95,7 +95,8 @@ alias lsa='ls --color=auto --show-control-chars --group-directories-first -AhXF'
 alias lla='ls --color=auto --show-control-chars --group-directories-first -AlhXF'
 alias dmesg='dmesg -exL'
 
-alias svim='sudo vim'
+alias vim='nvim'
+alias svim='sudo nvim'
 alias dstats='dstat -cdnpmgs --top-bio --top-cpu'
 alias lsports='ss -tunalp | cat'
 

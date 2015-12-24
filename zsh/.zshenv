@@ -11,7 +11,7 @@ export LESS_TERMCAP_ue=$'\E[0m'
 export LESS_TERMCAP_us=$'\E[01;32m'
 
 export BROWSER=chromium
-export EDITOR=vim
+export EDITOR=nvim
 export GOPATH=~/go
 export WINEDLLOVERRIDES=winemenubuilder.exe,mscoree,mshtml=
 
