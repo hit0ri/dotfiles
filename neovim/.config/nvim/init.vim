@@ -10,7 +10,7 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'tpope/vim-commentary'
     Plug 'Shougo/deoplete.nvim'
     Plug 'airblade/vim-gitgutter'
-    Plug 'scrooloose/syntastic'
+    Plug 'benekastah/neomake'
     Plug 'godlygeek/tabular'
     Plug 'Raimondi/delimitMate'
     Plug 'bling/vim-airline'
@@ -33,21 +33,13 @@ let g:plug_window='new'
 " ### deoplete
 let g:deoplete#enable_at_startup=1
 
-" ### syntastic
-" set statusline+=%#warningmsg#
-" set statusline+=%{SyntasticStatuslineFlag()}
-" set statusline+=%*
-let g:syntastic_always_populate_loc_list=1
-let g:syntastic_auto_loc_list=0
-let g:syntastic_check_on_open=0
-let g:syntastic_check_on_wq=0
-let g:syntastic_loc_list_height=2
+" ### neomake
+autocmd! BufWritePost * Neomake
 
 " ### airline
 let g:airline_powerline_fonts=1
 let g:airline#extensions#tabline#enabled=0
 let g:airline_theme='gruvbox'
-let g:airline#extensions#syntastic#enabled=1
 
 " ### easymotion
 map <Leader>l <Plug>(easymotion-lineforward)
