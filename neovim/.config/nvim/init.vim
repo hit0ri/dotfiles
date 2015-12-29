@@ -66,12 +66,8 @@ autocmd FileType javascript,css,YOUR_LANG inoremap <silent> <Leader>; <c-o>:call
 let g:indent_guides_guide_size=1
 let g:indent_guides_enable_on_vim_startup=1
 
-" ### better-whitespace
-autocmd BufWritePre * StripWhitespace
-
 
 "------------------------------------------------------------------------------
-
 syntax on
 filetype indent plugin on
 colorscheme gruvbox
@@ -103,9 +99,6 @@ autocmd BufNewFile,BufRead *.rss setfiletype xml
 
 " Limit the width of text to 72 characters when editing email
 autocmd BufRead /tmp/mutt-* set textwidth=72
-
-
-
 
 " Press Space to turn off search highlighting and clear any message
 nnoremap <silent> <Space> :nohlsearch<Bar>:echo<CR>
