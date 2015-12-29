@@ -4,6 +4,13 @@
 :let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
 let mapleader=","
 
+function! BuildComposer(info)
+    if a:info.status != 'unchanged' || a:info.force
+        !cargo build --release
+        UpdateRemotePlugins
+    endif
+endfunction
+
 call plug#begin('~/.config/nvim/plugged')
     Plug 'tpope/vim-surround'
     Plug 'tpope/vim-fugitive'
@@ -23,6 +30,7 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'moll/vim-node'
     Plug 'nathanaelkane/vim-indent-guides'
     Plug 'ntpeters/vim-better-whitespace'
+    Plug 'euclio/vim-markdown-composer', { 'do': function('BuildComposer') }
     Plug 'morhetz/gruvbox'
 call plug#end()
 
