@@ -111,7 +111,7 @@ browser = chromium
 # color15    = #cccccc
 
 # # hybrid
-# # w0ng
+# # by w0ng
 # foreground = #c5c8c6
 # # background = #1d1f21
 # background = rgba(29, 31, 33, 0.98)
@@ -133,59 +133,80 @@ browser = chromium
 # color14    = #8abeb7
 # color15    = #c5c8c6
 
-# gruvbox dark
-# by morhetz
-foreground      = #ebdbb2
-foreground_bold = #ebdbb2
-# hard contrast: background = #1d2021
-background = #282828
-# soft contrast: background = #32302f
-color0   = #282828
-color1   = #cc241d
-color2   = #98971a
-color3   = #d79921
-color4   = #458588
-color5   = #b16286
-color6   = #689d6a
-color7   = #a89984
-color8   = #928374
-color9   = #fb4934
-color10  = #b8bb26
-color11  = #fabd2f
-color12  = #83a598
-color13  = #d3869b
-color14  = #8ec07c
-color15  = #ebdbb2
-color24  = #076678
-color66  = #427b58
-color88  = #9d0006
-color96  = #8f3f71
-color100 = #79740e
-color108 = #8ec07c
-color109 = #83a598
-color130 = #af3a03
-color136 = #b57614
-color142 = #b8bb26
-color167 = #fb4934
-color175 = #d3869b
-color208 = #fe8019
-color214 = #fabd2f
-color223 = #ebdbb2
-color228 = #f2e5bc
-color229 = #fbf1c7
-color230 = #f9f5d7
-color234 = #1d2021
-color235 = #282828
-color236 = #32302f
-color237 = #3c3836
-color239 = #504945
-color241 = #665c54
-color243 = #7c6f64
-color244 = #928374
-color245 = #928374
-color246 = #a89984
-color248 = #bdae93
-color250 = #d5c4a1
+# # gruvbox dark
+# # by morhetz
+# foreground      = #ebdbb2
+# foreground_bold = #ebdbb2
+# # hard contrast: background = #1d2021
+# background = #282828
+# # soft contrast: background = #32302f
+# color0   = #282828
+# color1   = #cc241d
+# color2   = #98971a
+# color3   = #d79921
+# color4   = #458588
+# color5   = #b16286
+# color6   = #689d6a
+# color7   = #a89984
+# color8   = #928374
+# color9   = #fb4934
+# color10  = #b8bb26
+# color11  = #fabd2f
+# color12  = #83a598
+# color13  = #d3869b
+# color14  = #8ec07c
+# color15  = #ebdbb2
+# color24  = #076678
+# color66  = #427b58
+# color88  = #9d0006
+# color96  = #8f3f71
+# color100 = #79740e
+# color108 = #8ec07c
+# color109 = #83a598
+# color130 = #af3a03
+# color136 = #b57614
+# color142 = #b8bb26
+# color167 = #fb4934
+# color175 = #d3869b
+# color208 = #fe8019
+# color214 = #fabd2f
+# color223 = #ebdbb2
+# color228 = #f2e5bc
+# color229 = #fbf1c7
+# color230 = #f9f5d7
+# color234 = #1d2021
+# color235 = #282828
+# color236 = #32302f
+# color237 = #3c3836
+# color239 = #504945
+# color241 = #665c54
+# color243 = #7c6f64
+# color244 = #928374
+# color245 = #928374
+# color246 = #a89984
+# color248 = #bdae93
+# color250 = #d5c4a1
+
+# seoul
+# by junegunn
+background = #1c1c1c
+foreground = #d0d0d0
+color0     = #4e4e4e
+color1     = #d68787
+color2     = #5f865f
+color3     = #d8af5f
+color4     = #85add4
+color5     = #d7afaf
+color6     = #87afaf
+color7     = #d0d0d0
+color8     = #626262
+color9     = #d75f87
+color10    = #87af87
+color11    = #ffd787
+color12    = #add4fb
+color13    = #ffafaf
+color14    = #87d7d7
+color15    = #e4e4e4
 
 [hints]
 #font = Monospace 12

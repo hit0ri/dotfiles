@@ -30,6 +30,7 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'ntpeters/vim-better-whitespace'
     Plug 'euclio/vim-markdown-composer', { 'do': function('BuildComposer') }
     Plug 'morhetz/gruvbox'
+    Plug 'junegunn/seoul256.vim'
 call plug#end()
 
 "-----------------------------------------------------------------------------
@@ -44,8 +45,11 @@ autocmd! BufWritePost * Neomake
 
 " ### airline
 let g:airline_powerline_fonts=1
-let g:airline#extensions#tabline#enabled=0
-let g:airline_theme='gruvbox'
+let g:airline_left_sep=''
+let g:airline_left_alt_sep='|'
+let g:airline_right_sep=''
+let g:airline_right_alt_sep='|'
+let g:airline_theme='zenburn'
 
 " ### easymotion
 map <Leader>l <Plug>(easymotion-lineforward)
@@ -64,12 +68,15 @@ autocmd FileType javascript,css,YOUR_LANG inoremap <silent> <Leader>; <c-o>:call
 let g:indent_guides_guide_size=1
 let g:indent_guides_enable_on_vim_startup=1
 
+" ### seoul256
+" range: [darkest] 233 - 239 [lightest]
+let g:seoul256_background=234
 
 
 "-----------------------------------------------------------------------------
 syntax on
 filetype indent plugin on
-colorscheme gruvbox
+colorscheme seoul256
 set background=dark
 
 set title
