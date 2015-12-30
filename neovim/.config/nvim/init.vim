@@ -32,7 +32,7 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'morhetz/gruvbox'
 call plug#end()
 
-"------------------------------------------------------------------------------
+"-----------------------------------------------------------------------------
 " ### plug
 let g:plug_window='new'
 
@@ -65,7 +65,8 @@ let g:indent_guides_guide_size=1
 let g:indent_guides_enable_on_vim_startup=1
 
 
-"------------------------------------------------------------------------------
+
+"-----------------------------------------------------------------------------
 syntax on
 filetype indent plugin on
 colorscheme gruvbox
@@ -73,6 +74,8 @@ set background=dark
 
 set title
 set number
+set relativenumber
+set cursorline
 set hidden
 set linebreak
 set colorcolumn=80
