@@ -1,5 +1,3 @@
-" Use true colors
-:let $NVIM_TUI_ENABLE_TRUE_COLOR=1
 " Change the cursor shape to a pipe in insert-mode, and a block in normal-mode
 :let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
 let mapleader=","
