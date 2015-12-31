@@ -49,7 +49,7 @@ let g:airline_left_sep=''
 let g:airline_left_alt_sep='|'
 let g:airline_right_sep=''
 let g:airline_right_alt_sep='|'
-let g:airline_theme='zenburn'
+let g:airline_theme='gruvbox'
 
 " ### easymotion
 map <Leader>l <Plug>(easymotion-lineforward)
@@ -68,6 +68,9 @@ autocmd FileType javascript,css,YOUR_LANG inoremap <silent> <Leader>; <c-o>:call
 let g:indent_guides_guide_size=1
 let g:indent_guides_enable_on_vim_startup=1
 
+" ### gruvbox
+let g:gruvbox_contrast_dark='hard'
+
 " ### seoul256
 " range: [darkest] 233 - 239 [lightest]
 let g:seoul256_background=234
@@ -76,7 +79,7 @@ let g:seoul256_background=234
 "-----------------------------------------------------------------------------
 syntax on
 filetype indent plugin on
-colorscheme seoul256
+colorscheme gruvbox
 set background=dark
 
 set title
