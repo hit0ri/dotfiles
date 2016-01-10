@@ -95,6 +95,7 @@ set sidescroll=1
 set nowrap
 set smartcase
 set ignorecase
+set mouse=h
 
 " Indentation
 set tabstop=4
