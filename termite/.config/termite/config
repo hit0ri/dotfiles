@@ -9,12 +9,11 @@ allow_bold = true
 dynamic_title = true
 urgent_on_bell = true
 clickable_url = true
-font = Meslo LG S DZ 10
+font = Hack 10
 scrollback_lines = 10000
 search_wrap = true
 #icon_name = terminal
-# 94 cols, 29 lines
-geometry = 754x495
+geometry = 754x482
 
 # 0.0: opaque, 1.0: transparent
 transparency = 0.0
