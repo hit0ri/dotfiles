@@ -3,7 +3,7 @@
     showOnStartup: false
   editor:
     invisibles: {}
-    fontFamily: "Meslo LG S DZ"
+    fontFamily: "Hack"
     scrollPastEnd: true
     showIndentGuide: true
     tabLength: 4
