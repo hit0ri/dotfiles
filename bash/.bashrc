@@ -21,6 +21,12 @@ export LESS_TERMCAP_so=$'\E[01;44;33m'
 export LESS_TERMCAP_ue=$'\E[0m'
 export LESS_TERMCAP_us=$'\E[01;32m'
 
+# History
+# Ignore duplicates and lines which begin with a space
+export HISTCONTROL=ignoreboth
+
+export HISTTIMEFORMAT="%h %d %H:%M:%S> "
+export HISTSIZE=8192
 
 # Line wrap on window resize
 shopt -s checkwinsize
