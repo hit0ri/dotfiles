@@ -1,21 +1,41 @@
+include() {
+    [[ -f "$1" ]] && source "$1"
+}
 
-EDITOR=vim
+# Source global definitions
+include /etc/bashrc
+
+export EDITOR=nvim
+export BROWSER=google-chrome
+export SUDO_EDITOR=nvim
+export GOPATH=~/go
+export WINEDLLOVERRIDES=winemenubuilder.exe,mscoree,mshtml=
+
+export PAGER=less
+export LESS=-RX
+export LESS_TERMCAP_mb=$'\E[01;31m'
+export LESS_TERMCAP_md=$'\E[01;31m'
+export LESS_TERMCAP_me=$'\E[0m'
+export LESS_TERMCAP_se=$'\E[0m'
+export LESS_TERMCAP_so=$'\E[01;44;33m'
+export LESS_TERMCAP_ue=$'\E[0m'
+export LESS_TERMCAP_us=$'\E[01;32m'
+
 
 # Line wrap on window resize
 shopt -s checkwinsize
 
 # Colors for ls
-eval $(dircolors ~/.dircolors)
+# eval $(dircolors ~/.dircolors)
 
 # Git prompt
-if [[ -f /usr/share/git/completion/git-prompt.sh ]]; then
-    . /usr/share/git/completion/git-prompt.sh
-    export GIT_PS1_SHOWDIRTYSTATE=true
-    export GIT_PS1_SHOWUNTRACKEDFILES=true
-fi
+include /usr/share/git-core/contrib/completion/git-prompt.sh || \
+    include /usr/share/git/completion/git-prompt.sh \
+    && export GIT_PS1_SHOWDIRTYSTATE=true \
+    && export GIT_PS1_SHOWUNTRACKEDFILES=true
 
 # Prompt
-set_prompt () {
+set_prompt() {
     Last_Command=$? # Must come first!
     Blue='\[\e[01;34m\]'
     White='\[\e[01;37m\]'
@@ -31,7 +51,7 @@ set_prompt () {
 
     # Add a bright white exit status for the last command
     # PS1="$White\$? "
-    PS1=""
+    PS1=''
     # If it was successful, print a green check mark. Otherwise, print
     # a red X.
     if [[ $Last_Command == 0 ]]; then
@@ -50,19 +70,27 @@ set_prompt () {
     # the text color to the default.
     PS1+="$Blue\\w$(__git_ps1) \\\$$Reset "
 }
-PROMPT_COMMAND='set_prompt'
+PROMPT_COMMAND=set_prompt
 
 # Functions
-function twitch {
-	mpv "http://twitch.tv/$1"
+twitch() {
+    mpv "http://twitch.tv/$1"
 }
 
-function sprunge {
-    curl -F 'sprunge=<-' http://sprunge.us
+pb() {
+    curl -F "c=@${1:--}" https://ptpb.pw/
 }
 
-function ix {
-    curl -F 'f:1=<-' http://ix.io
+pbx() {
+    curl -sF "c=@${1:--}" -w "%{redirect_url}" 'https://ptpb.pw/?r=1' -o /dev/stderr | xsel -l /dev/null -b
+}
+
+pbs() {
+    scrot /tmp/$$.png && pbx /tmp/$$.png && rm /tmp/$$.png
+}
+
+cdl() {
+    cd "$1" && ls
 }
 
 # Aliases
@@ -71,13 +99,21 @@ alias ...='cd ../../'
 alias ....='cd ../../../'
 alias .....='cd ../../../../'
 
-alias l='ls -l'
-alias la='ls -a'
-alias lla='ll -a'
+alias rm='rm -vI'
+alias cp='cp -vi'
+alias mv='mv -vi'
+alias ln='ln -vi'
+alias mkdir='mkdir -vp'
 
-alias vim='subl3'
-alias svim='sudo vim'
-alias tmux='tmux -2'
+alias  ls='ls --color=auto --show-control-chars --group-directories-first -hXF'
+alias  ll='ls --color=auto --show-control-chars --group-directories-first -lhXF'
+alias lsa='ls --color=auto --show-control-chars --group-directories-first -AhXF'
+alias lla='ls --color=auto --show-control-chars --group-directories-first -AlhXF'
+
+alias dmesg='dmesg -exL'
+alias vim='nvim'
+alias svim='sudoedit'
 alias gap='git add --patch'
-alias ports='lsof -i -P -sTCP:LISTEN'
+alias lsports='ss -tunalp | cat'
 alias dstats='dstat -cdnpmgs --top-bio --top-cpu'
+
