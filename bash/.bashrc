@@ -104,6 +104,7 @@ alias cp='cp -vi'
 alias mv='mv -vi'
 alias ln='ln -vi'
 alias mkdir='mkdir -vp'
+alias grep='grep --color=auto'
 
 alias  ls='ls --color=auto --show-control-chars --group-directories-first -hXF'
 alias  ll='ls --color=auto --show-control-chars --group-directories-first -lhXF'
