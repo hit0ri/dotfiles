@@ -28,7 +28,7 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'moll/vim-node'
     Plug 'nathanaelkane/vim-indent-guides'
     Plug 'ntpeters/vim-better-whitespace'
-    Plug 'euclio/vim-markdown-composer', { 'do': function('BuildComposer') }
+    " Plug 'euclio/vim-markdown-composer', { 'do': function('BuildComposer') }
     Plug 'morhetz/gruvbox'
     Plug 'junegunn/seoul256.vim'
 call plug#end()
