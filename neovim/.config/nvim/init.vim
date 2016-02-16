@@ -140,3 +140,9 @@ nnoremap <silent> <Leader>- :exe "resize " . (winheight(0) * 2/3)<CR>
 
 " Replace selected text
 vnoremap <C-r> "hy:%s/<C-r>h//gc<left><left><left>"
+
+" Reload config on save
+augroup VimReload
+    autocmd!
+    autocmd BufWritePost  $MYVIMRC  source $MYVIMRC
+augroup END
