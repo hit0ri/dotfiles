@@ -1,9 +1,12 @@
 include() {
-    [[ -f "$1" ]] && source "$1"
+  [[ -f "$1" ]] && source "$1"
 }
 
 # Source global definitions
 include /etc/bashrc
+
+# Open new tabs in the $PWD
+include /etc/profile.d/vte.sh
 
 export EDITOR=nvim
 export BROWSER=google-chrome
@@ -36,67 +39,66 @@ shopt -s checkwinsize
 
 # Git prompt
 include /usr/share/git-core/contrib/completion/git-prompt.sh || \
-    include /usr/share/git/completion/git-prompt.sh \
-    && export GIT_PS1_SHOWDIRTYSTATE=true \
-    && export GIT_PS1_SHOWUNTRACKEDFILES=true
+  include /usr/share/git/completion/git-prompt.sh \
+  && GIT_PS1_SHOWDIRTYSTATE=true \
+  && GIT_PS1_SHOWSTASHSTATE=true \
+  && GIT_PS1_SHOWUNTRACKEDFILES=true
 
 # Prompt
 set_prompt() {
-    Last_Command=$? # Must come first!
-    Blue='\[\e[01;34m\]'
-    White='\[\e[01;37m\]'
-    Red='\[\e[01;31m\]'
-    Green='\[\e[01;32m\]'
-    Reset='\[\e[00m\]'
-    FancyX='\342\234\227'
-    Checkmark='\342\234\223'
-    Cloud='\342\230\201'
-    Skull='\342\230\240'
-    WarningSign='\342\232\240'
-    HighVoltage='\342\232\241'
+  local EXIT="$?"
+  FG_BLACK="\[$(tput setaf 0)\]"
+  FG_RED="\[$(tput setaf 1)\]"
+  FG_GREEN="\[$(tput setaf 2)\]"
+  FG_YELLOW="\[$(tput setaf 3)\]"
+  FG_BLUE="\[$(tput setaf 4)\]"
+  FG_MAGENTA="\[$(tput setaf 5)\]"
+  FG_CYAN="\[$(tput setaf 6)\]"
+  FG_WHITE="\[$(tput setaf 7)\]"
+  BG_BLACK="\[$(tput setab 0)\]"
+  BG_RED="\[$(tput setab 1)\]"
+  BG_GREEN="\[$(tput setab 2)\]"
+  BG_YELLOW="\[$(tput setab 3)\]"
+  BG_BLUE="\[$(tput setab 4)\]"
+  BG_MAGENTA="\[$(tput setab 5)\]"
+  BG_CYAN="\[$(tput setab 6)\]"
+  BG_WHITE="\[$(tput setab 7)\]"
+  BOLD="\[$(tput bold)\]"
+  RESET="\[$(tput sgr0)\]"
 
-    # Add a bright white exit status for the last command
-    # PS1="$White\$? "
-    PS1=''
-    # If it was successful, print a green check mark. Otherwise, print
-    # a red X.
-    if [[ $Last_Command == 0 ]]; then
-        PS1+="$Green$Cloud  "
-    else
-        PS1+="$Red$Cloud  "
-    fi
-    # If root, just print the host in red. Otherwise, print the current user
-    # and host in green.
-    # if [[ $EUID == 0 ]]; then
-    #     PS1+="$Red\\h "
-    # else
-    #     PS1+="$Green\\u@\\h "
-    # fi
-    # Print the working directory and prompt marker in blue, and reset
-    # the text color to the default.
-    PS1+="$Blue\\w$(__git_ps1) \\\$$Reset "
+  PS1="${BOLD}${FG_WHITE}┌╼"
+  if [[ -n "$SSH_CONNECTION" ]]; then
+    PS1+="[${FG_YELLOW}\h${FG_WHITE}]╺─╸"
+  fi
+  PS1+="[${FG_GREEN}\w${FG_WHITE}]"
+  PS1+="$(__git_ps1 ╺─╸[${FG_BLUE}%s${FG_WHITE}])"
+  if [[ ${EXIT} -ne 0 ]]; then
+    PS1+="╺─╸[${FG_RED}${EXIT}${FG_WHITE}]"
+  fi
+  PS1+="\n└╼${RESET} "
 }
+
 PROMPT_COMMAND=set_prompt
 
 # Functions
 twitch() {
-    mpv "http://twitch.tv/$1"
+  mpv "http://twitch.tv/$1"
 }
 
 pb() {
-    curl -F "c=@${1:--}" https://ptpb.pw/
+  curl -F "c=@${1:--}" https://ptpb.pw/
 }
 
 pbx() {
-    curl -sF "c=@${1:--}" -w "%{redirect_url}" 'https://ptpb.pw/?r=1' -o /dev/stderr | xsel -l /dev/null -b
+  curl -sF "c=@${1:--}" -w "%{redirect_url}" 'https://ptpb.pw/?r=1' -o /dev/stderr | xsel -l /dev/null -b
 }
 
 pbs() {
-    scrot /tmp/$$.png && pbx /tmp/$$.png && rm /tmp/$$.png
+  scrot /tmp/$$.png && pbx /tmp/$$.png && rm /tmp/$$.png
 }
 
 cdl() {
-    cd "$1" && ls
+  cd "$1" && ls
 }
 
 # Aliases
@@ -123,4 +125,3 @@ alias svim='sudoedit'
 alias gap='git add --patch'
 alias lsports='ss -tunalp | cat'
 alias dstats='dstat -cdnpmgs --top-bio --top-cpu'
-
