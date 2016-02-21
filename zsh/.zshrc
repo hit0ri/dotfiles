@@ -9,6 +9,56 @@ HISTFILE=~/.histfile
 HISTSIZE=3000
 SAVEHIST=3000
 
+
+# Functions
+include() {
+  [[ -f "$1" ]] && source "$1"
+}
+
+twitch() {
+  mpv "http://twitch.tv/$1"
+}
+
+ssh_state() {
+  if [[ -n "$SSH_CLIENT" || -n "$SSH_CONNECTION" || -n "$SSH_TTY" ]]; then
+    print "%{$fg_bold[cyan]%}<%{$reset_color%}%{$fg_bold[white]%}%m%{$fg_bold[cyan]%}>%{$reset_color%} "
+  fi
+}
+
+cdl() {
+  cd "$1" && ls
+}
+
+pb() {
+  curl -F "c=@${1:--}" https://ptpb.pw/
+}
+
+pbx() {
+  curl -sF "c=@${1:--}" -w "%{redirect_url}" 'https://ptpb.pw/?r=1' -o /dev/stderr | xsel -l /dev/null -b
+}
+
+pbs() {
+  scrot /tmp/$$.png && pbx /tmp/$$.png && rm /tmp/$$.png
+}
+
+
+# Open new window in same directory by pressing C-S-T
+if [[ -n $VTE_VERSION ]]; then
+  include /etc/profile.d/vte.sh
+fi
+
+# Syntax highlighting (must be at the end of the .zshrc)
+include /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+# Git prompt
+include /usr/share/git-core/contrib/completion/git-prompt.sh
+include /usr/share/git/completion/git-prompt.sh
+GIT_PS1_SHOWDIRTYSTATE=true
+GIT_PS1_SHOWSTASHSTATE=true
+GIT_PS1_SHOWUNTRACKEDFILES=true
+GIT_PS1_SHOWUPSTREAM="auto"
+
+
 setopt share_history \
   extended_history \
   hist_ignore_dups \
@@ -75,77 +125,6 @@ bindkey "${key[page-down]}" end-of-buffer-or-history
 bindkey "${key[shift-tab]}" reverse-menu-complete
 
 
-# Aliases
-alias -g ...='../..'
-alias -g ....='../../..'
-alias rm='rm -vI'
-alias cp='cp -vi'
-alias mv='mv -vi'
-alias ln='ln -vi'
-alias mkdir='mkdir -vp'
-
-alias chmod='chmod -c --preserve-root'
-alias chown='chown -c --preserve-root'
-alias chgrp='chgrp -c --preserve-root'
-
-alias grep='grep --color=auto'
-alias  ls='ls --color=auto --show-control-chars --group-directories-first -hXF'
-alias  ll='ls --color=auto --show-control-chars --group-directories-first -lhXF'
-alias lsa='ls --color=auto --show-control-chars --group-directories-first -AhXF'
-alias lla='ls --color=auto --show-control-chars --group-directories-first -AlhXF'
-alias dmesg='dmesg -exL'
-
-alias vim='nvim'
-alias svim='sudoedit'
-alias dstats='dstat -cdnpmgs --top-bio --top-cpu'
-alias lsports='ss -tunalp | cat'
-
-# bins
-alias i='curl -F "f:1=<-" ix.io'
-alias s='curl -F "sprunge=<-" sprunge.us'
-alias p='curl -F "c=@-" https://ptpb.pw'
-# upload highlighted text
-alias xc='xsel -o | i'
-
-
-# Functions
-twitch() {
-  mpv "http://twitch.tv/$1"
-}
-
-pbx() {
-  curl -sF "c=@${1:--}" -w "%{redirect_url}" 'https://ptpb.pw/?r=1' \
-    -o /dev/stderr | xsel -l /dev/null -b
-}
-
-get_git_branch() {
-  if [[ -d .git ]]; then
-    read -r branch < .git/HEAD
-    branch="%{$fg_bold[magenta]%}${branch##*/}%{$reset_color%}"
-  else
-    branch=""
-  fi
-}
-
-ssh_state() {
-  if [[ -n "$SSH_CLIENT" || -n "$SSH_CONNECTION" || -n "$SSH_TTY" ]]; then
-    print "%{$fg_bold[cyan]%}<%{$reset_color%}%{$fg_bold[white]%}%m%{$fg_bold[cyan]%}>%{$reset_color%} "
-  fi
-}
-
-mkdirf() {
-  mkdir -p "$1" && cd "$_"
-}
-
-cdl() {
-  cd "$1" && ls
-}
-
-precmd() {
-  get_git_branch
-}
-
-
 # Prompt
 autoload -Uz promptinit
 promptinit
@@ -154,14 +133,14 @@ colors
 setopt prompt_subst
 
 PROMPT='$(ssh_state)%{$fg_bold[red]%}>%{$fg_bold[yellow]%}>%{$fg_bold[green]%}>%{$reset_color%} '
-RPROMPT='${branch} %{$fg_bold[blue]%}%~%{$reset_color%}'
+RPROMPT='%{$fg_bold[magenta]%}$(__git_ps1 %s)%{$reset_color%} %{$fg_bold[blue]%}%~%{$reset_color%}'
+
 
 # Colors for ls
 if [[ ! -f ~/.dircolors ]]; then
   dircolors -p > ~/.dircolors
 fi
 eval "$(dircolors ~/.dircolors)"
-
 
 
 # Completion
@@ -172,11 +151,11 @@ compinit
 zstyle ':completion:*' menu yes
 
 if [[ "$NOMENU" -eq 0 ]] ; then
-    # if there are more than 5 options allow selecting from a menu
-    zstyle ':completion:*' menu select=5
+  # if there are more than 5 options allow selecting from a menu
+  zstyle ':completion:*' menu select=5
 else
-    # don't use any menus at all
-    setopt no_auto_menu
+  # don't use any menus at all
+  setopt no_auto_menu
 fi
 
 # rehash executables in PATH
@@ -252,14 +231,28 @@ zstyle ':completion:*:options' auto-description '%d'
 zstyle ':completion:*:options' description 'yes'
 
 
-# Open new window in same directory by pressing C-S-T
-if [[ -n $VTE_VERSION ]]; then
-  source /etc/profile.d/vte.sh
-  __vte_prompt_command
-fi
+# Aliases
+alias -g ...='../..'
+alias -g ....='../../..'
+alias rm='rm -vI'
+alias cp='cp -vi'
+alias mv='mv -vi'
+alias ln='ln -vi'
+alias mkdir='mkdir -v'
 
+alias chmod='chmod -c --preserve-root'
+alias chown='chown -c --preserve-root'
+alias chgrp='chgrp -c --preserve-root'
 
-# Syntax highlighting (must be at the end of the .zshrc)
-if [[ -f /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]]; then
-  source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-fi
+alias grep='grep --color=auto'
+alias  ls='ls --color=auto --show-control-chars --group-directories-first -hXF'
+alias  ll='ls --color=auto --show-control-chars --group-directories-first -lhXF'
+alias lsa='ls --color=auto --show-control-chars --group-directories-first -AhXF'
+alias lla='ls --color=auto --show-control-chars --group-directories-first -AlhXF'
+alias dmesg='dmesg -exL'
+
+alias vim='nvim'
+alias svim='sudoedit'
+alias dstats='dstat -cdnpmgs --top-bio --top-cpu'
+alias lsports='ss -tunalp | cat'
+
