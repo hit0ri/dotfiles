@@ -28,7 +28,8 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'moll/vim-node'
     Plug 'nathanaelkane/vim-indent-guides'
     Plug 'ntpeters/vim-better-whitespace'
-    " Plug 'euclio/vim-markdown-composer', { 'do': function('BuildComposer') }
+    Plug 'ctrlpvim/ctrlp.vim'
+    Plug 'elzr/vim-json'
     Plug 'morhetz/gruvbox'
     Plug 'junegunn/seoul256.vim'
 call plug#end()
@@ -67,6 +68,9 @@ autocmd FileType javascript,css,YOUR_LANG inoremap <silent> <Leader>; <c-o>:call
 " ### indent-guides
 let g:indent_guides_guide_size=1
 let g:indent_guides_enable_on_vim_startup=1
+
+" ### ctrlp
+let g:ctrlp_custom_ignore='\v[\/](node_modules|target|dist)|(\.(swp|ico|git|svn))$'
 
 " ### gruvbox
 let g:gruvbox_contrast_dark='hard'
