@@ -137,10 +137,9 @@ RPROMPT='%{$fg_bold[magenta]%}$(__git_ps1 %s)%{$reset_color%} %{$fg_bold[blue]%}
 
 
 # Colors for ls
-if [[ ! -f ~/.dircolors ]]; then
-  dircolors -p > ~/.dircolors
+if type dircolors &>/dev/null; then
+    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
 fi
-eval "$(dircolors ~/.dircolors)"
 
 
 # Completion
