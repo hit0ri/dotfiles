@@ -1,5 +1,5 @@
 typeset -U path
-path=(~/.node_modules/bin ~/go/bin ~/bin $path)
+path=(~/.node_modules/bin ~/go/bin ~/bin ~/.local/bin $path)
 
 export KEYTIMEOUT=10
 export WORDCHARS='*?_[]~=&;!#$%^(){}'
@@ -249,6 +249,7 @@ alias  ll='ls --color=auto --show-control-chars --group-directories-first -lhXF'
 alias lsa='ls --color=auto --show-control-chars --group-directories-first -AhXF'
 alias lla='ls --color=auto --show-control-chars --group-directories-first -AlhXF'
 alias dmesg='dmesg -exL'
+alias ip='ip --stats --color'
 
 alias vim='nvim'
 alias svim='sudoedit'
