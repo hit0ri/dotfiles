@@ -3,7 +3,8 @@
     showOnStartup: false
   editor:
     invisibles: {}
-    fontFamily: "Hack"
+    fontFamily: "Fantasque Sans Mono"
+    fontSize: 16
     scrollPastEnd: true
     showIndentGuide: true
     tabLength: 4

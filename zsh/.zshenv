@@ -24,5 +24,5 @@ export WINEDLLOVERRIDES=winemenubuilder.exe,mscoree,mshtml=
 # bspwm
 export PANEL_FIFO=/tmp/panel-fifo
 export PANEL_HEIGHT=24
-export PANEL_FONT="Hack-9"
+export PANEL_FONT="Fantasque Sans Mono-12"
 export PANEL_WM_NAME=bspwm_panel
