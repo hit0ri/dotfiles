@@ -3,8 +3,8 @@
     showOnStartup: false
   editor:
     invisibles: {}
-    fontFamily: "Fantasque Sans Mono"
-    fontSize: 16
+    fontFamily: "Source Code Pro"
+    fontSize: 14
     scrollPastEnd: true
     showIndentGuide: true
     tabLength: 4
