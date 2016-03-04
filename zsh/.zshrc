@@ -4,6 +4,9 @@ path=(~/.node_modules/bin ~/go/bin ~/bin ~/.local/bin $path)
 export KEYTIMEOUT=10
 export WORDCHARS='*?_[]~=&;!#$%^(){}'
 
+# Report CPU usage for commands running longer than 10 seconds
+REPORTTIME=10
+
 # History
 HISTFILE=~/.histfile
 HISTSIZE=3000
