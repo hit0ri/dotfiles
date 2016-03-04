@@ -1,6 +1,3 @@
-typeset -U path
-path=(~/.node_modules/bin ~/go/bin ~/bin ~/.local/bin $path)
-
 export KEYTIMEOUT=10
 export WORDCHARS='*?_[]~=&;!#$%^(){}'
 
