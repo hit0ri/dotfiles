@@ -244,6 +244,8 @@ alias chown='chown -c --preserve-root'
 alias chgrp='chgrp -c --preserve-root'
 
 alias grep='grep --color=auto'
+alias egrep='egrep --color=auto'
+alias fgrep='fgrep --color=auto'
 alias  ls='ls --color=auto --show-control-chars --group-directories-first -hXF'
 alias  ll='ls --color=auto --show-control-chars --group-directories-first -lhXF'
 alias lsa='ls --color=auto --show-control-chars --group-directories-first -AhXF'
