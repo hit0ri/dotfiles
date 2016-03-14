@@ -7,14 +7,16 @@
 	[
 		"Alignment",
 		"All Autocomplete",
+		"AngularJS",
 		"Ansible",
-		"Base16 Color Schemes",
+		"Babel",
 		"BracketHighlighter",
 		"DeleteBlankLines",
 		"Emmet",
 		"Generic Config",
 		"Git",
 		"GitGutter",
+		"gruvbox",
 		"HTML5",
 		"INI",
 		"Jinja2",
@@ -22,14 +24,14 @@
 		"MikrotikScript",
 		"Package Control",
 		"PKGBUILD",
+		"Predawn",
 		"SideBarEnhancements",
 		"SSH Config",
+		"SublimeCodeIntel",
 		"SublimeLinter",
+		"SublimeLinter-jscs",
+		"SublimeLinter-jshint",
 		"SublimeLinter-json",
-		"SublimeLinter-shellcheck",
-		"Theme - Soda",
-		"Theme - Spacegray",
-		"Tomorrow Color Schemes",
-		"Vagrant"
+		"SublimeLinter-shellcheck"
 	]
 }

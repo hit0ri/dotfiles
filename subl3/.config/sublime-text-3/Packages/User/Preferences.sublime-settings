@@ -2,28 +2,51 @@
 	"always_show_minimap_viewport": true,
 	"auto_close_tags": true,
 	"bold_folder_labels": true,
-	"color_scheme": "Packages/User/SublimeLinter/base16-eighties.dark (SL).tmTheme",
+	"color_scheme": "Packages/gruvbox/gruvbox (Dark) (Hard).tmTheme",
 	"enable_tab_scrolling": true,
 	"ensure_newline_at_eof_on_save": true,
-	"font_face": "Source Code Pro",
+	"folder_exclude_patterns":
+	[
+		".svn",
+		".git",
+		".hg",
+		"CVS",
+		"node_modules",
+		"bower_components"
+	],
+	"font_face": "Fira Mono",
 	"font_size": 10,
+	"gruvbox_autocomplete_cozy": true,
+	"gruvbox_sidebar_cozy": true,
+	"gruvbox_sidebar_font_size_10": true,
+	"gruvbox_statusbar_xxs": true,
+	"gruvbox_tabs_xxs": true,
 	"highlight_line": true,
 	"highlight_modified_tabs": true,
 	"ignored_packages":
 	[
 		"Vintage"
 	],
+	"indent_guide_options":
+	[
+		"draw_normal",
+		"draw_active"
+	],
+	"predawn_findreplace_small": true,
+	"predawn_quick_panel_small": true,
+	"predawn_sidebar_arrows": true,
+	"predawn_sidebar_narrow": true,
+	"predawn_sidebar_small": true,
+	"predawn_tabs_active_underline": true,
+	"predawn_tabs_small": true,
 	"rulers":
 	[
 		80
 	],
 	"show_encoding": true,
 	"show_line_endings": true,
-	"spacegray_tabs_auto_width": true,
-	"spacegray_tabs_font_normal": true,
-	"spacegray_tabs_normal": true,
-	"tab_size": 4,
-	"theme": "Soda Dark 3.sublime-theme",
+	"tab_size": 2,
+	"theme": "gruvbox (Dark) (Hard).sublime-theme",
 	"translate_tabs_to_spaces": true,
 	"update_check": false
 }
