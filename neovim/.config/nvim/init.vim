@@ -1,5 +1,5 @@
 " Change the cursor shape to a pipe in insert-mode, and a block in normal-mode
-:let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
+let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
 let mapleader=","
 
 function! BuildComposer(info)
@@ -32,6 +32,7 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'elzr/vim-json'
     Plug 'morhetz/gruvbox'
     Plug 'junegunn/seoul256.vim'
+    Plug 'mhartington/oceanic-next'
 call plug#end()
 
 "-----------------------------------------------------------------------------
@@ -50,7 +51,7 @@ let g:airline_powerline_fonts=1
 " let g:airline_left_alt_sep='|'
 " let g:airline_right_sep=''
 " let g:airline_right_alt_sep='|'
-let g:airline_theme='gruvbox'
+let g:airline_theme='oceanicnext'
 
 " ### easymotion
 map <Leader>l <Plug>(easymotion-lineforward)
@@ -83,7 +84,8 @@ let g:seoul256_background=234
 "-----------------------------------------------------------------------------
 syntax on
 filetype indent plugin on
-colorscheme gruvbox
+let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+colorscheme OceanicNext
 set background=dark
 
 set title
