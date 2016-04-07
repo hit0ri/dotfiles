@@ -7,7 +7,7 @@ fi
 
 # User specific environment and startup programs
 
-PATH=$PATH:$HOME/.local/bin:$HOME/bin:$HOME/.node_modules/bin
+PATH=$PATH:$HOME/.local/bin:$HOME/bin:$HOME/.node_modules/bin:$HOME/go/bin
 npm_config_prefix=$HOME/.node_modules
 
 export PATH npm_config_prefix
