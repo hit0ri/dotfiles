@@ -12,39 +12,43 @@ SAVEHIST=3000
 
 # Functions
 include() {
-  [[ -f "$1" ]] && source "$1"
+    [[ -f "$1" ]] && source "$1"
 }
 
 twitch() {
-  mpv "http://twitch.tv/$1"
+    mpv "http://twitch.tv/$1"
 }
 
 ssh_state() {
-  if [[ -n "$SSH_CLIENT" || -n "$SSH_CONNECTION" || -n "$SSH_TTY" ]]; then
-    print "%{$fg_bold[cyan]%}<%{$reset_color%}%{$fg_bold[white]%}%m%{$fg_bold[cyan]%}>%{$reset_color%} "
-  fi
+    if [[ -n "$SSH_CLIENT" || -n "$SSH_CONNECTION" || -n "$SSH_TTY" ]]; then
+        print "%{$fg_bold[cyan]%}<%{$reset_color%}%{$fg_bold[white]%}%m%{$fg_bold[cyan]%}>%{$reset_color%} "
+    fi
 }
 
 cdl() {
-  cd "$1" && ls
+    cd "$1" && ls
+}
+
+mkdirf() {
+    mkdir -p "$1" && cd "$1"
 }
 
 pb() {
-  curl -F "c=@${1:--}" https://ptpb.pw/
+    curl -F "c=@${1:--}" https://ptpb.pw/
 }
 
 pbx() {
-  curl -sF "c=@${1:--}" -w "%{redirect_url}" 'https://ptpb.pw/?r=1' -o /dev/stderr | xsel -l /dev/null -b
+    curl -sF "c=@${1:--}" -w "%{redirect_url}" 'https://ptpb.pw/?r=1' -o /dev/stderr | xsel -l /dev/null -b
 }
 
 pbs() {
-  scrot /tmp/$$.png && pbx /tmp/$$.png && rm /tmp/$$.png
+    scrot /tmp/$$.png && pbx /tmp/$$.png && rm /tmp/$$.png
 }
 
 
 # Open new window in same directory by pressing C-S-T
 if [[ -n $VTE_VERSION ]]; then
-  include /etc/profile.d/vte.sh
+    include /etc/profile.d/vte.sh
 fi
 
 # Syntax highlighting (must be at the end of the .zshrc)
@@ -60,19 +64,19 @@ GIT_PS1_SHOWUPSTREAM="auto"
 
 
 setopt share_history \
-  extended_history \
-  hist_ignore_dups \
-  hist_reduce_blanks \
-  hist_fcntl_lock \
-  hist_ignore_space \
+       extended_history \
+       hist_ignore_dups \
+       hist_reduce_blanks \
+       hist_fcntl_lock \
+       hist_ignore_space \
 
 # Options
 setopt auto_cd \
-  pushd_silent \
-  complete_aliases \
-  glob_dots \
-  interactive_comments \
-  # extended_glob
+       pushd_silent \
+       complete_aliases \
+       glob_dots \
+       interactive_comments \
+       # extended_glob
 
 
 # Help
@@ -83,18 +87,18 @@ alias help='run-help'
 # Key bindings
 typeset -gA key
 key=(
-  'left'      "${terminfo[kcub1]}"
-  'right'     "${terminfo[kcuf1]}"
-  'up'        "${terminfo[kcuu1]}"
-  'down'      "${terminfo[kcud1]}"
-  'backspace' "${terminfo[kbs]}"
-  'delete'    "${terminfo[kdch1]}"
-  'insert'    "${terminfo[kich1]}"
-  'home'      "${terminfo[khome]}"
-  'end'       "${terminfo[kend]}"
-  'page-up'   "${terminfo[kpp]}"
-  'page-down' "${terminfo[knp]}"
-  'shift-tab' "${terminfo[kcbt]}"
+    'left'      "${terminfo[kcub1]}"
+    'right'     "${terminfo[kcuf1]}"
+    'up'        "${terminfo[kcuu1]}"
+    'down'      "${terminfo[kcud1]}"
+    'backspace' "${terminfo[kbs]}"
+    'delete'    "${terminfo[kdch1]}"
+    'insert'    "${terminfo[kich1]}"
+    'home'      "${terminfo[khome]}"
+    'end'       "${terminfo[kend]}"
+    'page-up'   "${terminfo[kpp]}"
+    'page-down' "${terminfo[knp]}"
+    'shift-tab' "${terminfo[kcbt]}"
 )
 
 bindkey -e
@@ -150,11 +154,11 @@ compinit
 zstyle ':completion:*' menu yes
 
 if [[ "$NOMENU" -eq 0 ]] ; then
-  # if there are more than 5 options allow selecting from a menu
-  zstyle ':completion:*' menu select=5
+    # if there are more than 5 options allow selecting from a menu
+    zstyle ':completion:*' menu select=5
 else
-  # don't use any menus at all
-  setopt no_auto_menu
+    # don't use any menus at all
+    setopt no_auto_menu
 fi
 
 # rehash executables in PATH
@@ -178,7 +182,7 @@ zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}' 'r:|[._-]=* r:|=*' 'l:|=* r:
 
 # start menu completion only if it could find no unambiguous initial string
 zstyle ':completion:*:correct:*' insert-unambiguous true
-zstyle ':completion:*:correct:*'original true
+zstyle ':completion:*:correct:*' original true
 
 # format for completion
 zstyle ':completion:*'             format "%{$fg_bold[green]%}- %d%{$reset_color%}"
@@ -188,7 +192,7 @@ zstyle ':completion:*:corrections' format "%{$fg_bold[red]%}%d (errors: %e)%{$re
 
 # separate matches into groups
 zstyle ':completion:*:matches' group 'yes'
-zstyle ':completion:*' group-name ''
+zstyle ':completion:*'         group-name ''
 
 # ignore duplicate entries
 zstyle ':completion:*:history-words' remove-all-dups yes
@@ -258,4 +262,3 @@ alias vim='nvim'
 alias svim='sudoedit'
 alias dstats='dstat -cdnpmgs --top-bio --top-cpu'
 alias lsports='ss -tunalp | cat'
-
