@@ -37,6 +37,10 @@ pb() {
     curl -F "c=@${1:--}" https://ptpb.pw/
 }
 
+pbp() {
+    curl -F p=1 -F "c=@${1:--}" https://ptpb.pw/
+}
+
 pbx() {
     curl -sF "c=@${1:--}" -w "%{redirect_url}" 'https://ptpb.pw/?r=1' -o /dev/stderr | xsel -l /dev/null -b
 }
