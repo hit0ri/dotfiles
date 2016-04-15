@@ -48,6 +48,8 @@ else
 fi
 
 export GOPATH=~/go
+export npm_config_prefix=~/.node_modules
+
 export WINEDLLOVERRIDES=winemenubuilder.exe,mscoree,mshtml=
 
 export PAGER=less
