@@ -38,6 +38,9 @@ include /etc/bashrc
 # Open new tabs in the $PWD
 include /etc/profile.d/vte.sh
 
+export PATH=$PATH:$HOME/.local/bin:$HOME/bin:$HOME/.node_modules/bin:$HOME/go/bin
+export npm_config_prefix=$HOME/.node_modules
+
 export EDITOR=nvim
 export SUDO_EDITOR=$EDITOR
 
