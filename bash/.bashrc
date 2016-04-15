@@ -1,7 +1,12 @@
+
 # Functions
 
 include() {
-    [[ -f "$1" ]] && source "$1"
+    [[ -r "$1" ]] && . "$1"
+}
+
+command_exists() {
+    command -v "$1" &> /dev/null
 }
 
 twitch() {
@@ -22,22 +27,21 @@ pbs() {
 
 
 # Source global definitions
-include /etc/bashrc
 include /etc/bash.bashrc
-
-# Enable bash-completion
-include /usr/share/bash-completion/bash_completion
+include /etc/bashrc
 
 # Open new tabs in the $PWD
 include /etc/profile.d/vte.sh
 
 export EDITOR=nvim
-export SUDO_EDITOR=nvim
-if type google-chrome &> /dev/null; then
+export SUDO_EDITOR=$EDITOR
+
+if command_exists google-chrome; then
     export BROWSER=google-chrome
 else
     export BROWSER=chromium
 fi
+
 export GOPATH=~/go
 export WINEDLLOVERRIDES=winemenubuilder.exe,mscoree,mshtml=
 
@@ -62,13 +66,13 @@ export HISTSIZE=8192
 shopt -s checkwinsize
 
 # Colors for ls
-if type dircolors &>/dev/null; then
-    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+if command_exists dircolors; then
+    [[ -r ~/.dircolors ]] && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
 fi
 
 # Git prompt
-include /usr/share/git-core/contrib/completion/git-prompt.sh
 include /usr/share/git/completion/git-prompt.sh
+include /usr/share/git-core/contrib/completion/git-prompt.sh
 GIT_PS1_SHOWDIRTYSTATE=true
 GIT_PS1_SHOWSTASHSTATE=true
 GIT_PS1_SHOWUNTRACKEDFILES=true
@@ -97,14 +101,10 @@ set_prompt() {
     RESET="\[$(tput sgr0)\]"
 
     PS1="${BOLD}${FG_WHITE}┌╼"
-    if [[ -n "$SSH_CONNECTION" ]]; then
-        PS1+="[${FG_YELLOW}\h${FG_WHITE}]╺─╸"
-    fi
+    [[ -n "$SSH_CONNECTION" ]] && PS1+="[${FG_YELLOW}\h${FG_WHITE}]╺─╸"
     PS1+="[${FG_GREEN}\w${FG_WHITE}]"
     PS1+="$(__git_ps1 ╺─╸[${FG_BLUE}%s${FG_WHITE}])"
-    if [[ ${EXIT} -ne 0 ]]; then
-        PS1+="╺─╸[${FG_RED}${EXIT}${FG_WHITE}]"
-    fi
+    [[ ${EXIT} -ne 0 ]] && PS1+="╺─╸[${FG_RED}${EXIT}${FG_WHITE}]"
     PS1+="\n└╼${RESET} "
 }
 
@@ -127,7 +127,7 @@ alias chmod='chmod -c --preserve-root'
 alias chown='chown -c --preserve-root'
 alias chgrp='chgrp -c --preserve-root'
 
-alias grep='grep --color=auto'
+alias  grep='grep --color=auto'
 alias egrep='egrep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias zgrep='zgrep --color=auto'
@@ -138,9 +138,10 @@ alias lsa='ls --color=auto --show-control-chars --group-directories-first -AhXF'
 alias lla='ls --color=auto --show-control-chars --group-directories-first -AlhXF'
 
 alias dmesg='dmesg -exL'
+alias ip='ip --stats --color'
+
 alias vim='nvim'
 alias svim='sudoedit'
 alias gap='git add --patch'
 alias lsports='ss -tunalp | cat'
 alias dstats='dstat -cdnpmgs --top-bio --top-cpu'
-alias ip='ip --stats --color'
