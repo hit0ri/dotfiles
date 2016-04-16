@@ -66,9 +66,10 @@ export LESS_TERMCAP_us=$'\e[01;32m'
 # History
 # Ignore duplicates and lines which begin with a space
 export HISTCONTROL=ignoreboth
-
 export HISTTIMEFORMAT="%h %d %H:%M:%S> "
 export HISTSIZE=8192
+shopt -s histappend
+
 
 # Line wrap on window resize
 shopt -s checkwinsize
@@ -117,6 +118,7 @@ set_prompt() {
 }
 
 PROMPT_COMMAND=set_prompt
+export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
 
 
 # Aliases
