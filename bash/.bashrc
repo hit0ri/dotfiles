@@ -30,6 +30,14 @@ pbs() {
     scrot /tmp/$$.png && pbx /tmp/$$.png && rm /tmp/$$.png
 }
 
+p() {
+    xsel -l /dev/null -p -o | curl -F "c=@${1:--}" https://ptpb.pw/
+}
+
+mkdirf() {
+    mkdir "$1" && cd "$1"
+}
+
 
 # Source global definitions
 include /etc/bash.bashrc
