@@ -86,7 +86,7 @@ let g:seoul256_background=234
 syntax on
 filetype indent plugin on
 let $NVIM_TUI_ENABLE_TRUE_COLOR=1
-colorscheme OceanicNext
+colorscheme gruvbox
 set background=dark
 
 set title
