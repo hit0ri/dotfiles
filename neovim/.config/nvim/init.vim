@@ -22,6 +22,7 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'easymotion/vim-easymotion'
     Plug 'Firef0x/PKGBUILD.vim'
     Plug 'chase/vim-ansible-yaml'
+    Plug 'lepture/vim-jinja'
     Plug 'zainin/vim-mikrotik'
     Plug 'lfilho/cosco.vim'
     Plug 'pangloss/vim-javascript'
@@ -90,8 +91,6 @@ set background=dark
 
 set title
 set number
-set relativenumber
-set cursorline
 set hidden
 set linebreak
 set colorcolumn=80
