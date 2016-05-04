@@ -36,36 +36,62 @@ browser = chromium
 #size_hints = false
 
 [colors]
+# Base16 Ocean
+# by Chris Kempson
+foreground = #c0c5ce
+background = #2b303b
+cursor     = #515661
+color0     = #2b303b
+color1     = #bf616a
+color2     = #a3be8c
+color3     = #ebcb8b
+color4     = #8fa1b3
+color5     = #b48ead
+color6     = #96b5b4
+color7     = #c0c5ce
+color8     = #65737e
+color9     = #bf616a
+color10    = #a3be8c
+color11    = #ebcb8b
+color12    = #8fa1b3
+color13    = #b48ead
+color14    = #96b5b4
+color15    = #eff1f5
+color16    = #d08770
+color17    = #ab7967
+color18    = #343d46
+color19    = #4f5b66
+color20    = #a7adba
+color21    = #dfe1e8
+
+
 # Base16 Tomorrow
-# Scheme: Chris Kempson (http://chriskempson.com)
-# foreground      = #c5c8c6
-# foreground_bold = #c5c8c6
-# cursor          = #A65F52
-# background      = #1d1f21
-# # 16 color space
-# color0  = #1d1f21
-# color1  = #cc6666
-# color2  = #b5bd68
-# color3  = #f0c674
-# color4  = #81a2be
-# color5  = #b294bb
-# color6  = #8abeb7
-# color7  = #c5c8c6
-# color8  = #969896
-# color9  = #cc6666
-# color10 = #b5bd68
-# color11 = #f0c674
-# color12 = #81a2be
-# color13 = #b294bb
-# color14 = #8abeb7
-# color15 = #ffffff
-# # 256 color space
-# color16 = #de935f
-# color17 = #a3685a
-# color18 = #282a2e
-# color19 = #373b41
-# color20 = #b4b7b4
-# color21 = #e0e0e0
+# by Chris Kempson
+# foreground = #c5c8c6
+# background = #1d1f21
+# cursor     = #A65F52
+# color0     = #1d1f21
+# color1     = #cc6666
+# color2     = #b5bd68
+# color3     = #f0c674
+# color4     = #81a2be
+# color5     = #b294bb
+# color6     = #8abeb7
+# color7     = #c5c8c6
+# color8     = #969896
+# color9     = #cc6666
+# color10    = #b5bd68
+# color11    = #f0c674
+# color12    = #81a2be
+# color13    = #b294bb
+# color14    = #8abeb7
+# color15    = #ffffff
+# color16    = #de935f
+# color17    = #a3685a
+# color18    = #282a2e
+# color19    = #373b41
+# color20    = #b4b7b4
+# color21    = #e0e0e0
 
 # s3r0 modified
 # by earplit
@@ -134,59 +160,59 @@ browser = chromium
 
 # gruvbox dark
 # by morhetz
-foreground = #ebdbb2
-# hard contrast
-background = #1d2021
-# regular contrast
-# background = #282828
-# soft contrast
-# background = #32302f
-color0   = #282828
-color1   = #cc241d
-color2   = #98971a
-color3   = #d79921
-color4   = #458588
-color5   = #b16286
-color6   = #689d6a
-color7   = #a89984
-color8   = #928374
-color9   = #fb4934
-color10  = #b8bb26
-color11  = #fabd2f
-color12  = #83a598
-color13  = #d3869b
-color14  = #8ec07c
-color15  = #ebdbb2
-color24  = #076678
-color66  = #427b58
-color88  = #9d0006
-color96  = #8f3f71
-color100 = #79740e
-color108 = #8ec07c
-color109 = #83a598
-color130 = #af3a03
-color136 = #b57614
-color142 = #b8bb26
-color167 = #fb4934
-color175 = #d3869b
-color208 = #fe8019
-color214 = #fabd2f
-color223 = #ebdbb2
-color228 = #f2e5bc
-color229 = #fbf1c7
-color230 = #f9f5d7
-color234 = #1d2021
-color235 = #282828
-color236 = #32302f
-color237 = #3c3836
-color239 = #504945
-color241 = #665c54
-color243 = #7c6f64
-color244 = #928374
-color245 = #928374
-color246 = #a89984
-color248 = #bdae93
-color250 = #d5c4a1
+# foreground = #ebdbb2
+# # hard contrast
+# background = #1d2021
+# # regular contrast
+# # background = #282828
+# # soft contrast
+# # background = #32302f
+# color0   = #282828
+# color1   = #cc241d
+# color2   = #98971a
+# color3   = #d79921
+# color4   = #458588
+# color5   = #b16286
+# color6   = #689d6a
+# color7   = #a89984
+# color8   = #928374
+# color9   = #fb4934
+# color10  = #b8bb26
+# color11  = #fabd2f
+# color12  = #83a598
+# color13  = #d3869b
+# color14  = #8ec07c
+# color15  = #ebdbb2
+# color24  = #076678
+# color66  = #427b58
+# color88  = #9d0006
+# color96  = #8f3f71
+# color100 = #79740e
+# color108 = #8ec07c
+# color109 = #83a598
+# color130 = #af3a03
+# color136 = #b57614
+# color142 = #b8bb26
+# color167 = #fb4934
+# color175 = #d3869b
+# color208 = #fe8019
+# color214 = #fabd2f
+# color223 = #ebdbb2
+# color228 = #f2e5bc
+# color229 = #fbf1c7
+# color230 = #f9f5d7
+# color234 = #1d2021
+# color235 = #282828
+# color236 = #32302f
+# color237 = #3c3836
+# color239 = #504945
+# color241 = #665c54
+# color243 = #7c6f64
+# color244 = #928374
+# color245 = #928374
+# color246 = #a89984
+# color248 = #bdae93
+# color250 = #d5c4a1
 
 # seoul
 # by junegunn
