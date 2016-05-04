@@ -19,6 +19,7 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'godlygeek/tabular'
     Plug 'Raimondi/delimitMate'
     Plug 'bling/vim-airline'
+    Plug 'vim-airline/vim-airline-themes'
     Plug 'easymotion/vim-easymotion'
     Plug 'Firef0x/PKGBUILD.vim'
     Plug 'chase/vim-ansible-yaml'
@@ -31,6 +32,7 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'ntpeters/vim-better-whitespace'
     Plug 'ctrlpvim/ctrlp.vim'
     Plug 'elzr/vim-json'
+    Plug 'chriskempson/base16-vim'
     Plug 'morhetz/gruvbox'
     Plug 'junegunn/seoul256.vim'
     Plug 'mhartington/oceanic-next'
@@ -52,7 +54,7 @@ let g:airline_powerline_fonts=1
 " let g:airline_left_alt_sep='|'
 " let g:airline_right_sep=''
 " let g:airline_right_alt_sep='|'
-let g:airline_theme='gruvbox'
+let g:airline_theme='base16_ocean'
 
 " ### easymotion
 map <Leader>l <Plug>(easymotion-lineforward)
@@ -86,7 +88,7 @@ let g:seoul256_background=234
 syntax on
 filetype indent plugin on
 let $NVIM_TUI_ENABLE_TRUE_COLOR=1
-colorscheme gruvbox
+colorscheme base16-ocean
 set background=dark
 
 set title
