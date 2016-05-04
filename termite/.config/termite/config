@@ -9,11 +9,11 @@ allow_bold = true
 dynamic_title = true
 urgent_on_bell = true
 clickable_url = true
-font = Source Code Pro 10
+font = Iosevka Term 10
 scrollback_lines = 10000
 search_wrap = true
 #icon_name = terminal
-geometry = 850x478
+geometry = 842x482
 
 # 0.0: opaque, 1.0: transparent
 transparency = 0.0
