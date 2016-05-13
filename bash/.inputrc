@@ -1,20 +1,17 @@
-# Tab completion when no completion is possible
-set show-all-if-unmodified on
-
-# Case insensitive tab completion
+set colored-stats on
 set completion-ignore-case on
+set match-hidden-files off
+set menu-complete-display-prefix on
+set show-all-if-ambiguous on
+set skip-completed-text on
 
-# History completion
+TAB: menu-complete
+"\e[Z": menu-complete-backward
+
+# History completion with arrow keys
 "\e[A": history-search-backward
 "\e[B": history-search-forward
 
 # Show man for command by pressing Alt+h
 "\eh": "\C-a\eb\ed\C-y\e#man \C-y\C-m\C-p\C-p\C-a\C-d\C-e"
 
-# Fast word movement with Ctrl
-"\e[1;5C": forward-word
-"\e[1;5D": backward-word
-"\e[5C": forward-word
-"\e[5D": backward-word
-"\e\e[C": forward-word
-"\e\e[D": backward-word
