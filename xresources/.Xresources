@@ -14,7 +14,7 @@ Xft.rgba:       rgb
 URxvt*geometry: 94x28
 URxvt*scrollBar: false
 URxvt*saveLines: 8192
-URxvt*font: xft:Iosevka Term:size=10, \
+URxvt*font: xft:Hack:size=10, \
             xft:DejaVu Sans:size=10, \
             xft:Noto Sans Symbols:size=10
 

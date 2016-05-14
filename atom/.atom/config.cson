@@ -3,7 +3,7 @@
     showOnStartup: false
   editor:
     invisibles: {}
-    fontFamily: "Iosevka Term"
+    fontFamily: "Hack"
     fontSize: 14
     scrollPastEnd: true
     showIndentGuide: true
