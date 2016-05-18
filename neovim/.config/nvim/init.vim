@@ -13,6 +13,9 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'tpope/vim-surround'
     Plug 'tpope/vim-fugitive'
     Plug 'tpope/vim-commentary'
+    Plug 'tpope/vim-repeat'
+    Plug 'christoomey/vim-sort-motion'
+    Plug 'tommcdo/vim-exchange'
     Plug 'Shougo/deoplete.nvim'
     Plug 'airblade/vim-gitgutter'
     Plug 'benekastah/neomake'
@@ -21,21 +24,15 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'bling/vim-airline'
     Plug 'vim-airline/vim-airline-themes'
     Plug 'easymotion/vim-easymotion'
+    Plug 'sheerun/vim-polyglot'
     Plug 'Firef0x/PKGBUILD.vim'
-    Plug 'chase/vim-ansible-yaml'
-    Plug 'lepture/vim-jinja'
     Plug 'zainin/vim-mikrotik'
     Plug 'lfilho/cosco.vim'
-    Plug 'pangloss/vim-javascript'
     Plug 'moll/vim-node'
     Plug 'nathanaelkane/vim-indent-guides'
     Plug 'ntpeters/vim-better-whitespace'
     Plug 'ctrlpvim/ctrlp.vim'
-    Plug 'elzr/vim-json'
     Plug 'chriskempson/base16-vim'
-    Plug 'morhetz/gruvbox'
-    Plug 'junegunn/seoul256.vim'
-    Plug 'mhartington/oceanic-next'
 call plug#end()
 
 "-----------------------------------------------------------------------------
@@ -62,9 +59,6 @@ map <Leader>j <Plug>(easymotion-j)
 map <Leader>k <Plug>(easymotion-k)
 map <Leader>h <Plug>(easymotion-linebackward)
 
-" ### ansible-yaml
-let g:ansible_options={'documentation_mapping': '<C-K>'}
-
 " ### cosco
 autocmd FileType javascript,css,YOUR_LANG nnoremap <silent> <Leader>; :call cosco#commaOrSemiColon()<CR>
 autocmd FileType javascript,css,YOUR_LANG inoremap <silent> <Leader>; <c-o>:call cosco#commaOrSemiColon()<CR>
@@ -76,13 +70,6 @@ let g:indent_guides_enable_on_vim_startup=1
 " ### ctrlp
 let g:ctrlp_custom_ignore='\v[\/](node_modules|target|dist)|(\.(swp|ico|git|svn))$'
 
-" ### gruvbox
-let g:gruvbox_contrast_dark='hard'
-
-" ### seoul256
-" range: [darkest] 233 - 239 [lightest]
-let g:seoul256_background=234
-
 
 "-----------------------------------------------------------------------------
 syntax on
@@ -93,6 +80,7 @@ set background=dark
 
 set title
 set number
+set relativenumber
 set hidden
 set linebreak
 set colorcolumn=80
