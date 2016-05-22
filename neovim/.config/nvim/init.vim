@@ -1,33 +1,27 @@
 " Change the cursor shape to a pipe in insert-mode, and a block in normal-mode
-let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
-let mapleader=","
+let $NVIM_TUI_ENABLE_CURSOR_SHAPE = 1
+let mapleader = ','
 
-function! BuildComposer(info)
-    if a:info.status != 'unchanged' || a:info.force
-        !cargo build --release
-        UpdateRemotePlugins
-    endif
-endfunction
-
+" Plugins ---------------------------------------------------------------------
 call plug#begin('~/.config/nvim/plugged')
     Plug 'tpope/vim-surround'
     Plug 'tpope/vim-fugitive'
     Plug 'tpope/vim-commentary'
     Plug 'tpope/vim-repeat'
+    Plug 'tpope/vim-endwise'
+    Plug 'tpope/vim-eunuch'
+    Plug 'jiangmiao/auto-pairs'
     Plug 'christoomey/vim-sort-motion'
     Plug 'tommcdo/vim-exchange'
     Plug 'Shougo/deoplete.nvim'
     Plug 'airblade/vim-gitgutter'
     Plug 'benekastah/neomake'
     Plug 'godlygeek/tabular'
-    Plug 'Raimondi/delimitMate'
     Plug 'bling/vim-airline'
     Plug 'vim-airline/vim-airline-themes'
-    Plug 'easymotion/vim-easymotion'
     Plug 'sheerun/vim-polyglot'
     Plug 'Firef0x/PKGBUILD.vim'
     Plug 'zainin/vim-mikrotik'
-    Plug 'lfilho/cosco.vim'
     Plug 'moll/vim-node'
     Plug 'nathanaelkane/vim-indent-guides'
     Plug 'ntpeters/vim-better-whitespace'
@@ -35,46 +29,55 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'chriskempson/base16-vim'
 call plug#end()
 
-"-----------------------------------------------------------------------------
+
+" Plugin settings -------------------------------------------------------------
+" Disable highlighting matched parenthesis
+let g:loaded_matchparen = 1
+
 " ### plug
-let g:plug_window='new'
+let g:plug_window = 'new'
 
 " ### deoplete
-let g:deoplete#enable_at_startup=1
+let g:deoplete#enable_at_startup = 1
+" Automatically close the scratch window
+autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
 
 " ### neomake
 autocmd! BufWritePost * Neomake
 
 " ### airline
-let g:airline_powerline_fonts=1
-" let g:airline_left_sep=''
-" let g:airline_left_alt_sep='|'
-" let g:airline_right_sep=''
-" let g:airline_right_alt_sep='|'
-let g:airline_theme='base16_ocean'
-
-" ### easymotion
-map <Leader>l <Plug>(easymotion-lineforward)
-map <Leader>j <Plug>(easymotion-j)
-map <Leader>k <Plug>(easymotion-k)
-map <Leader>h <Plug>(easymotion-linebackward)
-
-" ### cosco
-autocmd FileType javascript,css,YOUR_LANG nnoremap <silent> <Leader>; :call cosco#commaOrSemiColon()<CR>
-autocmd FileType javascript,css,YOUR_LANG inoremap <silent> <Leader>; <c-o>:call cosco#commaOrSemiColon()<CR>
+let g:airline_powerline_fonts = 1
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#fnamemod = ':t'
+" let g:airline_left_sep = ''
+" let g:airline_left_alt_sep = '|'
+" let g:airline_right_sep = ''
+" let g:airline_right_alt_sep = '|'
+let g:airline_theme = 'base16_ocean'
 
 " ### indent-guides
-let g:indent_guides_guide_size=1
-let g:indent_guides_enable_on_vim_startup=1
+let g:indent_guides_guide_size = 1
+let g:indent_guides_enable_on_vim_startup = 1
 
 " ### ctrlp
-let g:ctrlp_custom_ignore='\v[\/](node_modules|target|dist)|(\.(swp|ico|git|svn))$'
+" Set the default opening command
+let g:ctrlp_cmd = 'CtrlP'
+let g:ctrlp_by_filename = 1
+let g:ctrlp_show_hidden = 1
+" Set layout
+let g:ctrlp_match_window = 'bottom,order:btt,min:1,max:10,results:20'
+let g:ctrlp_custom_ignore = '\v[\/](node_modules|target|dist)|(\.(swp|ico|git|svn))$'
+nnoremap <c-P> :CtrlP ~<cr>
+nnoremap <Leader>b :CtrlPBuffer<cr>
+
+" base16-vim
+let base16colorspace = 256
 
 
-"-----------------------------------------------------------------------------
+" General settings ------------------------------------------------------------
 syntax on
 filetype indent plugin on
-let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+let $NVIM_TUI_ENABLE_TRUE_COLOR = 1
 colorscheme base16-ocean
 set background=dark
 
@@ -107,9 +110,8 @@ autocmd BufNewFile,BufRead *.rss setfiletype xml
 " Limit the width of text to 72 characters when editing email
 autocmd BufRead /tmp/mutt-* set textwidth=72
 
-" Press Space to turn off search highlighting and clear any message
-nnoremap <silent> <Space> :nohlsearch<Bar>:echo<CR>
 
+" Functions -------------------------------------------------------------------
 " Restore cursor to file position in previous editing session
 function! ResCur()
     if line("'\"") <= line("$")
@@ -123,21 +125,34 @@ augroup resCur
     autocmd BufWinEnter * call ResCur()
 augroup END
 
+" Reload config on save
+" augroup VimReload
+"     autocmd!
+"     autocmd BufWritePost $MYVIMRC source $MYVIMRC
+" augroup END
+
+
+" Mappings --------------------------------------------------------------------
+" Search vim help for subject under cursor (K)
+set keywordprg=:help
+
 " Seach selected text
 vnorem // y/<c-r>"<cr>"
 
-" Search vim help for subject under cursor
-set keywordprg=:help
-
-" Resize buffer
-nnoremap <silent> <Leader>+ :exe "resize " . (winheight(0) * 3/2)<CR>
-nnoremap <silent> <Leader>- :exe "resize " . (winheight(0) * 2/3)<CR>
-
 " Replace selected text
-vnoremap <C-r> "hy:%s/<C-r>h//gc<left><left><left>"
+vnoremap <c-r> "hy:%s/<c-r>h//gc<Left><Left><Left>
 
-" Reload config on save
-augroup VimReload
-    autocmd!
-    autocmd BufWritePost  $MYVIMRC  source $MYVIMRC
-augroup END
+" Press Space to turn off search highlighting and clear any message
+nnoremap <silent> <Space> :nohlsearch<Bar>:echo<cr>
+
+" Move between windows by pressing Ctrl-[h,j,k,l]
+nnoremap <c-h> <c-w>h
+nnoremap <c-j> <c-w>j
+nnoremap <c-k> <c-w>k
+nnoremap <c-l> <c-w>l
+
+" Open last buffer
+nnoremap <Leader><Leader> <c-^>
+
+nnoremap <Leader>o :only<cr>
+
