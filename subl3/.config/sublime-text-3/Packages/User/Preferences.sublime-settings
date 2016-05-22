@@ -14,7 +14,7 @@
 		"node_modules",
 		"bower_components"
 	],
-	"font_face": "Hack",
+	"font_face": "Source Code Pro",
 	"font_size": 10,
 	"gruvbox_accent_blue": true,
 	"gruvbox_autocomplete_cramped": true,
