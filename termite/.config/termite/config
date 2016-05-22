@@ -40,7 +40,7 @@ browser = chromium
 # by Chris Kempson
 foreground = #c0c5ce
 background = #2b303b
-cursor     = #515661
+# cursor     = #515661
 color0     = #2b303b
 color1     = #bf616a
 color2     = #a3be8c
