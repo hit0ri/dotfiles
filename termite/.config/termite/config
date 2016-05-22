@@ -13,7 +13,7 @@ font = Source Code Pro 10
 scrollback_lines = 10000
 search_wrap = true
 #icon_name = terminal
-geometry = 842x482
+geometry = 842x495
 
 # 0.0: opaque, 1.0: transparent
 transparency = 0.0
