@@ -97,7 +97,7 @@ GIT_PS1_SHOWUPSTREAM="auto"
 
 # Prompt
 set_prompt() {
-    local EXIT="$?"
+    local EXIT=$?
     local FG_BLACK="\[$(tput setaf 0)\]"
     local FG_RED="\[$(tput setaf 1)\]"
     local FG_GREEN="\[$(tput setaf 2)\]"
@@ -117,12 +117,12 @@ set_prompt() {
     local BOLD="\[$(tput bold)\]"
     local RESET="\[$(tput sgr0)\]"
 
-    PS1=" ${BOLD}${FG_WHITE}"
-    [[ ${EXIT} -ne 0 ]] && PS1+="[${FG_RED}${EXIT}${FG_WHITE}]╺─╸"
-    [[ -n "$SSH_CONNECTION" ]] && PS1+="[${FG_YELLOW}\h${FG_WHITE}]╺─╸"
-    PS1+="[${FG_GREEN}\w${FG_WHITE}]"
-    PS1+="$(__git_ps1 ╺─╸[${FG_BLUE}%s${FG_WHITE}])"
-    PS1+="${RESET} "
+    PS1="$BOLD"
+    PS1+="${SSH_TTY:+${FG_MAGENTA}\h${FG_WHITE} }"
+    PS1+="${FG_BLUE}\w "
+    PS1+="$(__git_ps1 ${FG_YELLOW}%s)"
+    (($EXIT)) && PS1+="${FG_RED}\$" || PS1+="${FG_GREEN}\$"
+    PS1+="$RESET "
 }
 
 export PROMPT_COMMAND="set_prompt; history -a; history -c; history -r"
