@@ -2,7 +2,7 @@
 # Functions
 
 include() {
-    [[ -r "$1" ]] && . "$1"
+    [[ -f "$1" ]] && . "$1"
 }
 
 command_exists() {
@@ -43,9 +43,6 @@ mkdirf() {
 include /etc/bash.bashrc
 include /etc/bashrc
 
-# Open new tabs in the $PWD
-include /etc/profile.d/vte.sh
-
 export PATH=$PATH:$HOME/.local/bin:$HOME/bin:$HOME/.node_modules/bin:$HOME/go/bin
 export npm_config_prefix=$HOME/.node_modules
 
@@ -84,7 +81,7 @@ shopt -s checkwinsize
 
 # Colors for ls
 if command_exists dircolors; then
-    [[ -r ~/.dircolors ]] && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+    [[ -f ~/.dircolors ]] && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
 fi
 
 # Git prompt
