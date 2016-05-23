@@ -70,9 +70,9 @@ export LESS_TERMCAP_us=$'\e[01;32m'
 
 # History
 # Ignore duplicates and lines which begin with a space
-export HISTCONTROL=ignoreboth
-export HISTTIMEFORMAT="%h %d %H:%M:%S> "
-export HISTSIZE=8192
+HISTCONTROL=ignoreboth
+HISTTIMEFORMAT="%h %d %H:%M:%S> "
+HISTSIZE=8192
 shopt -s histappend
 
 
@@ -122,7 +122,7 @@ set_prompt() {
     PS1+="$RESET "
 }
 
-export PROMPT_COMMAND="set_prompt"
+PROMPT_COMMAND="set_prompt; history -a; history -n"
 
 
 # Aliases
