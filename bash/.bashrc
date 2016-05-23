@@ -116,7 +116,7 @@ set_prompt() {
 
     PS1="$BOLD"
     PS1+="${SSH_TTY:+${FG_MAGENTA}\h${FG_WHITE} }"
-    PS1+="${FG_BLUE}\w "
+    (($COLUMNS-${#PWD} > $COLUMNS/2)) && PS1+="${FG_BLUE}\w " || PS1+="${FG_BLUE}\W "
     PS1+="$(__git_ps1 ${FG_YELLOW}%s)"
     (($EXIT)) && PS1+="${FG_RED}\$" || PS1+="${FG_GREEN}\$"
     PS1+="$RESET "
