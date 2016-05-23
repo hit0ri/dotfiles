@@ -12,8 +12,9 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'tpope/vim-eunuch'
     Plug 'jiangmiao/auto-pairs'
     Plug 'christoomey/vim-sort-motion'
+    Plug 'junegunn/vim-easy-align'
     Plug 'tommcdo/vim-exchange'
-    Plug 'Shougo/deoplete.nvim'
+    Plug 'Shougo/deoplete.nvim', { 'do': 'vim +UpdateRemotePlugins +qall' }
     Plug 'airblade/vim-gitgutter'
     Plug 'benekastah/neomake'
     Plug 'godlygeek/tabular'
@@ -22,7 +23,6 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'sheerun/vim-polyglot'
     Plug 'Firef0x/PKGBUILD.vim'
     Plug 'zainin/vim-mikrotik'
-    Plug 'saltstack/salt-vim'
     Plug 'moll/vim-node'
     Plug 'nathanaelkane/vim-indent-guides'
     Plug 'ntpeters/vim-better-whitespace'
@@ -69,11 +69,16 @@ let g:ctrlp_show_hidden = 1
 let g:ctrlp_match_window = 'bottom,order:btt,min:1,max:10,results:20'
 let g:ctrlp_custom_ignore = '\v[\/](node_modules|target|dist)|(\.(swp|ico|git|svn))$'
 nnoremap <c-P> :CtrlP ~<cr>
-nnoremap <Leader>b :CtrlPBuffer<cr>
+nnoremap <c-b> :CtrlPBuffer<cr>
 
-" base16-vim
+" ### base16-vim
 let base16colorspace = 256
 
+" ### vim-easy-align
+" Start interactive EasyAlign in visual mode (e.g. vipga)
+xmap ga <Plug>(EasyAlign)
+" Start interactive EasyAlign for a motion/text object (e.g. gaip)
+nmap ga <Plug>(EasyAlign)
 
 " General settings ------------------------------------------------------------
 syntax on
@@ -154,6 +159,7 @@ nnoremap <c-l> <c-w>l
 
 " Open last buffer
 nnoremap <Leader><Leader> <c-^>
-
+" Close active buffer
+nnoremap <Leader>b :bw<cr>
 nnoremap <Leader>o :only<cr>
 
