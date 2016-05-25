@@ -68,7 +68,7 @@ let g:ctrlp_show_hidden = 1
 " Set layout
 let g:ctrlp_match_window = 'bottom,order:btt,min:1,max:10,results:20'
 let g:ctrlp_custom_ignore = '\v[\/](node_modules|target|dist)|(\.(swp|ico|git|svn))$'
-nnoremap <c-P> :CtrlP ~<cr>
+nnoremap <Leader>p :CtrlP ~<cr>
 nnoremap <c-b> :CtrlPBuffer<cr>
 
 " ### base16-vim
