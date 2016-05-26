@@ -5,9 +5,6 @@ set menu-complete-display-prefix on
 set show-all-if-ambiguous on
 set skip-completed-text on
 
-TAB: menu-complete
-"\e[Z": menu-complete-backward
-
 # History completion with arrow keys
 "\e[A": history-search-backward
 "\e[B": history-search-forward
