@@ -38,31 +38,31 @@ browser = chromium
 [colors]
 # Base16 Ocean
 # by Chris Kempson
-foreground = #c0c5ce
-background = #2b303b
-# cursor     = #515661
-color0     = #2b303b
-color1     = #bf616a
-color2     = #a3be8c
-color3     = #ebcb8b
-color4     = #8fa1b3
-color5     = #b48ead
-color6     = #96b5b4
-color7     = #c0c5ce
-color8     = #65737e
-color9     = #bf616a
-color10    = #a3be8c
-color11    = #ebcb8b
-color12    = #8fa1b3
-color13    = #b48ead
-color14    = #96b5b4
-color15    = #eff1f5
-color16    = #d08770
-color17    = #ab7967
-color18    = #343d46
-color19    = #4f5b66
-color20    = #a7adba
-color21    = #dfe1e8
+# foreground = #c0c5ce
+# background = #2b303b
+# # cursor     = #515661
+# color0     = #2b303b
+# color1     = #bf616a
+# color2     = #a3be8c
+# color3     = #ebcb8b
+# color4     = #8fa1b3
+# color5     = #b48ead
+# color6     = #96b5b4
+# color7     = #c0c5ce
+# color8     = #65737e
+# color9     = #bf616a
+# color10    = #a3be8c
+# color11    = #ebcb8b
+# color12    = #8fa1b3
+# color13    = #b48ead
+# color14    = #96b5b4
+# color15    = #eff1f5
+# color16    = #d08770
+# color17    = #ab7967
+# color18    = #343d46
+# color19    = #4f5b66
+# color20    = #a7adba
+# color21    = #dfe1e8
 
 
 # Base16 Tomorrow
@@ -278,24 +278,24 @@ color21    = #dfe1e8
 
 # oceanic next
 # by voronianski
-# foreground = #cdd3de
-# background = #1b2b34
-# color0     = #10171a
-# color1     = #e44754
-# color2     = #89bd82
-# color3     = #f7bd51
-# color4     = #5486c0
-# color5     = #b77eb8
-# color6     = #50a5a4
-# color7     = #ffffff
-# color8     = #52606b
-# color9     = #e44754
-# color10    = #89bd82
-# color11    = #f7bd51
-# color12    = #5486c0
-# color13    = #b77eb8
-# color14    = #50a5a4
-# color15    = #ffffff
+foreground = #CDD3DE
+background = #1B2B34
+color0     = #1B2B34
+color1     = #343D46
+color2     = #4F5B66
+color3     = #65737E
+color4     = #A7ADBA
+color5     = #C0C5CE
+color6     = #CDD3DE
+color7     = #D8DEE9
+color8     = #EC5F67
+color9     = #F99157
+color10    = #FAC863
+color11    = #99C794
+color12    = #5FB3B3
+color13    = #6699CC
+color14    = #C594C5
+color15    = #AB7967
 
 [hints]
 #font = Monospace 12
