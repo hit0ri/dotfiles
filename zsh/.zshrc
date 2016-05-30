@@ -6,8 +6,8 @@ REPORTTIME=10
 
 # History
 HISTFILE=~/.histfile
-HISTSIZE=3000
-SAVEHIST=3000
+HISTSIZE=8192
+SAVEHIST=8192
 
 
 # Functions
@@ -15,8 +15,12 @@ include() {
     [[ -f "$1" ]] && source "$1"
 }
 
+command_exists() {
+    command -v "$1" &> /dev/null
+}
+
 twitch() {
-    mpv "http://twitch.tv/$1"
+    mpv "https://twitch.tv/$1"
 }
 
 ssh_state() {
@@ -37,23 +41,26 @@ pb() {
     curl -F "c=@${1:--}" https://ptpb.pw/
 }
 
+
 pbp() {
-    curl -F p=1 -F "c=@${1:--}" https://ptpb.pw/
+    curl -F 'p=1' -F "c=@${1:--}" https://ptpb.pw/
 }
 
-pbx() {
-    curl -sF "c=@${1:--}" -w "%{redirect_url}" 'https://ptpb.pw/?r=1' -o /dev/stderr | xsel -l /dev/null -b
+pbc() {
+    curl -sF "c=@${1:--}" -w "%{redirect_url}" 'https://ptpb.pw/?r=1' \
+         -o /dev/stderr | xsel -l /dev/null -b
 }
 
 pbs() {
     scrot /tmp/$$.png && pbx /tmp/$$.png && rm /tmp/$$.png
 }
 
+p() {
+    xsel -l /dev/null -p -o | curl -F "c=@${1:--}" https://ptpb.pw/
+}
 
 # Open new window in same directory by pressing C-S-T
-if [[ -n $VTE_VERSION ]]; then
-    include /etc/profile.d/vte.sh
-fi
+[[ -n $VTE_VERSION ]] && include /etc/profile.d/vte.sh
 
 # Syntax highlighting (must be at the end of the .zshrc)
 include /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
@@ -145,8 +152,8 @@ RPROMPT='%{$fg_bold[magenta]%}$(__git_ps1 %s)%{$reset_color%} %{$fg_bold[blue]%}
 
 
 # Colors for ls
-if type dircolors &>/dev/null; then
-    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+if command_exists dircolors; then
+    [[ -f ~/.dircolors ]] && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
 fi
 
 
@@ -255,14 +262,18 @@ alias grep='grep --color=auto'
 alias egrep='egrep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias zgrep='zgrep --color=auto'
+
 alias  ls='ls --color=auto --show-control-chars --group-directories-first -hXF'
 alias  ll='ls --color=auto --show-control-chars --group-directories-first -lhXF'
 alias lsa='ls --color=auto --show-control-chars --group-directories-first -AhXF'
 alias lla='ls --color=auto --show-control-chars --group-directories-first -AlhXF'
+
 alias dmesg='dmesg -exL'
 alias ip='ip --stats --color'
 
 alias vim='nvim'
 alias svim='sudoedit'
+alias gap='git add --patch'
+alias gst='git status'
 alias dstats='dstat -cdnpmgs --top-bio --top-cpu'
 alias lsports='ss -tunalp | cat'
