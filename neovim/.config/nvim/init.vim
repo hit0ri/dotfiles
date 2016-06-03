@@ -27,7 +27,7 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'nathanaelkane/vim-indent-guides'
     Plug 'ntpeters/vim-better-whitespace'
     Plug 'ctrlpvim/ctrlp.vim'
-    Plug 'mhartington/oceanic-next'
+    Plug 'chriskempson/base16-vim'
 call plug#end()
 
 
@@ -54,7 +54,7 @@ let g:airline#extensions#tabline#fnamemod = ':t'
 " let g:airline_left_alt_sep = '|'
 " let g:airline_right_sep = ''
 " let g:airline_right_alt_sep = '|'
-let g:airline_theme = 'oceanicnext'
+let g:airline_theme = 'base16_ocean'
 
 " ### indent-guides
 let g:indent_guides_guide_size = 1
@@ -84,7 +84,7 @@ nmap ga <Plug>(EasyAlign)
 syntax on
 filetype indent plugin on
 let $NVIM_TUI_ENABLE_TRUE_COLOR = 1
-colorscheme OceanicNext
+colorscheme base16-ocean
 set background=dark
 
 set title
