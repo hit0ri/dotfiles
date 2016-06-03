@@ -10,7 +10,7 @@ command_exists() {
 }
 
 twitch() {
-    mpv "http://twitch.tv/$1"
+    mpv "https://twitch.tv/$1"
 }
 
 pb() {
@@ -116,9 +116,9 @@ set_prompt() {
 
     PS1="$BOLD"
     PS1+="${SSH_TTY:+${FG_MAGENTA}\h${FG_WHITE} }"
-    (($COLUMNS+${#HOME}-${#PWD} > $COLUMNS/2)) && PS1+="${FG_BLUE}\w " || PS1+="${FG_BLUE}…/\W "
-    PS1+="$(__git_ps1 ${FG_YELLOW}%s)"
-    (($EXIT)) && PS1+="${FG_RED}\$" || PS1+="${FG_GREEN}\$"
+    ((COLUMNS+${#HOME}-${#PWD} > COLUMNS/2)) && PS1+="${FG_BLUE}\w " || PS1+="${FG_BLUE}…/\W "
+    PS1+="$(__git_ps1 "${FG_YELLOW}"%s)"
+    ((EXIT)) && PS1+="${FG_RED}\$" || PS1+="${FG_GREEN}\$"
     PS1+="$RESET "
 }
 
