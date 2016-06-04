@@ -38,31 +38,31 @@ browser = chromium
 [colors]
 # Base16 Ocean
 # by Chris Kempson
-foreground = #c0c5ce
-background = #2b303b
-# cursor     = #515661
-color0     = #2b303b
-color1     = #bf616a
-color2     = #a3be8c
-color3     = #ebcb8b
-color4     = #8fa1b3
-color5     = #b48ead
-color6     = #96b5b4
-color7     = #c0c5ce
-color8     = #65737e
-color9     = #bf616a
-color10    = #a3be8c
-color11    = #ebcb8b
-color12    = #8fa1b3
-color13    = #b48ead
-color14    = #96b5b4
-color15    = #eff1f5
-color16    = #d08770
-color17    = #ab7967
-color18    = #343d46
-color19    = #4f5b66
-color20    = #a7adba
-color21    = #dfe1e8
+# foreground = #c0c5ce
+# background = #2b303b
+# # cursor     = #515661
+# color0     = #2b303b
+# color1     = #bf616a
+# color2     = #a3be8c
+# color3     = #ebcb8b
+# color4     = #8fa1b3
+# color5     = #b48ead
+# color6     = #96b5b4
+# color7     = #c0c5ce
+# color8     = #65737e
+# color9     = #bf616a
+# color10    = #a3be8c
+# color11    = #ebcb8b
+# color12    = #8fa1b3
+# color13    = #b48ead
+# color14    = #96b5b4
+# color15    = #eff1f5
+# color16    = #d08770
+# color17    = #ab7967
+# color18    = #343d46
+# color19    = #4f5b66
+# color20    = #a7adba
+# color21    = #dfe1e8
 
 
 # Base16 Tomorrow
@@ -137,26 +137,26 @@ color21    = #dfe1e8
 
 # hybrid
 # by w0ng
-# foreground = #c5c8c6
-# # background = #1d1f21
-# background = rgba(29, 31, 33, 0.98)
-# cursor     = #4a4b4d
-# color0     = #282a2e
-# color1     = #a54242
-# color2     = #8c9440
-# color3     = #de935f
-# color4     = #5f819d
-# color5     = #85678f
-# color6     = #5e8d87
-# color7     = #707880
-# color8     = #373b41
-# color9     = #cc6666
-# color10    = #b5bd68
-# color11    = #f0c674
-# color12    = #81a2be
-# color13    = #b294bb
-# color14    = #8abeb7
-# color15    = #c5c8c6
+foreground = #c5c8c6
+# background = #1d1f21
+background = rgba(29, 31, 33, 0.98)
+cursor     = #4a4b4d
+color0     = #282a2e
+color1     = #a54242
+color2     = #8c9440
+color3     = #de935f
+color4     = #5f819d
+color5     = #85678f
+color6     = #5e8d87
+color7     = #707880
+color8     = #373b41
+color9     = #cc6666
+color10    = #b5bd68
+color11    = #f0c674
+color12    = #81a2be
+color13    = #b294bb
+color14    = #8abeb7
+color15    = #c5c8c6
 
 # gruvbox dark
 # by morhetz
@@ -296,6 +296,27 @@ color21    = #dfe1e8
 # color13    = #6699CC
 # color14    = #C594C5
 # color15    = #AB7967
+
+# lucario
+# by raphamorim
+# foreground = #f8f8f2
+# background = #2b3e50
+# color0     = #4f4f4f
+# color1     = #ff6c60
+# color2     = #fbb036
+# color3     = #ffffb6
+# color4     = #5796ed
+# color5     = #ff73fd
+# color6     = #8ee478
+# color7     = #eeeeee
+# color8     = #4f4f4f
+# color9     = #fa6960
+# color10    = #fbb036
+# color11    = #feffb9
+# color12    = #6b9fed
+# color13    = #fc6ffa
+# color14    = #8ee478
+# color15    = #ffffff
 
 [hints]
 #font = Monospace 12
