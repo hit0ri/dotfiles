@@ -26,41 +26,54 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'moll/vim-node'
     Plug 'nathanaelkane/vim-indent-guides'
     Plug 'ntpeters/vim-better-whitespace'
+    Plug 'scrooloose/nerdtree'
+    Plug 'Xuyuanp/nerdtree-git-plugin'
     Plug 'ctrlpvim/ctrlp.vim'
-    Plug 'chriskempson/base16-vim'
+    Plug 'w0ng/vim-hybrid'
 call plug#end()
 
 
-" Plugin settings -------------------------------------------------------------
-" Disable highlighting matched parenthesis
-let g:loaded_matchparen = 1
+" Plugin settings =============================================================
 
-" ### plug
+" -----------------------------------------------------------------------------
+" plug
+" -----------------------------------------------------------------------------
 let g:plug_window = 'new'
 
-" ### deoplete
+" -----------------------------------------------------------------------------
+" deoplete
+" -----------------------------------------------------------------------------
 let g:deoplete#enable_at_startup = 1
 " Automatically close the scratch window
 autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
 
-" ### neomake
+" -----------------------------------------------------------------------------
+" neomake
+" -----------------------------------------------------------------------------
 autocmd! BufWritePost * Neomake
 
-" ### airline
+" -----------------------------------------------------------------------------
+" airline
+" -----------------------------------------------------------------------------
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#fnamemod = ':t'
-" let g:airline_left_sep = ''
-" let g:airline_left_alt_sep = '|'
-" let g:airline_right_sep = ''
-" let g:airline_right_alt_sep = '|'
-let g:airline_theme = 'base16_ocean'
+let g:airline_theme = 'hybridline'
 
-" ### indent-guides
+" -----------------------------------------------------------------------------
+" indent-guides
+" -----------------------------------------------------------------------------
 let g:indent_guides_guide_size = 1
 let g:indent_guides_enable_on_vim_startup = 1
 
-" ### ctrlp
+" -----------------------------------------------------------------------------
+" nerdtree
+" -----------------------------------------------------------------------------
+map <C-n> :NERDTreeToggle<CR>
+
+" -----------------------------------------------------------------------------
+" ctrlp
+" -----------------------------------------------------------------------------
 " Set the default opening command
 let g:ctrlp_cmd = 'CtrlP'
 let g:ctrlp_by_filename = 1
@@ -68,23 +81,22 @@ let g:ctrlp_show_hidden = 1
 " Set layout
 let g:ctrlp_match_window = 'bottom,order:btt,min:1,max:10,results:20'
 let g:ctrlp_custom_ignore = '\v[\/](node_modules|target|dist)|(\.(swp|ico|git|svn))$'
-nnoremap <Leader>p :CtrlP ~<cr>
 nnoremap <c-b> :CtrlPBuffer<cr>
 
-" ### base16-vim
-let base16colorspace = 256
-
-" ### vim-easy-align
+" -----------------------------------------------------------------------------
+" vim-easy-align
+" -----------------------------------------------------------------------------
 " Start interactive EasyAlign in visual mode (e.g. vipga)
 xmap ga <Plug>(EasyAlign)
 " Start interactive EasyAlign for a motion/text object (e.g. gaip)
 nmap ga <Plug>(EasyAlign)
 
-" General settings ------------------------------------------------------------
+
+" General settings ============================================================
 syntax on
 filetype indent plugin on
 let $NVIM_TUI_ENABLE_TRUE_COLOR = 1
-colorscheme base16-ocean
+colorscheme hybrid
 set background=dark
 
 set title
@@ -117,7 +129,7 @@ autocmd BufNewFile,BufRead *.rss setfiletype xml
 autocmd BufRead /tmp/mutt-* set textwidth=72
 
 
-" Functions -------------------------------------------------------------------
+" Functions ===================================================================
 " Restore cursor to file position in previous editing session
 function! ResCur()
     if line("'\"") <= line("$")
@@ -131,14 +143,7 @@ augroup resCur
     autocmd BufWinEnter * call ResCur()
 augroup END
 
-" Reload config on save
-" augroup VimReload
-"     autocmd!
-"     autocmd BufWritePost $MYVIMRC source $MYVIMRC
-" augroup END
-
-
-" Mappings --------------------------------------------------------------------
+" Mappings ====================================================================
 " Search vim help for subject under cursor (K)
 set keywordprg=:help
 
