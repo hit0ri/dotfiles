@@ -3,6 +3,10 @@ let $NVIM_TUI_ENABLE_CURSOR_SHAPE = 1
 let mapleader = ','
 
 " Plugins ---------------------------------------------------------------------
+function! DoRemote(arg)
+    UpdateRemotePlugins
+endfunction
+
 call plug#begin('~/.config/nvim/plugged')
     Plug 'tpope/vim-surround'
     Plug 'tpope/vim-fugitive'
@@ -14,7 +18,7 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'christoomey/vim-sort-motion'
     Plug 'junegunn/vim-easy-align'
     Plug 'tommcdo/vim-exchange'
-    Plug 'Shougo/deoplete.nvim', { 'do': 'vim +UpdateRemotePlugins +qall' }
+    Plug 'Shougo/deoplete.nvim', { 'do': function('DoRemote') }
     Plug 'airblade/vim-gitgutter'
     Plug 'benekastah/neomake'
     Plug 'godlygeek/tabular'
