@@ -1,13 +1,18 @@
-Config files
-============
-managed by GNU Stow
+dotfiles
+========
+> managed by GNU Stow
 
-## Notes
-
+## Usage
+```sh
+$ cd dotfiles
+$ stow -v zsh mpv…
+```
 ### neovim
-
 - install vim-plug
 ```sh
-curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs \
-    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+$ mkdir -p ~/.config/nvim \
+    && curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs \
+       https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim \
+    && stow -v neovim \
+    && nvim +PlugInstall +qall
 ```
