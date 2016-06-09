@@ -17,6 +17,7 @@ else
 fi
 
 export EDITOR=nvim
+export DIFFPROG='nvim -d'
 export SUDO_EDITOR=nvim
 export GOPATH=~/go
 export npm_config_prefix=~/.node_modules
