@@ -1,5 +1,5 @@
 export KEYTIMEOUT=10
-export WORDCHARS='*?_[]~=&;!#$%^(){}'
+export WORDCHARS='*?[]~=&;!#$%^(){}'
 
 # Report CPU usage for commands running longer than 10 seconds
 REPORTTIME=10
