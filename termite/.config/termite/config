@@ -13,7 +13,7 @@ font = Source Code Pro 10
 scrollback_lines = 10000
 search_wrap = true
 #icon_name = terminal
-geometry = 842x495
+geometry = 100x26
 
 # 0.0: opaque, 1.0: transparent
 transparency = 0.0
@@ -33,7 +33,7 @@ browser = chromium
 #word_chars = -A-Za-z0-9,./?%&#:_=+@~
 
 # set size hints for the window
-#size_hints = false
+size_hints = true
 
 [colors]
 # Base16 Ocean
