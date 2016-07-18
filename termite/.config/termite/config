@@ -36,11 +36,33 @@ cursor_shape = block
 size_hints = true
 
 [colors]
+
+# material
+# by kristijanhusak
+background = rgba(38, 50, 56, 0.97)
+# background = #263238
+foreground = #ecefef
+color0     = #263238
+color1     = #cc6666
+color2     = #b5bd68
+color3     = #f0c674
+color4     = #81a2be
+color5     = #b294bb
+color6     = #8abeb7
+color7     = #ecefef
+color8     = #707880
+color9     = #cc6666
+color10    = #b5bd68
+color11    = #f0c674
+color12    = #81a2be
+color13    = #b294bb
+color14    = #8abeb7
+color15    = #ffffff
+
 # Base16 Ocean
 # by Chris Kempson
-# foreground = #c0c5ce
 # background = #2b303b
-# # cursor     = #515661
+# foreground = #c0c5ce
 # color0     = #2b303b
 # color1     = #bf616a
 # color2     = #a3be8c
@@ -57,19 +79,11 @@ size_hints = true
 # color13    = #b48ead
 # color14    = #96b5b4
 # color15    = #eff1f5
-# color16    = #d08770
-# color17    = #ab7967
-# color18    = #343d46
-# color19    = #4f5b66
-# color20    = #a7adba
-# color21    = #dfe1e8
-
 
 # Base16 Tomorrow
 # by Chris Kempson
-# foreground = #c5c8c6
 # background = #1d1f21
-# cursor     = #A65F52
+# foreground = #c5c8c6
 # color0     = #1d1f21
 # color1     = #cc6666
 # color2     = #b5bd68
@@ -86,17 +100,11 @@ size_hints = true
 # color13    = #b294bb
 # color14    = #8abeb7
 # color15    = #ffffff
-# color16    = #de935f
-# color17    = #a3685a
-# color18    = #282a2e
-# color19    = #373b41
-# color20    = #b4b7b4
-# color21    = #e0e0e0
 
 # s3r0 modified
 # by earplit
-# foreground = #c0b18b
 # background = #1f1f1f
+# foreground = #c0b18b
 # color0     = #4a3637
 # color1     = #d17b49
 # color2     = #7b8748
@@ -116,8 +124,8 @@ size_hints = true
 
 # hund
 # by hund
-# foreground = #ffffff
 # background = #161616
+# foreground = #ffffff
 # color0     = #222222
 # color1     = #e84f4f
 # color2     = #b7ce42
@@ -137,36 +145,35 @@ size_hints = true
 
 # hybrid
 # by w0ng
-foreground = #c5c8c6
-# background = #1d1f21
-background = rgba(29, 31, 33, 0.98)
-cursor     = #4a4b4d
-color0     = #282a2e
-color1     = #a54242
-color2     = #8c9440
-color3     = #de935f
-color4     = #5f819d
-color5     = #85678f
-color6     = #5e8d87
-color7     = #707880
-color8     = #373b41
-color9     = #cc6666
-color10    = #b5bd68
-color11    = #f0c674
-color12    = #81a2be
-color13    = #b294bb
-color14    = #8abeb7
-color15    = #c5c8c6
+# # background = #1d1f21
+# background = rgba(29, 31, 33, 0.98)
+# foreground = #c5c8c6
+# color0     = #282a2e
+# color1     = #a54242
+# color2     = #8c9440
+# color3     = #de935f
+# color4     = #5f819d
+# color5     = #85678f
+# color6     = #5e8d87
+# color7     = #707880
+# color8     = #373b41
+# color9     = #cc6666
+# color10    = #b5bd68
+# color11    = #f0c674
+# color12    = #81a2be
+# color13    = #b294bb
+# color14    = #8abeb7
+# color15    = #c5c8c6
 
 # gruvbox dark
 # by morhetz
-# foreground = #ebdbb2
 # # hard contrast
 # background = #1d2021
 # # regular contrast
 # # background = #282828
 # # soft contrast
 # # background = #32302f
+# foreground = #ebdbb2
 # color0   = #282828
 # color1   = #cc241d
 # color2   = #98971a
@@ -257,8 +264,8 @@ color15    = #c5c8c6
 
 # I can't believe it's not butter!
 # by graawr
-# foreground = #eddcd3
 # background = #181512
+# foreground = #eddcd3
 # color0     = #252525
 # color1     = #CD546C
 # color2     = #A5AF86
@@ -278,8 +285,8 @@ color15    = #c5c8c6
 
 # oceanic next
 # by voronianski
-# foreground = #CDD3DE
 # background = #1B2B34
+# foreground = #CDD3DE
 # color0     = #1B2B34
 # color1     = #343D46
 # color2     = #4F5B66
@@ -299,8 +306,8 @@ color15    = #c5c8c6
 
 # lucario
 # by raphamorim
-# foreground = #f8f8f2
 # background = #2b3e50
+# foreground = #f8f8f2
 # color0     = #4f4f4f
 # color1     = #ff6c60
 # color2     = #fbb036
