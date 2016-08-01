@@ -188,7 +188,7 @@ zstyle ':completion:*:approximate:*' max-errors 'reply=( $(( ($#PREFIX+$#SUFFIX)
 
 # match uppercase from lowercase and enable partial word completion
 zstyle ':completion:*' matcher-list \
-    '' 'm:{a-z-_}={A-Z_-}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
+       '' 'm:{a-z-_}={A-Z_-}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
 
 # zstyle ':completion:*:((*-|)files|(*-|)directories)' ignored-patterns '(*/|).[^/]##'
 
@@ -264,8 +264,8 @@ alias egrep='egrep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias zgrep='zgrep --color=auto'
 
-alias  ls='ls --color=auto --show-control-chars --group-directories-first -hXF'
-alias  ll='ls --color=auto --show-control-chars --group-directories-first -lhXF'
+alias ls='ls --color=auto --show-control-chars --group-directories-first -hXF'
+alias ll='ls --color=auto --show-control-chars --group-directories-first -lhXF'
 alias lsa='ls --color=auto --show-control-chars --group-directories-first -AhXF'
 alias lla='ls --color=auto --show-control-chars --group-directories-first -AlhXF'
 
