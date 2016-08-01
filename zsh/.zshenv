@@ -13,10 +13,12 @@ export LESS_TERMCAP_so=$'\e[01;44;33m'
 export LESS_TERMCAP_ue=$'\e[0m'
 export LESS_TERMCAP_us=$'\e[01;32m'
 
-if type google-chrome &> /dev/null; then
-  export BROWSER=google-chrome
-else
-  export BROWSER=chromium
+if type chromium &> /dev/null; then
+    export BROWSER=chromium
+elif type google-chrome &> /dev/null; then
+    export BROWSER=google-chrome
+elif type firefox &> /dev/null; then
+    export BROWSER=firefox
 fi
 
 export EDITOR=nvim
