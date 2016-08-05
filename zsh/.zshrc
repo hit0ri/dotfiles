@@ -278,3 +278,7 @@ alias gap='git add --patch'
 alias gst='git status'
 alias dstats='dstat -cdnpmgs --top-bio --top-cpu'
 alias lsports='ss -tunalp | cat'
+
+# fzf
+include /usr/share/fzf/key-bindings.zsh
+include /usr/share/fzf/completion.zsh
