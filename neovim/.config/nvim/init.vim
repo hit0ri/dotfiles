@@ -30,10 +30,12 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'moll/vim-node'
     Plug 'nathanaelkane/vim-indent-guides'
     Plug 'ntpeters/vim-better-whitespace'
+    Plug 'junegunn/fzf'
+    Plug 'junegunn/fzf.vim'
     Plug 'scrooloose/nerdtree'
     Plug 'Xuyuanp/nerdtree-git-plugin'
-    Plug 'ctrlpvim/ctrlp.vim'
-    Plug 'w0ng/vim-hybrid'
+    " Colors
+    Plug 'rakr/vim-two-firewatch'
 call plug#end()
 
 
@@ -62,7 +64,6 @@ autocmd! BufWritePost * Neomake
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#fnamemod = ':t'
-let g:airline_theme = 'hybridline'
 
 " -----------------------------------------------------------------------------
 " indent-guides
@@ -76,18 +77,6 @@ let g:indent_guides_enable_on_vim_startup = 1
 map <C-n> :NERDTreeToggle<CR>
 
 " -----------------------------------------------------------------------------
-" ctrlp
-" -----------------------------------------------------------------------------
-" Set the default opening command
-let g:ctrlp_cmd = 'CtrlP'
-let g:ctrlp_by_filename = 1
-let g:ctrlp_show_hidden = 1
-" Set layout
-let g:ctrlp_match_window = 'bottom,order:btt,min:1,max:10,results:20'
-let g:ctrlp_custom_ignore = '\v[\/](node_modules|target|dist)|(\.(swp|ico|git|svn))$'
-nnoremap <c-b> :CtrlPBuffer<cr>
-
-" -----------------------------------------------------------------------------
 " vim-easy-align
 " -----------------------------------------------------------------------------
 " Start interactive EasyAlign in visual mode (e.g. vipga)
@@ -95,13 +84,32 @@ xmap ga <Plug>(EasyAlign)
 " Start interactive EasyAlign for a motion/text object (e.g. gaip)
 nmap ga <Plug>(EasyAlign)
 
+" -----------------------------------------------------------------------------
+" fzf
+" -----------------------------------------------------------------------------
+if has('nvim')
+    let $FZF_DEFAULT_OPTS .= ' --inline-info'
+endif
+
+nnoremap <silent> <expr> <Leader><Leader> (expand('%') =~ 'NERD_tree' ? "\<c-w>\<c-w>" : '').":Files\<cr>"
+nnoremap <silent> <Leader><cr> :Buffers<CR>
+nnoremap <silent> <Leader>ag   :Ag <C-R><C-W><cr>
+nnoremap <silent> <Leader>AG   :Ag <C-R><C-A><cr>
+nnoremap <silent> <Leader>`    :Marks<cr>
+
 
 " General settings ============================================================
+" Disable highlighting matched parenthesis
+let g:loaded_matchparen = 1
+
+" Colorscheme
 syntax on
 filetype indent plugin on
 let $NVIM_TUI_ENABLE_TRUE_COLOR = 1
-colorscheme hybrid
 set background=dark
+let g:two_firewatch_italics=1
+colorscheme two-firewatch
+let g:airline_theme = 'twofirewatch'
 
 set title
 set number
@@ -147,6 +155,33 @@ augroup resCur
     autocmd BufWinEnter * call ResCur()
 augroup END
 
+" ----------------------------------------------------------------------------
+" #gi / #gpi | go to next/previous indentation level
+" ----------------------------------------------------------------------------
+function! s:indent_len(str)
+    return type(a:str) == 1 ? len(matchstr(a:str, '^\s*')) : 0
+endfunction
+function! s:go_indent(times, dir)
+    for _ in range(a:times)
+        let l = line('.')
+        let x = line('$')
+        let i = s:indent_len(getline(l))
+        let e = empty(getline(l))
+
+        while l >= 1 && l <= x
+            let line = getline(l + a:dir)
+            let l += a:dir
+            if s:indent_len(line) != i || empty(line) != e
+                break
+            endif
+        endwhile
+        let l = min([max([1, l]), x])
+        execute 'normal! '. l .'G^'
+    endfor
+endfunction
+nnoremap <silent> gi :<c-u>call <SID>go_indent(v:count1, 1)<cr>
+nnoremap <silent> gpi :<c-u>call <SID>go_indent(v:count1, -1)<cr>
+
 " Mappings ====================================================================
 " Search vim help for subject under cursor (K)
 set keywordprg=:help
@@ -166,8 +201,11 @@ nnoremap <c-j> <c-w>j
 nnoremap <c-k> <c-w>k
 nnoremap <c-l> <c-w>l
 
+" Buffers
+nnoremap ]b :bnext<cr>
+nnoremap [b :bprev<cr>
 " Open last buffer
-nnoremap <Leader><Leader> <c-^>
+" nnoremap <Leader><Leader> <c-^>
 " Close active buffer
 nnoremap <Leader>b :bw<cr>
 nnoremap <Leader>o :only<cr>
