@@ -9,11 +9,11 @@ allow_bold = true
 dynamic_title = true
 urgent_on_bell = true
 clickable_url = true
-font = Source Code Pro 10
+font = Meslo LG S 10
 scrollback_lines = 10000
 search_wrap = true
 #icon_name = terminal
-geometry = 100x26
+geometry = 106x28
 
 # 0.0: opaque, 1.0: transparent
 transparency = 0.0
@@ -37,27 +37,52 @@ size_hints = true
 
 [colors]
 
+# unknown
+# by cloud
+# foreground_dim  = #888888
+# foreground_bold = #ffffff
+# foreground = #CACACA
+# background = #121212
+# cursor     = #DCDCCC
+# color0     = #1C1C1C
+# color1     = #D81860
+# color2     = #B7CE42
+# color3     = #FEA63C
+# color4     = #66AABB
+# color5     = #B7416E
+# color6     = #5E7175
+# color7     = #DDEEDD
+# color8     = #4D4D4D
+# color9     = #F00060
+# color10    = #BDE077
+# color11    = #FFE863
+# color12    = #AACCBB
+# color13    = #BB4466
+# color14    = #A3BABF
+# color15    = #6C887A
+
+
 # material
 # by kristijanhusak
-background = rgba(38, 50, 56, 0.97)
-# background = #263238
-foreground = #ecefef
-color0     = #263238
-color1     = #cc6666
-color2     = #b5bd68
-color3     = #f0c674
-color4     = #81a2be
-color5     = #b294bb
-color6     = #8abeb7
-color7     = #ecefef
-color8     = #707880
-color9     = #cc6666
-color10    = #b5bd68
-color11    = #f0c674
-color12    = #81a2be
-color13    = #b294bb
-color14    = #8abeb7
-color15    = #ffffff
+# background = rgba(38, 50, 56, 0.97)
+# # background = #263238
+# foreground = #ecefef
+# color0     = #263238
+# color1     = #cc6666
+# color2     = #b5bd68
+# color3     = #f0c674
+# color4     = #81a2be
+# color5     = #b294bb
+# color6     = #8abeb7
+# color7     = #ecefef
+# color8     = #707880
+# color9     = #cc6666
+# color10    = #b5bd68
+# color11    = #f0c674
+# color12    = #81a2be
+# color13    = #b294bb
+# color14    = #8abeb7
+# color15    = #ffffff
 
 # Base16 Ocean
 # by Chris Kempson
@@ -264,24 +289,24 @@ color15    = #ffffff
 
 # I can't believe it's not butter!
 # by graawr
-# background = #181512
-# foreground = #eddcd3
-# color0     = #252525
-# color1     = #CD546C
-# color2     = #A5AF86
-# color3     = #CD7860
-# color4     = #7A9388
-# color5     = #917154
-# color6     = #767D75
-# color7     = #C2C2A8
-# color8     = #454545
-# color9     = #EF545F
-# color10    = #BDC79E
-# color11    = #E88773
-# color12    = #94B1A3
-# color13    = #989584
-# color14    = #9DA69E
-# color15    = #DBDAC1
+background = #181512
+foreground = #eddcd3
+color0     = #252525
+color1     = #CD546C
+color2     = #A5AF86
+color3     = #CD7860
+color4     = #7A9388
+color5     = #917154
+color6     = #767D75
+color7     = #C2C2A8
+color8     = #454545
+color9     = #EF545F
+color10    = #BDC79E
+color11    = #E88773
+color12    = #94B1A3
+color13    = #989584
+color14    = #9DA69E
+color15    = #DBDAC1
 
 # oceanic next
 # by voronianski
