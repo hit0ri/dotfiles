@@ -180,7 +180,7 @@ function! s:go_indent(times, dir)
     endfor
 endfunction
 nnoremap <silent> gi :<c-u>call <SID>go_indent(v:count1, 1)<cr>
-nnoremap <silent> gpi :<c-u>call <SID>go_indent(v:count1, -1)<cr>
+nnoremap <silent> gI :<c-u>call <SID>go_indent(v:count1, -1)<cr>
 
 " Mappings ====================================================================
 " Search vim help for subject under cursor (K)
