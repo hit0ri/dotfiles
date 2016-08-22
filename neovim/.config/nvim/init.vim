@@ -105,7 +105,7 @@ let g:loaded_matchparen = 1
 " Colorscheme
 syntax on
 filetype indent plugin on
-let $NVIM_TUI_ENABLE_TRUE_COLOR = 1
+set termguicolors
 set background=dark
 let g:two_firewatch_italics=1
 colorscheme two-firewatch
