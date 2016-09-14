@@ -24,16 +24,17 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'godlygeek/tabular'
     Plug 'bling/vim-airline'
     Plug 'vim-airline/vim-airline-themes'
-    Plug 'sheerun/vim-polyglot'
-    Plug 'Firef0x/PKGBUILD.vim'
-    Plug 'zainin/vim-mikrotik'
-    Plug 'moll/vim-node'
     Plug 'nathanaelkane/vim-indent-guides'
     Plug 'ntpeters/vim-better-whitespace'
     Plug 'junegunn/fzf'
     Plug 'junegunn/fzf.vim'
     Plug 'scrooloose/nerdtree'
     Plug 'Xuyuanp/nerdtree-git-plugin'
+    " Syntax
+    Plug 'sheerun/vim-polyglot'
+    Plug 'Firef0x/PKGBUILD.vim'
+    Plug 'zainin/vim-mikrotik'
+    Plug 'moll/vim-node'
     " Colors
     Plug 'rakr/vim-two-firewatch'
 call plug#end()
