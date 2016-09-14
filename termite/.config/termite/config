@@ -86,24 +86,24 @@ size_hints = true
 
 # Base16 Ocean
 # by Chris Kempson
-# background = #2b303b
-# foreground = #c0c5ce
-# color0     = #2b303b
-# color1     = #bf616a
-# color2     = #a3be8c
-# color3     = #ebcb8b
-# color4     = #8fa1b3
-# color5     = #b48ead
-# color6     = #96b5b4
-# color7     = #c0c5ce
-# color8     = #65737e
-# color9     = #bf616a
-# color10    = #a3be8c
-# color11    = #ebcb8b
-# color12    = #8fa1b3
-# color13    = #b48ead
-# color14    = #96b5b4
-# color15    = #eff1f5
+background = #2b303b
+foreground = #c0c5ce
+color0     = #2b303b
+color1     = #bf616a
+color2     = #a3be8c
+color3     = #ebcb8b
+color4     = #8fa1b3
+color5     = #b48ead
+color6     = #96b5b4
+color7     = #c0c5ce
+color8     = #65737e
+color9     = #bf616a
+color10    = #a3be8c
+color11    = #ebcb8b
+color12    = #8fa1b3
+color13    = #b48ead
+color14    = #96b5b4
+color15    = #eff1f5
 
 # Base16 Tomorrow
 # by Chris Kempson
@@ -192,12 +192,12 @@ size_hints = true
 
 # gruvbox dark
 # by morhetz
-# # hard contrast
+# hard contrast
 # background = #1d2021
-# # regular contrast
-# # background = #282828
-# # soft contrast
-# # background = #32302f
+# regular contrast
+# background = #282828
+# soft contrast
+# background = #32302f
 # foreground = #ebdbb2
 # color0   = #282828
 # color1   = #cc241d
@@ -248,7 +248,7 @@ size_hints = true
 
 # seoul
 # by junegunn
-# background = #1c1c1c
+# background = #3a3a3a
 # foreground = #d0d0d0
 # color0     = #4e4e4e
 # color1     = #d68787
@@ -289,24 +289,24 @@ size_hints = true
 
 # I can't believe it's not butter!
 # by graawr
-background = #181512
-foreground = #eddcd3
-color0     = #252525
-color1     = #CD546C
-color2     = #A5AF86
-color3     = #CD7860
-color4     = #7A9388
-color5     = #917154
-color6     = #767D75
-color7     = #C2C2A8
-color8     = #454545
-color9     = #EF545F
-color10    = #BDC79E
-color11    = #E88773
-color12    = #94B1A3
-color13    = #989584
-color14    = #9DA69E
-color15    = #DBDAC1
+# background = #181512
+# foreground = #eddcd3
+# color0     = #252525
+# color1     = #CD546C
+# color2     = #A5AF86
+# color3     = #CD7860
+# color4     = #7A9388
+# color5     = #917154
+# color6     = #767D75
+# color7     = #C2C2A8
+# color8     = #454545
+# color9     = #EF545F
+# color10    = #BDC79E
+# color11    = #E88773
+# color12    = #94B1A3
+# color13    = #989584
+# color14    = #9DA69E
+# color15    = #DBDAC1
 
 # oceanic next
 # by voronianski
