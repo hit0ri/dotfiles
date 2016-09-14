@@ -1,9 +1,16 @@
 {
 	"always_show_minimap_viewport": true,
 	"auto_close_tags": true,
-	"bold_folder_labels": true,
-	"color_scheme": "Packages/gruvbox/gruvbox (Dark) (Hard).tmTheme",
+	"bold_folder_labels": false,
+	"color_scheme": "Packages/Enki Theme/scheme/Enki.tmTheme",
 	"enable_tab_scrolling": true,
+	"enki_theme_accent_samon": true,
+	"enki_theme_compact_sidebar": true,
+	"enki_theme_panel_separator": true,
+	"enki_theme_small_statusbar": true,
+	"enki_theme_small_tab": true,
+	"enki_theme_tabs_autowidth": true,
+	"enki_theme_tree_headings": false,
 	"ensure_newline_at_eof_on_save": true,
 	"folder_exclude_patterns":
 	[
@@ -14,16 +21,8 @@
 		"node_modules",
 		"bower_components"
 	],
-	"font_face": "Source Code Pro",
+	"font_face": "Monospace",
 	"font_size": 10,
-	"gruvbox_accent_blue": true,
-	"gruvbox_autocomplete_cramped": true,
-	"gruvbox_enable_plus_minus_folder_icons": true,
-	"gruvbox_highlight_active_tree_row": true,
-	"gruvbox_sidebar_compact": true,
-	"gruvbox_sidebar_font_size_10": true,
-	"gruvbox_statusbar_xxs": true,
-	"gruvbox_tabs_xxs": true,
 	"highlight_line": true,
 	"highlight_modified_tabs": true,
 	"ignored_packages":
@@ -35,21 +34,18 @@
 		"draw_normal",
 		"draw_active"
 	],
-	"predawn_findreplace_small": true,
-	"predawn_quick_panel_small": true,
-	"predawn_sidebar_arrows": true,
-	"predawn_sidebar_narrow": true,
-	"predawn_sidebar_small": true,
-	"predawn_tabs_active_underline": true,
-	"predawn_tabs_small": true,
+	"line_padding_bottom": 1,
+	"line_padding_top": 1,
+	"overlay_scroll_bars": "enabled",
 	"rulers":
 	[
 		80
 	],
 	"show_encoding": true,
 	"show_line_endings": true,
-	"tab_size": 2,
-	"theme": "gruvbox (Dark) (Hard).sublime-theme",
+	"tab_size": 4,
+	"theme": "Enki-Theme.sublime-theme",
 	"translate_tabs_to_spaces": true,
+	"trim_trailing_white_space_on_save": true,
 	"update_check": false
 }
