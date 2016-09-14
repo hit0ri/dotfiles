@@ -41,7 +41,7 @@ pb() {
     curl -F "c=@${1:--}" https://ptpb.pw/
 }
 
-
+# private paste (base66 id)
 pbp() {
     curl -F 'p=1' -F "c=@${1:--}" https://ptpb.pw/
 }
@@ -49,10 +49,6 @@ pbp() {
 pbc() {
     curl -sF "c=@${1:--}" -w "%{redirect_url}" 'https://ptpb.pw/?r=1' \
          -o /dev/stderr | xsel -l /dev/null -b
-}
-
-pbs() {
-    scrot /tmp/$$.png && pbx /tmp/$$.png && rm /tmp/$$.png
 }
 
 p() {
