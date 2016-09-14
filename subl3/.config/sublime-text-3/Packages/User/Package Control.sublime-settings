@@ -5,22 +5,23 @@
 	],
 	"installed_packages":
 	[
+		"AdvancedNewFile",
 		"Alignment",
 		"All Autocomplete",
-		"AngularJS",
 		"Ansible",
-		"Babel",
-		"Babel Snippets",
 		"BracketHighlighter",
 		"DeleteBlankLines",
+		"Duotones Colorschemes",
 		"Emmet",
+		"Enki Theme",
+		"Firewatch Color Scheme",
 		"Generic Config",
 		"Git",
 		"GitGutter",
-		"gruvbox",
 		"HTML5",
 		"INI",
 		"Jinja2",
+		"jsfmt",
 		"Markdown Preview",
 		"MikrotikScript",
 		"Package Control",
@@ -30,9 +31,10 @@
 		"SSH Config",
 		"SublimeCodeIntel",
 		"SublimeLinter",
-		"SublimeLinter-jscs",
-		"SublimeLinter-jshint",
+		"SublimeLinter-contrib-eslint",
 		"SublimeLinter-json",
-		"SublimeLinter-shellcheck"
+		"SublimeLinter-shellcheck",
+		"Vue Syntax Highlight",
+		"Vuejs Snippets"
 	]
 }
