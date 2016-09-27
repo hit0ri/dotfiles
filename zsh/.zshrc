@@ -269,7 +269,6 @@ alias dmesg='dmesg -exL'
 alias ip='ip --stats --color'
 
 alias vim='nvim'
-alias svim='sudoedit'
 alias gap='git add --patch'
 alias gst='git status'
 alias dstats='dstat -cdnpmgs --top-bio --top-cpu'
