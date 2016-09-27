@@ -7,6 +7,7 @@ dotfiles
 $ cd dotfiles
 $ stow -v zsh mpv…
 ```
+
 ### neovim
 - install vim-plug
 ```sh
@@ -15,4 +16,11 @@ $ mkdir -p ~/.config/nvim \
        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim \
     && stow -v neovim \
     && nvim +PlugInstall +qall
+```
+
+### fzf
+- install fzf
+```sh
+$ git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+$ ~/.fzf/install --key-bindings --no-{completion,update-rc}
 ```
