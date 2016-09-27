@@ -211,3 +211,6 @@ nnoremap [b :bprev<cr>
 nnoremap <Leader>b :bw<cr>
 nnoremap <Leader>o :only<cr>
 
+" Save file with sudo
+command W w !sudo tee % > /dev/null
+
