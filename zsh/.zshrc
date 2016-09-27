@@ -277,3 +277,4 @@ alias lsports='ss -tunalp | cat'
 # fzf
 include /usr/share/fzf/key-bindings.zsh
 include /usr/share/fzf/completion.zsh
+include ~/.fzf.zsh
