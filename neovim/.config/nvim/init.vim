@@ -212,5 +212,5 @@ nnoremap <Leader>b :bw<cr>
 nnoremap <Leader>o :only<cr>
 
 " Save file with sudo
-command W w !sudo tee % > /dev/null
+command W execute 'silent w !sudo tee % > /dev/null' | edit!
 
