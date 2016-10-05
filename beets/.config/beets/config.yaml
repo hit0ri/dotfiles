@@ -1,13 +1,17 @@
-library: ~/.config/beets/library.db
-ui:
-    color: yes
 plugins: fetchart embedart convert
+
+ui:
+  color: yes
+
 import:
-    move: yes
+  move: yes
+
 paths:
-    default: $albumartist/$year - $album%aunique{}/$track $title
+  default: $albumartist/$year - $album%aunique{}/$track $title
+
 fetchart:
-    cautious: true
+  cautious: true
+
 convert:
   auto: yes
   never_convert_lossy_files: yes
