@@ -36,7 +36,7 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'zainin/vim-mikrotik'
     Plug 'moll/vim-node'
     " Colors
-    Plug 'rakr/vim-two-firewatch'
+    Plug 'morhetz/gruvbox'
 call plug#end()
 
 
@@ -108,9 +108,10 @@ syntax on
 filetype indent plugin on
 set termguicolors
 set background=dark
-let g:two_firewatch_italics=1
-colorscheme two-firewatch
-let g:airline_theme = 'twofirewatch'
+let g:gruvbox_italic = 1
+let g:gruvbox_contrast_dark = 'medium'
+colorscheme gruvbox
+let g:airline_theme = 'gruvbox'
 
 set title
 set number
