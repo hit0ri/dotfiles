@@ -1,5 +1,5 @@
 typeset -U path
-path=(~/bin ~/.local/bin ~/go/bin ~/.node_modules/bin $path[@])
+path=(~/bin ~/.local/bin ~/go/bin ~/.node_modules/bin ~/.cargo/bin $path[@])
 
 export PAGER=less
 
