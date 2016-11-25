@@ -43,7 +43,7 @@ mkdirf() {
 include /etc/bash.bashrc
 include /etc/bashrc
 
-export PATH=$PATH:$HOME/.local/bin:$HOME/bin:$HOME/.node_modules/bin:$HOME/go/bin
+export PATH=$PATH:$HOME/.local/bin:$HOME/bin:$HOME/.node_modules/bin:$HOME/go/bin:$HOME/.cargo/bin
 export npm_config_prefix=$HOME/.node_modules
 
 export EDITOR=nvim
