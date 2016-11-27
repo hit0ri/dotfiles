@@ -60,6 +60,7 @@ p() {
 
 # Syntax highlighting (must be at the end of the .zshrc)
 include /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+include /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # Git prompt
 include /usr/share/git-core/contrib/completion/git-prompt.sh
