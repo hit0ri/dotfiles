@@ -36,7 +36,8 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'zainin/vim-mikrotik'
     Plug 'moll/vim-node'
     " Colors
-    Plug 'morhetz/gruvbox'
+    " Plug 'morhetz/gruvbox'
+    Plug 'chriskempson/base16-vim'
 call plug#end()
 
 
@@ -110,8 +111,9 @@ set termguicolors
 set background=dark
 let g:gruvbox_italic = 1
 let g:gruvbox_contrast_dark = 'medium'
-colorscheme gruvbox
-let g:airline_theme = 'gruvbox'
+let base16colorspace=256
+colorscheme base16-ocean
+let g:airline_theme = 'base16_ocean'
 
 set title
 set number
