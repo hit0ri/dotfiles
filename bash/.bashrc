@@ -60,13 +60,13 @@ export WINEDLLOVERRIDES=winemenubuilder.exe,mscoree,mshtml=
 
 export PAGER=less
 export LESS=-RX
-export LESS_TERMCAP_mb=$'\e[01;31m'
-export LESS_TERMCAP_md=$'\e[01;31m'
-export LESS_TERMCAP_me=$'\e[0m'
-export LESS_TERMCAP_se=$'\e[0m'
-export LESS_TERMCAP_so=$'\e[01;44;33m'
-export LESS_TERMCAP_ue=$'\e[0m'
-export LESS_TERMCAP_us=$'\e[01;32m'
+export LESS_TERMCAP_md=$(tput bold; tput setaf 1)
+export LESS_TERMCAP_mb=$(tput bold; tput smul; tput setaf 5)
+export LESS_TERMCAP_me=$(tput sgr0)
+export LESS_TERMCAP_so=$(tput bold; tput smul; tput setaf 3)
+export LESS_TERMCAP_se=$(tput sgr0)
+export LESS_TERMCAP_us=$(tput bold; tput smul; tput setaf 6)
+export LESS_TERMCAP_ue=$(tput sgr0)
 
 # History
 # Ignore duplicates and lines which begin with a space
