@@ -67,6 +67,7 @@ export LESS_TERMCAP_so=$(tput bold; tput smul; tput setaf 3)
 export LESS_TERMCAP_se=$(tput sgr0)
 export LESS_TERMCAP_us=$(tput bold; tput smul; tput setaf 6)
 export LESS_TERMCAP_ue=$(tput sgr0)
+export GROFF_NO_SGR=yes
 
 # History
 # Ignore duplicates and lines which begin with a space
