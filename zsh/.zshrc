@@ -273,7 +273,7 @@ alias vim='nvim'
 alias gap='git add --patch'
 alias gst='git status'
 alias dstats='dstat -cdnpmgs --top-bio --top-cpu'
-alias lsports='ss -tunalp | cat'
+alias lsports='ss -tunalp | column -t'
 
 # fzf
 include /usr/share/fzf/key-bindings.zsh
