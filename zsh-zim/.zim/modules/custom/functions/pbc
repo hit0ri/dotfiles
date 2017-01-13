@@ -1,0 +1,2 @@
+# create paste from stdin or file and copy url to the clipboard
+curl -sF "c=@${1:--}" -w "%{redirect_url}" 'http://ptpb.pw/?r=1' -o /dev/stderr | xsel -l /dev/null -b

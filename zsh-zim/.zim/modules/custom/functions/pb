@@ -1,0 +1,2 @@
+# create paste from stdin or file
+curl -F "c=@${1:--}" https://ptpb.pw/

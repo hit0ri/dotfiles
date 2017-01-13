@@ -1,0 +1,2 @@
+# create paste from selected text
+xsel -l /dev/null -p -o | curl -F c=@- https://ptpb.pw/
