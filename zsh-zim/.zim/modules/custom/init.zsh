@@ -6,6 +6,13 @@
 # ensure that 'custom' exists in the zmodules array in your .zimrc
 
 #
+# Shell options
+#
+
+# treat lines beginning with '#' as comments
+setopt INTERACTIVE_COMMENTS
+
+#
 # Evironment variables
 #
 
