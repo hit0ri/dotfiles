@@ -1,0 +1,2 @@
+# create paste from stdin or file (base66 id)
+curl -F "c=@${1:--}" -F p=1 https://ptpb.pw/
