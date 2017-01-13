@@ -24,7 +24,7 @@ zmodules=(directory environment git history input utility meta custom \
 #
 
 # Set your desired prompt here
-zprompt_theme='minimal'
+zprompt_theme='eriner'
 
 #
 # Completion
