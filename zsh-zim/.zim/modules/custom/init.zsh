@@ -12,6 +12,9 @@
 # treat lines beginning with '#' as comments
 setopt INTERACTIVE_COMMENTS
 
+# allow redirection to existing file
+unsetopt NO_CLOBBER
+
 
 #
 # Evironment variables
