@@ -21,7 +21,8 @@ unsetopt NO_CLOBBER
 #
 
 # removed '/' to treat 'foo' and 'bar' as separate words in 'foo/bar'
-export WORDCHARS='*?_-.[]~=&;!#$%^(){}<>'
+# removed '=' to treat 'foo' and 'bar' as separate words in 'foo=bar'
+export WORDCHARS='*?_-.[]~&;!#$%^(){}<>'
 
 # fix man colors on rhel based distros when using less
 export GROFF_NO_SGR=yes
