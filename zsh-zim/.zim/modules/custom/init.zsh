@@ -59,7 +59,8 @@ bindkey "${key_info[Down]}" down-line-or-beginning-search
 #
 
 alias dmesg='dmesg -exL'
-alias ip='ip --stats --color'
+alias ip='ip --color'
+alias ips='ip --stats --color'
 alias lsports='ss -tunalp | column -t'
 
 alias vim='nvim'
