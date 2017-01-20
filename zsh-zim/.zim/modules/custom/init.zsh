@@ -15,6 +15,9 @@ setopt INTERACTIVE_COMMENTS
 # allow redirection to existing file
 unsetopt NO_CLOBBER
 
+# disable extended globbing
+setopt NO_EXTENDED_GLOB
+
 
 #
 # Evironment variables
