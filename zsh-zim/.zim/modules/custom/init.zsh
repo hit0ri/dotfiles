@@ -51,14 +51,6 @@ export EDITOR=nvim
 bindkey '^[[H' beginning-of-line
 bindkey '^[[F' end-of-line
 
-# search history on up and down keys
-autoload -Uz up-line-or-beginning-search
-autoload -Uz down-line-or-beginning-search
-zle -N up-line-or-beginning-search
-zle -N down-line-or-beginning-search
-bindkey "${key_info[Up]}" up-line-or-beginning-search
-bindkey "${key_info[Down]}" down-line-or-beginning-search
-
 
 #
 # Aliases
