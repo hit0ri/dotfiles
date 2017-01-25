@@ -39,6 +39,9 @@ export npm_config_prefix=${HOME}/.node_modules
 # prevent wine from adding file associations
 export WINEDLLOVERRIDES=winemenubuilder.exe,mscoree,mshtml=
 
+# default text editor
+export EDITOR=nvim
+
 
 #
 # Key bindings
