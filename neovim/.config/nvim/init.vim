@@ -209,13 +209,19 @@ nnoremap <c-k> <c-w>k
 nnoremap <c-l> <c-w>l
 
 " Buffers
+" Create new buffer
+nnoremap <Leader>T :enew<cr>
+" Switch to the next/previous buffer
 nnoremap ]b :bnext<cr>
 nnoremap [b :bprev<cr>
 " Open last buffer
 " nnoremap <Leader><Leader> <c-^>
 " Close active buffer
-nnoremap <Leader>b :bw<cr>
-nnoremap <Leader>o :only<cr>
+nnoremap <Leader>b :bd<cr>
+" Force close active buffer
+nnoremap <Leader>B :bd!<cr>
+" Close all buffers
+nnoremap <Leader>O :bufdo bd!<cr>
 
 " Save file with sudo
 command W execute 'silent w !sudo tee % > /dev/null' | edit!
