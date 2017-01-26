@@ -65,3 +65,15 @@ alias vim='nvim'
 
 alias gap='git add --patch'
 alias gst='git status'
+
+
+#
+# fzf
+#
+export FZF_DEFAULT_OPTS=--inline-info
+export FZF_DEFAULT_COMMAND='ag --hidden --ignore .git -g ""'
+
+ifsource /usr/share/fzf/key-bindings.zsh
+ifsource /usr/share/fzf/completion.zsh
+ifsource ${HOME}/.fzf.zsh
+
