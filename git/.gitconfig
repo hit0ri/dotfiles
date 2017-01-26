@@ -8,8 +8,14 @@
 [alias]
     p = push origin master
     co = checkout
+    cob = checkout -b
+    ap = add --patch
     cm = commit -m
-    dst = diff --stat
+    ca = commit --amend
+    cam = commit --amend -m
+    d = diff --stat
+    ds = diff --staged --stat
+    dst = diff --staged
     st = status -s
     br = branch
     type = cat-file -t
