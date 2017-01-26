@@ -24,7 +24,6 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'godlygeek/tabular'
     Plug 'bling/vim-airline'
     Plug 'vim-airline/vim-airline-themes'
-    Plug 'nathanaelkane/vim-indent-guides'
     Plug 'ntpeters/vim-better-whitespace'
     Plug 'junegunn/fzf'
     Plug 'junegunn/fzf.vim'
@@ -105,9 +104,6 @@ nnoremap <silent> <Leader>`    :Marks<cr>
 
 
 " General settings ============================================================
-" Disable highlighting matched parenthesis
-let g:loaded_matchparen = 1
-
 " Colorscheme
 syntax on
 filetype indent plugin on
