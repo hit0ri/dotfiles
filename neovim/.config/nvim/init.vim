@@ -36,8 +36,7 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'zainin/vim-mikrotik'
     Plug 'moll/vim-node'
     " Colors
-    " Plug 'morhetz/gruvbox'
-    Plug 'chriskempson/base16-vim'
+    Plug 'morhetz/gruvbox'
 call plug#end()
 
 
@@ -64,6 +63,10 @@ autocmd! BufWritePost * Neomake
 " airline
 " -----------------------------------------------------------------------------
 let g:airline_powerline_fonts = 1
+let g:airline_left_sep = ''
+let g:airline_left_alt_sep = ''
+let g:airline_right_sep = ''
+let g:airline_right_alt_sep = ''
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#fnamemod = ':t'
 
@@ -111,9 +114,8 @@ set termguicolors
 set background=dark
 let g:gruvbox_italic = 1
 let g:gruvbox_contrast_dark = 'medium'
-let base16colorspace=256
-colorscheme base16-ocean
-let g:airline_theme = 'base16_ocean'
+colorscheme gruvbox
+let g:airline_theme = 'gruvbox'
 
 set title
 set number
