@@ -12,6 +12,9 @@ paths:
 fetchart:
   cautious: true
 
+embedart:
+  remove_art_file: true
+
 convert:
   auto: yes
   never_convert_lossy_files: yes
