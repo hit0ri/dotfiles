@@ -20,7 +20,7 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'tommcdo/vim-exchange'
     Plug 'Shougo/deoplete.nvim', { 'do': function('DoRemote') }
     Plug 'airblade/vim-gitgutter'
-    Plug 'benekastah/neomake'
+    Plug 'w0rp/ale'
     Plug 'godlygeek/tabular'
     Plug 'bling/vim-airline'
     Plug 'vim-airline/vim-airline-themes'
@@ -52,11 +52,6 @@ let g:plug_window = 'new'
 let g:deoplete#enable_at_startup = 1
 " Automatically close the scratch window
 autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
-
-" -----------------------------------------------------------------------------
-" neomake
-" -----------------------------------------------------------------------------
-autocmd! BufWritePost * Neomake
 
 " -----------------------------------------------------------------------------
 " airline
