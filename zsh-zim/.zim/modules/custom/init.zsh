@@ -44,15 +44,6 @@ export EDITOR=nvim
 
 
 #
-# Key bindings
-#
-
-# fix gnome-terminal bindings for home and end keys
-bindkey '^[[H' beginning-of-line
-bindkey '^[[F' end-of-line
-
-
-#
 # Aliases
 #
 
