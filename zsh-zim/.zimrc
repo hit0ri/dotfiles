@@ -12,7 +12,7 @@
 # The second line of modules may depend on options set by modules in the first line.
 # These dependencies are noted on the respective module's README.md.
 zmodules=(directory environment git git-info history input utility meta custom \
-          archive history-substring-search prompt completion)
+          archive prompt completion)
 
 
 ###################
