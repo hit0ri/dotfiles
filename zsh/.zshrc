@@ -1,5 +1,5 @@
 export KEYTIMEOUT=10
-export WORDCHARS='*?[]~=&;!#$%^(){}'
+export WORDCHARS='*?_-.[]~&;!#$%^(){}<>'
 
 # Report CPU usage for commands running longer than 10 seconds
 REPORTTIME=10
@@ -11,8 +11,8 @@ SAVEHIST=8192
 
 
 # Functions
-include() {
-    [[ -f "$1" ]] && source "$1"
+ifsource() {
+    [[ -f $1 ]] && source "$1"
 }
 
 command_exists() {
@@ -20,13 +20,7 @@ command_exists() {
 }
 
 twitch() {
-    mpv "https://twitch.tv/$1"
-}
-
-ssh_state() {
-    if [[ -n "$SSH_CLIENT" || -n "$SSH_CONNECTION" || -n "$SSH_TTY" ]]; then
-        print "%{$fg_bold[cyan]%}<%{$reset_color%}%{$fg_bold[white]%}%m%{$fg_bold[cyan]%}>%{$reset_color%} "
-    fi
+    mpv "https://twitch.tv/$1" &
 }
 
 cdl() {
@@ -37,38 +31,38 @@ mkdirf() {
     mkdir -p "$1" && cd "$1"
 }
 
+#
+# Paste
+#
+# create paste from stdin or file
 pb() {
     curl -F "c=@${1:--}" https://ptpb.pw/
 }
 
-# private paste (base66 id)
-pbp() {
-    curl -F 'p=1' -F "c=@${1:--}" https://ptpb.pw/
-}
-
+# create paste from stdin or file and copy url to the clipboard
 pbc() {
-    curl -sF "c=@${1:--}" -w "%{redirect_url}" 'https://ptpb.pw/?r=1' \
-         -o /dev/stderr | xsel -l /dev/null -b
+    curl -sF "c=@${1:--}" -w "%{redirect_url}" 'http://ptpb.pw/?r=1' -o /dev/stderr | xsel -l /dev/null -b
 }
 
-p() {
-    xsel -l /dev/null -p -o | curl -F "c=@${1:--}" https://ptpb.pw/
+# create expiring paste from stdin or file
+# default paste lifetime is 2 minutes (120 seconds)
+pbe() {
+    curl -F "c=@${1:--}" -F sunset=${2:-120} https://ptpb.pw/
 }
+
+# create paste from stdin or file (base66 id)
+pbp() {
+    curl -F "c=@${1:--}" -F p=1 https://ptpb.pw/
+}
+
+# create paste from selected text
+pbs() {
+    xsel -l /dev/null -p -o | curl -F c=@- https://ptpb.pw/
+}
+
 
 # Open new window in same directory by pressing C-S-T
-[[ -n $VTE_VERSION ]] && include /etc/profile.d/vte.sh
-
-# Syntax highlighting (must be at the end of the .zshrc)
-include /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-include /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
-# Git prompt
-include /usr/share/git-core/contrib/completion/git-prompt.sh
-include /usr/share/git/completion/git-prompt.sh
-GIT_PS1_SHOWDIRTYSTATE=true
-GIT_PS1_SHOWSTASHSTATE=true
-GIT_PS1_SHOWUNTRACKEDFILES=true
-GIT_PS1_SHOWUPSTREAM="auto"
+[[ -n $VTE_VERSION ]] && ifsource /etc/profile.d/vte.sh
 
 
 setopt share_history \
@@ -84,7 +78,6 @@ setopt auto_cd \
        complete_aliases \
        glob_dots \
        interactive_comments \
-       # extended_glob
 
 
 # Help
@@ -144,8 +137,7 @@ autoload -Uz colors
 colors
 setopt prompt_subst
 
-PROMPT='$(ssh_state)%{$fg_bold[red]%}>%{$fg_bold[yellow]%}>%{$fg_bold[green]%}>%{$reset_color%} '
-RPROMPT='%{$fg_bold[magenta]%}$(__git_ps1 %s)%{$reset_color%} %{$fg_bold[blue]%}%~%{$reset_color%}'
+ifsource ~/.zplugs/lean/lean.plugin.zsh
 
 
 # Colors for ls
@@ -184,8 +176,8 @@ zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 zstyle ':completion:*:approximate:*' max-errors 'reply=( $(( ($#PREFIX+$#SUFFIX)/3 )) numeric )'
 
 # match uppercase from lowercase and enable partial word completion
-zstyle ':completion:*' matcher-list \
-       '' 'm:{a-z-_}={A-Z_-}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
+# zstyle ':completion:*' matcher-list \
+#        '' 'm:{a-z-_}={A-Z_-}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
 
 # zstyle ':completion:*:((*-|)files|(*-|)directories)' ignored-patterns '(*/|).[^/]##'
 
@@ -267,15 +259,15 @@ alias lsa='ls --color=auto --show-control-chars --group-directories-first -AhXF'
 alias lla='ls --color=auto --show-control-chars --group-directories-first -AlhXF'
 
 alias dmesg='dmesg -exL'
-alias ip='ip --stats --color'
+alias ip='ip --color'
+alias ips='ip --color --stats'
 
 alias vim='nvim'
 alias gap='git add --patch'
 alias gst='git status'
-alias dstats='dstat -cdnpmgs --top-bio --top-cpu'
 alias lsports='ss -tunalp | column -t'
 
 # fzf
-include /usr/share/fzf/key-bindings.zsh
-include /usr/share/fzf/completion.zsh
-include ~/.fzf.zsh
+ifsource /usr/share/fzf/key-bindings.zsh
+ifsource /usr/share/fzf/completion.zsh
+ifsource ~/.fzf.zsh
