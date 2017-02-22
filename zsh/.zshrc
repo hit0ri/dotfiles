@@ -175,9 +175,8 @@ zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 # allow one error for every three characters typed in approximate completer
 zstyle ':completion:*:approximate:*' max-errors 'reply=( $(( ($#PREFIX+$#SUFFIX)/3 )) numeric )'
 
-# match uppercase from lowercase and enable partial word completion
-# zstyle ':completion:*' matcher-list \
-#        '' 'm:{a-z-_}={A-Z_-}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
+# match uppercase from lowercase
+zstyle ':completion:*' matcher-list '' 'm:{a-z-_}={A-Z_-}'
 
 # zstyle ':completion:*:((*-|)files|(*-|)directories)' ignored-patterns '(*/|).[^/]##'
 
