@@ -1,3 +1,7 @@
+#
+# Shell options
+#
+
 export KEYTIMEOUT=10
 export WORDCHARS='*?_-[]~&;!#$%^(){}<>'
 
@@ -9,8 +13,30 @@ HISTFILE=~/.histfile
 HISTSIZE=8192
 SAVEHIST=8192
 
+setopt share_history \
+       extended_history \
+       hist_ignore_dups \
+       hist_reduce_blanks \
+       hist_fcntl_lock \
+       hist_ignore_space \
 
+setopt auto_cd \
+       pushd_silent \
+       complete_aliases \
+       glob_dots \
+       interactive_comments \
+
+# Help
+autoload -U run-help
+autoload run-help-git
+alias help='run-help'
+
+
+
+#
 # Functions
+#
+
 ifsource() {
     [[ -f $1 ]] && source "$1"
 }
@@ -31,9 +57,6 @@ mkdirf() {
     mkdir -p "$1" && cd "$1"
 }
 
-#
-# Paste
-#
 # create paste from stdin or file
 pb() {
     curl -F "c=@${1:--}" https://ptpb.pw/
@@ -61,31 +84,11 @@ pbs() {
 }
 
 
-# Open new window in same directory by pressing C-S-T
-[[ -n $VTE_VERSION ]] && ifsource /etc/profile.d/vte.sh
 
-
-setopt share_history \
-       extended_history \
-       hist_ignore_dups \
-       hist_reduce_blanks \
-       hist_fcntl_lock \
-       hist_ignore_space \
-
-# Options
-setopt auto_cd \
-       pushd_silent \
-       complete_aliases \
-       glob_dots \
-       interactive_comments \
-
-
-# Help
-autoload -U run-help
-autoload run-help-git
-alias help='run-help'
-
+#
 # Key bindings
+#
+
 typeset -gA key
 key=(
     'left'      "${terminfo[kcub1]}"
@@ -130,23 +133,11 @@ bindkey "${key[page-down]}" end-of-buffer-or-history
 bindkey "${key[shift-tab]}" reverse-menu-complete
 
 
-# Prompt
-autoload -Uz promptinit
-promptinit
-autoload -Uz colors
-colors
-setopt prompt_subst
 
-ifsource ~/.zplugs/lean/lean.plugin.zsh
-
-
-# Colors for ls
-if command_exists dircolors; then
-    [[ -f ~/.dircolors ]] && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
-fi
-
-
+#
 # Completion
+#
+
 autoload -Uz compinit
 compinit
 
@@ -234,7 +225,24 @@ zstyle ':completion:*:options' auto-description '%d'
 zstyle ':completion:*:options' description 'yes'
 
 
+
+#
+# Misc
+#
+
+# Open new window in same directory by pressing C-S-T
+[[ -n $VTE_VERSION ]] && ifsource /etc/profile.d/vte.sh
+
+# Colors for ls
+if command_exists dircolors; then
+    [[ -f ~/.dircolors ]] && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+fi
+
+
+
+#
 # Aliases
+#
 alias -g ...='../..'
 alias -g ....='../../..'
 alias rm='rm -vI'
@@ -266,7 +274,41 @@ alias gap='git add --patch'
 alias gst='git status'
 alias lsports='ss -tunalp | column -t'
 
-# fzf
-ifsource /usr/share/fzf/key-bindings.zsh
-ifsource /usr/share/fzf/completion.zsh
-ifsource ~/.fzf.zsh
+
+
+#
+# Plugins
+#
+
+[[ -d ~/.zplug ]] || git clone --depth 1 https://github.com/zplug/zplug ~/.zplug
+source ~/.zplug/init.zsh
+
+# additional completions
+zplug "zsh-users/zsh-completions"
+
+# lean prompt
+zplug "miekg/lean"
+
+# fzf binaries
+zplug "junegunn/fzf-bin", \
+    from:gh-r, \
+    use:"*linux*amd64*", \
+    as:command, \
+    rename-to:"fzf"
+
+zplug "junegunn/fzf", use:"bin/fzf-tmux", as:command
+
+# fzf keybindings and completions
+zplug "junegunn/fzf", use:"shell/*.zsh"
+
+
+# install plugins if there are plugins that have not been installed
+if ! zplug check --verbose; then
+  printf "Install? [y/N]: "
+  if read -q; then
+    echo; zplug install
+  fi
+fi
+
+# then, source plugins and add commands to $PATH
+zplug load
