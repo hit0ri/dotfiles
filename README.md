@@ -17,10 +17,3 @@ $ mkdir -p ~/.config/nvim \
     && stow -v neovim \
     && nvim +PlugInstall +qall
 ```
-
-### fzf
-- install fzf
-```sh
-$ git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
-$ ~/.fzf/install --key-bindings --no-{completion,update-rc}
-```
