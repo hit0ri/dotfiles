@@ -19,12 +19,11 @@ setopt share_history \
        hist_reduce_blanks \
        hist_fcntl_lock \
        hist_ignore_space \
-
-setopt auto_cd \
+       auto_cd \
        pushd_silent \
        complete_aliases \
        glob_dots \
-       interactive_comments \
+       interactive_comments
 
 # Help
 autoload -U run-help
