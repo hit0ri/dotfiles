@@ -37,6 +37,7 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'Firef0x/PKGBUILD.vim'
     Plug 'zainin/vim-mikrotik'
     Plug 'moll/vim-node'
+    Plug 'eiginn/iptables-vim'
     " Colors
     Plug 'morhetz/gruvbox'
 call plug#end()
