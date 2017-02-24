@@ -64,7 +64,7 @@ pb() {
 
 # create paste from stdin or file and copy url to the clipboard
 pbc() {
-    curl -sF "c=@${1:--}" -w "%{redirect_url}" 'http://ptpb.pw/?r=1' -o /dev/stderr | xsel -l /dev/null -b
+    curl -sF "c=@${1:--}" -w "%{redirect_url}" 'https://ptpb.pw/?r=1' -o /dev/stderr | xsel -l /dev/null -b
 }
 
 # create expiring paste from stdin or file
