@@ -2,7 +2,10 @@
 let $NVIM_TUI_ENABLE_CURSOR_SHAPE = 1
 let mapleader = ','
 
-" Plugins ---------------------------------------------------------------------
+
+"
+" Plugins
+"
 function! DoRemote(arg)
     UpdateRemotePlugins
 endfunction
@@ -39,23 +42,22 @@ call plug#begin('~/.config/nvim/plugged')
 call plug#end()
 
 
-" Plugin settings =============================================================
 
-" -----------------------------------------------------------------------------
-" plug
-" -----------------------------------------------------------------------------
+"
+" Plugin settings
+"
+
+""" plug
 let g:plug_window = 'new'
 
-" -----------------------------------------------------------------------------
-" deoplete
-" -----------------------------------------------------------------------------
+
+""" deoplete
 let g:deoplete#enable_at_startup = 1
 " Automatically close the scratch window
 autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
 
-" -----------------------------------------------------------------------------
-" airline
-" -----------------------------------------------------------------------------
+
+""" airline
 let g:airline_powerline_fonts = 1
 let g:airline_left_sep = ''
 let g:airline_left_alt_sep = ''
@@ -65,28 +67,24 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#fnamemod = ':t'
 let g:airline#extensions#tabline#buffers_label = ''
 
-" -----------------------------------------------------------------------------
-" indent-guides
-" -----------------------------------------------------------------------------
+
+""" indent-guides
 let g:indent_guides_guide_size = 1
 let g:indent_guides_enable_on_vim_startup = 1
 
-" -----------------------------------------------------------------------------
-" nerdtree
-" -----------------------------------------------------------------------------
+
+""" nerdtree
 map <C-n> :NERDTreeToggle<CR>
 
-" -----------------------------------------------------------------------------
-" vim-easy-align
-" -----------------------------------------------------------------------------
+
+""" vim-easy-align
 " Start interactive EasyAlign in visual mode (e.g. vipga)
 xmap ga <Plug>(EasyAlign)
 " Start interactive EasyAlign for a motion/text object (e.g. gaip)
 nmap ga <Plug>(EasyAlign)
 
-" -----------------------------------------------------------------------------
-" fzf
-" -----------------------------------------------------------------------------
+
+""" fzf
 if has('nvim')
     let $FZF_DEFAULT_OPTS .= ' --inline-info'
 endif
@@ -98,7 +96,10 @@ nnoremap <silent> <Leader>AG   :Ag <C-R><C-A><cr>
 nnoremap <silent> <Leader>`    :Marks<cr>
 
 
-" General settings ============================================================
+"
+" General settings
+"
+
 " Colorscheme
 syntax on
 filetype indent plugin on
@@ -140,7 +141,11 @@ autocmd BufNewFile,BufRead *.rss setfiletype xml
 autocmd BufRead /tmp/mutt-* set textwidth=72
 
 
-" Functions ===================================================================
+
+"
+" Functions
+"
+
 " Restore cursor to file position in previous editing session
 function! ResCur()
     if line("'\"") <= line("$")
@@ -154,9 +159,7 @@ augroup resCur
     autocmd BufWinEnter * call ResCur()
 augroup END
 
-" ----------------------------------------------------------------------------
-" #gi / #gpi | go to next/previous indentation level
-" ----------------------------------------------------------------------------
+" gi / gI | go to next/previous indentation level
 function! s:indent_len(str)
     return type(a:str) == 1 ? len(matchstr(a:str, '^\s*')) : 0
 endfunction
@@ -181,7 +184,12 @@ endfunction
 nnoremap <silent> gi :<c-u>call <SID>go_indent(v:count1, 1)<cr>
 nnoremap <silent> gI :<c-u>call <SID>go_indent(v:count1, -1)<cr>
 
-" Mappings ====================================================================
+
+
+"
+" Mappings
+"
+
 " Search vim help for subject under cursor (K)
 set keywordprg=:help
 
@@ -200,7 +208,7 @@ nnoremap <c-j> <c-w>j
 nnoremap <c-k> <c-w>k
 nnoremap <c-l> <c-w>l
 
-" Buffers
+""" Buffers
 " Create new buffer
 nnoremap <Leader>T :enew<cr>
 " Switch to the next/previous buffer
