@@ -97,6 +97,11 @@ nnoremap <silent> <Leader>AG   :Ag <C-R><C-A><cr>
 nnoremap <silent> <Leader>`    :Marks<cr>
 
 
+""" polyglot
+let g:polyglot_disabled = ['yaml']
+
+
+
 "
 " General settings
 "
