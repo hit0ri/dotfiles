@@ -130,10 +130,7 @@ set tabstop=4
 set softtabstop=4
 set shiftwidth=4
 set expandtab
-autocmd FileType python setlocal ts=4 sts=4 sw=4 et
-autocmd FileType yaml   setlocal ts=2 sts=2 sw=2 et noai nosr
 autocmd FileType html   setlocal ts=2 sts=2 sw=2 et
-autocmd FileType sh     setlocal ts=2 sts=2 sw=2 et
 
 " Treat .rss files as XML
 autocmd BufNewFile,BufRead *.rss setfiletype xml
