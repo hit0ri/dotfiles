@@ -32,6 +32,7 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'junegunn/fzf.vim'
     Plug 'scrooloose/nerdtree'
     Plug 'Xuyuanp/nerdtree-git-plugin'
+    Plug 'Yggdroot/indentLine'
     " Syntax
     Plug 'sheerun/vim-polyglot'
     Plug 'Firef0x/PKGBUILD.vim'
