@@ -133,11 +133,10 @@ set ignorecase
 set mouse=h
 
 " Indentation
-set tabstop=4
-set softtabstop=4
-set shiftwidth=4
+set tabstop=2
+set softtabstop=2
+set shiftwidth=2
 set expandtab
-autocmd FileType html   setlocal ts=2 sts=2 sw=2 et
 
 " Treat .rss files as XML
 autocmd BufNewFile,BufRead *.rss setfiletype xml
