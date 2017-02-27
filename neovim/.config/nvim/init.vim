@@ -124,7 +124,6 @@ let g:airline_theme = 'gruvbox'
 
 set title
 set number
-set relativenumber
 set hidden
 set linebreak
 set colorcolumn=80
