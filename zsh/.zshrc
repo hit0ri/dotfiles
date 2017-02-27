@@ -168,7 +168,8 @@ zstyle ':completion:*:approximate:*' max-errors 'reply=( $(( ($#PREFIX+$#SUFFIX)
 # match uppercase from lowercase
 zstyle ':completion:*' matcher-list '' 'm:{a-z-_}={A-Z_-}'
 
-# zstyle ':completion:*:((*-|)files|(*-|)directories)' ignored-patterns '(*/|).[^/]##'
+# complete hidden files and directories only when pattern starts with a dot
+zstyle ':completion:*:((*-|)files|(*-|)directories)' ignored-patterns '(*/|).[^/]##'
 
 # start menu completion only if it could find no unambiguous initial string
 zstyle ':completion:*:correct:*' insert-unambiguous true
