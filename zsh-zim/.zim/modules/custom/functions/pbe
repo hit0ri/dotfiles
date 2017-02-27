@@ -1,3 +1,0 @@
-# create expiring paste from stdin or file
-# default paste lifetime is 2 minutes (120 seconds)
-curl -F "c=@${1:--}" -F sunset=${2:-120} https://ptpb.pw/
