@@ -221,8 +221,6 @@ nnoremap <Leader>T :enew<cr>
 " Switch to the next/previous buffer
 nnoremap ]b :bnext<cr>
 nnoremap [b :bprev<cr>
-" Open last buffer
-" nnoremap <Leader><Leader> <c-^>
 " Close active buffer
 nnoremap <Leader>b :bd<cr>
 " Force close active buffer
