@@ -1,2 +1,0 @@
-# source file if exists
-[[ -f ${1} ]] && source ${1}
