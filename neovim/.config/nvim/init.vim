@@ -103,6 +103,10 @@ nnoremap <silent> <Leader>`    :Marks<cr>
 let g:polyglot_disabled = ['yaml']
 
 
+""" indenLine
+let g:indentLine_char = '│'
+
+
 
 "
 " General settings
