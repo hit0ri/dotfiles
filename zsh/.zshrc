@@ -25,10 +25,22 @@ setopt share_history \
        glob_dots \
        interactive_comments
 
-# Help
+# Show man for current command (Alt+H)
 autoload -U run-help
 autoload run-help-git
 alias help='run-help'
+
+# man colors
+export PAGER=less
+export LESS=-RX
+export LESS_TERMCAP_md=$(tput bold; tput setaf 1)
+export LESS_TERMCAP_mb=$(tput bold; tput smul; tput setaf 5)
+export LESS_TERMCAP_me=$(tput sgr0)
+export LESS_TERMCAP_so=$(tput bold; tput smul; tput setaf 3)
+export LESS_TERMCAP_se=$(tput sgr0)
+export LESS_TERMCAP_us=$(tput bold; tput smul; tput setaf 6)
+export LESS_TERMCAP_ue=$(tput sgr0)
+export GROFF_NO_SGR=yes
 
 
 
