@@ -1,50 +1,32 @@
 "*":
+  "atom-beautify":
+    general:
+      analytics: false
+    xml:
+      end_with_newline: true
+      indent_size: 2
+  core:
+    autoHideMenuBar: true
+    telemetryConsent: "no"
+    themes: [
+      "one-dark-ui"
+      "Tycho-Dark-Syntax"
+    ]
+  editor:
+    fontFamily: "Source Code Pro"
+    showIndentGuide: true
+  "exception-reporting":
+    userId: "240d68ae-29a4-4cea-8c5a-e24c6a2ae8f1"
+  "git-plus":
+    general:
+      analytics: false
+  "go-plus":
+    panelDisplayMode: "closed"
+  linter: {}
+  "linter-write-good":
+    nodePath: "/usr/bin/node"
   welcome:
     showOnStartup: false
+".ansible.source":
   editor:
-    invisibles: {}
-    fontFamily: "Source Code Pro"
-    fontSize: 14
-    scrollPastEnd: true
-    showIndentGuide: true
-    tabLength: 4
-  core:
-    disabledPackages: [
-      "metrics"
-      "exception-reporting"
-    ]
-    themes: [
-      "nucleus-dark-ui"
-      "gruvbox"
-    ]
-  "autocomplete-plus": {}
-  "find-and-replace": {}
-  "fuzzy-finder": {}
-  "markdown-preview": {}
-  "spell-check": {}
-  "status-bar": {}
-  tabs:
-    enableVcsColoring: true
-    usePreviewTabs: true
-  minimap: {}
-  linter:
-    errorPanelHeight: 64
-  "one-dark-ui": {}
-  "atom-beautify":
-    analytics: false
-  "linter-jshint": {}
-".basic.html.text":
-  editor:
-    tabLength: 2
-".css.source":
-  editor:
-    tabLength: 2
-".js.source":
-  editor:
-    tabLength: 2
-".source.yaml":
-  editor:
-    tabLength: 2
-".jade.source":
-  editor:
-    tabLength: 2
+    autoIndentOnPaste: false
