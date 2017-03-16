@@ -4,6 +4,7 @@ set match-hidden-files off
 set menu-complete-display-prefix on
 set show-all-if-ambiguous on
 set skip-completed-text on
+set enable-bracketed-paste on
 
 # History completion with arrow keys
 "\e[A": history-search-backward
