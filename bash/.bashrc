@@ -10,10 +10,6 @@ include() {
   [[ -f $1 ]] && . "$1"
 }
 
-command_exists() {
-  command -v "$1" &> /dev/null
-}
-
 twitch() {
   mpv "https://twitch.tv/$1" &
 }
@@ -59,46 +55,6 @@ include /etc/bash.bashrc
 include /etc/bashrc
 
 
-#
-# Env vars
-#
-
-PATH=$PATH:$HOME/bin:$HOME/go/bin:$HOME/.cargo/bin:$HOME/.node_modules/bin
-npm_config_prefix=$HOME/.node_modules
-export PATH
-export npm_config_prefix
-
-export EDITOR=nvim
-export DIFFPROG='nvim -d'
-export SUDO_EDITOR=$EDITOR
-
-# Default browser
-if command_exists google-chrome; then
-  export BROWSER=google-chrome
-elif command_exists chromium; then
-  export BROWSER=chromium
-elif command_exists firefox; then
-  export BROWSER=firefox
-fi
-
-export GOPATH=$HOME/go
-
-# Parevent creation of desktop files and file associations for wine applications
-export WINEDLLOVERRIDES=winemenubuilder.exe,mscoree,mshtml=
-
-# Man colors
-export PAGER=less
-export LESS=-RX
-LESS_TERMCAP_md=$(tput bold; tput setaf 1)
-LESS_TERMCAP_mb=$(tput bold; tput smul; tput setaf 5)
-LESS_TERMCAP_me=$(tput sgr0)
-LESS_TERMCAP_so=$(tput bold; tput smul; tput setaf 3)
-LESS_TERMCAP_se=$(tput sgr0)
-LESS_TERMCAP_us=$(tput bold; tput smul; tput setaf 6)
-LESS_TERMCAP_ue=$(tput sgr0)
-export LESS_TERMCAP_md LESS_TERMCAP_mb LESS_TERMCAP_me LESS_TERMCAP_so \
-       LESS_TERMCAP_se LESS_TERMCAP_us LESS_TERMCAP_ue
-export GROFF_NO_SGR=yes
 
 
 #
@@ -116,7 +72,7 @@ shopt -s histappend
 shopt -s checkwinsize
 
 # Colors for ls
-if command_exists dircolors; then
+if command -v dircolors &> /dev/null ; then
   [[ -f $HOME/.dircolors ]] && eval "$(dircolors -b $HOME/.dircolors)" || eval "$(dircolors -b)"
 fi
 
