@@ -11,8 +11,8 @@ general {
 # Base16 Eighties, by Chris Kempson (http://chriskempson.com)
 # template by Matt Parnell, @parnmatt
     colors = true
-    color_good = "#b5bd68"
-    color_bad = "#cc6666"
+    color_good = "#a3be8c"
+    color_bad = "#d08770"
     interval = 2
 }
 

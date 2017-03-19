@@ -40,7 +40,7 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'moll/vim-node'
     Plug 'eiginn/iptables-vim'
     " Colors
-    Plug 'morhetz/gruvbox'
+    Plug 'chriskempson/base16-vim'
 call plug#end()
 
 
@@ -117,10 +117,8 @@ syntax on
 filetype indent plugin on
 set termguicolors
 set background=dark
-let g:gruvbox_italic = 1
-let g:gruvbox_contrast_dark = 'medium'
-colorscheme gruvbox
-let g:airline_theme = 'gruvbox'
+colorscheme base16-ocean
+let g:airline_theme = 'base16_ocean'
 
 set title
 set number
