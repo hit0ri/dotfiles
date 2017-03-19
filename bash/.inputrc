@@ -13,3 +13,5 @@ set enable-bracketed-paste on
 # Show man for command by pressing Alt+h
 "\eh": "\C-a\eb\ed\C-y\e#man \C-y\C-m\C-p\C-p\C-a\C-d\C-e"
 
+TAB: menu-complete
+"\e[Z": menu-complete-backward
