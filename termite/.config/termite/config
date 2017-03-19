@@ -9,10 +9,10 @@ allow_bold = true
 dynamic_title = true
 urgent_on_bell = true
 clickable_url = true
-font = Monospace 10
+font = Source Code Pro Semibold 10
 scrollback_lines = 10000
 search_wrap = true
-geometry = 106x28
+geometry = 100x26
 
 # 0.0: opaque, 1.0: transparent
 transparency = 0.0
@@ -28,62 +28,51 @@ cursor_shape = block
 size_hints = true
 
 [colors]
-# gruvbox dark
-# by morhetz
+# Base16 Ocean
+# by Chris Kempson
 
-# hard contrast
-# background = #1d2021
-# medium contrast
-background = #282828
-# soft contrast
-# background = #32302f
-foreground = #ebdbb2
-color0   = #282828
-color1   = #cc241d
-color2   = #98971a
-color3   = #d79921
-color4   = #458588
-color5   = #b16286
-color6   = #689d6a
-color7   = #a89984
-color8   = #928374
-color9   = #fb4934
-color10  = #b8bb26
-color11  = #fabd2f
-color12  = #83a598
-color13  = #d3869b
-color14  = #8ec07c
-color15  = #ebdbb2
-color24  = #076678
-color66  = #427b58
-color88  = #9d0006
-color96  = #8f3f71
-color100 = #79740e
-color108 = #8ec07c
-color109 = #83a598
-color130 = #af3a03
-color136 = #b57614
-color142 = #b8bb26
-color167 = #fb4934
-color175 = #d3869b
-color208 = #fe8019
-color214 = #fabd2f
-color223 = #ebdbb2
-color228 = #f2e5bc
-color229 = #fbf1c7
-color230 = #f9f5d7
-color234 = #1d2021
-color235 = #282828
-color236 = #32302f
-color237 = #3c3836
-color239 = #504945
-color241 = #665c54
-color243 = #7c6f64
-color244 = #928374
-color245 = #928374
-color246 = #a89984
-color248 = #bdae93
-color250 = #d5c4a1
+foreground      = #c0c5ce
+foreground_bold = #dfe1e8
+background      = #2b303b
 
+## 16 color space
+
+# Black, Gray, Silver, White
+color0  = #2b303b
+color8  = #65737e
+color7  = #c0c5ce
+color15 = #eff1f5
+
+# Red
+color1  = #bf616a
+color9  = #bf616a
+
+# Green
+color2  = #a3be8c
+color10 = #a3be8c
+
+# Yellow
+color3  = #ebcb8b
+color11 = #ebcb8b
+
+# Blue
+color4  = #8fa1b3
+color12 = #8fa1b3
+
+# Purple
+color5  = #b48ead
+color13 = #b48ead
+
+# Teal
+color6  = #96b5b4
+color14 = #96b5b4
+
+## Extra colors
+color16 = #d08770
+color17 = #ab7967
+color18 = #343d46
+color19 = #4f5b66
+color20 = #a7adba
+color21 = #dfe1e8
 
 # vim: ft=dosini cms=#%s

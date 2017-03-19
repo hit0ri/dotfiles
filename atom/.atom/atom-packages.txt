@@ -2,6 +2,7 @@ Tycho-Dark-Syntax
 advanced-open-file
 atom-beautify
 autocomplete-paths
+base16-ocean-dark-syntax-theme
 busy-signal
 docblockr
 file-icons

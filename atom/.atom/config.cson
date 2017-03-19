@@ -7,22 +7,24 @@
       indent_size: 2
   core:
     autoHideMenuBar: true
+    disabledPackages: [
+      "exception-reporting"
+    ]
     telemetryConsent: "no"
     themes: [
       "one-dark-ui"
-      "Tycho-Dark-Syntax"
+      "base16-ocean-dark-syntax-theme"
     ]
   editor:
-    fontFamily: "Source Code Pro"
+    fontFamily: "Source Code Pro Semibold"
     showIndentGuide: true
-  "exception-reporting":
-    userId: "240d68ae-29a4-4cea-8c5a-e24c6a2ae8f1"
   "git-plus":
     general:
       analytics: false
   "go-plus":
     panelDisplayMode: "closed"
   linter: {}
+  "linter-ui-default": {}
   "linter-write-good":
     nodePath: "/usr/bin/node"
   welcome:
