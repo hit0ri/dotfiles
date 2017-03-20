@@ -280,6 +280,7 @@ alias lla='ls --color=auto --show-control-chars --group-directories-first -AlhXF
 alias dmesg='dmesg -exL'
 alias ip='ip --color'
 alias ips='ip --color --stats'
+alias ipinfo=$'ip -4 -o a | awk \'{ print $2, $4 }\' | column -t'
 
 alias vim='nvim'
 alias gap='git add --patch'
