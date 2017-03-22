@@ -120,7 +120,7 @@ set_prompt() {
   PS1+="$TXT_RST "
 }
 
-PROMPT_COMMAND="set_prompt; history -a; history -c; history -r"
+PROMPT_COMMAND="set_prompt"
 
 # show file, line number and function for xtrace mode
 export PS4='+(${BASH_SOURCE/##}:${LINENO}): ${FUNCNAME[0]:+${FUNCNAME[0]}(): }'
