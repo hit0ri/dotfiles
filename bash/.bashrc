@@ -49,14 +49,6 @@ pbs() {
 }
 
 
-
-# Source global definitions
-include /etc/bash.bashrc
-include /etc/bashrc
-
-
-
-
 #
 # Shell options
 #
