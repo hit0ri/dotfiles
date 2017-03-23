@@ -11,7 +11,7 @@ export npm_config_prefix=$HOME/.node_modules
 export EDITOR='nvim'
 export VISUAL='nvim'
 export DIFFPROG='nvim -d'
-export SUDO_EDITOR='nvim -Z'
+export SUDO_EDITOR='nvim'
 
 # Default browser
 if command -v google-chrome &> /dev/null; then
