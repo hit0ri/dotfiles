@@ -49,6 +49,10 @@ pbs() {
 }
 
 
+# Source /etc/bashrc on Fedora and RHEL as it's not sourced from /etc/profile
+[[ -e /etc/redhat-release ]] && include /etc/bashrc
+
+
 #
 # Shell options
 #
