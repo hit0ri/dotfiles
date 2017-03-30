@@ -37,3 +37,5 @@ export LESS_TERMCAP_us=$(tput bold; tput smul; tput setaf 6)
 export LESS_TERMCAP_ue=$(tput sgr0)
 export GROFF_NO_SGR=yes
 
+# sar colors
+export S_COLORS=auto
