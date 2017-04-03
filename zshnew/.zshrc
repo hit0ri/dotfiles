@@ -66,11 +66,17 @@ autoload -Uz compinit
 zmodload zsh/complist
 compinit
 
+zstyle ':completion:*'          verbose yes
 zstyle ':completion:*'          menu select
 zstyle ':completion:*'          use-cache true
 zstyle ':completion:*'          rehash true
 zstyle ':completion:*'          list-colors ${(s.:.)LS_COLORS}
 zstyle ':completion:*'          matcher-list '' 'm:{a-z-_}={A-Z_-}'
+zstyle ':completion:*'          group-name ''
+zstyle ':completion:*'          format "%B%F{green}%d:%f%b"
+zstyle ':completion:*:messages' format "%B%F{white}%d:%f%b"
+zstyle ':completion:*:warnings' format "%B%F{red}- no match in:%f%b %d"
+zstyle ':completion:*:matches'  group yes
 zstyle ':completion:*functions' ignored-patterns '_*'
 
 
