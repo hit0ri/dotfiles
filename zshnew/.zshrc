@@ -161,3 +161,11 @@ alias lsports='ss -tunalp | column -t'
 # BASH-like help
 autoload -Uz run-help
 alias help='run-help'
+
+# antibody
+if [[ -f ~/.antibody-bundles ]]; then
+  if hash antibody &> /dev/null; then
+    antibody bundle < ~/.antibody-bundles >> ~/.zbundles
+  fi
+fi
+include ~/.zbundles
