@@ -1,262 +1,141 @@
-#
-# Shell options
-#
-
-export KEYTIMEOUT=10
-export WORDCHARS='*?_[]~&;!#$%^(){}<>'
-
-# Report CPU usage for commands running longer than 10 seconds
-REPORTTIME=10
-
-# History
-HISTFILE=~/.histfile
-HISTSIZE=8192
-SAVEHIST=8192
-
-setopt share_history \
-       extended_history \
-       hist_ignore_dups \
-       hist_reduce_blanks \
-       hist_fcntl_lock \
-       hist_ignore_space \
-       auto_cd \
+setopt auto_cd \
        pushd_silent \
        complete_aliases \
-       glob_dots \
-       interactive_comments
+       extended_glob \
+       hist_fcntl_lock \
+       hist_ignore_all_dups \
+       hist_ignore_space \
+       hist_reduce_blanks \
+       hist_save_no_dups \
+       hist_verify \
+       share_history \
+       interactive_comments \
+       prompt_subst
 
-# Show man for current command (Alt+H)
-autoload -U run-help
-autoload run-help-git
-alias help='run-help'
+HISTFILE=~/.zhistory
+HISTSIZE=8192
+SAVEHIST=$HISTSIZE
 
-# man colors
-export PAGER=less
-export LESS=-RX
-export LESS_TERMCAP_md=$(tput bold; tput setaf 1)
-export LESS_TERMCAP_mb=$(tput bold; tput smul; tput setaf 5)
-export LESS_TERMCAP_me=$(tput sgr0)
-export LESS_TERMCAP_so=$(tput bold; tput smul; tput setaf 3)
-export LESS_TERMCAP_se=$(tput sgr0)
-export LESS_TERMCAP_us=$(tput bold; tput smul; tput setaf 6)
-export LESS_TERMCAP_ue=$(tput sgr0)
-export GROFF_NO_SGR=yes
+REPORTTIME=10
+WORDCHARS='*?_[]~&;!#$%^(){}<>'
 
 
 
-#
-# Functions
-#
-
-ifsource() {
-    [[ -f $1 ]] && source "$1"
-}
-
-command_exists() {
-    command -v "$1" &> /dev/null
+include() {
+  [[ -f $1 ]] && . "$1"
 }
 
 twitch() {
-    mpv "https://twitch.tv/$1" &
+  mpv "https://twitch.tv/$1" &
 }
 
 cdl() {
-    cd "$1" && ls
+  cd "$1" && ls
 }
 
 mkdirf() {
-    mkdir -p "$1" && cd "$1"
+  mkdir -p "$1" && cd "$1"
 }
 
-# create paste from stdin or file
+# Create paste from stdin or file
 pb() {
-    curl -F "c=@${1:--}" https://ptpb.pw/
+  curl -F "c=@${1:--}" https://ptpb.pw/
 }
 
-# create paste from stdin or file and copy url to the clipboard
+# Create paste from stdin or file and copy url to the clipboard
 pbc() {
-    curl -sF "c=@${1:--}" -w "%{redirect_url}" 'https://ptpb.pw/?r=1' -o /dev/stderr | xsel -l /dev/null -b
+  curl -sF "c=@${1:--}" -w "%{redirect_url}" 'https://ptpb.pw/?r=1' -o /dev/stderr | xsel -l /dev/null -b
 }
 
-# create expiring paste from stdin or file
-# default paste lifetime is 2 minutes (120 seconds)
+# Create expiring paste from stdin or file.
+# Default paste lifetime is 2 minutes (120 seconds)
 pbe() {
-    curl -F "c=@${1:--}" -F sunset=${2:-120} https://ptpb.pw/
+  curl -F "c=@${1:--}" -F sunset=${2:-120} https://ptpb.pw/
 }
 
-# create paste from stdin or file (base66 id)
+# Create paste from stdin or file (base66 id)
 pbp() {
-    curl -F "c=@${1:--}" -F p=1 https://ptpb.pw/
+  curl -F "c=@${1:--}" -F p=1 https://ptpb.pw/
 }
 
-# create paste from selected text
+# Create paste from selected text
 pbs() {
-    xsel -l /dev/null -p -o | curl -F c=@- https://ptpb.pw/
+  xsel -l /dev/null -p -o | curl -F c=@- https://ptpb.pw/
 }
 
 
-
-#
-# Key bindings
-#
-
-typeset -gA key
-key=(
-    'left'      "${terminfo[kcub1]}"
-    'right'     "${terminfo[kcuf1]}"
-    'up'        "${terminfo[kcuu1]}"
-    'down'      "${terminfo[kcud1]}"
-    'backspace' "${terminfo[kbs]}"
-    'delete'    "${terminfo[kdch1]}"
-    'insert'    "${terminfo[kich1]}"
-    'home'      "${terminfo[khome]}"
-    'end'       "${terminfo[kend]}"
-    'page-up'   "${terminfo[kpp]}"
-    'page-down' "${terminfo[knp]}"
-    'shift-tab' "${terminfo[kcbt]}"
-)
-
-bindkey -e
-autoload -Uz up-line-or-beginning-search down-line-or-beginning-search
-zle -N up-line-or-beginning-search
-zle -N down-line-or-beginning-search
-
-bindkey ' '       magic-space
-
-bindkey '^[[1;3D' backward-word                  # alt  arrow left
-bindkey '^[[1;3C' forward-word                   # alt  arrow right
-bindkey '^[[1;5D' backward-word                  # ctrl arrow left
-bindkey '^[[1;5C' forward-word                   # ctrl arrow right
-bindkey '^[[A'    up-line-or-beginning-search    # arrow up
-bindkey '^[[B'    down-line-or-beginning-search  # arrow down
-bindkey '^[[H'    beginning-of-line              # home
-bindkey '^[[F'    end-of-line                    # end
-
-bindkey "${key[up]}"        up-line-or-beginning-search
-bindkey "${key[down]}"      down-line-or-beginning-search
-bindkey "${key[backspace]}" backward-delete-char
-bindkey "${key[delete]}"    delete-char
-bindkey "${key[insert]}"    overwrite-mode
-bindkey "${key[home]}"      beginning-of-line
-bindkey "${key[end]}"       end-of-line
-bindkey "${key[page-up]}"   beginning-of-buffer-or-history
-bindkey "${key[page-down]}" end-of-buffer-or-history
-bindkey "${key[shift-tab]}" reverse-menu-complete
-
-
-
-#
-# Completion
-#
 
 autoload -Uz compinit
+zmodload zsh/complist
 compinit
 
-# activate menu
-zstyle ':completion:*' menu yes
-
-if [[ "$NOMENU" -eq 0 ]] ; then
-    # if there are more than 5 options allow selecting from a menu
-    zstyle ':completion:*' menu select=5
-else
-    # don't use any menus at all
-    setopt no_auto_menu
-fi
-
-# rehash executables in PATH
-zstyle ':completion:*' accept-exact '*(N)'
-zstyle ':completion:*' use-cache true
-zstyle ':completion:*' rehash true
-
-# color completion
-zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
-
-# activate approximate completion, but only after regular completion (_complete)
-# zstyle ':completion:::::' completer _complete _approximate
-
-# allow one error for every three characters typed in approximate completer
-zstyle ':completion:*:approximate:*' max-errors 'reply=( $(( ($#PREFIX+$#SUFFIX)/3 )) numeric )'
-
-# match uppercase from lowercase
-zstyle ':completion:*' matcher-list '' 'm:{a-z-_}={A-Z_-}'
-
-# complete hidden files and directories only when pattern starts with a dot
-zstyle ':completion:*:((*-|)files|(*-|)directories)' ignored-patterns '(*/|).[^/]##'
-
-# start menu completion only if it could find no unambiguous initial string
-zstyle ':completion:*:correct:*' insert-unambiguous true
-zstyle ':completion:*:correct:*' original true
-
-# format for completion
-zstyle ':completion:*'             format "%{$fg_bold[green]%}- %d%{$reset_color%}"
-zstyle ':completion:*:messages'    format "%{$fg_bold[white]%}- %d%{$reset_color%}"
-zstyle ':completion:*:warnings'    format "%{$fg_bold[red]%}- no match for:%{$reset_color%} %d"
-zstyle ':completion:*:corrections' format "%{$fg_bold[red]%}%d (errors: %e)%{$reset_color%}"
-
-# separate matches into groups
-zstyle ':completion:*:matches' group 'yes'
-zstyle ':completion:*'         group-name ''
-
-# ignore duplicate entries
-zstyle ':completion:*:history-words' remove-all-dups yes
-zstyle ':completion:*:history-words' stop yes
-
-# on processes completion complete all user processes
-zstyle ':completion:*:processes'       command 'ps -au$USER'
-
-# provide more processes in completion of programs like killall
-zstyle ':completion:*:processes-names' command 'ps c -u ${USER} -o command | uniq'
-
-# ignore internal zsh functions
-zstyle ':completion:*:functions' ignored-patterns '_*'
-
-# provide verbose completion information
-zstyle ':completion:*' verbose true
-
-# recent (as of Dec 2007) zsh versions are able to provide descriptions
-# for commands (read: 1st word in the line) that it will list for the user
-# to choose from. The following disables that, because it's not exactly fast.
-zstyle ':completion:*:-command-:*:'    verbose false
-
-# complete manual by their section
-zstyle ':completion:*:manuals' separate-sections true
-
-# history
-zstyle ':completion:*:history-words' list false
-zstyle ':completion:*:history-words' remove-all-dups yes
-zstyle ':completion:*:history-words' stop yes
-
-# insert all expansions for expand completer
-zstyle ':completion:*:expand:*' tag-order all-expansions
-
-# offer indexes before parameters in subscripts
-zstyle ':completion:*:*:-subscript-:*' tag-order indexes parameters
-
-zstyle ':completion:*:options' auto-description '%d'
-# describe options in full
-zstyle ':completion:*:options' description 'yes'
+zstyle ':completion:*'          verbose true
+zstyle ':completion:*'          menu select
+zstyle ':completion:*'          use-cache true
+zstyle ':completion:*'          rehash true
+zstyle ':completion:*'          list-colors ${(s.:.)LS_COLORS}
+zstyle ':completion:*'          matcher-list '' 'm:{a-z-_}={A-Z_-}'
+zstyle ':completion:*'          group-name ''
+zstyle ':completion:*'          format "%B%F{green}%d:%f%b"
+zstyle ':completion:*:messages' format "%B%F{white}%d:%f%b"
+zstyle ':completion:*:warnings' format "%B%F{red}- no match in:%f%b %d"
+zstyle ':completion:*:matches'  group true
+zstyle ':completion:*functions' ignored-patterns '_*'
 
 
 
-#
-# Misc
-#
+# Use EMACS emulation mode
+bindkey -e
 
-# Open new window in same directory by pressing C-S-T
-[[ -n $VTE_VERSION ]] && ifsource /etc/profile.d/vte.sh
+KEYTIMEOUT=10
 
-# Colors for ls
-if command_exists dircolors; then
-    [[ -f ~/.dircolors ]] && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
-fi
+bindkey ' ' magic-space
+
+# Backspace
+bindkey $terminfo[kbs]   backward-delete-char
+
+# Insert
+bindkey $terminfo[kich1] overwrite-mode
+
+# Delete
+bindkey $terminfo[kdch1] delete-char
+
+# Home
+bindkey $terminfo[khome] beginning-of-line
+bindkey '^[[H'           beginning-of-line
+
+# End
+bindkey $terminfo[kend]  end-of-line
+bindkey '^[[F'           end-of-line
+
+# Home
+bindkey $terminfo[kpp]   beginning-of-buffer-or-history
+
+# End
+bindkey $terminfo[knp]   end-of-buffer-or-history
+
+# Up
+autoload -Uz up-line-or-beginning-search
+zle -N up-line-or-beginning-search
+bindkey $terminfo[kcuu1] up-line-or-beginning-search
+bindkey '^[[A'           up-line-or-beginning-search
+
+# Down
+autoload -Uz down-line-or-beginning-search
+zle -N down-line-or-beginning-search
+bindkey $terminfo[kcud1] down-line-or-beginning-search
+bindkey '^[[B'           down-line-or-beginning-search
+
+# Shift-Tab
+bindkey $terminfo[kcbt]  reverse-menu-complete
 
 
 
-#
-# Aliases
-#
-alias -g ...='../..'
-alias -g ....='../../..'
+alias ..='cd ../'
+alias ...='cd ../../'
+alias ....='cd ../../../'
+alias .....='cd ../../../../'
+
 alias rm='rm -vI'
 alias cp='cp -vi'
 alias mv='mv -vi'
@@ -287,41 +166,14 @@ alias gap='git add --patch'
 alias gst='git status'
 alias lsports='ss -tunalp | column -t'
 
+# BASH-like help
+autoload -Uz run-help
+alias help='run-help'
 
-
-#
-# Plugins
-#
-
-[[ -d ~/.zplug ]] || git clone --depth 1 https://github.com/zplug/zplug ~/.zplug
-source ~/.zplug/init.zsh
-
-# additional completions
-zplug "zsh-users/zsh-completions"
-
-# lean prompt
-zplug "miekg/lean"
-
-# fzf binaries
-zplug "junegunn/fzf-bin", \
-    from:gh-r, \
-    use:"*linux*amd64*", \
-    as:command, \
-    rename-to:"fzf"
-
-zplug "junegunn/fzf", use:"bin/fzf-tmux", as:command
-
-# fzf keybindings and completions
-zplug "junegunn/fzf", use:"shell/*.zsh"
-
-
-# install plugins if there are plugins that have not been installed
-if ! zplug check --verbose; then
-  printf "Install? [y/N]: "
-  if read -q; then
-    echo; zplug install
+# antibody
+if [[ -f ~/.antibody-bundles ]]; then
+  if hash antibody &> /dev/null; then
+    antibody bundle < ~/.antibody-bundles >> ~/.zbundles
   fi
 fi
-
-# then, source plugins and add commands to $PATH
-zplug load
+include ~/.zbundles
