@@ -10,7 +10,8 @@ setopt auto_cd \
        hist_save_no_dups \
        hist_verify \
        share_history \
-       interactive_comments
+       interactive_comments \
+       prompt_subst
 
 HISTFILE=~/.zhistory
 HISTSIZE=8192
