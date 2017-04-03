@@ -2,16 +2,16 @@
 # ~/.profile
 #
 
-export PATH=$PATH:$HOME/bin:$HOME/go/bin:$HOME/.cargo/bin:$HOME/.node_modules/bin
+export PATH=$PATH:~/.local/bin:~/go/bin:~/.cargo/bin:~/.node_modules/bin
 
-export GOPATH=$HOME/go
-export npm_config_prefix=$HOME/.node_modules
+export GOPATH=~/go
+export npm_config_prefix=~/.node_modules
 
 
-export EDITOR='nvim'
-export VISUAL='nvim'
+export EDITOR=nvim
+export VISUAL=nvim
 export DIFFPROG='nvim -d'
-export SUDO_EDITOR='nvim'
+export SUDO_EDITOR=nvim
 
 # Default browser
 if command -v google-chrome &> /dev/null; then
