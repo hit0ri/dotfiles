@@ -16,6 +16,8 @@ HISTFILE=~/.zhistory
 HISTSIZE=8192
 SAVEHIST=$HISTSIZE
 
+REPORTTIME=10
+WORDCHARS='*?_[]~&;!#$%^(){}<>'
 
 
 include() {
@@ -85,7 +87,6 @@ zstyle ':completion:*functions' ignored-patterns '_*'
 bindkey -e
 
 KEYTIMEOUT=10
-REPORTTIME=10
 
 bindkey ' ' magic-space
 
