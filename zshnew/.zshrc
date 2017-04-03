@@ -2,7 +2,6 @@ setopt auto_cd \
        pushd_silent \
        complete_aliases \
        extended_glob \
-       glob_dots \
        hist_fcntl_lock \
        hist_ignore_all_dups \
        hist_ignore_space \
