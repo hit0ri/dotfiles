@@ -173,7 +173,7 @@ alias help='run-help'
 # antibody
 if [[ -f ~/.antibody-bundles ]]; then
   if hash antibody &> /dev/null; then
-    antibody bundle < ~/.antibody-bundles >> ~/.zbundles
+    antibody bundle < ~/.antibody-bundles > ~/.zbundles
   fi
 fi
 include ~/.zbundles
