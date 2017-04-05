@@ -67,7 +67,6 @@ pbs() {
 
 autoload -Uz compinit
 zmodload zsh/complist
-compinit
 
 zstyle ':completion:*'          verbose true
 zstyle ':completion:*'          menu select
@@ -177,3 +176,5 @@ if [[ -f ~/.antibody-bundles ]]; then
   fi
 fi
 include ~/.zbundles
+
+compinit
