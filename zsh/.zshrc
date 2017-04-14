@@ -83,6 +83,16 @@ zstyle ':completion:*functions' ignored-patterns '_*'
 
 
 
+prompt_precmd() {
+  # shows the current dir in the title when there are no active processes
+  print -Pn "\e]0;$PWD:t\a"
+}
+
+autoload -Uz add-zsh-hook
+add-zsh-hook precmd prompt_precmd
+
+
+
 # Use EMACS emulation mode
 bindkey -e
 
