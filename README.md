@@ -11,5 +11,5 @@ This repository contains my personal configuration files managed by GNU Stow
 
 
 ## Installation
-`stow -v zsh [mpv]...`
+`stow -v zsh [mpv …]`
 
