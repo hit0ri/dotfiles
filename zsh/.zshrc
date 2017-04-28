@@ -188,3 +188,5 @@ fi
 include ~/.zbundles
 
 compinit
+
+include ~/.fzf.zsh
