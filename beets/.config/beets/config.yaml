@@ -1,4 +1,8 @@
-plugins: fetchart embedart convert
+plugins:
+  - fetchart
+  - embedart
+  - convert
+  - fromfilename
 
 ui:
   color: yes
