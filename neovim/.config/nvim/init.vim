@@ -34,7 +34,6 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'ntpeters/vim-better-whitespace'
     Plug 'junegunn/fzf' | Plug 'junegunn/fzf.vim'
     Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' } | Plug 'Xuyuanp/nerdtree-git-plugin'
-    Plug 'Yggdroot/indentLine'
     " Syntax
     Plug 'sheerun/vim-polyglot'
     Plug 'Firef0x/PKGBUILD.vim'
@@ -42,7 +41,7 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'moll/vim-node'
     Plug 'eiginn/iptables-vim'
     " Colors
-    Plug 'chriskempson/base16-vim'
+    Plug 'exitface/synthwave.vim'
 call plug#end()
 
 
@@ -101,10 +100,6 @@ nnoremap <silent> <Leader>AG   :Ag <C-R><C-A><cr>
 nnoremap <silent> <Leader>`    :Marks<cr>
 
 
-""" indenLine
-let g:indentLine_char = '│'
-
-
 
 "
 " General settings
@@ -116,11 +111,12 @@ filetype indent plugin on
 set termguicolors
 set background=dark
 try
-  colorscheme base16-ocean
+  let g:synthwave_termcolors=256
+  colorscheme synthwave
 catch
   colorscheme desert
 endtry
-let g:airline_theme = 'base16_ocean'
+let g:airline_theme = 'synthwave'
 
 set title
 set number
