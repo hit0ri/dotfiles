@@ -1,0 +1,9 @@
+# beets library
+**/beets/library.db
+**/beets/state.pickle
+
+# neovim installed plugins
+**/nvim/.netrwhist
+**/nvim/autoload/
+**/nvim/plugged/
+
