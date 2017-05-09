@@ -22,6 +22,7 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'tpope/vim-repeat'
     Plug 'tpope/vim-endwise'
     Plug 'tpope/vim-eunuch'
+    Plug 'tpope/vim-unimpaired'
     Plug 'jiangmiao/auto-pairs'
     Plug 'christoomey/vim-sort-motion'
     Plug 'junegunn/vim-easy-align'
