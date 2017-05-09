@@ -28,6 +28,49 @@ cursor_shape = block
 size_hints = true
 
 [colors]
+# Gruvbox
+# by Pavel Pertsev
+# <https://github.com/morhetz/gruvbox-contrib/blob/master/termite/gruvbox-dark>
+
+# hard contrast: background = #1d2021
+background = #282828
+# soft contrast: background = #32302f
+foreground = #ebdbb2
+foreground_bold = #ebdbb2
+
+# dark0 + gray
+color0 = #282828
+color8 = #928374
+
+# neutral_red + bright_red
+color1 = #cc241d
+color9 = #fb4934
+
+# neutral_green + bright_green
+color2 = #98971a
+color10 = #b8bb26
+
+# neutral_yellow + bright_yellow
+color3 = #d79921
+color11 = #fabd2f
+
+# neutral_blue + bright_blue
+color4 = #458588
+color12 = #83a598
+
+# neutral_purple + bright_purple
+color5 = #b16286
+color13 = #d3869b
+
+# neutral_aqua + faded_aqua
+color6 = #689d6a
+color14 = #8ec07c
+
+# light4 + light1
+color7 = #a89984
+color15 = #ebdbb2
+
+
 # Base16 Ocean
 # by Chris Kempson
 
@@ -74,46 +117,5 @@ size_hints = true
 # color19 = #4f5b66
 # color20 = #a7adba
 # color21 = #dfe1e8
-
-
-# synthwave
-# by fs0ciety
-# http://dotshare.it/dots/1255/
-
-# special
-foreground      = #c0a79a
-background      = #312e39
-
-# black
-color0  = #33303b
-color8  = #4f4b58
-
-# red
-color1  = #87404f
-color9  = #87404f
-
-# green
-color2  = #4c9882
-color10 = #4c9882
-
-# yellow
-color3  = #71949a
-color11 = #71949a
-
-# blue
-color4  = #615772
-color12 = #615772
-
-# magenta
-color5  = #783e57
-color13 = #783e57
-
-# cyan
-color6  = #554757
-color14 = #554757
-
-# white
-color7  = #c0a79a
-color15 = #c0a79a
 
 # vim: ft=dosini cms=#%s
