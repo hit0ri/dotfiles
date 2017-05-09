@@ -41,7 +41,7 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'moll/vim-node'
     Plug 'eiginn/iptables-vim'
     " Colors
-    Plug 'exitface/synthwave.vim'
+    Plug 'morhetz/gruvbox'
 call plug#end()
 
 
@@ -111,12 +111,12 @@ filetype indent plugin on
 set termguicolors
 set background=dark
 try
-  let g:synthwave_termcolors=256
-  colorscheme synthwave
+  let g:gruvbox_italic = 1
+  colorscheme gruvbox
 catch
   colorscheme desert
 endtry
-let g:airline_theme = 'synthwave'
+let g:airline_theme = 'gruvbox'
 
 set title
 set number
