@@ -13,16 +13,17 @@
     telemetryConsent: "no"
     themes: [
       "one-dark-ui"
-      "base16-ocean-dark-syntax-theme"
+      "Tycho-Dark-Syntax"
     ]
   editor:
-    fontFamily: "Source Code Pro Semibold"
+    fontFamily: "Meslo LG S"
     showIndentGuide: true
   "git-plus":
     general:
       analytics: false
   "go-plus":
-    panelDisplayMode: "closed"
+    panel:
+      displayMode: "closed"
   linter: {}
   "linter-ui-default": {}
   "linter-write-good":
