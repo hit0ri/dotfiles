@@ -2,6 +2,7 @@ Tycho-Dark-Syntax
 advanced-open-file
 atom-beautify
 autocomplete-paths
+autocomplete-php
 base16-ocean-dark-syntax-theme
 busy-signal
 docblockr
@@ -11,6 +12,7 @@ go-debug
 go-plus
 go-signature-statusbar
 gruvbox-plus-syntax
+hyperclick
 intentions
 language-ansible
 language-apache
@@ -18,6 +20,8 @@ language-ini
 language-tmux
 linter
 linter-ansible-linting
+linter-flake8
+linter-php
 linter-shellcheck
 linter-ui-default
 linter-write-good
