@@ -70,7 +70,7 @@ if hash asciinema &> /dev/null; then
   local recfile=$(mktemp /tmp/term-rec-XXXX.json)
   asciinema rec "${recfile}"
   curl -sF "c=@${recfile}" -w "%{redirect_url}" 'https://ptpb.pw/?r=1' -o /dev/stderr \
-    | sed 's/w\//w\/t\//' \
+    | sed 's|w/|w/t/|' \
     | xsel -l /dev/null -b
   rm "${recfile}"
 else

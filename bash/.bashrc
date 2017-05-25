@@ -3,7 +3,7 @@
 
 
 #
-# Functions
+# FUNCTIONS
 #
 
 include() {
@@ -24,28 +24,51 @@ mkdirf() {
 
 # Create paste from stdin or file
 pb() {
-  curl -F "c=@${1:--}" https://ptpb.pw/
+  curl -sF "c=@${1:--}" https://ptpb.pw/
 }
 
 # Create paste from stdin or file and copy url to the clipboard
 pbc() {
-  curl -sF "c=@${1:--}" -w "%{redirect_url}" 'https://ptpb.pw/?r=1' -o /dev/stderr | xsel -l /dev/null -b
+  curl -sF "c=@${1:--}" \
+       -w "%{redirect_url}" 'https://ptpb.pw/?r=1' \
+       -o /dev/stderr \
+    | xsel -l /dev/null -b
 }
 
 # Create expiring paste from stdin or file.
-# Default paste lifetime is 2 minutes (120 seconds)
+# Default paste lifetime is 30 minutes (1800 seconds)
 pbe() {
-  curl -F "c=@${1:--}" -F sunset=${2:-120} https://ptpb.pw/
+  curl -sF "c=@${1:--}" -F sunset=${2:-1800} https://ptpb.pw/
 }
 
 # Create paste from stdin or file (base66 id)
 pbp() {
-  curl -F "c=@${1:--}" -F p=1 https://ptpb.pw/
+  curl -sF "c=@${1:--}" -F p=1 https://ptpb.pw/
 }
 
 # Create paste from selected text
 pbs() {
-  xsel -l /dev/null -p -o | curl -F c=@- https://ptpb.pw/
+  if hash xsel &> /dev/null; then
+    xsel -l /dev/null -p -o | curl -sF c=@- https://ptpb.pw/
+  else
+    printf "xsel: command not found...\n" 1>&2
+  fi
+}
+
+# Create paste from ascinema and copy url to the clipboard
+pba() {
+if hash asciinema &> /dev/null; then
+  local recfile=$(mktemp /tmp/term-rec-XXXX.json)
+  asciinema rec "${recfile}"
+  curl -sF "c=@${recfile}" \
+       -w "%{redirect_url}" 'https://ptpb.pw/?r=1' \
+       -o /dev/stderr \
+    | sed 's|w/|w/t/|' \
+    | xsel -l /dev/null -b
+  rm "${recfile}"
+else
+  printf "asciinema: command not found...\n" 1>&2
+fi
 }
 
 
@@ -54,7 +77,7 @@ pbs() {
 
 
 #
-# Shell options
+# SHELL OPTIONS
 #
 
 # History
@@ -76,7 +99,7 @@ fi
 
 
 #
-# Prompt
+# PROMPT
 #
 
 # Git prompt
@@ -88,24 +111,24 @@ GIT_PS1_SHOWUNTRACKEDFILES=true
 GIT_PS1_SHOWUPSTREAM="auto"
 
 # Colors
-FG_BLACK="\[$(tput setaf 0)\]"
-FG_RED="\[$(tput setaf 1)\]"
-FG_GREEN="\[$(tput setaf 2)\]"
-FG_YELLOW="\[$(tput setaf 3)\]"
-FG_BLUE="\[$(tput setaf 4)\]"
-FG_MAGENTA="\[$(tput setaf 5)\]"
-FG_CYAN="\[$(tput setaf 6)\]"
-FG_WHITE="\[$(tput setaf 7)\]"
-BG_BLACK="\[$(tput setab 0)\]"
-BG_RED="\[$(tput setab 1)\]"
-BG_GREEN="\[$(tput setab 2)\]"
-BG_YELLOW="\[$(tput setab 3)\]"
-BG_BLUE="\[$(tput setab 4)\]"
-BG_MAGENTA="\[$(tput setab 5)\]"
-BG_CYAN="\[$(tput setab 6)\]"
-BG_WHITE="\[$(tput setab 7)\]"
-TXT_BOLD="\[$(tput bold)\]"
-TXT_RST="\[$(tput sgr0)\]"
+FG_BLACK=$'\e[30m'
+FG_RED=$'\e[31m'
+FG_GREEN=$'\e[32m'
+FG_YELLOW=$'\e[33m'
+FG_BLUE=$'\e[34m'
+FG_MAGENTA=$'\e[35m'
+FG_CYAN=$'\e[36m'
+FG_WHITE=$'\e[37m'
+BG_BLACK=$'\e[40m'
+BG_RED=$'\e[41m'
+BG_GREEN=$'\e[42m'
+BG_YELLOW=$'\e[43m'
+BG_BLUE=$'\e[44m'
+BG_MAGENTA=$'\e[45m'
+BG_CYAN=$'\e[46m'
+BG_WHITE=$'\e[47m'
+TXT_BOLD=$'\e[1m'
+TXT_RST=$'\e[0m'
 
 set_prompt() {
   local -r EXIT=$?
@@ -125,7 +148,7 @@ export PS4='+(${BASH_SOURCE/##}:${LINENO}): ${FUNCNAME[0]:+${FUNCNAME[0]}(): }'
 
 
 #
-# Aliases
+# ALIASES
 #
 
 alias ..='cd ../'
@@ -156,7 +179,7 @@ alias lla='ls --color=auto --show-control-chars --group-directories-first -AlhXF
 alias dmesg='dmesg -exL'
 alias ip='ip --color'
 alias ips='ip --color --stats'
-alias ipinfo=$'ip -4 -o a | awk \'{ print $2, $4 }\' | column -t'
+alias ipinfo=$'ip -4 -o a | awk \'BEGIN { OFS = ":\t "} { print $2, $4 }\''
 
 alias vim='nvim'
 alias gap='git add --patch'
