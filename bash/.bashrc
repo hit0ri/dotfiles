@@ -111,30 +111,20 @@ GIT_PS1_SHOWUNTRACKEDFILES=true
 GIT_PS1_SHOWUPSTREAM="auto"
 
 # Colors
-FG_BLACK=$'\e[30m'
-FG_RED=$'\e[31m'
-FG_GREEN=$'\e[32m'
-FG_YELLOW=$'\e[33m'
-FG_BLUE=$'\e[34m'
-FG_MAGENTA=$'\e[35m'
-FG_CYAN=$'\e[36m'
-FG_WHITE=$'\e[37m'
-BG_BLACK=$'\e[40m'
-BG_RED=$'\e[41m'
-BG_GREEN=$'\e[42m'
-BG_YELLOW=$'\e[43m'
-BG_BLUE=$'\e[44m'
-BG_MAGENTA=$'\e[45m'
-BG_CYAN=$'\e[46m'
-BG_WHITE=$'\e[47m'
-TXT_BOLD=$'\e[1m'
-TXT_RST=$'\e[0m'
+FG_BLACK='\[\e[30;1m\]'
+FG_RED='\[\e[31;1m\]'
+FG_GREEN='\[\e[32;1m\]'
+FG_YELLOW='\[\e[33;1m\]'
+FG_BLUE='\[\e[34;1m\]'
+FG_MAGENTA='\[\e[35;1m\]'
+FG_CYAN='\[\e[36;1m\]'
+FG_WHITE='\[\e[37;1m\]'
+TXT_RST='\[\e[0m\]'
 
 set_prompt() {
   local -r EXIT=$?
 
-  PS1="$TXT_BOLD"
-  PS1+="${SSH_TTY:+${FG_MAGENTA}\h${FG_WHITE} }"
+  PS1="${SSH_TTY:+${FG_MAGENTA}\h${FG_WHITE} }"
   ((COLUMNS+${#HOME}-${#PWD} > COLUMNS/2)) && PS1+="${FG_BLUE}\w " || PS1+="${FG_BLUE}…/\W "
   [[ -d $PWD/.git ]] && PS1+="$(__git_ps1 "${FG_YELLOW}"%s)"
   ((EXIT)) && PS1+="${FG_RED}\$" || PS1+="${FG_GREEN}\$"
