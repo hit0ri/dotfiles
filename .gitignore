@@ -1,8 +1,12 @@
-# beets library
+# atom
+**/.atom/*/
+**/.atom/nohup.out
+
+# beets
 **/beets/library.db
 **/beets/state.pickle
 
-# neovim installed plugins
+# neovim
 **/nvim/.netrwhist
 **/nvim/autoload/
 **/nvim/plugged/
