@@ -91,11 +91,7 @@ shopt -s histappend
 shopt -s checkwinsize
 
 # Colors for ls
-if [[ -f $HOME/.dircolors ]] ; then
-  eval "$(dircolors -b $HOME/.dircolors)"
-else
-  eval "$(dircolors -b)"
-fi
+[[ -f $HOME/.dircolors ]] && eval "$(dircolors -b $HOME/.dircolors)"
 
 
 #
