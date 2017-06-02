@@ -9,12 +9,17 @@ ui:
 
 import:
   move: yes
+  group_albums: yes
 
 paths:
   default: $albumartist/$year - $album%aunique{}/$track $title
 
 fetchart:
   cautious: true
+  maxwidth: 600
+
+embedart:
+  maxwidth: 600
 
 embedart:
   remove_art_file: true
