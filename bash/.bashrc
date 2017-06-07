@@ -7,7 +7,9 @@
 #
 
 include() {
-  [[ -f $1 ]] && . "$1"
+  if [[ -f $1 ]]; then
+    source "$1"
+  fi
 }
 
 twitch() {
