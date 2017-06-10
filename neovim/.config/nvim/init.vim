@@ -35,12 +35,13 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'ntpeters/vim-better-whitespace'
     Plug 'junegunn/fzf' | Plug 'junegunn/fzf.vim'
     Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' } | Plug 'Xuyuanp/nerdtree-git-plugin'
-    " Syntax
+    " Languages
     Plug 'sheerun/vim-polyglot'
     Plug 'Firef0x/PKGBUILD.vim'
     Plug 'zainin/vim-mikrotik'
     Plug 'moll/vim-node'
     Plug 'eiginn/iptables-vim'
+    Plug 'sebastianmarkow/deoplete-rust'
     " Colors
     Plug 'morhetz/gruvbox'
 call plug#end()
@@ -59,6 +60,11 @@ let g:plug_window = 'new'
 let g:deoplete#enable_at_startup = 1
 " Automatically close the scratch window
 autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
+
+
+""" deoplete-rust
+let g:deoplete#sources#rust#racer_binary='/home/hitori/.cargo/bin/racer'
+let g:deoplete#sources#rust#rust_source_path='/home/hitori/.multirust/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/src'
 
 
 """ airline
