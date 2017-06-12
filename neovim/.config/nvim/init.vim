@@ -118,10 +118,10 @@ filetype indent plugin on
 set termguicolors
 set background=dark
 try
-  let base16colorspace=256
-  colorscheme base16-ocean
+    let base16colorspace=256
+    colorscheme base16-ocean
 catch
-  colorscheme desert
+    colorscheme desert
 endtry
 let g:airline_theme = 'base16_ocean'
 
@@ -140,9 +140,9 @@ set mouse=h
 set path+=**
 
 " Indentation
-set tabstop=2
-set softtabstop=2
-set shiftwidth=2
+set tabstop=4
+set softtabstop=4
+set shiftwidth=4
 set expandtab
 
 " Treat .rss files as XML
