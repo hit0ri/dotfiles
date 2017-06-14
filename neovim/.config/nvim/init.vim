@@ -138,6 +138,7 @@ set smartcase
 set ignorecase
 set mouse=h
 set path+=**
+set inccommand=split
 
 " Indentation
 set tabstop=4
