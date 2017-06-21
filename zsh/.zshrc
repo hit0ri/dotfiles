@@ -21,8 +21,14 @@ WORDCHARS='*?_[]~&;!#$%^(){}<>'
 
 
 
+#
+# FUNCTIONS
+#
+
 include() {
-  [[ -f $1 ]] && . "$1"
+  if [[ -f $1 ]]; then
+    source "$1"
+  fi
 }
 
 twitch() {
@@ -44,7 +50,9 @@ pb() {
 
 # Create paste from stdin or file and copy url to the clipboard
 pbc() {
-  curl -sF "c=@${1:--}" -w "%{redirect_url}" 'https://ptpb.pw/?r=1' -o /dev/stderr \
+  curl -sF "c=@${1:--}" \
+       -w "%{redirect_url}" 'https://ptpb.pw/?r=1' \
+       -o /dev/stderr \
     | xsel -l /dev/null -b
 }
 
@@ -61,7 +69,11 @@ pbp() {
 
 # Create paste from selected text
 pbs() {
-  xsel -l /dev/null -p -o | curl -sF c=@- https://ptpb.pw/
+  if hash xsel &> /dev/null; then
+    xsel -l /dev/null -p -o | curl -sF c=@- https://ptpb.pw/
+  else
+    printf "xsel: command not found...\n" 1>&2
+  fi
 }
 
 # Create paste from ascinema and copy url to the clipboard
@@ -69,7 +81,9 @@ pba() {
 if hash asciinema &> /dev/null; then
   local recfile=$(mktemp /tmp/term-rec-XXXX.json)
   asciinema rec "${recfile}"
-  curl -sF "c=@${recfile}" -w "%{redirect_url}" 'https://ptpb.pw/?r=1' -o /dev/stderr \
+  curl -sF "c=@${recfile}" \
+       -w "%{redirect_url}" 'https://ptpb.pw/?r=1' \
+       -o /dev/stderr \
     | sed 's|w/|w/t/|' \
     | xsel -l /dev/null -b
   rm "${recfile}"
