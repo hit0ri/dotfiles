@@ -13,7 +13,7 @@ include() {
 }
 
 twitch() {
-  mpv "https://twitch.tv/$1" &
+  mpv "https://twitch.tv/$1"
 }
 
 cdl() {
