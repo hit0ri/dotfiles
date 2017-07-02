@@ -58,7 +58,7 @@ font pango:Source Code Pro Semibold 10
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec gnome-terminal
+bindsym $mod+Return exec termite
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -221,7 +221,7 @@ mouse_warping none
 force_display_urgency_hint 500 ms
 workspace_auto_back_and_forth yes
 
-set $Locker i3lock --dpms -i ~/Pictures/wallhaven/wallhaven-65287.png && sleep 1
+set $Locker i3lock -c 2b303b -u && sleep 1
 set $mode_system System (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (Shift+s) shutdown
 mode "$mode_system" {
   bindsym l       exec --no-startup-id $Locker, mode "default"
@@ -240,9 +240,9 @@ bindsym $mod+Pause mode "$mode_system"
 
 # Keybinds
 # volume control
-bindsym XF86AudioRaiseVolume exec --no-startup-id "pactl set-sink-mute 0 false ; pactl -- set-sink-volume 0 +5%"
-bindsym XF86AudioLowerVolume exec --no-startup-id "pactl -- set-sink-volume 0 -5%"
-bindsym XF86AudioMute        exec --no-startup-id "pactl set-sink-mute 0 toggle"
+bindsym XF86AudioRaiseVolume exec --no-startup-id "pactl set-sink-mute 1 false ; pactl -- set-sink-volume 1 +5%"
+bindsym XF86AudioLowerVolume exec --no-startup-id "pactl -- set-sink-volume 1 -5%"
+bindsym XF86AudioMute        exec --no-startup-id "pactl set-sink-mute 1 toggle"
 
 # scrot
 bindsym --release Print       exec --no-startup-id "scrot -e 'mv $f ~/Pictures/scrots/'"
@@ -253,14 +253,14 @@ bindsym $mod+x [urgent=latest] focus
 
 
 # Window Rules
-for_window [class="chromium"] border none
+for_window [class="Chromium"] border none
 for_window [class="Google-Chrome"] border none
 for_window [class="Eog"] floating enable
 # for_window [class="mpv"] floating enable
 
 
 # Assign to workspace
-assign [class="chromium"] 2
+assign [class="Chromium"] 2
 assign [class="Steam"] 5
 assign [title="WeeChat"] 3
 
@@ -272,5 +272,6 @@ exec --no-startup-id "xset r rate 250 25"
 exec --no-startup-id "xset s off"
 exec --no-startup-id "xset -dpms"
 exec --no-startup-id "setxkbmap -layout 'us,ua' -option 'caps:escape,grp:shifts_toggle'"
-exec --no-startup-id "feh --bg-fill ~/Pictures/wallhaven/wallhaven-299905.png"
+exec --no-startup-id "pcmanfm -d"
+# exec --no-startup-id "feh --bg-fill ~/Pictures/wallhaven/wallhaven-299905.png"
 
