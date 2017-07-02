@@ -32,90 +32,73 @@ size_hints = true
 # by Pavel Pertsev
 # <https://github.com/morhetz/gruvbox-contrib/blob/master/termite/gruvbox-dark>
 
-# hard contrast: background = #1d2021
-background = #282828
-# soft contrast: background = #32302f
-foreground = #ebdbb2
-foreground_bold = #ebdbb2
-
-# dark0 + gray
-color0 = #282828
-color8 = #928374
-
-# neutral_red + bright_red
-color1 = #cc241d
-color9 = #fb4934
-
-# neutral_green + bright_green
-color2 = #98971a
-color10 = #b8bb26
-
-# neutral_yellow + bright_yellow
-color3 = #d79921
-color11 = #fabd2f
-
-# neutral_blue + bright_blue
-color4 = #458588
-color12 = #83a598
-
-# neutral_purple + bright_purple
-color5 = #b16286
-color13 = #d3869b
-
-# neutral_aqua + faded_aqua
-color6 = #689d6a
-color14 = #8ec07c
-
-# light4 + light1
-color7 = #a89984
-color15 = #ebdbb2
+# # hard contrast: background = #1d2021
+# background = #282828
+# # soft contrast: background = #32302f
+# foreground = #ebdbb2
+# foreground_bold = #ebdbb2
+# # dark0 + gray
+# color0 = #282828
+# color8 = #928374
+# # neutral_red + bright_red
+# color1 = #cc241d
+# color9 = #fb4934
+# # neutral_green + bright_green
+# color2 = #98971a
+# color10 = #b8bb26
+# # neutral_yellow + bright_yellow
+# color3 = #d79921
+# color11 = #fabd2f
+# # neutral_blue + bright_blue
+# color4 = #458588
+# color12 = #83a598
+# # neutral_purple + bright_purple
+# color5 = #b16286
+# color13 = #d3869b
+# # neutral_aqua + faded_aqua
+# color6 = #689d6a
+# color14 = #8ec07c
+# # light4 + light1
+# color7 = #a89984
+# color15 = #ebdbb2
 
 
 # Base16 Ocean
 # by Chris Kempson
 
-# foreground      = #c0c5ce
-# foreground_bold = #dfe1e8
-# background      = #2b303b
-
-# ## 16 color space
-
-# # Black, Gray, Silver, White
-# color0  = #2b303b
-# color8  = #65737e
-# color7  = #c0c5ce
-# color15 = #eff1f5
-
-# # Red
-# color1  = #bf616a
-# color9  = #bf616a
-
-# # Green
-# color2  = #a3be8c
-# color10 = #a3be8c
-
-# # Yellow
-# color3  = #ebcb8b
-# color11 = #ebcb8b
-
-# # Blue
-# color4  = #8fa1b3
-# color12 = #8fa1b3
-
-# # Purple
-# color5  = #b48ead
-# color13 = #b48ead
-
-# # Teal
-# color6  = #96b5b4
-# color14 = #96b5b4
-
-# ## Extra colors
-# color16 = #d08770
-# color17 = #ab7967
-# color18 = #343d46
-# color19 = #4f5b66
-# color20 = #a7adba
-# color21 = #dfe1e8
+foreground      = #c0c5ce
+foreground_bold = #dfe1e8
+background      = #2b303b
+## 16 color space
+# Black, Gray, Silver, White
+color0  = #2b303b
+color8  = #65737e
+color7  = #c0c5ce
+color15 = #eff1f5
+# Red
+color1  = #bf616a
+color9  = #bf616a
+# Green
+color2  = #a3be8c
+color10 = #a3be8c
+# Yellow
+color3  = #ebcb8b
+color11 = #ebcb8b
+# Blue
+color4  = #8fa1b3
+color12 = #8fa1b3
+# Purple
+color5  = #b48ead
+color13 = #b48ead
+# Teal
+color6  = #96b5b4
+color14 = #96b5b4
+## Extra colors
+color16 = #d08770
+color17 = #ab7967
+color18 = #343d46
+color19 = #4f5b66
+color20 = #a7adba
+color21 = #dfe1e8
 
 # vim: ft=dosini cms=#%s
