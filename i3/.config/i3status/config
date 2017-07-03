@@ -24,7 +24,7 @@ order += "tztime local"
 
 ethernet br0 {
 # if you use %speed, i3status requires root privileges
-    format_up = "🖧 %ip (%speed)"
+    format_up = "🖧 %ip"
     format_down = "E: down"
 }
 
