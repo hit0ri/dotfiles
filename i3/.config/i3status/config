@@ -39,7 +39,7 @@ cpu_usage {
 volume master {
     format = "🔊 %volume"
     format_muted = "🔊: %volume (muted)"
-    device = "pulse:1"
+    device = "pulse:0"
 }
 
 tztime local {
