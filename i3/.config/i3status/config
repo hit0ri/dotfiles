@@ -34,11 +34,13 @@ disk "/" {
 
 cpu_usage {
 	format = "💻 %usage"
+    min_width = "xxxxxx"
 }
 
 volume master {
     format = "🔊 %volume"
     format_muted = "🔊: %volume (muted)"
+    min_width = "xxxxxx"
     device = "pulse:0"
 }
 
