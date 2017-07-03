@@ -268,10 +268,9 @@ assign [title="WeeChat"] 3
 # Autostart
 exec --no-startup-id "xsetroot -mod 16 16 -fg '#343d46' -bg '#2b303b'"
 exec --no-startup-id "xsetroot -cursor_name left_ptr"
-exec --no-startup-id "xset r rate 250 25"
+exec --no-startup-id "xset r rate 250 30"
 exec --no-startup-id "xset s off"
 exec --no-startup-id "xset -dpms"
 exec --no-startup-id "setxkbmap -layout 'us,ua' -option 'caps:escape,grp:shifts_toggle'"
 exec --no-startup-id "pcmanfm -d"
-# exec --no-startup-id "feh --bg-fill ~/Pictures/wallhaven/wallhaven-299905.png"
 
