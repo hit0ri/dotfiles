@@ -215,7 +215,7 @@ bar {
 # smart_borders on
 
 ################################################################################
-focus_follows_mouse yes
+focus_follows_mouse no
 # Warp mouse cursor to the center of the window when switching monitors
 mouse_warping none
 force_display_urgency_hint 500 ms
