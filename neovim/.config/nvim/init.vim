@@ -35,6 +35,7 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'ntpeters/vim-better-whitespace'
     Plug 'junegunn/fzf' | Plug 'junegunn/fzf.vim'
     Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' } | Plug 'Xuyuanp/nerdtree-git-plugin'
+    Plug 'alvan/vim-closetag'
     " Languages
     Plug 'sheerun/vim-polyglot'
     Plug 'Firef0x/PKGBUILD.vim'
@@ -105,6 +106,11 @@ nnoremap <silent> <Leader><cr> :Buffers<CR>
 nnoremap <silent> <Leader>ag   :Ag <C-R><C-W><cr>
 nnoremap <silent> <Leader>AG   :Ag <C-R><C-A><cr>
 nnoremap <silent> <Leader>`    :Marks<cr>
+
+
+""" vim-closetag
+let g:closetag_filenames = "*.html,*.xhtml,*.xml"
+let g:closetag_emptyTags_caseSensitive = 1
 
 
 
