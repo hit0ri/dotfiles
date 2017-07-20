@@ -11,12 +11,12 @@ Xft.rgba:       rgb
 
 ! URxvt settings -------------------------------------------------------------
 
-URxvt*geometry: 94x28
+URxvt*geometry: 97x26
 URxvt*scrollBar: false
 URxvt*saveLines: 8192
-URxvt*font: xft:Source Code Pro Semibold:size=10, \
-            xft:Noto Sans:size=10, \
-            xft:DejaVu Sans:size=10, \
+URxvt*font: xft:Source Code Pro:size=10, \
+            xft:Noto Mono:size=10, \
+            xft:DejaVu Sans Mono:size=10, \
             xft:Noto Sans Symbols:size=10
 
 URxvt*cursorBlink: false
@@ -25,6 +25,7 @@ URxvt*scrollWithBuffer: true
 URxvt*scrollTtyKeypress: true
 URxvt*secondaryScreen: 1
 URxvt*secondaryScroll: 0
+URxvt*letterSpace: -1
 
 URxvt*iso14755: False
 URxvt*perl-ext-common: default,matcher,clipboard
