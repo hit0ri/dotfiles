@@ -44,7 +44,7 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'eiginn/iptables-vim'
     Plug 'sebastianmarkow/deoplete-rust'
     " Colors
-    Plug 'chriskempson/base16-vim'
+    Plug 'morhetz/gruvbox'
 call plug#end()
 
 
@@ -121,15 +121,14 @@ let g:closetag_emptyTags_caseSensitive = 1
 " Colorscheme
 syntax on
 filetype indent plugin on
-set termguicolors
 set background=dark
 try
-    let base16colorspace=256
-    colorscheme base16-ocean
+    let g:gruvbox_italic = 1
+    colorscheme gruvbox
 catch
     colorscheme desert
 endtry
-let g:airline_theme = 'base16_ocean'
+let g:airline_theme = 'gruvbox'
 
 set title
 set number
