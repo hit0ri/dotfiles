@@ -1,7 +1,3 @@
-# atom
-**/.atom/*/
-**/.atom/nohup.out
-
 # beets
 **/beets/library.db
 **/beets/state.pickle
