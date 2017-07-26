@@ -39,3 +39,6 @@ export GROFF_NO_SGR=yes
 
 # sar colors
 export S_COLORS=auto
+
+# libvirt
+export LIBVIRT_DEFAULT_URI=qemu:///system
