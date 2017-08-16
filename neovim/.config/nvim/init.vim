@@ -43,6 +43,8 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'moll/vim-node'
     Plug 'eiginn/iptables-vim'
     Plug 'sebastianmarkow/deoplete-rust'
+    Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
+    Plug 'AndrewRadev/splitjoin.vim'
     " Colors
     Plug 'morhetz/gruvbox'
 call plug#end()
@@ -111,6 +113,30 @@ nnoremap <silent> <Leader>`    :Marks<cr>
 """ vim-closetag
 let g:closetag_filenames = "*.html,*.xhtml,*.xml"
 let g:closetag_emptyTags_caseSensitive = 1
+
+""" vim-go
+let g:go_fmt_command = "goimports"
+let g:go_highlight_types = 1
+let g:go_highlight_fields = 1
+let g:go_highlight_functions = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_extra_types = 1
+let g:go_highlight_build_constraints = 1
+
+" run :GoBuild or :GoTestCompile based on the go file
+function! s:build_go_files()
+    let l:file = expand('%')
+    if l:file =~# '^\f\+_test\.go$'
+        call go#test#Test(0, 1)
+    elseif l:file =~# '^\f\+\.go$'
+        call go#cmd#Build(0)
+    endif
+endfunction
+
+autocmd FileType go nmap <leader>m :<C-u>call <SID>build_go_files()<CR>
+autocmd FileType go nmap <leader>t <Plug>(go-test)
+autocmd FileType go nmap <leader>c <Plug>(go-coverage-toggle)
 
 
 
