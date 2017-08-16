@@ -148,8 +148,8 @@ set inccommand=split
 
 " Indentation
 set tabstop=4
-set softtabstop=4
 set shiftwidth=4
+set softtabstop=4
 set expandtab
 
 " Treat .rss files as XML
@@ -157,6 +157,13 @@ autocmd BufNewFile,BufRead *.rss setfiletype xml
 
 " Limit the width of text to 72 characters when editing email
 autocmd BufRead /tmp/mutt-* set textwidth=72
+
+" 2 spaces
+autocmd FileType javascript setl ts=2 sw=2 sts=2 et
+autocmd FileType xml setl ts=2 sw=2 sts=2 et
+
+" tabs
+autocmd FileType go setl ts=4 sw=4 sts=0 noet aw
 
 
 
