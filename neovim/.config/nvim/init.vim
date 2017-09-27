@@ -46,7 +46,7 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
     Plug 'AndrewRadev/splitjoin.vim'
     " Colors
-    Plug 'morhetz/gruvbox'
+    Plug 'rakr/vim-one'
 call plug#end()
 
 
@@ -150,12 +150,12 @@ filetype indent plugin on
 set termguicolors
 set background=dark
 try
-    let g:gruvbox_italic = 1
-    colorscheme gruvbox
+    colorscheme one
 catch
     colorscheme desert
 endtry
-let g:airline_theme = 'gruvbox'
+let g:airline_theme = 'one'
+let g:one_allow_italics = 1
 
 set title
 set number
