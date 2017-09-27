@@ -9,13 +9,7 @@ export VISUAL=nvim
 export DIFFPROG='nvim -d'
 export SUDO_EDITOR=nvim
 
-if hash google-chrome &> /dev/null; then
-  export BROWSER=google-chrome
-elif hash chromium &> /dev/null; then
-  export BROWSER=chromium
-elif hash firefox &> /dev/null; then
-  export BROWSER=firefox
-fi
+export BROWSER=xdg-open
 
 export WINEDLLOVERRIDES=winemenubuilder.exe,mscoree,mshtml=
 
