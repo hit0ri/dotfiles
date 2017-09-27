@@ -14,13 +14,7 @@ export DIFFPROG='nvim -d'
 export SUDO_EDITOR=nvim
 
 # Default browser
-if hash google-chrome &> /dev/null; then
-  export BROWSER=google-chrome
-elif hash chromium &> /dev/null; then
-  export BROWSER=chromium
-elif hash firefox &> /dev/null; then
-  export BROWSER=firefox
-fi
+export BROWSER=xdg-open
 
 # Parevent creation of desktop files and file associations for wine applications
 export WINEDLLOVERRIDES=winemenubuilder.exe,mscoree,mshtml=
