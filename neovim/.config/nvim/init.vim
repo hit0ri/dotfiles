@@ -46,7 +46,7 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
     Plug 'AndrewRadev/splitjoin.vim'
     " Colors
-    Plug 'rakr/vim-one'
+    Plug 'chriskempson/base16-vim'
 call plug#end()
 
 
@@ -150,12 +150,12 @@ filetype indent plugin on
 set termguicolors
 set background=dark
 try
-    colorscheme one
+    let base16colorspace = 256
+    colorscheme base16-ocean
 catch
     colorscheme desert
 endtry
-let g:airline_theme = 'one'
-let g:one_allow_italics = 1
+let g:airline_theme = 'base16_ocean'
 
 set title
 set number
