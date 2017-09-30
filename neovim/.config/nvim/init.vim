@@ -40,9 +40,8 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'sheerun/vim-polyglot'
     Plug 'Firef0x/PKGBUILD.vim'
     Plug 'zainin/vim-mikrotik'
-    Plug 'moll/vim-node'
     Plug 'eiginn/iptables-vim'
-    Plug 'sebastianmarkow/deoplete-rust'
+    " Plug 'sebastianmarkow/deoplete-rust'
     Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
     Plug 'AndrewRadev/splitjoin.vim'
     " Colors
