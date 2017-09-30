@@ -111,7 +111,7 @@ nnoremap <silent> <Leader>`    :Marks<cr>
 
 
 """ vim-closetag
-let g:closetag_filenames = "*.html,*.xhtml,*.xml"
+let g:closetag_filenames = "*.html,*.xhtml,*.xml,*.vue"
 let g:closetag_emptyTags_caseSensitive = 1
 
 """ vim-go
