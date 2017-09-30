@@ -30,3 +30,6 @@ export S_COLORS=auto
 
 # libvirt
 export LIBVIRT_DEFAULT_URI=qemu:///system
+
+# fzf
+export FZF_DEFAULT_COMMAND='rg --files --follow --hidden --smart-case --no-ignore --glob "!.git/*" --glob "!node_modules/*"'
