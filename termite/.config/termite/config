@@ -29,28 +29,6 @@ size_hints = true
 
 [colors]
 
-# One Dark
-# by denysdovhan
-
-foreground = #abb2bf
-background = #282c34
-color0     = #000000
-color1     = #e06c75
-color2     = #98c379
-color3     = #d19a66
-color4     = #61aeee
-color5     = #c678dd
-color6     = #56b6c2
-color7     = #abb2bf
-color8     = #5c6370
-color9     = #e06c75
-color10    = #98c379
-color11    = #d19a66
-color12    = #62afee
-color13    = #c678dd
-color14    = #56b6c2
-color15    = #ffffff
-
 # Gruvbox
 # by Pavel Pertsev
 # <https://github.com/morhetz/gruvbox-contrib/blob/master/termite/gruvbox-dark>
@@ -89,39 +67,39 @@ color15    = #ffffff
 # Base16 Ocean
 # by Chris Kempson
 
-# foreground      = #c0c5ce
-# foreground_bold = #dfe1e8
-# background      = #2b303b
-# ## 16 color space
-# # Black, Gray, Silver, White
-# color0  = #2b303b
-# color8  = #65737e
-# color7  = #c0c5ce
-# color15 = #eff1f5
-# # Red
-# color1  = #bf616a
-# color9  = #bf616a
-# # Green
-# color2  = #a3be8c
-# color10 = #a3be8c
-# # Yellow
-# color3  = #ebcb8b
-# color11 = #ebcb8b
-# # Blue
-# color4  = #8fa1b3
-# color12 = #8fa1b3
-# # Purple
-# color5  = #b48ead
-# color13 = #b48ead
-# # Teal
-# color6  = #96b5b4
-# color14 = #96b5b4
-# ## Extra colors
-# color16 = #d08770
-# color17 = #ab7967
-# color18 = #343d46
-# color19 = #4f5b66
-# color20 = #a7adba
-# color21 = #dfe1e8
+foreground      = #c0c5ce
+foreground_bold = #dfe1e8
+background      = #2b303b
+# 16 color space
+# Black, Gray, Silver, White
+color0  = #2b303b
+color8  = #65737e
+color7  = #c0c5ce
+color15 = #eff1f5
+# Red
+color1  = #bf616a
+color9  = #bf616a
+# Green
+color2  = #a3be8c
+color10 = #a3be8c
+# Yellow
+color3  = #ebcb8b
+color11 = #ebcb8b
+# Blue
+color4  = #8fa1b3
+color12 = #8fa1b3
+# Purple
+color5  = #b48ead
+color13 = #b48ead
+# Teal
+color6  = #96b5b4
+color14 = #96b5b4
+# Extra colors
+color16 = #d08770
+color17 = #ab7967
+color18 = #343d46
+color19 = #4f5b66
+color20 = #a7adba
+color21 = #dfe1e8
 
 # vim: ft=dosini cms=#%s
