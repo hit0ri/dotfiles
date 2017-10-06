@@ -33,9 +33,10 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'godlygeek/tabular'
     Plug 'bling/vim-airline' | Plug 'vim-airline/vim-airline-themes'
     Plug 'ntpeters/vim-better-whitespace'
-    Plug 'junegunn/fzf' | Plug 'junegunn/fzf.vim'
     Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' } | Plug 'Xuyuanp/nerdtree-git-plugin'
     Plug 'alvan/vim-closetag'
+    Plug 'ctrlpvim/ctrlp.vim'
+    Plug 'jremmen/vim-ripgrep'
     " Languages
     Plug 'sheerun/vim-polyglot'
     Plug 'Firef0x/PKGBUILD.vim'
@@ -97,16 +98,12 @@ xmap ga <Plug>(EasyAlign)
 nmap ga <Plug>(EasyAlign)
 
 
-""" fzf
-if has('nvim')
-    let $FZF_DEFAULT_OPTS .= ' --inline-info'
+""" CtrlP
+if executable('rg')
+    set grepprg=rg\ --vimgrep
+    let g:ctrlp_user_command = "rg %s --files --follow --hidden --color never --smart-case --glob '!.git/*' --glob '!node_modules/*'"
+    let g:ctrlp_use_caching = 0
 endif
-
-nnoremap <silent> <expr> <Leader><Leader> (expand('%') =~ 'NERD_tree' ? "\<c-w>\<c-w>" : '').":Files\<cr>"
-nnoremap <silent> <Leader><cr> :Buffers<CR>
-nnoremap <silent> <Leader>ag   :Ag <C-R><C-W><cr>
-nnoremap <silent> <Leader>AG   :Ag <C-R><C-A><cr>
-nnoremap <silent> <Leader>`    :Marks<cr>
 
 
 """ vim-closetag
