@@ -100,36 +100,17 @@ shopt -s checkwinsize
 # PROMPT
 #
 
-# Git prompt
-include /usr/share/git/completion/git-prompt.sh
-include /usr/share/git-core/contrib/completion/git-prompt.sh
-GIT_PS1_SHOWDIRTYSTATE=true
-GIT_PS1_SHOWSTASHSTATE=true
-GIT_PS1_SHOWUNTRACKEDFILES=true
-GIT_PS1_SHOWUPSTREAM="auto"
-
-# Colors
-FG_BLACK='\[\e[30;1m\]'
-FG_RED='\[\e[31;1m\]'
-FG_GREEN='\[\e[32;1m\]'
-FG_YELLOW='\[\e[33;1m\]'
-FG_BLUE='\[\e[34;1m\]'
-FG_MAGENTA='\[\e[35;1m\]'
-FG_CYAN='\[\e[36;1m\]'
-FG_WHITE='\[\e[37;1m\]'
-TXT_RST='\[\e[0m\]'
-
-set_prompt() {
-  local -r EXIT=$?
-
-  PS1="${SSH_TTY:+${FG_MAGENTA}\h${FG_WHITE} }"
-  ((COLUMNS+${#HOME}-${#PWD} > COLUMNS/2)) && PS1+="${FG_BLUE}\w " || PS1+="${FG_BLUE}…/\W "
-  [[ -d $PWD/.git ]] && PS1+="$(__git_ps1 "${FG_YELLOW}"%s)"
-  ((EXIT)) && PS1+="${FG_RED}\$" || PS1+="${FG_GREEN}\$"
-  PS1+="$TXT_RST "
+_update_ps1() {
+  PS1="$(powerline-go \
+          -error $?   \
+          -newline    \
+          -modules "venv,user,host,ssh,cwd,perms,git,hg,jobs,exit" \
+          )"
 }
 
-PROMPT_COMMAND="set_prompt"
+if [ "$TERM" != "linux" ]; then
+  PROMPT_COMMAND="_update_ps1; $PROMPT_COMMAND"
+fi
 
 # show file, line number and function for xtrace mode
 export PS4='+(${BASH_SOURCE/##}:${LINENO}): ${FUNCNAME[0]:+${FUNCNAME[0]}(): }'
