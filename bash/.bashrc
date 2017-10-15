@@ -77,6 +77,8 @@ fi
 # Source /etc/bashrc on Fedora and RHEL as it's not sourced from /etc/profile
 [[ -e /etc/redhat-release ]] && include /etc/bashrc
 
+# Source bash-completion on debian based distros
+include /etc/bash_completion
 
 #
 # SHELL OPTIONS
