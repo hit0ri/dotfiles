@@ -77,6 +77,11 @@ fi
 # Source /etc/bashrc on Fedora and RHEL as it's not sourced from /etc/profile
 [[ -e /etc/redhat-release ]] && include /etc/bashrc
 
+# Source profile on Solus
+[[ -e /etc/solus-release ]] \
+    && include /usr/share/defaults/etc/profile \
+    && include ~/.profile
+
 # Source bash-completion on debian based distros
 include /etc/bash_completion
 
