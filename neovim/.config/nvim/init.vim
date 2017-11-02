@@ -180,6 +180,11 @@ set shiftwidth=4
 set softtabstop=4
 set expandtab
 
+" Completion
+set completeopt-=preview
+set completeopt+=noinsert
+set completeopt+=noselect
+
 " Treat .rss files as XML
 autocmd BufNewFile,BufRead *.rss setfiletype xml
 
