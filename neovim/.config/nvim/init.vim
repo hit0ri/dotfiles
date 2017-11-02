@@ -44,6 +44,7 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'eiginn/iptables-vim'
     " Plug 'sebastianmarkow/deoplete-rust'
     Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
+    Plug 'zchee/deoplete-go',
     Plug 'AndrewRadev/splitjoin.vim'
     " Colors
     Plug 'chriskempson/base16-vim'
@@ -64,6 +65,10 @@ let g:deoplete#enable_at_startup = 1
 " Automatically close the scratch window
 autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
 
+""" deoplete-go
+let g:deoplete#sources#go#gocode_binary = $GOPATH.'/bin/gocode'
+let g:deoplete#sources#go#sort_class = ['package', 'func', 'type', 'var', 'const']
+let g:deoplete#sources#go#pointer = 1
 
 """ deoplete-rust
 let g:deoplete#sources#rust#racer_binary='/home/hitori/.cargo/bin/racer'
