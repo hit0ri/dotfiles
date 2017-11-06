@@ -91,9 +91,9 @@ a simple AUR downloader
 
 ## etc
 
-Contains system-wide configurations for X, sysctl, udev, polkit, etc.
+> NOTE: Is not managed by `stow`
 
-NOTE: Is not managed by `stow`
+Contains system-wide configurations for X, sysctl, udev, polkit, etc.
 
 ## fontconfig
 
