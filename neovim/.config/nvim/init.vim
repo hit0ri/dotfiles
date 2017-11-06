@@ -48,7 +48,8 @@ call plug#begin('~/.config/nvim/plugged')
     " Plug 'sebastianmarkow/deoplete-rust'
     Plug 'AndrewRadev/splitjoin.vim'
     " Colors
-    Plug 'chriskempson/base16-vim'
+    Plug 'cocopon/iceberg.vim'
+
 call plug#end()
 
 
@@ -153,11 +154,11 @@ set termguicolors
 set background=dark
 try
     let base16colorspace = 256
-    colorscheme base16-oceanicnext
+    colorscheme iceberg
 catch
     colorscheme desert
 endtry
-let g:airline_theme = 'base16_oceanicnext'
+let g:airline_theme = 'iceberg'
 
 set title
 set number
