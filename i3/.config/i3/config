@@ -248,7 +248,7 @@ bindsym XF86AudioMute        exec --no-startup-id "pactl set-sink-mute 0 toggle"
 bindsym --release Print       exec --no-startup-id "scrot -e 'mv $f ~/Pictures/scrots/'"
 bindsym --release Shift+Print exec --no-startup-id "scrot -e 'mv $f ~/Pictures/scrots/' -s"
 
-bindsym $mod+f exec --no-startup-id "nautilus"
+bindsym $mod+f exec --no-startup-id "pcmanfm"
 bindsym $mod+x [urgent=latest] focus
 
 
