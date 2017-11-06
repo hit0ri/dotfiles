@@ -89,10 +89,11 @@ A web browser from Google. It is the basis for the proprietary Google Chrome bro
 
 a simple AUR downloader
 
-## etc (*Is not managed by `stow`*)
+## etc
 
 Contains system-wide configurations for X, sysctl, udev, polkit, etc.
 
+NOTE: Is not managed by `stow`
 
 ## fontconfig
 
