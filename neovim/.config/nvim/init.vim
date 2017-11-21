@@ -27,7 +27,7 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'christoomey/vim-sort-motion'
     Plug 'junegunn/vim-easy-align'
     Plug 'tommcdo/vim-exchange'
-    Plug 'Shougo/deoplete.nvim', { 'do': function('DoRemote') }
+    Plug 'roxma/nvim-completion-manager'
     Plug 'airblade/vim-gitgutter'
     Plug 'w0rp/ale'
     Plug 'godlygeek/tabular'
@@ -43,9 +43,7 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'zainin/vim-mikrotik'
     Plug 'eiginn/iptables-vim'
     Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
-    Plug 'zchee/deoplete-go',
     Plug 'Shougo/neco-vim',
-    " Plug 'sebastianmarkow/deoplete-rust'
     Plug 'AndrewRadev/splitjoin.vim'
     " Colors
     Plug 'cocopon/iceberg.vim'
@@ -60,21 +58,6 @@ call plug#end()
 
 """ plug
 let g:plug_window = 'new'
-
-
-""" deoplete
-let g:deoplete#enable_at_startup = 1
-" Automatically close the scratch window
-autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
-
-""" deoplete-go
-let g:deoplete#sources#go#gocode_binary = $GOPATH.'/bin/gocode'
-let g:deoplete#sources#go#sort_class = ['package', 'func', 'type', 'var', 'const']
-let g:deoplete#sources#go#pointer = 1
-
-""" deoplete-rust
-let g:deoplete#sources#rust#racer_binary='/home/hitori/.cargo/bin/racer'
-let g:deoplete#sources#rust#rust_source_path='/home/hitori/.multirust/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/src'
 
 
 """ airline
@@ -96,6 +79,12 @@ let g:indent_guides_enable_on_vim_startup = 1
 
 """ nerdtree
 map <c-n> :NERDTreeToggle<cr>
+
+
+""" nvim-completion-manager
+set shortmess+=c
+imap <expr> <cr> (pumvisible() ? '<c-y><Plug>(expand_or_nl)' : '<cr>')
+imap <expr> <Plug>(expand_or_nl) (cm#completed_is_snippet() ? '<c-u>' : '<cr>')
 
 
 """ vim-easy-align
