@@ -2,6 +2,9 @@
     email = hitori.gm@gmail.com
     name = hitori
 
+[commit]
+    verbose = true
+
 [push]
     default = simple
 
