@@ -95,7 +95,7 @@ let g:indent_guides_enable_on_vim_startup = 1
 
 
 """ nerdtree
-map <C-n> :NERDTreeToggle<CR>
+map <c-n> :NERDTreeToggle<cr>
 
 
 """ vim-easy-align
@@ -138,7 +138,7 @@ function! s:build_go_files()
     endif
 endfunction
 
-autocmd FileType go nmap <leader>b :<C-u>call <SID>build_go_files()<CR>
+autocmd FileType go nmap <leader>m :<c-u>call <SID>build_go_files()<cr>
 autocmd FileType go nmap <leader>r <Plug>(go-run)
 autocmd FileType go nmap <leader>c <Plug>(go-coverage-toggle)
 
@@ -270,16 +270,13 @@ nnoremap <c-l> <c-w>l
 
 """ Buffers
 " Create new buffer
-nnoremap <Leader>T :enew<cr>
-" Switch to the next/previous buffer
-nnoremap ]b :bnext<cr>
-nnoremap [b :bprev<cr>
-" Close active buffer
-nnoremap <Leader>b :bd<cr>
+nnoremap <leader>t :enew<cr>
+" close active buffer
+nnoremap <leader>b :bd<cr>
 " Force close active buffer
-nnoremap <Leader>B :bd!<cr>
+nnoremap <leader>B :bd!<cr>
 " Close all buffers
-nnoremap <Leader>O :bufdo bd!<cr>
+nnoremap <leader>O :bufdo bd!<cr>
 
 " Save file with sudo
 command W execute 'silent w !sudo tee % > /dev/null' | edit!
