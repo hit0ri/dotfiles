@@ -71,6 +71,14 @@ let g:airline#extensions#tabline#buffers_label = ''
 let g:airline#parts#ffenc#skip_expected_string = 'utf-8[unix]'
 
 
+""" ale
+let g:ale_sign_column_always = 1
+let g:airline#extensions#ale#enabled = 1
+let g:ale_echo_msg_error_str = 'E'
+let g:ale_echo_msg_warning_str = 'W'
+let g:ale_echo_msg_format = '[%linter%] [%severity%] %s'
+
+
 """ indent-guides
 let g:indent_guides_guide_size = 1
 let g:indent_guides_enable_on_vim_startup = 1
