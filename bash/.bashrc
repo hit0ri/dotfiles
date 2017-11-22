@@ -92,7 +92,7 @@ include /etc/bash_completion
 # History
 # Ignore duplicates and lines which begin with a space
 HISTCONTROL=ignoreboth
-HISTTIMEFORMAT="%h %d %H:%M:%S> "
+HISTTIMEFORMAT="%F %T> "
 HISTSIZE=8192
 shopt -s histappend
 
