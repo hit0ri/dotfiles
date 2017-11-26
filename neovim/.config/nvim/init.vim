@@ -46,20 +46,15 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'AndrewRadev/splitjoin.vim'
     " Colors
     Plug 'cocopon/iceberg.vim'
-
 call plug#end()
 
 
 
 "
-" Plugin settings
+" Plugin options
 "
 
-""" plug
-let g:plug_window = 'new'
-
-
-""" airline
+" Plugin: airline
 let g:airline_powerline_fonts = 1
 let g:airline_left_sep = ''
 let g:airline_left_alt_sep = ''
@@ -71,7 +66,7 @@ let g:airline#extensions#tabline#buffers_label = ''
 let g:airline#parts#ffenc#skip_expected_string = 'utf-8[unix]'
 
 
-""" ale
+" Plugin: ale
 let g:ale_sign_column_always = 1
 let g:airline#extensions#ale#enabled = 1
 let g:ale_echo_msg_error_str = 'E'
@@ -79,40 +74,45 @@ let g:ale_echo_msg_warning_str = 'W'
 let g:ale_echo_msg_format = '[%linter%] [%severity%] %s'
 
 
-""" CtrlP
+" Plugin: CtrlP
 if executable('rg')
     let g:ctrlp_user_command = "rg %s --files  --hidden --color never --smart-case --glob '!.git/*' --glob '!node_modules/*'"
     let g:ctrlp_use_caching = 0
 endif
 
 
-""" indent-guides
+" Plugin: indent-guides
 let g:indent_guides_guide_size = 1
 let g:indent_guides_enable_on_vim_startup = 1
 
 
-""" nerdtree
+" Plugin: nerdtree
 map <C-n> :NERDTreeToggle<CR>
 
 
-""" nvim-completion-manager
+" Plugin: nvim-completion-manager
 set shortmess+=c
 imap <expr> <CR> (pumvisible() ? '<C-y><Plug>(expand_or_nl)' : '<CR>')
 imap <expr> <Plug>(expand_or_nl) (cm#completed_is_snippet() ? '<C-u>' : '<CR>')
 
 
-""" vim-easy-align
+" Plugin: plug
+let g:plug_window = 'new'
+
+
+" Plugin: vim-closetag
+let g:closetag_filenames = "*.html,*.xhtml,*.xml,*.vue,*.js"
+let g:closetag_emptyTags_caseSensitive = 1
+
+
+" Plugin: vim-easy-align
 " Start interactive EasyAlign in visual mode (e.g. vipga)
 xmap ga <Plug>(EasyAlign)
 " Start interactive EasyAlign for a motion/text object (e.g. gaip)
 nmap ga <Plug>(EasyAlign)
 
 
-""" vim-closetag
-let g:closetag_filenames = "*.html,*.xhtml,*.xml,*.vue,*.js"
-let g:closetag_emptyTags_caseSensitive = 1
-
-""" vim-go
+" Plugin: vim-go
 let g:go_fmt_command = "goimports"
 let g:go_highlight_types = 1
 let g:go_highlight_fields = 1
