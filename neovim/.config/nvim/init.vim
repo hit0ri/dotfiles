@@ -35,7 +35,7 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' } | Plug 'Xuyuanp/nerdtree-git-plugin'
     Plug 'alvan/vim-closetag'
     Plug 'ctrlpvim/ctrlp.vim'
-    Plug 'jremmen/vim-ripgrep'
+    Plug 'wincent/ferret'
     " Languages
     Plug 'sheerun/vim-polyglot'
     Plug 'Firef0x/PKGBUILD.vim'
@@ -79,6 +79,13 @@ let g:ale_echo_msg_warning_str = 'W'
 let g:ale_echo_msg_format = '[%linter%] [%severity%] %s'
 
 
+""" CtrlP
+if executable('rg')
+    let g:ctrlp_user_command = "rg %s --files  --hidden --color never --smart-case --glob '!.git/*' --glob '!node_modules/*'"
+    let g:ctrlp_use_caching = 0
+endif
+
+
 """ indent-guides
 let g:indent_guides_guide_size = 1
 let g:indent_guides_enable_on_vim_startup = 1
@@ -99,14 +106,6 @@ imap <expr> <Plug>(expand_or_nl) (cm#completed_is_snippet() ? '<c-u>' : '<cr>')
 xmap ga <Plug>(EasyAlign)
 " Start interactive EasyAlign for a motion/text object (e.g. gaip)
 nmap ga <Plug>(EasyAlign)
-
-
-""" CtrlP
-if executable('rg')
-    set grepprg=rg\ --vimgrep
-    let g:ctrlp_user_command = "rg %s --files  --hidden --color never --smart-case --glob '!.git/*' --glob '!node_modules/*'"
-    let g:ctrlp_use_caching = 0
-endif
 
 
 """ vim-closetag
