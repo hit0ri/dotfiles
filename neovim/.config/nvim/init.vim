@@ -123,6 +123,8 @@ let g:go_highlight_operators = 1
 let g:go_highlight_extra_types = 1
 let g:go_highlight_build_constraints = 1
 let g:go_list_type = "quickfix"
+let g:go_gocode_unimported_packages = 1
+let g:go_fmt_fail_silently = 1
 
 " run :GoBuild or :GoTestCompile based on the go file
 function! s:build_go_files()
@@ -137,6 +139,7 @@ endfunction
 autocmd FileType go nmap <leader>m :<c-u>call <SID>build_go_files()<cr>
 autocmd FileType go nmap <leader>r <Plug>(go-run)
 autocmd FileType go nmap <leader>c <Plug>(go-coverage-toggle)
+autocmd FileType go nmap <Leader>i <Plug>(go-info)
 
 
 
