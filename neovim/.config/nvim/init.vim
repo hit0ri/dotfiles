@@ -92,13 +92,13 @@ let g:indent_guides_enable_on_vim_startup = 1
 
 
 """ nerdtree
-map <c-n> :NERDTreeToggle<cr>
+map <C-n> :NERDTreeToggle<CR>
 
 
 """ nvim-completion-manager
 set shortmess+=c
-imap <expr> <cr> (pumvisible() ? '<c-y><Plug>(expand_or_nl)' : '<cr>')
-imap <expr> <Plug>(expand_or_nl) (cm#completed_is_snippet() ? '<c-u>' : '<cr>')
+imap <expr> <CR> (pumvisible() ? '<C-y><Plug>(expand_or_nl)' : '<CR>')
+imap <expr> <Plug>(expand_or_nl) (cm#completed_is_snippet() ? '<C-u>' : '<CR>')
 
 
 """ vim-easy-align
@@ -135,9 +135,9 @@ function! s:build_go_files()
     endif
 endfunction
 
-autocmd FileType go nmap <leader>m :<c-u>call <SID>build_go_files()<cr>
-autocmd FileType go nmap <leader>r <Plug>(go-run)
-autocmd FileType go nmap <leader>c <Plug>(go-coverage-toggle)
+autocmd FileType go nmap <Leader>m :<C-u>call <SID>build_go_files()<CR>
+autocmd FileType go nmap <Leader>r <Plug>(go-run)
+autocmd FileType go nmap <Leader>c <Plug>(go-coverage-toggle)
 autocmd FileType go nmap <Leader>i <Plug>(go-info)
 
 
@@ -239,8 +239,8 @@ function! s:go_indent(times, dir)
         execute 'normal! '. l .'G^'
     endfor
 endfunction
-nnoremap <silent> gi :<c-u>call <SID>go_indent(v:count1, 1)<cr>
-nnoremap <silent> gI :<c-u>call <SID>go_indent(v:count1, -1)<cr>
+nnoremap <silent> gi :<C-u>call <SID>go_indent(v:count1, 1)<CR>
+nnoremap <silent> gI :<C-u>call <SID>go_indent(v:count1, -1)<CR>
 
 
 
@@ -252,29 +252,29 @@ nnoremap <silent> gI :<c-u>call <SID>go_indent(v:count1, -1)<cr>
 set keywordprg=:help
 
 " Seach selected text
-vnorem // y/<c-r>"<cr>"
+vnorem // y/<C-r>"<CR>"
 
 " Replace selected text
-vnoremap <c-r> "hy:%s/<c-r>h//gc<Left><Left><Left>
+vnoremap <C-r> "hy:%s/<C-r>h//gc<Left><Left><Left>
 
 " Press Space to turn off search highlighting and clear any message
-nnoremap <silent> <Space> :nohlsearch<Bar>:echo<cr>
+nnoremap <silent> <Space> :nohlsearch<Bar>:echo<CR>
 
 " Move between windows by pressing Ctrl-[h,j,k,l]
-nnoremap <c-h> <c-w>h
-nnoremap <c-j> <c-w>j
-nnoremap <c-k> <c-w>k
-nnoremap <c-l> <c-w>l
+nnoremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
 
 """ Buffers
 " Create new buffer
-nnoremap <leader>t :enew<cr>
+nnoremap <Leader>t :enew<CR>
 " close active buffer
-nnoremap <leader>b :bd<cr>
+nnoremap <Leader>b :bd<CR>
 " Force close active buffer
-nnoremap <leader>B :bd!<cr>
+nnoremap <Leader>B :bd!<CR>
 " Close all buffers
-nnoremap <leader>O :bufdo bd!<cr>
+nnoremap <Leader>O :bufdo bd!<CR>
 
 " Save file with sudo
 command W execute 'silent w !sudo tee % > /dev/null' | edit!
