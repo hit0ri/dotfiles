@@ -45,7 +45,7 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'Shougo/neco-vim',
     Plug 'AndrewRadev/splitjoin.vim'
     " Colors
-    Plug 'cocopon/iceberg.vim'
+    Plug 'NLKNguyen/papercolor-theme'
 call plug#end()
 
 
@@ -151,14 +151,13 @@ autocmd FileType go nmap <Leader>i <Plug>(go-info)
 syntax on
 filetype indent plugin on
 set termguicolors
-set background=dark
+set background=light
 try
-    let base16colorspace = 256
-    colorscheme iceberg
+    colorscheme PaperColor
 catch
     colorscheme desert
 endtry
-let g:airline_theme = 'iceberg'
+let g:airline_theme = 'papercolor'
 
 set title
 set number
