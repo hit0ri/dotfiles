@@ -45,7 +45,7 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'Shougo/neco-vim',
     Plug 'AndrewRadev/splitjoin.vim'
     " Colors
-    Plug 'NLKNguyen/papercolor-theme'
+    Plug 'morhetz/gruvbox'
 call plug#end()
 
 
@@ -151,13 +151,14 @@ autocmd FileType go nmap <Leader>i <Plug>(go-info)
 syntax on
 filetype indent plugin on
 set termguicolors
-set background=light
+set background=dark
 try
-    colorscheme PaperColor
+    let g:gruvbox_italic = 1
+    colorscheme gruvbox
 catch
     colorscheme desert
 endtry
-let g:airline_theme = 'papercolor'
+let g:airline_theme = 'gruvbox'
 
 set title
 set number
