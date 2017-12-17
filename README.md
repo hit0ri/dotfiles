@@ -64,6 +64,17 @@ sxhkd:
 - thunar
 - dmenu
 
+### chromium
+
+Enabled flags:
+- chrome://flags/#ignore-gpu-blacklist
+- chrome://flags/#enable-gpu-rasterization
+- chrome://flags/#enable-simple-cache-backend
+- chrome://flags/#enable-tcp-fast-open
+- chrome://flags/#enable-zero-copy
+- chrome://flags/#shared-array-buffer
+- chrome://flags/#enable-native-notifications
+
 ### gtk
 
 - Noto Sans fonts
