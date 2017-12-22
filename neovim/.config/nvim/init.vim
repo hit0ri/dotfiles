@@ -154,11 +154,11 @@ set termguicolors
 set background=dark
 try
     let base16colorspace = 256
-    colorscheme base16-ocean
+    colorscheme base16-oceanicnext
 catch
     colorscheme desert
 endtry
-let g:airline_theme = 'base16_ocean'
+let g:airline_theme = 'base16_oceanicnext'
 
 set title
 set number
