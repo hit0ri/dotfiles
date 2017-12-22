@@ -14,7 +14,7 @@ Xft.rgba:       rgb
 URxvt*geometry: 97x26
 URxvt*scrollBar: false
 URxvt*saveLines: 8192
-URxvt*font: xft:Source Code Pro:size=10, \
+URxvt*font: xft:Fira Mono:size=10, \
             xft:Noto Mono:size=10, \
             xft:DejaVu Sans Mono:size=10, \
             xft:Noto Sans Symbols:size=10
