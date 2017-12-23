@@ -15,7 +15,7 @@ My personal configuration files managed by GNU Stow
 Clone this repository into your `$HOME` directory and use `stow` to install
 one or many configurations
 
-```
+```bash
 git clone https://github.com/hit0ri/dotfiles.git .dotfiles
 cd !$
 stow -v zsh [mpv …]
@@ -67,6 +67,7 @@ sxhkd:
 ### chromium
 
 Enabled flags:
+
 - chrome://flags/#ignore-gpu-blacklist
 - chrome://flags/#enable-gpu-rasterization
 - chrome://flags/#enable-simple-cache-backend
@@ -124,7 +125,7 @@ Enabled flags:
 - urxvt
 - rofi
 
-### zshrc
+### zsh
 
 Functions:
 
@@ -145,4 +146,3 @@ Aliases:
 *Optional:*
 
 - antibody
-
