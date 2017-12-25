@@ -75,6 +75,7 @@ let g:ale_echo_msg_format = '[%linter%] [%severity%] %s'
 
 
 " Plugin: CtrlP
+let g:ctrlp_working_path_mode = 'rwa'
 let g:ctrlp_show_hidden = 1
 if executable('rg')
     let g:ctrlp_user_command = "rg %s --files  --hidden --color never --smart-case --glob '!.git/*' --glob '!node_modules/*'"
