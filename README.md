@@ -68,13 +68,13 @@ sxhkd:
 
 Enabled flags:
 
-- chrome://flags/#ignore-gpu-blacklist
-- chrome://flags/#enable-gpu-rasterization
-- chrome://flags/#enable-simple-cache-backend
-- chrome://flags/#enable-tcp-fast-open
-- chrome://flags/#enable-zero-copy
-- chrome://flags/#shared-array-buffer
-- chrome://flags/#enable-native-notifications
+- `#ignore-gpu-blacklist`
+- `#enable-gpu-rasterization`
+- `#enable-simple-cache-backend`
+- `#enable-tcp-fast-open`
+- `#enable-zero-copy`
+- `#shared-array-buffer`
+- `#enable-native-notifications`
 
 ### gtk
 
