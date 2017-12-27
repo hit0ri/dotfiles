@@ -3,6 +3,7 @@ plugins:
   - embedart
   - convert
   - fromfilename
+  - discogs
 
 ui:
   color: yes
@@ -29,3 +30,6 @@ convert:
   never_convert_lossy_files: yes
   formats:
     mp3: ffmpeg -i $source -y -vn -aq 0 $dest
+
+discogs:
+  user_token: cYmqjGVgvLvPcUxsEUDDSNBSZVfmzAjGZdqARIHw
