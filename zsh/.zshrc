@@ -1,6 +1,7 @@
 setopt auto_cd \
        pushd_silent \
        complete_aliases \
+       no_nomatch \
        extended_glob \
        hist_fcntl_lock \
        hist_ignore_all_dups \
