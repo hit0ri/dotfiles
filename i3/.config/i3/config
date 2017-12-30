@@ -232,7 +232,6 @@ bindsym $mod+x [urgent=latest] focus
 for_window [class="Chromium"] border none
 for_window [class="Google-chrome"] border none
 for_window [class="Eog"] floating enable
-for_window [class="mpv"] floating enable
 
 
 # Assign to workspace
