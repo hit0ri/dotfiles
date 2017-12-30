@@ -92,6 +92,7 @@ Enabled flags:
 - xsetroot
 - xset
 - setxkbmap
+- polybar
 
 ### lemonbar
 
@@ -109,6 +110,18 @@ Enabled flags:
 - curl
 - go
 - ripgrep
+
+### polybar
+
+- alsa-lib
+- jsoncpp
+- i3ipc-glib
+
+Fonts:
+
+  - Source Code Pro
+  - Unifont
+  - Wuncon Siji
 
 ### subl3
 
