@@ -11,37 +11,33 @@
 
 set $mod Mod4
 
-## Base16 Ocean
-# by Chris Kempson
-set $base00 #2b303b
-set $base01 #343d46
-set $base02 #4f5b66
-set $base03 #65737e
-set $base04 #a7adba
-set $base05 #c0c5ce
-set $base06 #dfe1e8
-set $base07 #eff1f5
-set $base08 #bf616a
-set $base09 #d08770
-set $base0A #ebcb8b
-set $base0B #a3be8c
-set $base0C #96b5b4
-set $base0D #8fa1b3
-set $base0E #b48ead
-set $base0F #ab7967
+# set primary gruvbox colorscheme colors
+set $bg       #282828
+set $red      #cc241d
+set $green    #98971a
+set $yellow   #d79921
+set $blue     #458588
+set $purple   #b16286
+set $aqua     #689d68
+set $gray     #a89984
+set $darkgray #1d2021
 
-# Basic color configuration using the Base16 variables for windows and borders.
-# Property Name         Border  BG      Text    Indicator Child Border
-client.focused          $base05 $base0D $base00 $base0D $base0D
-client.focused_inactive $base01 $base01 $base05 $base03 $base01
-client.unfocused        $base01 $base00 $base05 $base01 $base01
-client.urgent           $base08 $base08 $base00 $base08 $base08
-client.placeholder      $base00 $base00 $base05 $base00 $base00
-client.background       $base07
+# Property Name         Border    BG       Text       Indicator Child Border
+# Gruvbox blue
+client.focused          $blue     $blue     $darkgray $purple   $darkgray
+client.focused_inactive $darkgray $darkgray $yellow   $purple   $darkgray
+client.unfocused        $darkgray $darkgray $yellow   $purple   $darkgray
+client.urgent           $red      $red      $white    $red      $red
+
+# Gruvbox green
+# client.focused          $green    $green    $darkgray $purple   $darkgray
+# client.focused_inactive $darkgray $darkgray $yellow   $purple   $darkgray
+# client.unfocused        $darkgray $darkgray $yellow   $purple   $darkgray
+# client.urgent           $red      $red      $white    $red      $red
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
-font pango:Source Code Pro Semibold 10
+font pango:Source Code Pro Medium 10
 
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
 # text rendering and scalability on retina/hidpi displays (thanks to pango).
@@ -64,7 +60,7 @@ bindsym $mod+Return exec termite
 bindsym $mod+Shift+q kill
 
 # start dmenu (a program launcher)
-bindsym $mod+d exec "rofi -combi-modi window,drun -show combi -font 'Source Code Pro Semibold 10' -terminal termite"
+bindsym $mod+d exec "rofi -combi-modi window,drun -show combi -font 'Source Code Pro Medium 10' -terminal termite"
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
@@ -162,7 +158,7 @@ bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'Do you really want to exit i3?' -b 'Yes, exit i3' 'i3-msg exit'"
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -172,16 +168,16 @@ mode "resize" {
   # Pressing right will grow the window’s width.
   # Pressing up will shrink the window’s height.
   # Pressing down will grow the window’s height.
-  bindsym h resize shrink width  10 px or 10 ppt
-  bindsym j resize grow   height 10 px or 10 ppt
-  bindsym k resize shrink height 10 px or 10 ppt
-  bindsym l resize grow   width  10 px or 10 ppt
+  bindsym h resize shrink width  5 px or 5 ppt
+  bindsym j resize grow   height 5 px or 5 ppt
+  bindsym k resize shrink height 5 px or 5 ppt
+  bindsym l resize grow   width  5 px or 5 ppt
 
   # same bindings, but for the arrow keys
-  bindsym Left  resize shrink width  10 px or 10 ppt
-  bindsym Down  resize grow   height 10 px or 10 ppt
-  bindsym Up    resize shrink height 10 px or 10 ppt
-  bindsym Right resize grow   width  10 px or 10 ppt
+  bindsym Left  resize shrink width  5 px or 5 ppt
+  bindsym Down  resize grow   height 5 px or 5 ppt
+  bindsym Up    resize shrink height 5 px or 5 ppt
+  bindsym Right resize grow   width  5 px or 5 ppt
 
   # back to normal: Enter or Escape
   bindsym Return mode "default"
@@ -189,25 +185,6 @@ mode "resize" {
 }
 
 bindsym $mod+r mode "resize"
-
-# Start i3bar to display a workspace bar (plus the system information i3status
-# finds out, if available)
-bar {
-  status_command i3status
-  tray_output primary
-  colors {
-    background $base00
-    separator  $base01
-    statusline $base04
-
-    # State             Border  BG      Text
-    focused_workspace   $base05 $base0D $base00
-    active_workspace    $base05 $base03 $base00
-    inactive_workspace  $base03 $base01 $base05
-    urgent_workspace    $base08 $base08 $base00
-    binding_mode        $base00 $base0A $base00
-  }
-}
 
 # Gaps (patch is required)
 # gaps inner 10
@@ -219,7 +196,6 @@ focus_follows_mouse no
 # Warp mouse cursor to the center of the window when switching monitors
 mouse_warping none
 force_display_urgency_hint 500 ms
-workspace_auto_back_and_forth yes
 
 set $Locker i3lock -c 2b303b -u && sleep 1
 set $mode_system System (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (Shift+s) shutdown
@@ -240,9 +216,9 @@ bindsym $mod+Pause mode "$mode_system"
 
 # Keybinds
 # volume control
-bindsym XF86AudioRaiseVolume exec --no-startup-id "pactl set-sink-mute 0 false ; pactl -- set-sink-volume 0 +5%"
-bindsym XF86AudioLowerVolume exec --no-startup-id "pactl -- set-sink-volume 0 -5%"
-bindsym XF86AudioMute        exec --no-startup-id "pactl set-sink-mute 0 toggle"
+bindsym XF86AudioRaiseVolume exec --no-startup-id "pactl set-sink-mute 1 false ; pactl -- set-sink-volume 1 +5%"
+bindsym XF86AudioLowerVolume exec --no-startup-id "pactl -- set-sink-volume 1 -5%"
+bindsym XF86AudioMute        exec --no-startup-id "pactl set-sink-mute 1 toggle"
 
 # scrot
 bindsym --release Print       exec --no-startup-id "scrot -e 'mv $f ~/Pictures/scrots/'"
@@ -254,9 +230,9 @@ bindsym $mod+x [urgent=latest] focus
 
 # Window Rules
 for_window [class="Chromium"] border none
-for_window [class="Google-Chrome"] border none
+for_window [class="Google-chrome"] border none
 for_window [class="Eog"] floating enable
-# for_window [class="mpv"] floating enable
+for_window [class="mpv"] floating enable
 
 
 # Assign to workspace
@@ -266,11 +242,11 @@ assign [title="WeeChat"] 3
 
 
 # Autostart
-exec --no-startup-id "xsetroot -mod 16 16 -fg '#343d46' -bg '#2b303b'"
+exec --no-startup-id "xsetroot -mod 16 16 -fg '#282828' -bg '#1d2021'"
 exec --no-startup-id "xsetroot -cursor_name left_ptr"
 exec --no-startup-id "xset r rate 250 30"
 exec --no-startup-id "xset s off"
-exec --no-startup-id "xset -dpms"
+exec --no-startup-id "xset dpms 900 900 0"
 exec --no-startup-id "setxkbmap -layout 'us,ua' -option 'caps:escape,grp:shifts_toggle'"
 exec --no-startup-id "pcmanfm -d"
-
+exec_always --no-startup-id "$HOME/.config/polybar/launch.sh"
