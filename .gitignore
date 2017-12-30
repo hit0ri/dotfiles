@@ -7,3 +7,8 @@
 **/nvim/autoload/
 **/nvim/plugged/
 
+# sublime-text
+
+**/sublime-text-3/
+!**/sublime-text-3/User/Preferences.sublime-settings
+!**/sublime-text-3/User/Package\ Control.sublime-settings

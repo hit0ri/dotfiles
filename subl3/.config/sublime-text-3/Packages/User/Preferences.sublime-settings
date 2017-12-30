@@ -1,5 +1,5 @@
 {
-	"color_scheme": "Packages/Material Theme/schemes/Material-Theme-Palenight.tmTheme",
+	"color_scheme": "Packages/gruvbox/gruvbox (Dark) (Medium).tmTheme",
 	"ensure_newline_at_eof_on_save": true,
 	"folder_exclude_patterns":
 	[
@@ -10,7 +10,7 @@
 		"node_modules",
 		"bower_components"
 	],
-	"font_face": "Source Code Pro",
+	"font_face": "Source Code Pro Medium",
 	"highlight_modified_tabs": true,
 	"ignored_packages":
 	[
@@ -29,13 +29,23 @@
 	"material_theme_compact_sidebar": true,
 	"material_theme_small_statusbar": true,
 	"material_theme_small_tab": true,
+	"gruvbox_autocomplete_cramped": true,
+	"gruvbox_sidebar_compact": true,
+	"gruvbox_sidebar_indent_xs": true,
+	"gruvbox_command_palette_cramped": true,
+	"gruvbox_statusbar_xxs": true,
+	"gruvbox_statusbar_button_xxs": true,
+	"gruvbox_tabs_xxs": true,
+	"gruvbox_underline_modified_tabs": true,
+	"gruvbox_panel_xxs": true,
+	"gruvbox_highlight_active_tree_row": true,
 	"rulers":
 	[
 		80
 	],
 	"show_encoding": true,
 	"show_line_endings": true,
-	"theme": "Material-Theme-Palenight.sublime-theme",
+	"theme": "gruvbox (Dark) (Medium).sublime-theme",
 	"translate_tabs_to_spaces": true,
 	"trim_trailing_white_space_on_save": true
 }
