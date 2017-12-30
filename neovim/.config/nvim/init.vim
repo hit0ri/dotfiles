@@ -36,6 +36,7 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'alvan/vim-closetag'
     Plug 'ctrlpvim/ctrlp.vim'
     Plug 'wincent/ferret'
+    Plug 'Yggdroot/indentLine'
     " Languages
     Plug 'sheerun/vim-polyglot'
     Plug 'Firef0x/PKGBUILD.vim'
