@@ -30,7 +30,7 @@ bottom = true
 background = ${colors.background}
 foreground = ${colors.foreground}
 
-line-size = 4
+line-size = 2
 line-color = #f00
 
 border-size = 2
