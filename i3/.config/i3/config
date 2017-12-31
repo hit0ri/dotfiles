@@ -241,11 +241,12 @@ assign [title="WeeChat"] 3
 
 
 # Autostart
+exec_always --no-startup-id "$HOME/.config/polybar/launch.sh"
 exec --no-startup-id "xsetroot -mod 16 16 -fg '#282828' -bg '#1d2021'"
 exec --no-startup-id "xsetroot -cursor_name left_ptr"
 exec --no-startup-id "xset r rate 250 30"
 exec --no-startup-id "xset s off"
 exec --no-startup-id "xset dpms 900 900 0"
+exec --no-startup-id "redshift -l 49.56:25.6"
 exec --no-startup-id "setxkbmap -layout 'us,ua' -option 'caps:escape,grp:shifts_toggle'"
 exec --no-startup-id "pcmanfm -d"
-exec_always --no-startup-id "$HOME/.config/polybar/launch.sh"
