@@ -10,7 +10,7 @@
 		"node_modules",
 		"bower_components"
 	],
-	"font_face": "Source Code Pro Medium",
+	"font_face": "Source Code Pro",
 	"highlight_modified_tabs": true,
 	"ignored_packages":
 	[
