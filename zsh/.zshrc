@@ -220,3 +220,6 @@ include ~/.zbundles
 compinit
 
 include ~/.fzf.zsh
+
+# Colors for ls
+[[ -f $HOME/.dircolors ]] && eval "$(dircolors -b $HOME/.dircolors)"
