@@ -34,13 +34,13 @@ line-size = 2
 line-color = #f00
 
 border-size = 2
-border-color = #00000000
+border-color = #1D2021
 
 padding-left = 0
 padding-right = 2
 
 module-margin-left = 1
-module-margin-right = 2
+module-margin-right = 1
 
 font-0 = SourceCodePro:size=10;0
 font-1 = Unifont:fontformat=truetype:size=8:antialias=false;0
@@ -128,7 +128,7 @@ wrapping-scroll = false
 ; Only show workspaces on the same output as the bar
 ;pin-workspaces = true
 
-label-mode-padding = 2
+label-mode-padding = 1
 label-mode-foreground = #000
 label-mode-background = ${colors.primary}
 
