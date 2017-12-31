@@ -11,6 +11,16 @@
 		"bower_components"
 	],
 	"font_face": "Source Code Pro",
+	"gruvbox_autocomplete_cramped": true,
+	"gruvbox_command_palette_cramped": true,
+	"gruvbox_highlight_active_tree_row": true,
+	"gruvbox_panel_xxs": true,
+	"gruvbox_sidebar_compact": true,
+	"gruvbox_sidebar_indent_xs": true,
+	"gruvbox_statusbar_button_xxs": true,
+	"gruvbox_statusbar_xxs": true,
+	"gruvbox_tabs_xxs": true,
+	"gruvbox_underline_modified_tabs": true,
 	"highlight_modified_tabs": true,
 	"ignored_packages":
 	[
@@ -29,16 +39,6 @@
 	"material_theme_compact_sidebar": true,
 	"material_theme_small_statusbar": true,
 	"material_theme_small_tab": true,
-	"gruvbox_autocomplete_cramped": true,
-	"gruvbox_sidebar_compact": true,
-	"gruvbox_sidebar_indent_xs": true,
-	"gruvbox_command_palette_cramped": true,
-	"gruvbox_statusbar_xxs": true,
-	"gruvbox_statusbar_button_xxs": true,
-	"gruvbox_tabs_xxs": true,
-	"gruvbox_underline_modified_tabs": true,
-	"gruvbox_panel_xxs": true,
-	"gruvbox_highlight_active_tree_row": true,
 	"rulers":
 	[
 		80
