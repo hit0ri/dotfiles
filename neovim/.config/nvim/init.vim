@@ -79,6 +79,7 @@ if executable('rg')
     let g:ctrlp_user_command = "rg %s --files  --hidden --color never --smart-case --glob '!.git/*' --glob '!node_modules/*'"
     let g:ctrlp_use_caching = 0
 endif
+map <Leader><CR> :CtrlPBuffer<CR>
 
 
 " Plugin: indent-guides
@@ -269,7 +270,7 @@ nnoremap <C-l> <C-w>l
 """ Buffers
 " Create new buffer
 nnoremap <Leader>t :enew<CR>
-" close active buffer
+" Close active buffer
 nnoremap <Leader>b :bd<CR>
 " Force close active buffer
 nnoremap <Leader>B :bd!<CR>
