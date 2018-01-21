@@ -46,7 +46,7 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'Shougo/neco-vim',
     Plug 'AndrewRadev/splitjoin.vim'
     " Colors
-    Plug 'morhetz/gruvbox'
+    Plug 'arcticicestudio/nord-vim'
 call plug#end()
 
 
@@ -153,12 +153,13 @@ filetype indent plugin on
 set termguicolors
 set background=dark
 try
-    let g:gruvbox_italic = 1
-    colorscheme gruvbox
+    let g:nord_italic = 1
+    let g:nord_comment_brightness = 5
+    colorscheme nord
 catch
     colorscheme desert
 endtry
-let g:airline_theme = 'gruvbox'
+let g:airline_theme = 'nord'
 
 set title
 set number
