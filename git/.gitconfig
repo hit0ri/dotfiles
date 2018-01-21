@@ -20,7 +20,7 @@
     d = diff --stat
     ds = diff --staged --stat
     dst = diff --staged
-    st = status -s
+    st = status -sb
     br = branch
     type = cat-file -t
     dump = cat-file -p
