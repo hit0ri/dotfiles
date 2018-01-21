@@ -18,7 +18,7 @@
 		"Package Control",
 		"SideBarEnhancements",
 		"SublimeLinter",
-		"SublimeLinter-contrib-eslint",
+		"SublimeLinter-eslint",
 		"Vue Syntax Highlight"
 	]
 }
