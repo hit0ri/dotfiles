@@ -16,7 +16,7 @@ Clone this repository into your `$HOME` directory and use `stow` to install
 one or many configurations
 
 ```bash
-git clone https://github.com/hit0ri/dotfiles.git .dotfiles
+git clone --recursive https://github.com/hit0ri/dotfiles.git .dotfiles
 cd !$
 stow -v zsh [mpv …]
 ```
