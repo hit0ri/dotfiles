@@ -2,6 +2,9 @@
 **/beets/library.db
 **/beets/state.pickle
 
+# mpv
+**/mpv/watch_later/
+
 # neovim
 **/nvim/.netrwhist
 **/nvim/autoload/
