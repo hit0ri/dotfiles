@@ -10,8 +10,8 @@ gsettings set org.gnome.Terminal.Legacy.Settings default-show-menubar false
 gsettings set ${profile} palette "['#161722', '#e27878', '#b4be82', '#e2a478', '#84a0c6', '#a093c7', '#89b8c2', '#d0d2db', '#373757', '#f29b9e', '#ccdba0', '#edbe9d', '#a3bee3', '#c8b5e6', '#b6d8de', '#e9ebf5']"
 gsettings set ${profile} background-color '#121319'
 gsettings set ${profile} foreground-color '#c6c8d1'
-gsettings set ${profile} default-size-columns 97
-gsettings set ${profile} default-size-rows 27
+gsettings set ${profile} default-size-columns 84
+gsettings set ${profile} default-size-rows 18
 gsettings set ${profile} scrollbar-policy 'never'
 gsettings set ${profile} use-theme-colors false
 
