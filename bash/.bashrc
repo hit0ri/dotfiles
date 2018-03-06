@@ -129,7 +129,8 @@ TXT_RST='\[\e[0m\]'
 set_prompt() {
   local -r EXIT=$?
 
-  PS1="${SSH_TTY:+${FG_MAGENTA}\h${FG_WHITE} }"
+  PS1="${SSH_TTY:+${FG_MAGENTA}\h }"
+  PS1+="${VIRTUAL_ENV:+${FG_CYAN}(${VIRTUAL_ENV##*/}) }"
   ((COLUMNS+${#HOME}-${#PWD} > COLUMNS/2)) && PS1+="${FG_BLUE}\w " || PS1+="${FG_BLUE}…/\W "
   [[ -d $PWD/.git ]] && PS1+="$(__git_ps1 "${FG_YELLOW}"%s)"
   ((EXIT)) && PS1+="${FG_RED}\$" || PS1+="${FG_GREEN}\$"
