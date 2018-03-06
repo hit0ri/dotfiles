@@ -101,6 +101,10 @@ imap <expr> <Plug>(expand_or_nl) (cm#completed_is_snippet() ? '<C-u>' : '<CR>')
 let g:plug_window = 'new'
 
 
+" Plugin: vim-better-whitespace
+let g:better_whitespace_operator = ''
+
+
 " Plugin: vim-closetag
 let g:closetag_filenames = "*.html,*.xhtml,*.xml,*.vue,*.js"
 let g:closetag_emptyTags_caseSensitive = 1
