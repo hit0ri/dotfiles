@@ -8,10 +8,21 @@ Xft.hintstyle:  hintslight
 Xft.lcdfilter:  lcddefault
 Xft.rgba:       rgb
 
+! XTerm settings -------------------------------------------------------------
+XTerm.vt100.faceName: Source Code Pro:size=10
+XTerm.vt100.faceNameDoublesize: VL Gothic:size=10
+XTerm.termName: xterm-256color
+XTerm.vt100.geometry: 84x18
+XTerm.vt100.metaSendsEscape: true
+XTerm.vt100.scrollBar: false
+XTerm.vt100.bellIsUrgent: true
+XTerm.vt100.translations: #override \n\
+    Ctrl Shift <Key>C: copy-selection(CLIPBOARD) \n\
+    Ctrl Shift <Key>V: insert-selection(CLIPBOARD)
 
 ! URxvt settings -------------------------------------------------------------
 
-URxvt*geometry: 97x26
+URxvt*geometry: 84x18
 URxvt*scrollBar: false
 URxvt*saveLines: 8192
 URxvt*font: xft:Source Code Pro:size=10, \
@@ -66,33 +77,33 @@ URxvt*keysym.Shift-Control-V: perl:clipboard:paste
 *color7:  #a89984
 *color15: #ebdbb2
 
-URxvt.color24:  #076678
-URxvt.color66:  #427b58
-URxvt.color88:  #9d0006
-URxvt.color96:  #8f3f71
-URxvt.color100: #79740e
-URxvt.color108: #8ec07c
-URxvt.color109: #83a598
-URxvt.color130: #af3a03
-URxvt.color136: #b57614
-URxvt.color142: #b8bb26
-URxvt.color167: #fb4934
-URxvt.color175: #d3869b
-URxvt.color208: #fe8019
-URxvt.color214: #fabd2f
-URxvt.color223: #ebdbb2
-URxvt.color228: #f2e5bc
-URxvt.color229: #fbf1c7
-URxvt.color230: #f9f5d7
-URxvt.color234: #1d2021
-URxvt.color235: #282828
-URxvt.color236: #32302f
-URxvt.color237: #3c3836
-URxvt.color239: #504945
-URxvt.color241: #665c54
-URxvt.color243: #7c6f64
-URxvt.color244: #928374
-URxvt.color245: #928374
-URxvt.color246: #a89984
-URxvt.color248: #bdae93
-URxvt.color250: #d5c4a1
+*.color24:  #076678
+*.color66:  #427b58
+*.color88:  #9d0006
+*.color96:  #8f3f71
+*.color100: #79740e
+*.color108: #8ec07c
+*.color109: #83a598
+*.color130: #af3a03
+*.color136: #b57614
+*.color142: #b8bb26
+*.color167: #fb4934
+*.color175: #d3869b
+*.color208: #fe8019
+*.color214: #fabd2f
+*.color223: #ebdbb2
+*.color228: #f2e5bc
+*.color229: #fbf1c7
+*.color230: #f9f5d7
+*.color234: #1d2021
+*.color235: #282828
+*.color236: #32302f
+*.color237: #3c3836
+*.color239: #504945
+*.color241: #665c54
+*.color243: #7c6f64
+*.color244: #928374
+*.color245: #928374
+*.color246: #a89984
+*.color248: #bdae93
+*.color250: #d5c4a1
