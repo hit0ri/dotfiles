@@ -20,6 +20,29 @@ cdl() {
   cd "$1" && ls
 }
 
+cheat.sh() {
+    # replace native with the color scheme you want
+    # curl cheat.sh/:styles-demo to show the available color schemes
+    curl -s "cheat.sh/$1?style=rrt"
+}
+
+_cheatsh_complete_cheatsh() {
+    local cur opts #prev
+    _get_comp_words_by_ref -n : cur
+
+    COMPREPLY=()
+    prev="${COMP_WORDS[COMP_CWORD-1]}"
+    opts="$(curl -s cheat.sh/:list)"
+
+    #if [[ "${cur}" == ch ]] ; then
+                COMPREPLY=( $(compgen -W "${opts}" -- "${cur}") )
+                __ltrim_colon_completions "$cur"
+        return 0
+    #fi
+}
+
+complete -F _cheatsh_complete_cheatsh cheat.sh
+
 mkdirf() {
   mkdir -p "$1" && cd "$1"
 }
@@ -71,6 +94,10 @@ if hash asciinema &> /dev/null; then
 else
   printf "asciinema: command not found...\n" 1>&2
 fi
+}
+
+wttr.in() {
+    curl -s "uk.wttr.in/${1:-Львів}?m"
 }
 
 
