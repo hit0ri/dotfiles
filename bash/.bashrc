@@ -97,7 +97,7 @@ fi
 }
 
 wttr.in() {
-    curl -s "uk.wttr.in/${1:-Львів}?m"
+    curl -s "wttr.in/${1}?m"
 }
 
 
