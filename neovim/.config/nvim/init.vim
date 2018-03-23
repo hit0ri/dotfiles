@@ -263,6 +263,10 @@ vnorem // y/<C-r>"<CR>"
 " Replace selected text
 vnoremap <C-r> "hy:%s/<C-r>h//gc<Left><Left><Left>
 
+" Reselect visual block after indentation
+vnoremap < <gv
+vnoremap > >gv
+
 " Press Space to turn off search highlighting and clear any message
 nnoremap <silent> <Space> :nohlsearch<Bar>:echo<CR>
 
@@ -281,6 +285,9 @@ nnoremap <Leader>b :bd<CR>
 nnoremap <Leader>B :bd!<CR>
 " Close all buffers
 nnoremap <Leader>O :bufdo bd!<CR>
+
+" Don't jump to next match when searching for word under the cursor
+nnoremap * *``
 
 " Save file with sudo
 command W execute 'silent w !sudo tee % > /dev/null' | edit!
