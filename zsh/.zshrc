@@ -40,6 +40,11 @@ cdl() {
   cd "$1" && ls
 }
 
+# Generate QR code from stdin or file
+qrenco.de() {
+  curl -sF "-=<${1:--}" qrenco.de
+}
+
 mkdirf() {
   mkdir -p "$1" && cd "$1"
 }

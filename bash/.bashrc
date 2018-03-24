@@ -20,6 +20,11 @@ cdl() {
   cd "$1" && ls
 }
 
+# Generate QR code from stdin or file
+qrenco.de() {
+  curl -sF "-=<${1:--}" qrenco.de
+}
+
 cheat.sh() {
     # replace native with the color scheme you want
     # curl cheat.sh/:styles-demo to show the available color schemes
