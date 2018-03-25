@@ -83,6 +83,8 @@ endif
 map <Leader><CR> :CtrlPBuffer<CR>
 
 
+" Plugin: indentLine
+let g:indentLine_color_gui = '#34394e'
 
 
 " Plugin: nerdtree
