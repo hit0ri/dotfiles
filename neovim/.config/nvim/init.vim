@@ -83,9 +83,6 @@ endif
 map <Leader><CR> :CtrlPBuffer<CR>
 
 
-" Plugin: indent-guides
-let g:indent_guides_guide_size = 1
-let g:indent_guides_enable_on_vim_startup = 1
 
 
 " Plugin: nerdtree
@@ -287,7 +284,3 @@ nnoremap <Leader>O :bufdo bd!<CR>
 
 " Don't jump to next match when searching for word under the cursor
 nnoremap * *``
-
-" Save file with sudo
-command W execute 'silent w !sudo tee % > /dev/null' | edit!
-
