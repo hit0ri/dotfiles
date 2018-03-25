@@ -4,15 +4,12 @@ let mapleader = ','
 "
 " Plugins
 "
-function! DoRemote(arg)
-    UpdateRemotePlugins
-endfunction
 
 " Bootstrap vim-plug
 if empty(glob('~/.config/nvim/autoload/plug.vim'))
-  silent !curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs
-    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+    silent !curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs
+        \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+    autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
 call plug#begin('~/.config/nvim/plugged')
@@ -27,13 +24,18 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'christoomey/vim-sort-motion'
     Plug 'junegunn/vim-easy-align'
     Plug 'tommcdo/vim-exchange'
-    Plug 'roxma/nvim-completion-manager'
+    Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+    Plug 'zchee/deoplete-jedi'
+    Plug 'Shougo/neco-syntax'
+    Plug 'wellle/tmux-complete.vim'
     Plug 'airblade/vim-gitgutter'
     Plug 'w0rp/ale'
     Plug 'godlygeek/tabular'
-    Plug 'bling/vim-airline' | Plug 'vim-airline/vim-airline-themes'
+    Plug 'bling/vim-airline'
+    Plug 'vim-airline/vim-airline-themes'
     Plug 'ntpeters/vim-better-whitespace'
-    Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' } | Plug 'Xuyuanp/nerdtree-git-plugin'
+    Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
+    Plug 'Xuyuanp/nerdtree-git-plugin'
     Plug 'alvan/vim-closetag'
     Plug 'ctrlpvim/ctrlp.vim'
     Plug 'wincent/ferret'
@@ -83,18 +85,16 @@ endif
 map <Leader><CR> :CtrlPBuffer<CR>
 
 
+" Plugin: deoplete
+let g:deoplete#enable_at_startup = 1
+
+
 " Plugin: indentLine
 let g:indentLine_color_gui = '#34394e'
 
 
 " Plugin: nerdtree
 map <C-n> :NERDTreeToggle<CR>
-
-
-" Plugin: nvim-completion-manager
-set shortmess+=c
-imap <expr> <CR> (pumvisible() ? '<C-y><Plug>(expand_or_nl)' : '<CR>')
-imap <expr> <Plug>(expand_or_nl) (cm#completed_is_snippet() ? '<C-u>' : '<CR>')
 
 
 " Plugin: plug
