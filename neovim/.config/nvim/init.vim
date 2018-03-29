@@ -176,7 +176,7 @@ set ignorecase
 set mouse=h
 set path+=**
 set inccommand=split
-set updatetime=1000
+set updatetime=500
 
 " Indentation
 set tabstop=4
