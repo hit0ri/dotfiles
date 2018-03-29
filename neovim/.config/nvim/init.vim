@@ -49,7 +49,7 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'Shougo/neco-vim',
     Plug 'AndrewRadev/splitjoin.vim'
     " Colors
-    Plug 'cocopon/iceberg.vim'
+    Plug 'arcticicestudio/nord-vim'
 call plug#end()
 
 
@@ -87,10 +87,6 @@ map <Leader><CR> :CtrlPBuffer<CR>
 
 " Plugin: deoplete
 let g:deoplete#enable_at_startup = 1
-
-
-" Plugin: indentLine
-let g:indentLine_color_gui = '#34394e'
 
 
 " Plugin: nerdtree
@@ -157,11 +153,14 @@ filetype indent plugin on
 set termguicolors
 set background=dark
 try
-    colorscheme iceberg
+    let g:nord_italic = 1
+    let g:nord_comment_brightness = 10
+    let g:nord_uniform_diff_background = 1
+    colorscheme nord
 catch
     colorscheme desert
 endtry
-let g:airline_theme = 'iceberg'
+let g:airline_theme = 'nord'
 
 set title
 set number
