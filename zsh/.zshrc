@@ -11,6 +11,7 @@ setopt auto_cd \
        hist_verify \
        share_history \
        interactive_comments \
+       print_exit_value \
        prompt_subst
 
 HISTFILE=~/.zhistory
@@ -54,13 +55,39 @@ zstyle ':completion:*functions' ignored-patterns '_*'
 
 
 
-prompt_precmd() {
-  # shows the current dir in the title when there are no active processes
+PROMPT='${TMUX:+"%F{yellow}t%f "}'
+PROMPT+='%(?.%F{cyan}.%F{red})%#%f '
+PROMPT+='%F{white}%(1j.[%j] .)%f'
+PROMPT+='${SSH_TTY:+%m }'
+PROMPT+='%F{cyan}%${prompt_length}<…<%~%<<%f '
+
+RPROMPT='${VIRTUAL_ENV:+"%F{blue}${VIRTUAL_ENV##*/}%f "}'
+RPROMPT+='${repo:+"%F{green}${repo##*/}%f "}'
+RPROMPT+='${branch:+"%F{magenta}${branch}%f"}'
+
+function precmd {
+  # Print the current directory name to the window title
   print -Pn "\e]0;$PWD:t\a"
+
+  prompt_length=$(( COLUMNS / 2 - 10 ))
+
+  if [[ -d .git ]]; then
+    # Get the top level directory for a git repo and strip leading paths
+    # otherwise return nothing
+    repo=$(git rev-parse --show-toplevel 2> /dev/null)
+
+    # Get the current branch name
+    branch=$(git rev-parse --abbrev-ref HEAD 2> /dev/null)
+  fi
 }
 
-autoload -Uz add-zsh-hook
-add-zsh-hook precmd prompt_precmd
+function preexec {
+  # Print the current running command's name to the window title
+  print -Pn '\e]2;'
+  print -Pn '%1 %1d'
+  print -n ": $1"
+  print -Pn '\a'
+}
 
 
 
