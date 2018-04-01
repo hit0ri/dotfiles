@@ -78,6 +78,8 @@ function precmd {
 
     # Get the current branch name
     branch=$(git rev-parse --abbrev-ref HEAD 2> /dev/null)
+  else
+    unset repo branch
   fi
 }
 
