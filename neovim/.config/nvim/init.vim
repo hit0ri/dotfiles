@@ -31,8 +31,7 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'airblade/vim-gitgutter'
     Plug 'w0rp/ale'
     Plug 'godlygeek/tabular'
-    Plug 'bling/vim-airline'
-    Plug 'vim-airline/vim-airline-themes'
+    Plug 'itchyny/lightline.vim'
     Plug 'ntpeters/vim-better-whitespace'
     Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
     Plug 'Xuyuanp/nerdtree-git-plugin'
@@ -58,14 +57,6 @@ call plug#end()
 " Plugin options
 "
 
-" Plugin: airline
-let g:airline_powerline_fonts = 1
-let g:airline_left_sep = ''
-let g:airline_left_alt_sep = ''
-let g:airline_right_sep = ''
-let g:airline_right_alt_sep = ''
-let g:airline#parts#ffenc#skip_expected_string = 'utf-8[unix]'
-
 
 " Plugin: ale
 let g:ale_sign_column_always = 1
@@ -88,6 +79,18 @@ map <Leader><CR> :CtrlPBuffer<CR>
 " Plugin: deoplete
 let g:deoplete#enable_at_startup = 1
 
+" Plugin: lightline
+set noshowmode
+let g:lightline = {
+    \ 'colorscheme': 'gruvbox',
+    \ 'active': {
+    \ 'left': [ [ 'mode', 'paste' ],
+    \           [ 'gitbranch', 'readonly', 'filename', 'modified' ] ],
+    \},
+    \ 'component_function': {
+    \   'gitbranch': 'fugitive#head'
+    \ },
+    \ }
 
 " Plugin: nerdtree
 map <C-n> :NERDTreeToggle<CR>
