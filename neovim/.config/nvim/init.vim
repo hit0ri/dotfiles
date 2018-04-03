@@ -198,10 +198,11 @@ autocmd BufRead /tmp/mutt-* set textwidth=72
 
 " 2 spaces
 autocmd FileType javascript setl ts=2 sw=2 sts=2 et
-autocmd FileType vue setl ts=2 sw=2 sts=2 et
+autocmd FileType json       setl ts=2 sw=2 sts=2 et
+autocmd FileType vue        setl ts=2 sw=2 sts=2 et
 
 " tabs
-autocmd FileType go setl ts=4 sw=4 sts=0 noet aw
+autocmd FileType go         setl ts=4 sw=4 sts=0 noet aw
 
 
 
