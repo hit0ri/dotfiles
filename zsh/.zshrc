@@ -11,7 +11,6 @@ setopt auto_cd \
        hist_verify \
        share_history \
        interactive_comments \
-       print_exit_value \
        prompt_subst
 
 HISTFILE=~/.zhistory
