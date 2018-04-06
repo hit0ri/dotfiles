@@ -70,9 +70,8 @@ function precmd {
 
   prompt_length=$(( COLUMNS / 2 - 10 ))
 
-  if [[ -d .git ]]; then
-    # Get the top level directory for a git repo and strip leading paths
-    # otherwise return nothing
+  if $(git rev-parse --is-inside-work-tree 2> /dev/null); then
+    # Get the top level directory for a git repo
     repo=$(git rev-parse --show-toplevel 2> /dev/null)
 
     # Get the current branch name
