@@ -179,6 +179,7 @@ set mouse=h
 set path+=**
 set inccommand=split
 set updatetime=500
+set guicursor=
 
 " Indentation
 set tabstop=4
