@@ -24,10 +24,7 @@ call plug#begin('~/.config/nvim/plugged')
     Plug 'christoomey/vim-sort-motion'
     Plug 'junegunn/vim-easy-align'
     Plug 'tommcdo/vim-exchange'
-    Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-    Plug 'zchee/deoplete-jedi'
-    Plug 'Shougo/neco-syntax'
-    Plug 'wellle/tmux-complete.vim'
+    Plug 'roxma/nvim-completion-manager'
     Plug 'airblade/vim-gitgutter'
     Plug 'w0rp/ale'
     Plug 'godlygeek/tabular'
@@ -76,9 +73,6 @@ endif
 map <Leader><CR> :CtrlPBuffer<CR>
 
 
-" Plugin: deoplete
-let g:deoplete#enable_at_startup = 1
-
 " Plugin: lightline
 set noshowmode
 let g:lightline = {
@@ -92,8 +86,15 @@ let g:lightline = {
     \ },
     \ }
 
+
 " Plugin: nerdtree
 map <C-n> :NERDTreeToggle<CR>
+
+
+" Plugin: nvim-completion-manager
+set shortmess+=c
+imap <expr> <CR> (pumvisible() ? '<C-y><Plug>(expand_or_nl)' : '<CR>')
+imap <expr> <Plug>(expand_or_nl) (cm#completed_is_snippet() ? '<C-u>' : '<CR>')
 
 
 " Plugin: plug
