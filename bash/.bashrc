@@ -48,13 +48,7 @@ shopt -s checkwinsize
 # PROMPT
 #
 
-# Git prompt
-include /usr/share/git/completion/git-prompt.sh
-include /usr/share/git-core/contrib/completion/git-prompt.sh
-GIT_PS1_SHOWDIRTYSTATE=true
-GIT_PS1_SHOWSTASHSTATE=true
-GIT_PS1_SHOWUNTRACKEDFILES=true
-GIT_PS1_SHOWUPSTREAM="auto"
+PROMPT_DIRTRIM=3
 
 # Colors
 FG_BLACK='\[\e[30;1m\]'
@@ -71,13 +65,24 @@ set_prompt() {
   local -r EXIT=$?
   local -r HAS_JOBS=$(jobs -p)
 
-  PS1="${SSH_TTY:+${FG_MAGENTA}\h }"
-  PS1+="${HAS_JOBS:+${FG_YELLOW}\j }"
-  PS1+="${VIRTUAL_ENV:+${FG_CYAN}(${VIRTUAL_ENV##*/}) }"
-  ((COLUMNS+${#HOME}-${#PWD} > COLUMNS/2)) && PS1+="${FG_BLUE}\w " || PS1+="${FG_BLUE}…/\W "
-  [[ -d $PWD/.git ]] && PS1+="$(__git_ps1 "${FG_YELLOW}"%s)"
-  ((EXIT)) && PS1+="${FG_RED}\$" || PS1+="${FG_GREEN}\$"
-  PS1+="$TXT_RST "
+  if $(git rev-parse --is-inside-work-tree 2> /dev/null); then
+      # Get the top level directory for a git repo and strip leading paths
+      # otherwise return nothing
+      local -r repo=$(git rev-parse --show-toplevel 2> /dev/null)
+
+      # Get the current branch name
+      local -r branch=$(git rev-parse --abbrev-ref HEAD 2> /dev/null)
+  fi
+
+  PS1="${TMUX:+${FG_YELLOW}t }"
+  PS1+="${SSH_TTY:+${FG_MAGENTA}\h }"
+  PS1+="${FG_BLUE}\w "
+  PS1+="${repo:+${FG_CYAN}${repo##*/} }"
+  PS1+="${branch:+${FG_MAGENTA}${branch} }"
+  PS1+="${VIRTUAL_ENV:+${FG_YELLOW}${VIRTUAL_ENV##*/} }"
+  PS1+="${HAS_JOBS:+${FG_BLACK}[\j] }"
+  ((EXIT)) && PS1+="${FG_RED}\$ " || PS1+="${FG_GREEN}\$ "
+  PS1+="$TXT_RST"
 }
 
 PROMPT_COMMAND="set_prompt"
