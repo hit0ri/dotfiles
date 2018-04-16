@@ -66,18 +66,13 @@ set_prompt() {
   local -r HAS_JOBS=$(jobs -p)
 
   if $(git rev-parse --is-inside-work-tree 2> /dev/null); then
-      # Get the top level directory for a git repo and strip leading paths
-      # otherwise return nothing
-      local -r repo=$(git rev-parse --show-toplevel 2> /dev/null)
-
-      # Get the current branch name
-      local -r branch=$(git rev-parse --abbrev-ref HEAD 2> /dev/null)
+    # Get the current branch name
+    local -r branch=$(git rev-parse --abbrev-ref HEAD 2> /dev/null)
   fi
 
   PS1="${TMUX:+${FG_YELLOW}t }"
   PS1+="${SSH_TTY:+${FG_MAGENTA}\h }"
   PS1+="${FG_BLUE}\w "
-  PS1+="${repo:+${FG_CYAN}${repo##*/} }"
   PS1+="${branch:+${FG_MAGENTA}${branch} }"
   PS1+="${VIRTUAL_ENV:+${FG_YELLOW}${VIRTUAL_ENV##*/} }"
   PS1+="${HAS_JOBS:+${FG_BLACK}[\j] }"

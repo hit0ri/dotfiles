@@ -59,7 +59,6 @@ export VIRTUAL_ENV_DISABLE_PROMPT=1
 PROMPT='${TMUX:+"%F{yellow}t%f "}'
 PROMPT+='%F{magenta}${SSH_TTY:+%m%f }'
 PROMPT+='%F{blue}%${prompt_length}<…<%~%<<%f '
-PROMPT+='${repo:+"%F{cyan}${repo##*/}%f "}'
 PROMPT+='${branch:+"%F{magenta}${branch}%f "}'
 PROMPT+='${VIRTUAL_ENV:+"%F{yellow}${VIRTUAL_ENV##*/}%f "}'
 PROMPT+='%F{white}%(1j.[%j] .)%f'
@@ -72,9 +71,6 @@ function precmd {
   prompt_length=$(( COLUMNS / 2 - 10 ))
 
   if $(git rev-parse --is-inside-work-tree 2> /dev/null); then
-    # Get the top level directory for a git repo
-    repo=$(git rev-parse --show-toplevel 2> /dev/null)
-
     # Get the current branch name
     branch=$(git rev-parse --abbrev-ref HEAD 2> /dev/null)
   else
