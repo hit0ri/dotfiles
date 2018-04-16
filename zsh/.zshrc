@@ -53,16 +53,17 @@ zstyle ':completion:*:matches'  group true
 zstyle ':completion:*functions' ignored-patterns '_*'
 
 
+# Disable default venv prompt
+export VIRTUAL_ENV_DISABLE_PROMPT=1
 
 PROMPT='${TMUX:+"%F{yellow}t%f "}'
-PROMPT+='%(?.%F{cyan}.%F{red})%#%f '
+PROMPT+='%F{magenta}${SSH_TTY:+%m%f }'
+PROMPT+='%F{blue}%${prompt_length}<…<%~%<<%f '
+PROMPT+='${repo:+"%F{cyan}${repo##*/}%f "}'
+PROMPT+='${branch:+"%F{magenta}${branch}%f "}'
+PROMPT+='${VIRTUAL_ENV:+"%F{yellow}${VIRTUAL_ENV##*/}%f "}'
 PROMPT+='%F{white}%(1j.[%j] .)%f'
-PROMPT+='${SSH_TTY:+%m }'
-PROMPT+='%F{cyan}%${prompt_length}<…<%~%<<%f '
-
-RPROMPT='${VIRTUAL_ENV:+"%F{blue}${VIRTUAL_ENV##*/}%f "}'
-RPROMPT+='${repo:+"%F{green}${repo##*/}%f "}'
-RPROMPT+='${branch:+"%F{magenta}${branch}%f"}'
+PROMPT+='%(?.%F{green}.%F{red})%#%f '
 
 function precmd {
   # Print the current directory name to the window title
