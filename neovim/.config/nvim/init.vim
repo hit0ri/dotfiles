@@ -111,6 +111,8 @@ let g:closetag_emptyTags_caseSensitive = 1
 
 
 " Plugin: vim-easy-align
+" Exclude comments from the ignore groups
+let g:easy_align_ignore_groups = ['String']
 " Start interactive EasyAlign in visual mode (e.g. vipga)
 xmap ga <Plug>(EasyAlign)
 " Start interactive EasyAlign for a motion/text object (e.g. gaip)
