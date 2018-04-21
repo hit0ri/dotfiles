@@ -125,8 +125,4 @@ alias gap='git add --patch'
 alias gst='git status'
 alias lsports='ss -tunalp | column -t'
 
-#
-# FZF
-#
-
-include $HOME/.fzf.bash
+include /usr/share/fzf/shell/key-bindings.bash

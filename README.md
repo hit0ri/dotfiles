@@ -9,6 +9,7 @@ My personal configuration files managed by GNU Stow
 
 - git
 - stow
+- fzf
 
 ## Installation
 
