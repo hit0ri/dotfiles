@@ -184,7 +184,7 @@ include ~/.zbundles
 
 compinit
 
-include ~/.fzf.zsh
+include /usr/share/fzf/shell/key-bindings.zsh
 
 # Colors for ls
 [[ -f $HOME/.dircolors ]] && eval "$(dircolors -b $HOME/.dircolors)"
