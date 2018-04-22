@@ -1,170 +1,139 @@
 let mapleader = ','
 
-
-"
-" Plugins
-"
-
-" Bootstrap vim-plug
+" vim-plug: bootstrap --------------------------------------------------
 if empty(glob('~/.config/nvim/autoload/plug.vim'))
-    silent !curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs
-        \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+    silent !curl -sfLo ~/.config/nvim/autoload/plug.vim --create-dirs
+                \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
     autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
+
+" vim-plug: ------------------------------------------------------------
 call plug#begin('~/.config/nvim/plugged')
-    Plug 'tpope/vim-surround'
-    Plug 'tpope/vim-fugitive'
-    Plug 'tpope/vim-commentary'
-    Plug 'tpope/vim-repeat'
-    Plug 'tpope/vim-eunuch'
-    Plug 'tpope/vim-unimpaired'
-    Plug 'tpope/vim-speeddating'
-    Plug 'cohama/lexima.vim'
-    Plug 'christoomey/vim-sort-motion'
-    Plug 'junegunn/vim-easy-align'
-    Plug 'tommcdo/vim-exchange'
-    Plug 'roxma/nvim-completion-manager'
-    Plug 'airblade/vim-gitgutter'
-    Plug 'w0rp/ale'
-    Plug 'godlygeek/tabular'
-    Plug 'itchyny/lightline.vim'
-    Plug 'ntpeters/vim-better-whitespace'
-    Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
-    Plug 'Xuyuanp/nerdtree-git-plugin'
-    Plug 'alvan/vim-closetag'
-    Plug 'ctrlpvim/ctrlp.vim'
-    Plug 'wincent/ferret'
-    Plug 'Yggdroot/indentLine'
-    " Languages
-    Plug 'sheerun/vim-polyglot'
-    Plug 'Firef0x/PKGBUILD.vim'
-    Plug 'zainin/vim-mikrotik'
-    Plug 'eiginn/iptables-vim'
-    Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
-    Plug 'Shougo/neco-vim',
-    Plug 'AndrewRadev/splitjoin.vim'
-    " Colors
-    Plug 'morhetz/gruvbox'
+
+Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-endwise'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-rhubarb'
+Plug 'tpope/vim-sleuth'
+Plug 'tpope/vim-speeddating'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-unimpaired'
+
+Plug 'roxma/nvim-completion-manager'
+    imap <expr> <cr> (pumvisible() ? '<c-y><plug>(expand_or_nl)' : '<cr>')
+    imap <expr> <plug>(expand_or_nl) (cm#completed_is_snippet() ? '<c-u>' : '<cr>')
+
+Plug 'w0rp/ale'
+    let g:ale_sign_column_always = 1
+    let g:airline#extensions#ale#enabled = 1
+    let g:ale_sign_error = '✖'
+    let g:ale_sign_warning = '⚠'
+    let g:ale_echo_msg_error_str = 'E'
+    let g:ale_echo_msg_warning_str = 'W'
+    let g:ale_echo_msg_format = '[%linter%] [%severity%] %s'
+
+Plug 'junegunn/fzf.vim'
+    nnoremap <c-p> :Files<cr>
+    nnoremap <c-s-p> :Files ~<cr>
+    nnoremap <leader><cr> :Buffers<cr>
+
+Plug 'wincent/ferret'
+
+Plug 'junegunn/vim-easy-align'
+    " Exclude comments from the ignore groups
+    let g:easy_align_ignore_groups = ['String']
+    " Start interactive EasyAlign in visual mode (e.g. vipga)
+    xmap ga <plug>(EasyAlign)
+    " Start interactive EasyAlign for a motion/text object (e.g. gaip)
+    map ga <plug>(EasyAlign)
+
+Plug 'alvan/vim-closetag'
+    let g:closetag_filenames = '*.html,*.xhtml,*.xml,*.vue,*.js'
+    let g:closetag_emptyTags_caseSensitive = 1
+
+Plug 'cohama/lexima.vim'
+    let g:lexima_enable_endwise_rules = 0
+
+Plug 'christoomey/vim-sort-motion'
+Plug 'tommcdo/vim-exchange'
+Plug 'ntpeters/vim-better-whitespace'
+    let g:better_whitespace_operator = ''
+
+Plug 'Yggdroot/indentLine'
+Plug 'AndrewRadev/splitjoin.vim'
+Plug 'airblade/vim-gitgutter'
+Plug 'mhinz/vim-signify'
+    let g:signify_vcs_list = [ 'git' ]
+    let g:signify_sign_add = '+'
+    let g:signify_sign_delete = '_'
+    let g:signify_sign_delete_first_line = '‾'
+    let g:signify_sign_change = '!'
+
+Plug 'itchyny/lightline.vim'
+    let g:lightline = {
+                \ 'colorscheme': 'seoul256',
+                \ 'active': {
+                \ 'left': [[ 'mode', 'paste' ], [ 'gitbranch', 'readonly', 'filename', 'modified' ]]
+                \ },
+                \ 'component_function': {
+                \   'gitbranch': 'fugitive#head'
+                \ },
+                \ }
+
+Plug 'morhetz/gruvbox'
+    let g:gruvbox_italic = 1
+Plug 'cocopon/iceberg.vim'
+Plug 'junegunn/seoul256.vim'
+    let g:seoul256_srgb = 1
+
+Plug 'tpope/vim-eunuch'
+Plug 'alvan/vim-closetag'
+
+Plug 'sheerun/vim-polyglot'
+Plug 'Firef0x/PKGBUILD.vim'
+Plug 'zainin/vim-mikrotik'
+Plug 'eiginn/iptables-vim'
+Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
+    let g:go_fmt_command = 'goimports'
+    let g:go_highlight_types = 1
+    let g:go_highlight_fields = 1
+    let g:go_highlight_functions = 1
+    let g:go_highlight_methods = 1
+    let g:go_highlight_operators = 1
+    let g:go_highlight_extra_types = 1
+    let g:go_highlight_build_constraints = 1
+    let g:go_list_type = 'quickfix'
+    let g:go_gocode_unimported_packages = 1
+    let g:go_fmt_fail_silently = 1
+
+    " run :GoBuild or :GoTestCompile based on the go file
+    function! s:build_go_files()
+        let l:file = expand('%')
+        if l:file =~# '^\f\+_test\.go$'
+            call go#test#Test(0, 1)
+        elseif l:file =~# '^\f\+\.go$'
+            call go#cmd#Build(0)
+        endif
+    endfunction
+
+    autocmd FileType go nmap <leader>m :<c-u>call <sid>build_go_files()<cr>
+    autocmd FileType go nmap <leader>r <plug>(go-run)
+    autocmd FileType go nmap <leader>c <plug>(go-coverage-toggle)
+    autocmd FileType go nmap <leader>i <plug>(go-info)
+
 call plug#end()
 
 
-
-"
-" Plugin options
-"
-
-
-" Plugin: ale
-let g:ale_sign_column_always = 1
-let g:airline#extensions#ale#enabled = 1
-let g:ale_echo_msg_error_str = 'E'
-let g:ale_echo_msg_warning_str = 'W'
-let g:ale_echo_msg_format = '[%linter%] [%severity%] %s'
-
-
-" Plugin: CtrlP
-let g:ctrlp_working_path_mode = 'rwa'
-let g:ctrlp_show_hidden = 1
-if executable('rg')
-    let g:ctrlp_user_command = "rg %s --files  --hidden --color never --smart-case --glob '!.git/*' --glob '!node_modules/*'"
-    let g:ctrlp_use_caching = 0
-endif
-map <Leader><CR> :CtrlPBuffer<CR>
-
-
-" Plugin: lightline
-set noshowmode
-let g:lightline = {
-    \ 'colorscheme': 'gruvbox',
-    \ 'active': {
-    \ 'left': [ [ 'mode', 'paste' ],
-    \           [ 'gitbranch', 'readonly', 'filename', 'modified' ] ],
-    \},
-    \ 'component_function': {
-    \   'gitbranch': 'fugitive#head'
-    \ },
-    \ }
-
-
-" Plugin: nerdtree
-map <C-n> :NERDTreeToggle<CR>
-
-
-" Plugin: nvim-completion-manager
-set shortmess+=c
-imap <expr> <CR> (pumvisible() ? '<C-y><Plug>(expand_or_nl)' : '<CR>')
-imap <expr> <Plug>(expand_or_nl) (cm#completed_is_snippet() ? '<C-u>' : '<CR>')
-
-
-" Plugin: plug
-let g:plug_window = 'new'
-
-
-" Plugin: vim-better-whitespace
-let g:better_whitespace_operator = ''
-
-
-" Plugin: vim-closetag
-let g:closetag_filenames = "*.html,*.xhtml,*.xml,*.vue,*.js"
-let g:closetag_emptyTags_caseSensitive = 1
-
-
-" Plugin: vim-easy-align
-" Exclude comments from the ignore groups
-let g:easy_align_ignore_groups = ['String']
-" Start interactive EasyAlign in visual mode (e.g. vipga)
-xmap ga <Plug>(EasyAlign)
-" Start interactive EasyAlign for a motion/text object (e.g. gaip)
-nmap ga <Plug>(EasyAlign)
-
-
-" Plugin: vim-go
-let g:go_fmt_command = "goimports"
-let g:go_highlight_types = 1
-let g:go_highlight_fields = 1
-let g:go_highlight_functions = 1
-let g:go_highlight_methods = 1
-let g:go_highlight_operators = 1
-let g:go_highlight_extra_types = 1
-let g:go_highlight_build_constraints = 1
-let g:go_list_type = "quickfix"
-let g:go_gocode_unimported_packages = 1
-let g:go_fmt_fail_silently = 1
-
-" run :GoBuild or :GoTestCompile based on the go file
-function! s:build_go_files()
-    let l:file = expand('%')
-    if l:file =~# '^\f\+_test\.go$'
-        call go#test#Test(0, 1)
-    elseif l:file =~# '^\f\+\.go$'
-        call go#cmd#Build(0)
-    endif
-endfunction
-
-autocmd FileType go nmap <Leader>m :<C-u>call <SID>build_go_files()<CR>
-autocmd FileType go nmap <Leader>r <Plug>(go-run)
-autocmd FileType go nmap <Leader>c <Plug>(go-coverage-toggle)
-autocmd FileType go nmap <Leader>i <Plug>(go-info)
-
-
-
-"
-" General settings
-"
-
-" Colorscheme
-syntax on
-filetype indent plugin on
+" basic settings: ------------------------------------------------------
 set termguicolors
 set background=dark
 try
-    let g:gruvbox_italic = 1
-    colorscheme gruvbox
+    colorscheme seoul256
 catch
     colorscheme desert
 endtry
-let g:airline_theme = 'gruvbox'
 
 set title
 set number
@@ -175,24 +144,37 @@ set scrolloff=5
 set sidescrolloff=5
 set sidescroll=1
 set nowrap
-set smartcase
 set ignorecase
+set smartcase
 set mouse=h
 set path+=**
 set inccommand=split
 set updatetime=500
+set completeopt+=menuone,longest,noinsert,noselect
+set shortmess+=c
+set noshowmode
 set guicursor=
-
-" Indentation
 set tabstop=4
 set shiftwidth=4
 set softtabstop=4
 set expandtab
 
-" Completion
-set completeopt-=preview
-set completeopt+=noinsert
-set completeopt+=noselect
+
+" functions: -----------------------------------------------------------
+au InsertLeave * silent! set nopaste
+
+" Restore cursor to file position in previous editing session
+function! ResCur()
+    if line("'\"") <= line("$")
+        normal! g`"
+        return 1
+    endif
+endfunction
+
+augroup resCur
+    autocmd!
+    autocmd BufWinEnter * call ResCur()
+augroup END
 
 " Treat .rss files as XML
 autocmd BufNewFile,BufRead *.rss setfiletype xml
@@ -207,25 +189,6 @@ autocmd FileType vue        setl ts=2 sw=2 sts=2 et
 
 " tabs
 autocmd FileType go         setl ts=4 sw=4 sts=0 noet aw
-
-
-
-"
-" Functions
-"
-
-" Restore cursor to file position in previous editing session
-function! ResCur()
-    if line("'\"") <= line("$")
-        normal! g`"
-        return 1
-    endif
-endfunction
-
-augroup resCur
-    autocmd!
-    autocmd BufWinEnter * call ResCur()
-augroup END
 
 " gi / gI | go to next/previous indentation level
 function! s:indent_len(str)
@@ -249,46 +212,38 @@ function! s:go_indent(times, dir)
         execute 'normal! '. l .'G^'
     endfor
 endfunction
-nnoremap <silent> gi :<C-u>call <SID>go_indent(v:count1, 1)<CR>
-nnoremap <silent> gI :<C-u>call <SID>go_indent(v:count1, -1)<CR>
+nnoremap <silent> gi :<c-u>call <sid>go_indent(v:count1, 1)<cr>
+nnoremap <silent> gI :<c-u>call <sid>go_indent(v:count1, -1)<cr>
 
 
-
-"
-" Mappings
-"
-
-" Search vim help for subject under cursor (K)
-set keywordprg=:help
-
+" mappings: ------------------------------------------------------------
 " Seach selected text
-vnorem // y/<C-r>"<CR>"
+vnorem // y/<c-r>"<cr>"
 
 " Replace selected text
-vnoremap <C-r> "hy:%s/<C-r>h//gc<Left><Left><Left>
+vnoremap <c-r> "hy:%s/<c-r>h//gc<left><left><left>
 
 " Reselect visual block after indentation
 vnoremap < <gv
 vnoremap > >gv
 
 " Press Space to turn off search highlighting and clear any message
-nnoremap <silent> <Space> :nohlsearch<Bar>:echo<CR>
+nnoremap <silent> <space> :nohlsearch<bar>:echo<cr>
 
 " Move between windows by pressing Ctrl-[h,j,k,l]
-nnoremap <C-h> <C-w>h
-nnoremap <C-j> <C-w>j
-nnoremap <C-k> <C-w>k
-nnoremap <C-l> <C-w>l
+nnoremap <c-h> <c-w>h
+nnoremap <c-j> <c-w>j
+nnoremap <c-k> <c-w>k
+nnoremap <c-l> <c-w>l
 
-""" Buffers
 " Create new buffer
-nnoremap <Leader>t :enew<CR>
+nnoremap <leader>t :enew<cr>
 " Close active buffer
-nnoremap <Leader>b :bd<CR>
+nnoremap <leader>b :bd<cr>
 " Force close active buffer
-nnoremap <Leader>B :bd!<CR>
+nnoremap <leader>B :bd!<cr>
 " Close all buffers
-nnoremap <Leader>O :bufdo bd!<CR>
+nnoremap <leader>O :bufdo bd!<cr>
 
 " Don't jump to next match when searching for word under the cursor
 nnoremap * *``
