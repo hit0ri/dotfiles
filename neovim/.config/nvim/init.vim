@@ -36,7 +36,7 @@ Plug 'w0rp/ale'
 
 Plug 'junegunn/fzf.vim'
     nnoremap <c-p> :Files<cr>
-    nnoremap <c-s-p> :Files ~<cr>
+    nnoremap <leader>p :Files ~<cr>
     nnoremap <leader><cr> :Buffers<cr>
 
 Plug 'wincent/ferret'
