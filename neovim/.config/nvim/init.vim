@@ -123,6 +123,8 @@ Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
     autocmd FileType go nmap <leader>c <plug>(go-coverage-toggle)
     autocmd FileType go nmap <leader>i <plug>(go-info)
 
+Plug 'vim-scripts/BufOnly.vim'
+
 call plug#end()
 
 
@@ -236,14 +238,10 @@ nnoremap <c-j> <c-w>j
 nnoremap <c-k> <c-w>k
 nnoremap <c-l> <c-w>l
 
-" Create new buffer
-nnoremap <leader>t :enew<cr>
-" Close active buffer
-nnoremap <leader>b :bd<cr>
-" Force close active buffer
-nnoremap <leader>B :bd!<cr>
+" Close all but current buffer
+nnoremap <leader>o :BufOnly<cr>
 " Close all buffers
-nnoremap <leader>O :bufdo bd!<cr>
+nnoremap <leader>O :bufdo bd<cr>
 
 " Don't jump to next match when searching for word under the cursor
 nnoremap * *``
