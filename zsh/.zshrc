@@ -11,7 +11,9 @@ setopt auto_cd \
        hist_verify \
        share_history \
        interactive_comments \
-       prompt_subst
+       prompt_subst \
+       no_prompt_cr \
+       no_prompt_sp
 
 HISTFILE=~/.zhistory
 HISTSIZE=8192
