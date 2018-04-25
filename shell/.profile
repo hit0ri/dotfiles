@@ -38,5 +38,5 @@ export S_COLORS=auto
 export LIBVIRT_DEFAULT_URI=qemu:///system
 
 # fzf
-export FZF_DEFAULT_COMMAND="rg --files --hidden --color never --smart-case --glob '!.git/*' --glob '!node_modules/*'"
+export FZF_DEFAULT_COMMAND='rg --files --unrestricted --hidden --color never --smart-case --glob !.git/* --glob !node_modules/*'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
