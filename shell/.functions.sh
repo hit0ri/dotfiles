@@ -61,7 +61,7 @@ function pba {
 
 # Generate QR code from stdin or file
 function qrencode {
-    curl -sF "-=<${1:--}" qrenco.de
+    curl -F "-=${1:-<-}" qrenco.de
 }
 
 function twitch {
