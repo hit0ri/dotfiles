@@ -82,7 +82,7 @@ function precmd {
 
 function preexec {
   # Print running command to the window title
-  print -Pn '\e]2;$1\a'
+  print -Pn '\e]2;<%*> $1\a'
 }
 
 
