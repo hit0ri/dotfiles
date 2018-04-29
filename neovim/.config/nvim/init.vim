@@ -122,10 +122,13 @@ Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
         endif
     endfunction
 
-    autocmd FileType go nmap <leader>m :<c-u>call <sid>build_go_files()<cr>
-    autocmd FileType go nmap <leader>r <plug>(go-run)
-    autocmd FileType go nmap <leader>c <plug>(go-coverage-toggle)
-    autocmd FileType go nmap <leader>i <plug>(go-info)
+    augroup GoMappings
+        autocmd!
+        autocmd FileType go nmap <leader>m :<c-u>call <sid>build_go_files()<cr>
+        autocmd FileType go nmap <leader>r <plug>(go-run)
+        autocmd FileType go nmap <leader>c <plug>(go-coverage-toggle)
+        autocmd FileType go nmap <leader>i <plug>(go-info)
+    augroup END
 
 Plug 'vim-scripts/BufOnly.vim'
 
@@ -160,7 +163,7 @@ set completeopt+=menuone,longest,noinsert,noselect
 set shortmess+=c
 set noshowmode
 set guicursor=
-set tabstop=4
+set tabstop=8
 set shiftwidth=4
 set softtabstop=4
 set expandtab
