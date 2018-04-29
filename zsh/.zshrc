@@ -67,8 +67,8 @@ PROMPT+='%F{white}%(1j.[%j] .)%f'
 PROMPT+='%(?.%F{green}.%F{red})%#%f '
 
 function precmd {
-  # Print the current directory name to the window title
-  print -Pn "\e]0;$PWD:t\a"
+  # Print current directory to the window title
+  print -Pn '\e]2;%1d\a'
 
   prompt_length=$(( COLUMNS / 2 - 10 ))
 
@@ -81,11 +81,8 @@ function precmd {
 }
 
 function preexec {
-  # Print the current running command's name to the window title
-  print -Pn '\e]2;'
-  print -Pn '%1 %1d'
-  print -n ": $1"
-  print -Pn '\a'
+  # Print running command to the window title
+  print -Pn '\e]2;$1\a'
 }
 
 
