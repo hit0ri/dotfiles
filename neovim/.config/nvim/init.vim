@@ -73,7 +73,7 @@ Plug 'mhinz/vim-signify'
 
 Plug 'itchyny/lightline.vim'
     let g:lightline = {
-                \ 'colorscheme': 'nord',
+                \ 'colorscheme': 'wombat',
                 \ 'active': {
                 \ 'left': [[ 'mode', 'paste' ], [ 'gitbranch', 'readonly', 'filename', 'modified' ]]
                 \ },
@@ -87,10 +87,8 @@ Plug 'morhetz/gruvbox'
 Plug 'cocopon/iceberg.vim'
 Plug 'junegunn/seoul256.vim'
     let g:seoul256_srgb = 1
-Plug 'arcticicestudio/nord-vim'
-    let g:nord_italic = 1
-    let g:nord_italic_comments = 1
-    let g:nord_comment_brightness = 15
+Plug 'chriskempson/base16-vim'
+    let base16colorspace=256
 
 Plug 'tpope/vim-eunuch'
 Plug 'alvan/vim-closetag'
@@ -139,7 +137,7 @@ call plug#end()
 set termguicolors
 set background=dark
 try
-    colorscheme nord
+    colorscheme base16-oceanicnext
 catch
     colorscheme desert
 endtry
