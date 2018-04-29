@@ -10,7 +10,7 @@
 		"node_modules",
 		"bower_components"
 	],
-	"font_face": "Source Code Pro",
+	"font_face": "IBM Plex Mono Text",
 	"gruvbox_autocomplete_cramped": true,
 	"gruvbox_command_palette_cramped": true,
 	"gruvbox_highlight_active_tree_row": true,

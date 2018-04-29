@@ -85,7 +85,7 @@ Enabled flags:
 
 ### i3
 
-- Source Code Pro font
+- IBM Plex Mono font
 - rofi
 - pactl
 - scrot
@@ -120,17 +120,17 @@ Enabled flags:
 
 Fonts:
 
-  - Source Code Pro
+  - IBM Plex Mono
   - Unifont
   - Wuncon Siji
 
 ### subl3
 
-- Source Code Pro font
+- IBM Plex Mono font
 
 ### xresources
 
-- Source Code Pro font
+- IBM Plex Mono font
 - Noto fonts
 - DejaVu fonts
 
