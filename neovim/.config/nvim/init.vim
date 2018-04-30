@@ -25,6 +25,16 @@ Plug 'roxma/nvim-completion-manager'
     imap <expr> <cr> (pumvisible() ? '<c-y><plug>(expand_or_nl)' : '<cr>')
     imap <expr> <plug>(expand_or_nl) (cm#completed_is_snippet() ? '<c-u>' : '<cr>')
 
+Plug 'vim-airline/vim-airline'
+    Plug 'vim-airline/vim-airline-themes'
+    let g:airline_theme = 'base16_oceanicnext'
+    let g:airline_powerline_fonts = 1
+    let g:airline_left_sep = ''
+    let g:airline_left_alt_sep = ''
+    let g:airline_right_sep = ''
+    let g:airline_right_alt_sep = ''
+    let g:airline#parts#ffenc#skip_expected_string = 'utf-8[unix]'
+
 Plug 'w0rp/ale'
     let g:ale_sign_column_always = 1
     let g:airline#extensions#ale#enabled = 1
@@ -70,17 +80,6 @@ Plug 'mhinz/vim-signify'
     let g:signify_sign_delete = '_'
     let g:signify_sign_delete_first_line = '‾'
     let g:signify_sign_change = '!'
-
-Plug 'itchyny/lightline.vim'
-    let g:lightline = {
-                \ 'colorscheme': 'wombat',
-                \ 'active': {
-                \ 'left': [[ 'mode', 'paste' ], [ 'gitbranch', 'readonly', 'filename', 'modified' ]]
-                \ },
-                \ 'component_function': {
-                \   'gitbranch': 'fugitive#head'
-                \ },
-                \ }
 
 Plug 'morhetz/gruvbox'
     let g:gruvbox_italic = 1
