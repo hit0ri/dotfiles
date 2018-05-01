@@ -17,6 +17,7 @@ XTerm.vt100.geometry: 84x18
 XTerm.vt100.metaSendsEscape: true
 XTerm.vt100.scrollBar: false
 XTerm.vt100.fastScroll: true
+XTerm.vt100.internalBorder: 0
 XTerm.vt100.bellIsUrgent: true
 XTerm.vt100.translations: #override \n\
     Ctrl Shift <Key>C: copy-selection(CLIPBOARD) \n\
