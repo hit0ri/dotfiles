@@ -20,113 +20,32 @@ Plug 'tpope/vim-sleuth'
 Plug 'tpope/vim-speeddating'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
-
 Plug 'roxma/nvim-completion-manager'
-    imap <expr> <cr> (pumvisible() ? '<c-y><plug>(expand_or_nl)' : '<cr>')
-    imap <expr> <plug>(expand_or_nl) (cm#completed_is_snippet() ? '<c-u>' : '<cr>')
-
 Plug 'vim-airline/vim-airline'
-    Plug 'vim-airline/vim-airline-themes'
-    let g:airline_theme = 'base16_oceanicnext'
-    let g:airline_powerline_fonts = 1
-    let g:airline_left_sep = ''
-    let g:airline_left_alt_sep = ''
-    let g:airline_right_sep = ''
-    let g:airline_right_alt_sep = ''
-    let g:airline#parts#ffenc#skip_expected_string = 'utf-8[unix]'
-
+Plug 'vim-airline/vim-airline-themes'
 Plug 'w0rp/ale'
-    let g:ale_sign_column_always = 1
-    let g:airline#extensions#ale#enabled = 1
-    let g:ale_sign_error = '✖'
-    let g:ale_sign_warning = '⚠'
-    let g:ale_echo_msg_error_str = 'E'
-    let g:ale_echo_msg_warning_str = 'W'
-    let g:ale_echo_msg_format = '[%linter%] [%severity%] %s'
-
 Plug 'junegunn/fzf.vim'
-    nnoremap <c-p> :Files<cr>
-    nnoremap <leader>p :Files ~<cr>
-    nnoremap <leader><cr> :Buffers<cr>
-
 Plug 'wincent/ferret'
-
 Plug 'junegunn/vim-easy-align'
-    " Exclude comments from the ignore groups
-    let g:easy_align_ignore_groups = ['String']
-    " Start interactive EasyAlign in visual mode (e.g. vipga)
-    xmap ga <plug>(EasyAlign)
-    " Start interactive EasyAlign for a motion/text object (e.g. gaip)
-    map ga <plug>(EasyAlign)
-
 Plug 'alvan/vim-closetag'
-    let g:closetag_filenames = '*.html,*.xhtml,*.xml,*.vue,*.js'
-    let g:closetag_emptyTags_caseSensitive = 1
-
 Plug 'cohama/lexima.vim'
-    let g:lexima_enable_endwise_rules = 0
-
 Plug 'christoomey/vim-sort-motion'
 Plug 'tommcdo/vim-exchange'
 Plug 'ntpeters/vim-better-whitespace'
-    let g:better_whitespace_operator = ''
-
 Plug 'Yggdroot/indentLine'
 Plug 'AndrewRadev/splitjoin.vim'
 Plug 'airblade/vim-gitgutter'
 Plug 'mhinz/vim-signify'
-    let g:signify_vcs_list = [ 'git' ]
-    let g:signify_sign_add = '+'
-    let g:signify_sign_delete = '_'
-    let g:signify_sign_delete_first_line = '‾'
-    let g:signify_sign_change = '!'
-
-Plug 'morhetz/gruvbox'
-    let g:gruvbox_italic = 1
-Plug 'cocopon/iceberg.vim'
-Plug 'junegunn/seoul256.vim'
-    let g:seoul256_srgb = 1
+" Plug 'cocopon/iceberg.vim'
+" Plug 'junegunn/seoul256.vim'
 Plug 'chriskempson/base16-vim'
-    let base16colorspace=256
-
 Plug 'tpope/vim-eunuch'
 Plug 'alvan/vim-closetag'
-
 Plug 'sheerun/vim-polyglot'
 Plug 'Firef0x/PKGBUILD.vim'
 Plug 'zainin/vim-mikrotik'
 Plug 'eiginn/iptables-vim'
 Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
-    let g:go_fmt_command = 'goimports'
-    let g:go_highlight_types = 1
-    let g:go_highlight_fields = 1
-    let g:go_highlight_functions = 1
-    let g:go_highlight_methods = 1
-    let g:go_highlight_operators = 1
-    let g:go_highlight_extra_types = 1
-    let g:go_highlight_build_constraints = 1
-    let g:go_list_type = 'quickfix'
-    let g:go_gocode_unimported_packages = 1
-    let g:go_fmt_fail_silently = 1
-
-    " run :GoBuild or :GoTestCompile based on the go file
-    function! s:build_go_files()
-        let l:file = expand('%')
-        if l:file =~# '^\f\+_test\.go$'
-            call go#test#Test(0, 1)
-        elseif l:file =~# '^\f\+\.go$'
-            call go#cmd#Build(0)
-        endif
-    endfunction
-
-    augroup GoMappings
-        autocmd!
-        autocmd FileType go nmap <leader>m :<c-u>call <sid>build_go_files()<cr>
-        autocmd FileType go nmap <leader>r <plug>(go-run)
-        autocmd FileType go nmap <leader>c <plug>(go-coverage-toggle)
-        autocmd FileType go nmap <leader>i <plug>(go-info)
-    augroup END
-
 Plug 'vim-scripts/BufOnly.vim'
 
 call plug#end()
@@ -135,6 +54,8 @@ call plug#end()
 " basic settings: ------------------------------------------------------
 set termguicolors
 set background=dark
+" let g:seoul256_srgb = 1
+let base16colorspace=256
 try
     colorscheme base16-oceanicnext
 catch
@@ -164,6 +85,91 @@ set tabstop=8
 set shiftwidth=4
 set softtabstop=4
 set expandtab
+
+
+" plugins: -------------------------------------------------------------
+" --- vim-airline
+let g:airline_theme = 'base16_oceanicnext'
+let g:airline_powerline_fonts = 1
+let g:airline_left_sep = ''
+let g:airline_left_alt_sep = ''
+let g:airline_right_sep = ''
+let g:airline_right_alt_sep = ''
+let g:airline#parts#ffenc#skip_expected_string = 'utf-8[unix]'
+
+" --- ale
+let g:ale_sign_column_always = 1
+let g:airline#extensions#ale#enabled = 1
+let g:ale_sign_error = '✖'
+let g:ale_sign_warning = '⚠'
+let g:ale_echo_msg_error_str = 'E'
+let g:ale_echo_msg_warning_str = 'W'
+let g:ale_echo_msg_format = '[%linter%] [%severity%] %s'
+
+" --- fzf.vim
+nnoremap <c-p> :Files<cr>
+nnoremap <leader>p :Files ~<cr>
+nnoremap <leader><cr> :Buffers<cr>
+
+" --- vim-easy-align
+" Exclude comments from the ignore groups
+let g:easy_align_ignore_groups = ['String']
+" Start interactive EasyAlign in visual mode (e.g. vipga)
+xmap ga <plug>(EasyAlign)
+" Start interactive EasyAlign for a motion/text object (e.g. gaip)
+map ga <plug>(EasyAlign)
+
+" --- nvim-completion-manager
+imap <expr> <cr> (pumvisible() ? '<c-y><plug>(expand_or_nl)' : '<cr>')
+imap <expr> <plug>(expand_or_nl) (cm#completed_is_snippet() ? '<c-u>' : '<cr>')
+
+" --- vim-closetag
+let g:closetag_filenames = '*.html,*.xhtml,*.xml,*.vue,*.js'
+let g:closetag_emptyTags_caseSensitive = 1
+
+" --- lexima
+let g:lexima_enable_endwise_rules = 0
+
+" --- vim-better-whitespace
+let g:better_whitespace_operator = ''
+
+" --- vim-signify
+let g:signify_vcs_list = [ 'git' ]
+let g:signify_sign_add = '+'
+let g:signify_sign_delete = '_'
+let g:signify_sign_delete_first_line = '‾'
+let g:signify_sign_change = '!'
+
+" --- vim-go
+let g:go_fmt_command = 'goimports'
+let g:go_highlight_types = 1
+let g:go_highlight_fields = 1
+let g:go_highlight_functions = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_extra_types = 1
+let g:go_highlight_build_constraints = 1
+let g:go_list_type = 'quickfix'
+let g:go_gocode_unimported_packages = 1
+let g:go_fmt_fail_silently = 1
+
+" run :GoBuild or :GoTestCompile based on the go file
+function! s:build_go_files()
+    let l:file = expand('%')
+    if l:file =~# '^\f\+_test\.go$'
+        call go#test#Test(0, 1)
+    elseif l:file =~# '^\f\+\.go$'
+        call go#cmd#Build(0)
+    endif
+endfunction
+
+augroup GoMappings
+    autocmd!
+    autocmd FileType go nmap <leader>m :<c-u>call <sid>build_go_files()<cr>
+    autocmd FileType go nmap <leader>r <plug>(go-run)
+    autocmd FileType go nmap <leader>c <plug>(go-coverage-toggle)
+    autocmd FileType go nmap <leader>i <plug>(go-info)
+augroup END
 
 
 " functions: -----------------------------------------------------------
