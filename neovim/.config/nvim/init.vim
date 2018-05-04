@@ -28,7 +28,6 @@ Plug 'junegunn/fzf.vim'
 Plug 'wincent/ferret'
 Plug 'junegunn/vim-easy-align'
 Plug 'alvan/vim-closetag'
-Plug 'cohama/lexima.vim'
 Plug 'christoomey/vim-sort-motion'
 Plug 'tommcdo/vim-exchange'
 Plug 'ntpeters/vim-better-whitespace'
@@ -128,9 +127,6 @@ map ga <plug>(EasyAlign)
 " --- vim-closetag
 let g:closetag_filenames = '*.html,*.xhtml,*.xml,*.vue,*.js'
 let g:closetag_emptyTags_caseSensitive = 1
-
-" --- lexima
-let g:lexima_enable_endwise_rules = 0
 
 " --- vim-better-whitespace
 let g:better_whitespace_operator = ''
