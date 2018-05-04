@@ -21,8 +21,7 @@ Plug 'tpope/vim-speeddating'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
 Plug 'roxma/nvim-completion-manager'
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
+Plug 'itchyny/lightline.vim'
 Plug 'w0rp/ale'
 Plug 'junegunn/fzf.vim'
 Plug 'wincent/ferret'
@@ -88,18 +87,18 @@ set expandtab
 
 
 " plugins: -------------------------------------------------------------
-" --- vim-airline
-let g:airline_theme = 'base16_oceanicnext'
-let g:airline_powerline_fonts = 1
-let g:airline_left_sep = ''
-let g:airline_left_alt_sep = ''
-let g:airline_right_sep = ''
-let g:airline_right_alt_sep = ''
-let g:airline#parts#ffenc#skip_expected_string = 'utf-8[unix]'
+let g:lightline = {
+            \ 'colorscheme': 'wombat',
+            \ 'active': {
+            \ 'left': [[ 'mode', 'paste' ], [ 'gitbranch', 'readonly', 'filename', 'modified' ]]
+            \ },
+            \ 'component_function': {
+            \   'gitbranch': 'fugitive#head'
+            \ },
+            \ }
 
 " --- ale
 let g:ale_sign_column_always = 1
-let g:airline#extensions#ale#enabled = 1
 let g:ale_sign_error = '✖'
 let g:ale_sign_warning = '⚠'
 let g:ale_echo_msg_error_str = 'E'
