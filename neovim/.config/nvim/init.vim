@@ -20,8 +20,9 @@ Plug 'tpope/vim-sleuth'
 Plug 'tpope/vim-speeddating'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
-Plug 'roxma/nvim-completion-manager'
 Plug 'itchyny/lightline.vim'
+Plug 'Shougo/deoplete.nvim'
+Plug 'wellle/tmux-complete.vim'
 Plug 'w0rp/ale'
 Plug 'junegunn/fzf.vim'
 Plug 'wincent/ferret'
@@ -105,6 +106,12 @@ let g:ale_echo_msg_error_str = 'E'
 let g:ale_echo_msg_warning_str = 'W'
 let g:ale_echo_msg_format = '[%linter%] [%severity%] %s'
 
+" --- deoplete.nvim
+let g:deoplete#enable_at_startup = 1
+
+" --- tmux-complete.vim
+let g:tmuxcomplete#trigger = ''
+
 " --- fzf.vim
 nnoremap <c-p> :Files<cr>
 nnoremap <leader>p :Files ~<cr>
@@ -117,10 +124,6 @@ let g:easy_align_ignore_groups = ['String']
 xmap ga <plug>(EasyAlign)
 " Start interactive EasyAlign for a motion/text object (e.g. gaip)
 map ga <plug>(EasyAlign)
-
-" --- nvim-completion-manager
-imap <expr> <cr> (pumvisible() ? '<c-y><plug>(expand_or_nl)' : '<cr>')
-imap <expr> <plug>(expand_or_nl) (cm#completed_is_snippet() ? '<c-u>' : '<cr>')
 
 " --- vim-closetag
 let g:closetag_filenames = '*.html,*.xhtml,*.xml,*.vue,*.js'
