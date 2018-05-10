@@ -65,7 +65,8 @@ function qrencode {
 }
 
 function twitch {
-    mpv "https://twitch.tv/$1" &
+    mpv "https://twitch.tv/$1" &> /dev/null &
+    disown
 }
 
 function wttr {
