@@ -14,3 +14,4 @@ gsettings set ${profile} default-size-columns 84
 gsettings set ${profile} default-size-rows 18
 gsettings set ${profile} scrollbar-policy 'never'
 gsettings set ${profile} use-theme-colors false
+gsettings set ${profile} cursor-blink-mode 'off'
