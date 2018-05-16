@@ -1,5 +1,5 @@
 {
-	"color_scheme": "Packages/gruvbox/gruvbox (Dark) (Medium).tmTheme",
+	"color_scheme": "Packages/Color Scheme - Default/Mariana.sublime-color-scheme",
 	"ensure_newline_at_eof_on_save": true,
 	"folder_exclude_patterns":
 	[
@@ -10,17 +10,8 @@
 		"node_modules",
 		"bower_components"
 	],
-	"font_face": "IBM Plex Mono Text",
-	"gruvbox_autocomplete_cramped": true,
-	"gruvbox_command_palette_cramped": true,
-	"gruvbox_highlight_active_tree_row": true,
-	"gruvbox_panel_xxs": true,
-	"gruvbox_sidebar_compact": true,
-	"gruvbox_sidebar_indent_xs": true,
-	"gruvbox_statusbar_button_xxs": true,
-	"gruvbox_statusbar_xxs": true,
-	"gruvbox_tabs_xxs": true,
-	"gruvbox_underline_modified_tabs": true,
+	"font_face": "IBM Plex Mono",
+	"font_size": 10,
 	"highlight_modified_tabs": true,
 	"ignored_packages":
 	[
@@ -34,18 +25,12 @@
 	"indent_to_bracket": true,
 	"line_padding_bottom": 1,
 	"line_padding_top": 1,
-	"material_theme_bold_tab": true,
-	"material_theme_compact_panel": true,
-	"material_theme_compact_sidebar": true,
-	"material_theme_small_statusbar": true,
-	"material_theme_small_tab": true,
 	"rulers":
 	[
 		80
 	],
 	"show_encoding": true,
 	"show_line_endings": true,
-	"theme": "gruvbox (Dark) (Medium).sublime-theme",
-	"translate_tabs_to_spaces": true,
-	"trim_trailing_white_space_on_save": true
+	"theme": "Adaptive.sublime-theme",
+	"translate_tabs_to_spaces": true
 }
