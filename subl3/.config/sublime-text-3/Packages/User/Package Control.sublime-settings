@@ -8,17 +8,17 @@
 		"A File Icon",
 		"AdvancedNewFile",
 		"All Autocomplete",
-		"Ansible",
 		"BracketHighlighter",
-		"Emmet",
 		"Git",
 		"GitGutter",
-		"gruvbox",
-		"Material Theme",
+		"INI",
+		"Jinja2",
 		"Package Control",
+		"RPM Spec Syntax",
 		"SideBarEnhancements",
+		"Sublime Tutor",
 		"SublimeLinter",
-		"SublimeLinter-eslint",
-		"Vue Syntax Highlight"
+		"SublimeLinter-shellcheck",
+		"TrailingSpaces"
 	]
 }
