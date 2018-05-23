@@ -48,7 +48,7 @@ shopt -s checkwinsize
 # PROMPT
 #
 
-PROMPT_DIRTRIM=3
+PROMPT_DIRTRIM=4
 
 # Colors
 FG_BLACK='\[\e[30;1m\]'
