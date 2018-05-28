@@ -37,7 +37,8 @@ Plug 'airblade/vim-gitgutter'
 Plug 'mhinz/vim-signify'
 " Plug 'cocopon/iceberg.vim'
 " Plug 'junegunn/seoul256.vim'
-Plug 'chriskempson/base16-vim'
+" Plug 'chriskempson/base16-vim'
+Plug 'morhetz/gruvbox'
 Plug 'tpope/vim-eunuch'
 Plug 'sheerun/vim-polyglot'
 Plug 'Firef0x/PKGBUILD.vim'
@@ -52,10 +53,11 @@ call plug#end()
 " basic settings: ------------------------------------------------------
 set termguicolors
 set background=dark
-" let g:seoul256_srgb = 1
+let g:seoul256_srgb = 1
 let base16colorspace=256
+let g:gruvbox_italic = 1
 try
-    colorscheme base16-oceanicnext
+    colorscheme gruvbox
 catch
     colorscheme desert
 endtry
@@ -87,7 +89,7 @@ set expandtab
 
 " plugins: -------------------------------------------------------------
 let g:lightline = {
-            \ 'colorscheme': 'wombat',
+            \ 'colorscheme': 'gruvbox',
             \ 'active': {
             \ 'left': [[ 'mode', 'paste' ], [ 'gitbranch', 'readonly', 'filename', 'modified' ]]
             \ },
