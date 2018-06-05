@@ -126,3 +126,4 @@ alias gst='git status'
 alias lsports='ss -tunalp | column -t'
 
 include /usr/share/fzf/shell/key-bindings.bash
+include /usr/share/fzf/key-bindings.bash
