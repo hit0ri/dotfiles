@@ -57,3 +57,6 @@ gsettings set org.gnome.gedit.preferences.editor background-pattern 'grid'
 gsettings set org.gnome.gedit.preferences.editor bracket-matching true
 gsettings set org.gnome.gedit.preferences.editor tabs-size 'uint32 4'
 gsettings set org.gnome.gedit.preferences.editor auto-indent true
+
+# GNOME Terminal
+gsettings set org.gnome.Terminal.Legacy.Settings default-show-menubar false
