@@ -4,8 +4,6 @@
 uuid=$(gsettings get org.gnome.Terminal.ProfilesList default | tr -d \')
 profile=org.gnome.Terminal.Legacy.Profile:/org/gnome/terminal/legacy/profiles:/:${uuid}/
 
-gsettings set org.gnome.desktop.peripherals.keyboard delay 250
-gsettings set org.gnome.Terminal.Legacy.Settings default-show-menubar false
 
 gsettings set ${profile} palette "['#33303b', '#87404f', '#4c9882', '#71949a', '#615772', '#783e57', '#554757', '#c0a79a', '#4f4b58', '#87404f', '#4c9882', '#71949a', '#615772', '#783e57', '#554757', '#c0a79a']"
 gsettings set ${profile} background-color '#312e39'
