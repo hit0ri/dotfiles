@@ -78,13 +78,13 @@ Enabled flags:
 
 ### gnome-shell
 
-- Noto Sans fonts
+- Fira Mono font
 - [Arc](https://github.com/horst3180/arc-theme) gtk theme
 - [Papirus](https://github.com/PapirusDevelopmentTeam/papirus-icon-theme) icon theme
 
 ### i3
 
-- IBM Plex Mono font
+- Fira Mono font
 - rofi
 - pactl
 - scrot
@@ -119,13 +119,13 @@ Enabled flags:
 
 Fonts:
 
-  - IBM Plex Mono
+  - Fira Mono
   - Unifont
   - Wuncon Siji
 
 ### subl3
 
-- IBM Plex Mono font
+- Fira Mono font
 
 ### vscode
 
@@ -133,7 +133,7 @@ Fonts:
 
 ### xresources
 
-- IBM Plex Mono font
+- Fira Mono font
 - Noto fonts
 - DejaVu fonts
 
