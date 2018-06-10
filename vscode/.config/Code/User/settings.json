@@ -40,7 +40,7 @@
   "telemetry.enableCrashReporter": false,
   "telemetry.enableTelemetry": false,
   "terminal.integrated.fontFamily": "'Fira Mono', 'Source Code Pro', monospace",
-  "window.zoomLevel": 1,
+  "window.zoomLevel": 0,
   "workbench.colorTheme": "One Dark Pro",
   "workbench.iconTheme": "vscode-icons",
   "workbench.startupEditor": "none"
