@@ -5,24 +5,23 @@ My personal configuration files managed by GNU Stow
 > NOTE: etc contains system-wide configurations for X, sysctl, udev, polkit, etc.
 > and is **not** managed by `stow`
 
-## General requirements
-
-- git
-- stow
-- fzf
-
 ## Installation
 
-Clone this repository into your `$HOME` directory and use `stow` to install
-one or many configurations
+Clone this repository into your `$HOME` directory and use `stow` to install configurations
 
 ```bash
 git clone --recursive https://github.com/hit0ri/dotfiles.git .dotfiles
 cd !$
-stow -v zsh [mpv …]
+stow -v zsh mpv
 ```
 
-## Individual requirements
+## Requirements
+
+### General
+
+- git
+- stow
+- fzf
 
 ### bash
 
@@ -77,7 +76,7 @@ Enabled flags:
 - `#shared-array-buffer`
 - `#enable-native-notifications`
 
-### gtk
+### gnome-shell
 
 - Noto Sans fonts
 - [Arc](https://github.com/horst3180/arc-theme) gtk theme
@@ -128,7 +127,7 @@ Fonts:
 
 - IBM Plex Mono font
 
-### Visual Studio Code
+### vscode
 
 - Fira Mono font
 
