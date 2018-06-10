@@ -128,6 +128,10 @@ Fonts:
 
 - IBM Plex Mono font
 
+### Visual Studio Code
+
+- Fira Mono font
+
 ### xresources
 
 - IBM Plex Mono font
