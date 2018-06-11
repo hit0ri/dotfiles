@@ -28,8 +28,8 @@ gsettings set org.gnome.desktop.interface clock-show-date true
 # Input Devices
 gsettings set org.gnome.desktop.peripherals.touchpad natural-scroll false
 gsettings set org.gnome.desktop.peripherals.touchpad tap-to-click true
-gsettings set org.gnome.desktop.peripherals.keyboard repeat-interval 'uint32 30'
-gsettings set org.gnome.desktop.peripherals.keyboard delay 'uint32 250'
+gsettings set org.gnome.desktop.peripherals.keyboard repeat-interval 30
+gsettings set org.gnome.desktop.peripherals.keyboard delay 250
 gsettings set org.gnome.desktop.input-sources xkb-options "['caps:escape']"
 
 # Keybindings
@@ -55,7 +55,7 @@ gsettings set org.gnome.gedit.preferences.editor display-line-numbers true
 gsettings set org.gnome.gedit.preferences.editor insert-spaces true
 gsettings set org.gnome.gedit.preferences.editor background-pattern 'grid'
 gsettings set org.gnome.gedit.preferences.editor bracket-matching true
-gsettings set org.gnome.gedit.preferences.editor tabs-size 'uint32 4'
+gsettings set org.gnome.gedit.preferences.editor tabs-size 4
 gsettings set org.gnome.gedit.preferences.editor auto-indent true
 
 # GNOME Terminal
