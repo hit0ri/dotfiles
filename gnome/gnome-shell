@@ -7,7 +7,7 @@ gsettings set org.gnome.desktop.interface font-name 'Cantarell 10'
 gsettings set org.gnome.desktop.interface document-font-name 'Sans 10'
 gsettings set org.gnome.desktop.interface monospace-font-name 'Fira Mono 11'
 gsettings set org.gnome.settings-daemon.plugins.xsettings antialiasing 'rgba'
-gsettings set org.gnome.settings-daemon.plugins.xsettings hinting 'full'
+gsettings set org.gnome.settings-daemon.plugins.xsettings hinting 'slight'
 
 # Theme and icons
 gsettings set org.gnome.desktop.interface gtk-theme 'Arc-Darker'
