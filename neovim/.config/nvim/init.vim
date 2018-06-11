@@ -38,7 +38,8 @@ Plug 'mhinz/vim-signify'
 " Plug 'cocopon/iceberg.vim'
 " Plug 'junegunn/seoul256.vim'
 " Plug 'chriskempson/base16-vim'
-Plug 'morhetz/gruvbox'
+" Plug 'morhetz/gruvbox'
+Plug 'joshdick/onedark.vim'
 Plug 'tpope/vim-eunuch'
 Plug 'sheerun/vim-polyglot'
 Plug 'Firef0x/PKGBUILD.vim'
@@ -56,8 +57,9 @@ set background=dark
 let g:seoul256_srgb = 1
 let base16colorspace=256
 let g:gruvbox_italic = 1
+let g:onedark_terminal_italics = 1
 try
-    colorscheme gruvbox
+    colorscheme onedark
 catch
     colorscheme desert
 endtry
@@ -89,7 +91,7 @@ set expandtab
 
 " plugins: -------------------------------------------------------------
 let g:lightline = {
-            \ 'colorscheme': 'gruvbox',
+            \ 'colorscheme': 'onedark',
             \ 'active': {
             \ 'left': [[ 'mode', 'paste' ], [ 'gitbranch', 'readonly', 'filename', 'modified' ]]
             \ },
