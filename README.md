@@ -78,13 +78,13 @@ Enabled flags:
 
 ### gnome-shell
 
-- Fira Mono font
+- Ubuntu Mono font
 - [Arc](https://github.com/horst3180/arc-theme) gtk theme
 - [Papirus](https://github.com/PapirusDevelopmentTeam/papirus-icon-theme) icon theme
 
 ### i3
 
-- Fira Mono font
+- Ubuntu Mono font
 - rofi
 - pactl
 - scrot
@@ -119,21 +119,21 @@ Enabled flags:
 
 Fonts:
 
-  - Fira Mono
+  - Ubuntu Mono
   - Unifont
   - Wuncon Siji
 
 ### subl3
 
-- Fira Mono font
+- Ubuntu Mono font
 
 ### vscode
 
-- Fira Mono font
+- Ubuntu Mono font
 
 ### xresources
 
-- Fira Mono font
+- Ubuntu Mono font
 - Noto fonts
 - DejaVu fonts
 
