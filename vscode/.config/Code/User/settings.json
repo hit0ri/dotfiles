@@ -1,7 +1,7 @@
 {
   "editor.cursorBlinking": "solid",
-  "editor.fontFamily": "'Fira Mono', 'Source Code Pro', 'monospace', monospace, 'Droid Sans Fallback', 'Noto Color Emoji'",
-  "editor.fontSize": 14,
+  "editor.fontFamily": "'Ubuntu Mono', 'Source Code Pro', 'monospace', monospace, 'Droid Sans Fallback', 'Noto Color Emoji'",
+  "editor.fontSize": 15,
   "editor.minimap.enabled": false,
   "editor.occurrencesHighlight": false,
   "editor.renderLineHighlight": "gutter",
@@ -39,7 +39,7 @@
   },
   "telemetry.enableCrashReporter": false,
   "telemetry.enableTelemetry": false,
-  "terminal.integrated.fontFamily": "'Fira Mono', 'Source Code Pro', monospace",
+  "terminal.integrated.fontFamily": "'Ubuntu Mono', 'Source Code Pro', monospace",
   "window.zoomLevel": 0,
   "workbench.colorTheme": "One Dark Pro",
   "workbench.iconTheme": "vscode-icons",

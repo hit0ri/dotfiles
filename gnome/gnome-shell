@@ -2,10 +2,10 @@
 
 
 # Fonts
-gsettings set org.gnome.desktop.wm.preferences titlebar-font 'Cantarell Bold 10'
-gsettings set org.gnome.desktop.interface font-name 'Cantarell 10'
+gsettings set org.gnome.desktop.wm.preferences titlebar-font 'Ubuntu Bold 10'
+gsettings set org.gnome.desktop.interface font-name 'Ubuntu 10'
 gsettings set org.gnome.desktop.interface document-font-name 'Sans 10'
-gsettings set org.gnome.desktop.interface monospace-font-name 'Fira Mono 11'
+gsettings set org.gnome.desktop.interface monospace-font-name 'Ubuntu Mono 12'
 gsettings set org.gnome.settings-daemon.plugins.xsettings antialiasing 'rgba'
 gsettings set org.gnome.settings-daemon.plugins.xsettings hinting 'slight'
 
