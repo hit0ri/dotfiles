@@ -83,7 +83,7 @@ set updatetime=500
 set completeopt+=menuone,longest,noinsert,noselect
 set shortmess+=c
 set noshowmode
-set guicursor=
+set guicursor=n-v-c:block-Cursor/lCursor-blinkon0,i-ci:ver25-Cursor/lCursor,r-cr:hor20-Cursor/lCursor
 set tabstop=8
 set shiftwidth=4
 set softtabstop=4
