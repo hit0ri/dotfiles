@@ -76,6 +76,14 @@ Enabled flags:
 - `#shared-array-buffer`
 - `#enable-native-notifications`
 
+### fontconfig
+
+Fonts:
+
+- Fira Mono
+- Source Sans Pro
+- Source Serif Pro
+
 ### gnome-shell
 
 - Ubuntu Mono font
@@ -119,9 +127,9 @@ Enabled flags:
 
 Fonts:
 
-  - Ubuntu Mono
-  - Unifont
-  - Wuncon Siji
+- Ubuntu Mono
+- Unifont
+- Wuncon Siji
 
 ### subl3
 
