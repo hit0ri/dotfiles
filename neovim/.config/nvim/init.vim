@@ -31,7 +31,7 @@ Plug 'alvan/vim-closetag'
 Plug 'christoomey/vim-sort-motion'
 Plug 'tommcdo/vim-exchange'
 Plug 'ntpeters/vim-better-whitespace'
-Plug 'Yggdroot/indentLine'
+Plug 'nathanaelkane/vim-indent-guides'
 Plug 'AndrewRadev/splitjoin.vim'
 Plug 'airblade/vim-gitgutter'
 Plug 'mhinz/vim-signify'
@@ -127,6 +127,13 @@ let g:easy_align_ignore_groups = ['String']
 xmap ga <plug>(EasyAlign)
 " Start interactive EasyAlign for a motion/text object (e.g. gaip)
 map ga <plug>(EasyAlign)
+
+" --- vim-indent-guides
+let g:indent_guides_enable_on_vim_startup = 1
+let g:indent_guides_auto_colors = 0
+let g:indent_guides_guide_size = 1
+hi IndentGuidesOdd  guibg=#59526E
+hi IndentGuidesEven guibg=#343141
 
 " --- vim-closetag
 let g:closetag_filenames = '*.html,*.xhtml,*.xml,*.vue,*.js'
