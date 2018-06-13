@@ -37,10 +37,10 @@ Plug 'airblade/vim-gitgutter'
 Plug 'mhinz/vim-signify'
 " Plug 'cocopon/iceberg.vim'
 " Plug 'junegunn/seoul256.vim'
-" Plug 'chriskempson/base16-vim'
+Plug 'chriskempson/base16-vim'
 " Plug 'morhetz/gruvbox'
 " Plug 'joshdick/onedark.vim'
-Plug 'atelierbram/Base2Tone-vim'
+" Plug 'atelierbram/Base2Tone-vim'
 Plug 'tpope/vim-eunuch'
 Plug 'sheerun/vim-polyglot'
 Plug 'Firef0x/PKGBUILD.vim'
@@ -60,7 +60,7 @@ let base16colorspace=256
 let g:gruvbox_italic = 1
 let g:onedark_terminal_italics = 1
 try
-    colorscheme Base2Tone_EveningDark
+    colorscheme base16-oceanicnext
 catch
     colorscheme desert
 endtry
@@ -83,7 +83,7 @@ set updatetime=500
 set completeopt+=menuone,longest,noinsert,noselect
 set shortmess+=c
 set noshowmode
-set guicursor=n-v-c:block-Cursor/lCursor-blinkon0,i-ci:ver25-Cursor/lCursor,r-cr:hor20-Cursor/lCursor
+set guicursor=
 set tabstop=8
 set shiftwidth=4
 set softtabstop=4
@@ -92,7 +92,7 @@ set expandtab
 
 " plugins: -------------------------------------------------------------
 let g:lightline = {
-            \ 'colorscheme': 'Base2Tone_Evening',
+            \ 'colorscheme': 'material',
             \ 'active': {
             \ 'left': [[ 'mode', 'paste' ], [ 'gitbranch', 'readonly', 'filename', 'modified' ]]
             \ },
@@ -130,10 +130,8 @@ map ga <plug>(EasyAlign)
 
 " --- vim-indent-guides
 let g:indent_guides_enable_on_vim_startup = 1
-let g:indent_guides_auto_colors = 0
+let g:indent_guides_auto_colors = 1
 let g:indent_guides_guide_size = 1
-hi IndentGuidesOdd  guibg=#59526E
-hi IndentGuidesEven guibg=#343141
 
 " --- vim-closetag
 let g:closetag_filenames = '*.html,*.xhtml,*.xml,*.vue,*.js'
