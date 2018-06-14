@@ -86,13 +86,13 @@ Fonts:
 
 ### gnome-shell
 
-- Ubuntu Mono font
+- Hack font
 - [Arc](https://github.com/horst3180/arc-theme) gtk theme
 - [Papirus](https://github.com/PapirusDevelopmentTeam/papirus-icon-theme) icon theme
 
 ### i3
 
-- Ubuntu Mono font
+- Hack font
 - rofi
 - pactl
 - scrot
@@ -127,21 +127,21 @@ Fonts:
 
 Fonts:
 
-- Ubuntu Mono
+- Hack
 - Unifont
 - Wuncon Siji
 
 ### subl3
 
-- Ubuntu Mono font
+- Hack font
 
 ### vscode
 
-- Ubuntu Mono font
+- Hack font
 
 ### xresources
 
-- Ubuntu Mono font
+- Hack font
 - Noto fonts
 - DejaVu fonts
 
