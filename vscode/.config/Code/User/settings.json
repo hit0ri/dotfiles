@@ -39,7 +39,7 @@
   },
   "telemetry.enableCrashReporter": false,
   "telemetry.enableTelemetry": false,
-  "terminal.integrated.fontFamily": "'Ubuntu Mono', 'Source Code Pro', monospace",
+  "terminal.integrated.fontFamily": "'Hack', 'Source Code Pro', 'monospace', monospace, 'Droid Sans Fallback', 'Noto Color Emoji'",
   "window.zoomLevel": 0,
   "workbench.colorTheme": "One Dark Pro",
   "workbench.iconTheme": "vscode-icons",
