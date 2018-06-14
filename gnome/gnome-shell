@@ -11,7 +11,7 @@ gsettings set org.gnome.settings-daemon.plugins.xsettings hinting 'slight'
 
 # Theme and icons
 gsettings set org.gnome.desktop.interface gtk-theme 'Arc-Darker'
-gsettings set org.gnome.desktop.interface icon-theme 'Papirus-Dark'
+gsettings set org.gnome.desktop.interface icon-theme 'Papirus'
 gsettings set org.gnome.shell.extensions.user-theme name 'Arc-Dark'
 
 # Wallpaper
