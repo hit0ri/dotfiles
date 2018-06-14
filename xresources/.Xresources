@@ -10,7 +10,7 @@ Xft.rgba:       rgb
 
 ! XTerm settings -------------------------------------------------------------
 
-XTerm.vt100.faceName: Hack:size=10
+XTerm.vt100.faceName: Source Code Pro:size=10
 XTerm.vt100.faceNameDoublesize: VL Gothic:size=10
 XTerm.termName: xterm-256color
 XTerm.vt100.geometry: 84x18
@@ -28,7 +28,7 @@ XTerm.vt100.translations: #override \n\
 URxvt*geometry: 84x18
 URxvt*scrollBar: false
 URxvt*saveLines: 8192
-URxvt*font: xft:Hack:size=10, \
+URxvt*font: xft:Source Code Pro:size=10, \
             xft:Noto Mono:size=10, \
             xft:DejaVu Sans Mono:size=10, \
             xft:Noto Sans Symbols:size=10

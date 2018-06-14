@@ -1,6 +1,6 @@
 {
   "editor.cursorBlinking": "solid",
-  "editor.fontFamily": "'Hack', 'Source Code Pro', 'monospace', monospace, 'Droid Sans Fallback', 'Noto Color Emoji'",
+  "editor.fontFamily": "'Source Code Pro', 'monospace', monospace, 'Droid Sans Fallback', 'Noto Color Emoji'",
   "editor.fontSize": 14,
   "editor.minimap.enabled": false,
   "editor.occurrencesHighlight": false,
@@ -39,7 +39,7 @@
   },
   "telemetry.enableCrashReporter": false,
   "telemetry.enableTelemetry": false,
-  "terminal.integrated.fontFamily": "'Hack', 'Source Code Pro', 'monospace', monospace, 'Droid Sans Fallback', 'Noto Color Emoji'",
+  "terminal.integrated.fontFamily": "'Source Code Pro', 'monospace', monospace, 'Droid Sans Fallback', 'Noto Color Emoji'",
   "window.zoomLevel": 0,
   "workbench.colorTheme": "One Dark Pro",
   "workbench.iconTheme": "vscode-icons",
