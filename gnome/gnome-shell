@@ -21,7 +21,7 @@ gsettings set org.gnome.desktop.screensaver picture-uri 'file:///home/hitori/Pic
 gsettings set org.gnome.desktop.screensaver picture-options 'zoom'
 
 # Shell
-gsettings set org.gnome.shell.overrides workspaces-only-on-primary false
+gsettings set org.gnome.shell.overrides workspaces-only-on-primary true
 gsettings set org.gnome.desktop.calendar show-weekdate true
 gsettings set org.gnome.desktop.interface clock-show-date true
 
