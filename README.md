@@ -45,6 +45,7 @@ Aliases:
 
 - ffmpeg (Convert plugin)
 - ImageMagick (FetchArt and EmbedArt plugins)
+- python-discogs-client (discogs plugin)
 
 ### bspwm
 
