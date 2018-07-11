@@ -5,14 +5,16 @@
 gsettings set org.gnome.desktop.wm.preferences titlebar-font 'Source Sans Pro Bold 11'
 gsettings set org.gnome.desktop.interface font-name 'Source Sans Pro 11'
 gsettings set org.gnome.desktop.interface document-font-name 'Sans 10'
-gsettings set org.gnome.desktop.interface monospace-font-name 'Source Code Pro 10'
+gsettings set org.gnome.desktop.interface monospace-font-name 'D2Coding 11'
 gsettings set org.gnome.settings-daemon.plugins.xsettings antialiasing 'rgba'
 gsettings set org.gnome.settings-daemon.plugins.xsettings hinting 'slight'
 
 # Theme and icons
 gsettings set org.gnome.desktop.interface gtk-theme 'Arc-Darker'
 gsettings set org.gnome.desktop.interface icon-theme 'Papirus'
+gsettings set org.gnome.desktop.interface cursor-theme 'Adwaita'
 gsettings set org.gnome.shell.extensions.user-theme name 'Arc-Dark'
+gsettings set org.gnome.desktop.interface enable-animations true
 
 # Wallpaper
 gsettings set org.gnome.desktop.background picture-uri 'file:///home/hitori/Pictures/wallpapers/PIA17936.jpg'
@@ -21,9 +23,10 @@ gsettings set org.gnome.desktop.screensaver picture-uri 'file:///home/hitori/Pic
 gsettings set org.gnome.desktop.screensaver picture-options 'zoom'
 
 # Shell
-gsettings set org.gnome.shell.overrides workspaces-only-on-primary true
+gsettings set org.gnome.shell.overrides workspaces-only-on-primary false
 gsettings set org.gnome.desktop.calendar show-weekdate true
 gsettings set org.gnome.desktop.interface clock-show-date true
+gsettings set org.gnome.shell.app-switcher current-workspace-only true
 
 # Input Devices
 gsettings set org.gnome.desktop.peripherals.touchpad natural-scroll false
