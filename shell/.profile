@@ -1,17 +1,18 @@
-#
-# ~/.profile
-#
+# .profile
 
-export PATH=$PATH:~/.local/bin:~/go/bin:~/.cargo/bin:~/.node_modules/bin
 
-export GOPATH=~/go
-export npm_config_prefix=~/.node_modules
+export PATH=$PATH:$HOME/.local/bin:$HOME/go/bin:$HOME/.cargo/bin:$HOME/.node_modules/bin
 
+export GOPATH=$HOME/go
+export npm_config_prefix=$HOME/.node_modules
 
 export EDITOR=nvim
 export VISUAL=nvim
 export DIFFPROG='nvim -d'
 export SUDO_EDITOR=nvim
+
+# readline
+export INPUTRC=$HOME/.inputrc
 
 # Default browser
 export BROWSER=xdg-open
@@ -39,4 +40,4 @@ export LIBVIRT_DEFAULT_URI=qemu:///system
 
 # fzf
 export FZF_DEFAULT_COMMAND='rg --files --unrestricted --hidden --color never --smart-case --glob !.git/* --glob !node_modules/*'
-export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+export FZF_CTRL_T_COMMAND=$FZF_DEFAULT_COMMAND
