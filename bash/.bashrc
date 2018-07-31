@@ -1,30 +1,20 @@
+# .bashrc
+
+
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
-
-#
-# FUNCTIONS
-#
-
-function include {
-  if [[ -f $1 ]]; then
-    source "$1"
-  fi
-}
-
-include ~/.functions.sh
-
-
 # Source /etc/bashrc on Fedora and RHEL as it's not sourced from /etc/profile
-[[ -e /etc/redhat-release ]] && include /etc/bashrc
+[[ -e /etc/redhat-release ]] && . /etc/bashrc
 
 # Source profile on Solus
-[[ -e /etc/solus-release ]] \
-    && include /usr/share/defaults/etc/profile \
-    && include ~/.profile
+if [[ -e /etc/solus-release ]]; then
+  . /usr/share/defaults/etc/profile
+  . "$HOME/.profile"
+fi
 
 # Source bash-completion on debian based distros
-include /etc/bash_completion
+[[ -r /etc/bash_completion ]] && . /etc/bash_completion
 
 #
 # SHELL OPTIONS
@@ -41,7 +31,9 @@ shopt -s histappend
 shopt -s checkwinsize
 
 # Colors for ls
-[[ -f $HOME/.dircolors ]] && eval "$(dircolors -b $HOME/.dircolors)"
+if [[ -r $HOME/.dircolors ]] && [[ ! -e /etc/solus-release ]]; then
+  eval "$(dircolors -b $HOME/.dircolors)"
+fi
 
 
 #
@@ -50,24 +42,26 @@ shopt -s checkwinsize
 
 PROMPT_DIRTRIM=4
 
-# Colors
-FG_BLACK='\[\e[30;1m\]'
-FG_RED='\[\e[31;1m\]'
-FG_GREEN='\[\e[32;1m\]'
-FG_YELLOW='\[\e[33;1m\]'
-FG_BLUE='\[\e[34;1m\]'
-FG_MAGENTA='\[\e[35;1m\]'
-FG_CYAN='\[\e[36;1m\]'
-FG_WHITE='\[\e[37;1m\]'
-TXT_RST='\[\e[0m\]'
-
 set_prompt() {
   local -r EXIT=$?
   local -r HAS_JOBS=$(jobs -p)
 
-  if $(git rev-parse --is-inside-work-tree 2> /dev/null); then
-    # Get the current branch name
-    local -r branch=$(git rev-parse --abbrev-ref HEAD 2> /dev/null)
+  # Colors
+  local -r FG_BLACK='\[\e[30;1m\]' \
+           FG_RED='\[\e[31;1m\]' \
+           FG_GREEN='\[\e[32;1m\]' \
+           FG_YELLOW='\[\e[33;1m\]' \
+           FG_BLUE='\[\e[34;1m\]' \
+           FG_MAGENTA='\[\e[35;1m\]' \
+           FG_CYAN='\[\e[36;1m\]' \
+           FG_WHITE='\[\e[37;1m\]' \
+           TXT_RST='\[\e[0m\]'
+
+  if command -v git &> /dev/null; then
+    if git rev-parse --is-inside-work-tree &> /dev/null; then
+      # Get the current branch name
+      local -r branch=$(git rev-parse --abbrev-ref HEAD 2> /dev/null)
+    fi
   fi
 
   PS1="${TMUX:+${FG_YELLOW}t }"
@@ -76,7 +70,11 @@ set_prompt() {
   PS1+="${branch:+${FG_MAGENTA}${branch} }"
   PS1+="${VIRTUAL_ENV:+${FG_YELLOW}${VIRTUAL_ENV##*/} }"
   PS1+="${HAS_JOBS:+${FG_BLACK}[\j] }"
-  ((EXIT)) && PS1+="${FG_RED}\$ " || PS1+="${FG_GREEN}\$ "
+  if ((EXIT)); then
+    PS1+="${FG_RED}\$ "
+  else
+    PS1+="${FG_GREEN}\$ "
+  fi
   PS1+="$TXT_RST"
 }
 
@@ -118,12 +116,12 @@ alias lla='ls --color=auto --show-control-chars --group-directories-first -AlXF'
 alias dmesg='dmesg -exL'
 alias ip='ip --color'
 alias ips='ip --color --stats'
-alias ipinfo=$'ip -4 -o a | awk \'BEGIN { OFS = ":\t "} { print $2, $4 }\''
 
 alias vim='nvim'
 alias gap='git add --patch'
 alias gst='git status'
-alias lsports='ss -tunalp | column -t'
+alias lsports='ss -tunalp | cat'
 
-include /usr/share/fzf/shell/key-bindings.bash
-include /usr/share/fzf/key-bindings.bash
+[[ -r /usr/share/fzf/shell/key-bindings.bash ]] && . /usr/share/fzf/shell/key-bindings.bash
+[[ -r /usr/share/fzf/key-bindings.bash ]] && . /usr/share/fzf/key-bindings.bash
+. "$HOME/.functions.sh"
