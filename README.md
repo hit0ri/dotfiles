@@ -23,6 +23,16 @@ stow -v zsh mpv
 - stow
 - fzf
 
+### atom
+
+Install packages:
+
+`apm install --packages-file ~/.atom/package.list`
+
+Save list of installed packages:
+
+`apm list --installed --bare | sed 's/@.*$//' > ~/.atom/package.list`
+
 ### bash
 
 Functions:

@@ -5,10 +5,10 @@
     telemetryConsent: "no"
     themes: [
       "one-dark-ui"
-      "gruvbox-plus-syntax"
+      "gruvbox"
     ]
   editor:
-    fontFamily: "Fira Code, Menlo, Consolas, DejaVu Sans Mono, monospace"
+    fontFamily: "Source Code Pro, Fira Code, Menlo, Consolas, DejaVu Sans Mono, monospace"
   "git-plus":
     commits:
       verboseCommits: true
