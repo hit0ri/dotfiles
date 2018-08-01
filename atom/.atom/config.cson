@@ -8,7 +8,7 @@
       "gruvbox"
     ]
   editor:
-    fontFamily: "Source Code Pro, Fira Code, Menlo, Consolas, DejaVu Sans Mono, monospace"
+    fontFamily: "Fira Mono, Source Code Pro, Menlo, Consolas, DejaVu Sans Mono, monospace"
   "git-plus":
     commits:
       verboseCommits: true

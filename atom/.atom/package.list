@@ -1,11 +1,15 @@
 autocomplete-ansible
+busy-signal
 file-icons
 git-plus
 gruvbox
 gruvbox-plus-syntax
 indent-guide-improved
+intentions
 language-ansible
+linter
 linter-ansible-linting
 linter-shellcheck
+linter-ui-default
 trailing-spaces
 
