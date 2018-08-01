@@ -1,3 +1,9 @@
+# atom
+
+**/atom/
+!**/atom/.atom/config.cson
+!**/atom/.atom/package.list
+
 # beets
 **/beets/library.db
 **/beets/state.pickle
