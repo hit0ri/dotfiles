@@ -31,7 +31,6 @@ Plug 'alvan/vim-closetag'
 Plug 'christoomey/vim-sort-motion'
 Plug 'tommcdo/vim-exchange'
 Plug 'ntpeters/vim-better-whitespace'
-Plug 'nathanaelkane/vim-indent-guides'
 Plug 'AndrewRadev/splitjoin.vim'
 Plug 'airblade/vim-gitgutter'
 Plug 'mhinz/vim-signify'
@@ -47,6 +46,7 @@ Plug 'Firef0x/PKGBUILD.vim'
 Plug 'zainin/vim-mikrotik'
 Plug 'eiginn/iptables-vim'
 Plug 'fatih/vim-go', { 'do': ':GoInstallBinaries' }
+Plug 'vivien/vim-linux-coding-style'
 Plug 'vim-scripts/BufOnly.vim'
 
 call plug#end()
