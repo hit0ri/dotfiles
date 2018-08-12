@@ -28,13 +28,7 @@ WORDCHARS='*?_[]~&;!#$%^(){}<>'
 # FUNCTIONS
 #
 
-function include {
-  if [[ -f $1 ]]; then
-    source "$1"
-  fi
-}
-
-include ~/.functions.sh
+[[ -f ~/.functions.sh ]] && . ~/.functions.sh
 
 
 
@@ -72,11 +66,13 @@ function precmd {
 
   prompt_length=$(( COLUMNS / 2 - 10 ))
 
-  if $(git rev-parse --is-inside-work-tree 2> /dev/null); then
-    # Get the current branch name
-    branch=$(git rev-parse --abbrev-ref HEAD 2> /dev/null)
-  else
-    unset repo branch
+  if hash git &> /dev/null; then
+    if git rev-parse --is-inside-work-tree &> /dev/null; then
+      # Get the current branch name
+      branch=$(git rev-parse --abbrev-ref HEAD 2> /dev/null)
+    else
+      unset repo branch
+    fi
   fi
 }
 
@@ -162,7 +158,6 @@ alias lla='ls --color=auto --show-control-chars --group-directories-first -AlXF'
 alias dmesg='dmesg -exL'
 alias ip='ip --color'
 alias ips='ip --color --stats'
-alias ipinfo=$'ip -4 -o a | awk \'BEGIN { OFS = ":\t" } { print $2, $4 }\''
 
 alias vim='nvim'
 alias gap='git add --patch'
@@ -179,11 +174,13 @@ if [[ -f ~/.antibody-bundles ]]; then
     antibody bundle < ~/.antibody-bundles > ~/.zbundles
   fi
 fi
-include ~/.zbundles
+[[ -f ~/.zbundles ]] && . ~/.zbundles
 
 compinit
 
-include /usr/share/fzf/shell/key-bindings.zsh
+if [[ -f /usr/share/fzf/shell/key-bindings.zsh ]]; then
+  . /usr/share/fzf/shell/key-bindings.zsh
+fi
 
 # Colors for ls
 [[ -f $HOME/.dircolors ]] && eval "$(dircolors -b $HOME/.dircolors)"
