@@ -46,6 +46,9 @@ gsettings set org.gnome.settings-daemon.plugins.media-keys home '<Super>f'
 gsettings set org.gnome.nautilus.list-view use-tree-view true
 gsettings set org.gnome.nautilus.icon-view default-zoom-level 'standard'
 
+# Software
+gsettings set org.gnome.software download-updates false
+
 # System Monitor
 gsettings set org.gnome.gnome-system-monitor network-in-bits true
 gsettings set org.gnome.gnome-system-monitor show-whose-processes 'all'
