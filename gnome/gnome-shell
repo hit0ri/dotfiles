@@ -2,10 +2,10 @@
 
 
 # Fonts
-gsettings set org.gnome.desktop.wm.preferences titlebar-font 'Source Sans Pro Bold 11'
-gsettings set org.gnome.desktop.interface font-name 'Source Sans Pro 11'
+gsettings set org.gnome.desktop.wm.preferences titlebar-font 'Source Sans Pro Bold 10'
+gsettings set org.gnome.desktop.interface font-name 'Source Sans Pro 10'
 gsettings set org.gnome.desktop.interface document-font-name 'Sans 10'
-gsettings set org.gnome.desktop.interface monospace-font-name 'D2Coding 11'
+gsettings set org.gnome.desktop.interface monospace-font-name 'Ttyp0 12'
 gsettings set org.gnome.settings-daemon.plugins.xsettings antialiasing 'rgba'
 gsettings set org.gnome.settings-daemon.plugins.xsettings hinting 'slight'
 
