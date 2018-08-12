@@ -36,10 +36,11 @@ Plug 'airblade/vim-gitgutter'
 Plug 'mhinz/vim-signify'
 " Plug 'cocopon/iceberg.vim'
 " Plug 'junegunn/seoul256.vim'
-Plug 'chriskempson/base16-vim'
-" Plug 'morhetz/gruvbox'
+" Plug 'chriskempson/base16-vim'
+Plug 'morhetz/gruvbox'
 " Plug 'joshdick/onedark.vim'
 " Plug 'atelierbram/Base2Tone-vim'
+" Plug 'arcticicestudio/nord-vim'
 Plug 'tpope/vim-eunuch'
 Plug 'sheerun/vim-polyglot'
 Plug 'Firef0x/PKGBUILD.vim'
@@ -57,10 +58,12 @@ set termguicolors
 set background=dark
 let g:seoul256_srgb = 1
 let base16colorspace=256
-let g:gruvbox_italic = 1
+let g:gruvbox_italic = 0
 let g:onedark_terminal_italics = 1
+let g:nord_italic = 1
+let g:nord_comment_brightness = 15
 try
-    colorscheme base16-oceanicnext
+    colorscheme gruvbox
 catch
     colorscheme desert
 endtry
@@ -92,7 +95,7 @@ set expandtab
 
 " plugins: -------------------------------------------------------------
 let g:lightline = {
-            \ 'colorscheme': 'material',
+            \ 'colorscheme': 'gruvbox',
             \ 'active': {
             \ 'left': [[ 'mode', 'paste' ], [ 'gitbranch', 'readonly', 'filename', 'modified' ]]
             \ },
