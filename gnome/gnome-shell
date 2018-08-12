@@ -29,7 +29,7 @@ gsettings set org.gnome.desktop.interface clock-show-date true
 gsettings set org.gnome.shell.app-switcher current-workspace-only true
 
 # Input Devices
-gsettings set org.gnome.desktop.peripherals.touchpad natural-scroll false
+gsettings set org.gnome.desktop.peripherals.touchpad natural-scroll true
 gsettings set org.gnome.desktop.peripherals.touchpad tap-to-click true
 gsettings set org.gnome.desktop.peripherals.keyboard repeat-interval 30
 gsettings set org.gnome.desktop.peripherals.keyboard delay 250
