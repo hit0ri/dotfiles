@@ -76,9 +76,11 @@ function precmd {
   fi
 }
 
-function preexec {
-  # Print running command to the window title
-  print -Pn '\e]2;<%*> $1\a'
+preexec() {
+    # Print running command to the window title
+    print -n  -- '\e]2;'
+    print -Pn -- '%* - '
+    print -n  -- "$1\a"
 }
 
 
