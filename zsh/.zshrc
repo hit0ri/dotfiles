@@ -60,20 +60,20 @@ PROMPT+='${VIRTUAL_ENV:+"%F{yellow}${VIRTUAL_ENV##*/}%f "}'
 PROMPT+='%F{white}%(1j.[%j] .)%f'
 PROMPT+='%(?.%F{green}.%F{red})%#%f '
 
-function precmd {
-  # Print current directory to the window title
-  print -Pn '\e]2;%1d\a'
+precmd() {
+    # Print current directory to the window title
+    print -Pn -- '\e]2;%1d\a'
 
-  prompt_length=$(( COLUMNS / 2 - 10 ))
+    (( prompt_length = COLUMNS / 2 - 10 ))
 
-  if hash git &> /dev/null; then
-    if git rev-parse --is-inside-work-tree &> /dev/null; then
-      # Get the current branch name
-      branch=$(git rev-parse --abbrev-ref HEAD 2> /dev/null)
-    else
-      unset repo branch
+    if hash git &> /dev/null; then
+        if git rev-parse --is-inside-work-tree &> /dev/null; then
+            # Get the current branch name
+            branch=$(git rev-parse --abbrev-ref HEAD 2> /dev/null)
+        else
+            unset repo branch
+        fi
     fi
-  fi
 }
 
 preexec() {
@@ -172,16 +172,16 @@ alias help='run-help'
 
 # antibody
 if [[ -f ~/.antibody-bundles ]]; then
-  if hash antibody &> /dev/null; then
-    antibody bundle < ~/.antibody-bundles > ~/.zbundles
-  fi
+    if hash antibody &> /dev/null; then
+        antibody bundle < ~/.antibody-bundles > ~/.zbundles
+    fi
 fi
 [[ -f ~/.zbundles ]] && . ~/.zbundles
 
 compinit
 
 if [[ -f /usr/share/fzf/shell/key-bindings.zsh ]]; then
-  . /usr/share/fzf/shell/key-bindings.zsh
+    . /usr/share/fzf/shell/key-bindings.zsh
 fi
 
 # Colors for ls
