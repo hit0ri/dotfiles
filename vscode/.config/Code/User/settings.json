@@ -1,13 +1,15 @@
 {
-  "editor.cursorBlinking": "solid",
-  "editor.fontFamily": "'Source Code Pro', 'monospace', monospace, 'Droid Sans Fallback', 'Noto Color Emoji'",
+  "breadcrumbs.enabled": true,
+  "editor.fontFamily": "'Fira Mono', 'monospace', monospace, 'Droid Sans Fallback', 'Noto Color Emoji'",
   "editor.fontSize": 14,
   "editor.minimap.enabled": false,
   "editor.occurrencesHighlight": false,
   "editor.renderLineHighlight": "gutter",
   "files.associations": {
-    "inventory": "ini",
-    "Vagrantfile": "ruby"
+    "Vagrantfile": "ruby",
+    ".vagrantuser": "ruby",
+    "Vagrantfile.local": "ruby",
+    "**/*.yml": "ansible"
   },
   "files.eol": "\n",
   "files.exclude": {
@@ -37,11 +39,23 @@
   "[markdown]": {
     "files.trimTrailingWhitespace": false
   },
+  "git.autofetch": true,
+  "gitlens.advanced.telemetry.enabled": false,
+  "gitlens.blame.heatmap.enabled": false,
+  "gitlens.blame.highlight.enabled": false,
+  "gitlens.codeLens.enabled": false,
+  "gitlens.currentLine.enabled": false,
+  "gitlens.hovers.currentLine.enabled": false,
+  "gitlens.hovers.currentLine.over": "line",
+  "gitlens.hovers.enabled": false,
+  "gitlens.settings.mode": "advanced",
   "telemetry.enableCrashReporter": false,
   "telemetry.enableTelemetry": false,
-  "terminal.integrated.fontFamily": "'Source Code Pro', 'monospace', monospace, 'Droid Sans Fallback', 'Noto Color Emoji'",
+  "terminal.integrated.fontFamily": "'Fira Mono', 'monospace', monospace, 'Droid Sans Fallback', 'Noto Color Emoji'",
+  "window.titleBarStyle": "custom",
   "window.zoomLevel": 0,
   "workbench.colorTheme": "One Dark Pro",
-  "workbench.iconTheme": "vscode-icons",
+  "workbench.iconTheme": "material-icon-theme",
+  "workbench.sideBar.location": "right",
   "workbench.startupEditor": "none"
 }

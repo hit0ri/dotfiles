@@ -148,7 +148,7 @@ Fonts:
 
 ### vscode
 
-- Source Code Pro font
+- Fira Mono font
 
 ### xresources
 
