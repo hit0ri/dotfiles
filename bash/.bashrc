@@ -64,8 +64,7 @@ set_prompt() {
     fi
   fi
 
-  PS1="${TMUX:+${FG_YELLOW}t }"
-  PS1+="${SSH_TTY:+${FG_MAGENTA}\h }"
+  PS1="${SSH_TTY:+${FG_MAGENTA}\h }"
   PS1+="${FG_BLUE}\w "
   PS1+="${branch:+${FG_MAGENTA}${branch} }"
   PS1+="${VIRTUAL_ENV:+${FG_YELLOW}${VIRTUAL_ENV##*/} }"
