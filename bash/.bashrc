@@ -40,8 +40,6 @@ fi
 # PROMPT
 #
 
-PROMPT_DIRTRIM=4
-
 set_prompt() {
   local -r EXIT=$?
   local -r HAS_JOBS=$(jobs -p)
@@ -59,7 +57,6 @@ set_prompt() {
 
   if command -v git &> /dev/null; then
     if git rev-parse --is-inside-work-tree &> /dev/null; then
-      # Get the current branch name
       local -r branch=$(git rev-parse --abbrev-ref HEAD 2> /dev/null)
     fi
   fi
@@ -77,10 +74,9 @@ set_prompt() {
   PS1+="$TXT_RST"
 }
 
+PROMPT_DIRTRIM=4
 PROMPT_COMMAND="set_prompt"
-
-# show file, line number and function for xtrace mode
-export PS4='+(${BASH_SOURCE/##}:${LINENO}): ${FUNCNAME[0]:+${FUNCNAME[0]}(): }'
+PS4='+(${BASH_SOURCE/##}:${LINENO}): ${FUNCNAME[0]:+${FUNCNAME[0]}(): }'
 
 
 #
@@ -123,4 +119,5 @@ alias lsports='ss -tunalp | cat'
 
 [[ -r /usr/share/fzf/shell/key-bindings.bash ]] && . /usr/share/fzf/shell/key-bindings.bash
 [[ -r /usr/share/fzf/key-bindings.bash ]] && . /usr/share/fzf/key-bindings.bash
+
 . "$HOME/.functions.sh"
