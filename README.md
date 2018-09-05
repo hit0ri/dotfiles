@@ -44,7 +44,7 @@ Functions:
 
 Environment variables:
 
-- ripgrep
+- fd-find
 - neovim
 
 Aliases:
@@ -128,7 +128,7 @@ Fonts:
 
 - curl
 - go
-- ripgrep
+- fd-find
 
 ### polybar
 
@@ -193,7 +193,7 @@ Functions:
 
 Environment variables:
 
-- ripgrep
+- fd-find
 - neovim
 
 Aliases:
