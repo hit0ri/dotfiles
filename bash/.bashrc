@@ -26,6 +26,7 @@ HISTCONTROL=ignoreboth
 HISTTIMEFORMAT="%F %T> "
 HISTSIZE=8192
 shopt -s histappend
+shopt -s cmdhist
 
 # Line wrap on window resize
 shopt -s checkwinsize
