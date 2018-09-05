@@ -1,4 +1,5 @@
 set completion-ignore-case on
+set completion-map-case on
 set match-hidden-files off
 set menu-complete-display-prefix on
 set show-all-if-ambiguous on
