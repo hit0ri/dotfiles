@@ -16,20 +16,20 @@ paths:
   default: $albumartist/$year - $album%aunique{}/$track $title
 
 fetchart:
-  cautious: true
+  cautious: yes
   maxwidth: 600
 
 embedart:
   maxwidth: 600
 
 embedart:
-  remove_art_file: true
+  remove_art_file: yes
 
 convert:
   auto: yes
   never_convert_lossy_files: yes
   formats:
-    mp3: ffmpeg -i $source -y -vn -aq 0 $dest
+    mp3: ffmpeg -i $source -y -vn -q:a 0 $dest
 
 discogs:
   user_token: cYmqjGVgvLvPcUxsEUDDSNBSZVfmzAjGZdqARIHw
