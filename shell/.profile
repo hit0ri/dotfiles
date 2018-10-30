@@ -20,7 +20,7 @@ export BROWSER=xdg-open
 # Parevent creation of desktop files and file associations for wine applications
 export WINEDLLOVERRIDES=winemenubuilder.exe,mscoree,mshtml=
 
-# man colors
+# man (less) colors
 export PAGER=less
 export LESS=-RX
 export LESS_TERMCAP_md=$'\e[1;31m'
@@ -32,12 +32,12 @@ export LESS_TERMCAP_us=$'\e[1;4;36m'
 export LESS_TERMCAP_ue=$'\e[0m'
 export GROFF_NO_SGR=yes
 
-# sar colors
+# sar
 export S_COLORS=auto
 
 # libvirt
 export LIBVIRT_DEFAULT_URI=qemu:///system
 
 # fzf
-export FZF_DEFAULT_COMMAND='fd --type file --follow --hidden --exclude .git'
+export FZF_DEFAULT_COMMAND='fd --type file --follow --hidden --no-ignore-vcs --exclude .git'
 export FZF_CTRL_T_COMMAND=$FZF_DEFAULT_COMMAND
