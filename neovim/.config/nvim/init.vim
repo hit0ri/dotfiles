@@ -73,7 +73,6 @@ set number
 set hidden
 set linebreak
 set colorcolumn=81
-set clipboard+=unnamedplus
 set scrolloff=5
 set sidescrolloff=5
 set sidescroll=1
