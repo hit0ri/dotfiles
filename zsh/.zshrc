@@ -184,5 +184,9 @@ if [[ -f /usr/share/fzf/shell/key-bindings.zsh ]]; then
     . /usr/share/fzf/shell/key-bindings.zsh
 fi
 
+if [[ -f /usr/share/doc/fzf/examples/key-bindings.zsh ]]; then
+    . /usr/share/doc/fzf/examples/key-bindings.zsh
+fi
+
 # Colors for ls
 [[ -f $HOME/.dircolors ]] && eval "$(dircolors -b $HOME/.dircolors)"
