@@ -24,13 +24,13 @@ export WINEDLLOVERRIDES=winemenubuilder.exe,mscoree,mshtml=
 export ESC=$(printf "\e")
 export PAGER=less
 export LESS=-RX
-export LESS_TERMCAP_md="$ESC[1;31m"
-export LESS_TERMCAP_mb="$ESC[1;4;35m"
-export LESS_TERMCAP_me="$ESC[0m"
-export LESS_TERMCAP_so="$ESC[1;4;33m"
-export LESS_TERMCAP_se="$ESC[0m"
-export LESS_TERMCAP_us="$ESC[1;4;36m"
-export LESS_TERMCAP_ue="$ESC[0m"
+export LESS_TERMCAP_md="${ESC}[1;31m"
+export LESS_TERMCAP_mb="${ESC}[1;4;35m"
+export LESS_TERMCAP_me="${ESC}[0m"
+export LESS_TERMCAP_so="${ESC}[1;4;33m"
+export LESS_TERMCAP_se="${ESC}[0m"
+export LESS_TERMCAP_us="${ESC}[1;4;36m"
+export LESS_TERMCAP_ue="${ESC}[0m"
 export GROFF_NO_SGR=yes
 
 # sar
