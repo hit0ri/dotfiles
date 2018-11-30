@@ -23,8 +23,8 @@ Plug 'tpope/vim-unimpaired'
 Plug 'itchyny/lightline.vim'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'wellle/tmux-complete.vim'
+Plug 'ctrlpvim/ctrlp.vim'
 Plug 'w0rp/ale'
-Plug 'junegunn/fzf.vim'
 Plug 'wincent/ferret'
 Plug 'junegunn/vim-easy-align'
 Plug 'alvan/vim-closetag'
@@ -107,10 +107,11 @@ let g:deoplete#enable_at_startup = 1
 " --- tmux-complete.vim
 let g:tmuxcomplete#trigger = ''
 
-" --- fzf.vim
-nnoremap <c-p> :Files<cr>
-nnoremap <leader>p :Files ~<cr>
-nnoremap <leader><cr> :Buffers<cr>
+" --- ctrlp.vim
+let g:ctrpl_show_hidden = 1
+let g:ctrlp_user_command = 'fd --type f --full-path --hidden --no-ignore-vcs %s'
+nnoremap <leader>p :CtrlP ~<cr>
+nnoremap <leader><cr> :CtrlPBuffer<cr>
 
 " --- vim-easy-align
 " Exclude comments from the ignore groups
