@@ -1,11 +1,10 @@
 /*
- * Allow members of the wheel group to mount filesystems
+ * Allow members of the wheel group to manage libvirt
  * without password authentication, similar to "sudo NOPASSWD:"
  */
 
 polkit.addRule(function(action, subject) {
-    if ((action.id == "org.freedesktop.udisks2.filesystem-mount" ||
-         action.id == "org.freedesktop.udisks2.filesystem-mount-system") &&
+    if (action.id == "org.libvirt.unix.manage" &&
         subject.local &&
         subject.active &&
         subject.isInGroup("wheel")) {
