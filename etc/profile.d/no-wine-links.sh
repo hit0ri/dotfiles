@@ -1,1 +1,3 @@
-export WINEDLLOVERRIDES=winemenubuilder.exe,mscoree,mshtml=
+WINEDLLOVERRIDES=winemenubuilder.exe,mscoree,mshtml=
+
+export WINEDLLOVERRIDES
