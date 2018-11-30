@@ -1,7 +1,6 @@
 {
   "breadcrumbs.enabled": true,
-  "editor.fontFamily": "'Fira Mono', 'monospace', monospace, 'Droid Sans Fallback', 'Noto Color Emoji'",
-  "editor.fontSize": 14,
+  "editor.fontFamily": "'monospace', monospace, 'Droid Sans Fallback', 'Noto Color Emoji'",
   "editor.minimap.enabled": false,
   "editor.occurrencesHighlight": false,
   "editor.renderLineHighlight": "gutter",
@@ -51,7 +50,7 @@
   "gitlens.settings.mode": "advanced",
   "telemetry.enableCrashReporter": false,
   "telemetry.enableTelemetry": false,
-  "terminal.integrated.fontFamily": "'Fira Mono', 'monospace', monospace, 'Droid Sans Fallback', 'Noto Color Emoji'",
+  "terminal.integrated.fontFamily": "'monospace', monospace, 'Droid Sans Fallback', 'Noto Color Emoji'",
   "window.titleBarStyle": "custom",
   "window.zoomLevel": 0,
   "workbench.colorTheme": "One Dark Pro",

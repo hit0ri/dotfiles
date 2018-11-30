@@ -91,19 +91,17 @@ Enabled flags:
 
 Fonts:
 
-- Fira Mono
-- Source Sans Pro
-- Source Serif Pro
+- Arimo
+- Caladea
+- Hack
 
 ### gnome-shell
 
-- Source Code Pro font
-- [Arc](https://github.com/horst3180/arc-theme) gtk theme
-- [Papirus](https://github.com/PapirusDevelopmentTeam/papirus-icon-theme) icon theme
+- Arc gtk theme
+- Paper icon theme
 
 ### i3
 
-- Source Code Pro font
 - rofi
 - pactl
 - scrot
@@ -138,18 +136,10 @@ Fonts:
 
 Fonts:
 
-- Source Code Pro
 - Unifont
 - Wuncon Siji
 
-### subl3
-
-- Source Code Pro font
-
 ### vscode
-
-- Fira Mono font
-
 
 Install extensions:
 
@@ -173,7 +163,6 @@ code --list-extensions | xargs -L1 echo code --install-extension
 
 ### xresources
 
-- Source Code Pro font
 - Noto fonts
 - DejaVu fonts
 
