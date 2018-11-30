@@ -8,7 +8,7 @@
     "Vagrantfile": "ruby",
     ".vagrantuser": "ruby",
     "Vagrantfile.local": "ruby",
-    "**/*.yml": "ansible"
+    "Dockerfile-*": "dockerfile"
   },
   "files.eol": "\n",
   "files.exclude": {
