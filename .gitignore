@@ -24,3 +24,7 @@
 # tmux
 **/tmux/.tmux/plugins/
 **/tmux/.tmux/resurrect/
+
+# vscode
+**/vscode/
+!**/vscode/.config/Code/User/settings.json
