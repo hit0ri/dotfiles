@@ -52,8 +52,7 @@ zstyle ':completion:*functions' ignored-patterns '_*'
 # Disable default venv prompt
 export VIRTUAL_ENV_DISABLE_PROMPT=1
 
-PROMPT='${TMUX:+"%F{yellow}t%f "}'
-PROMPT+='%F{magenta}${SSH_TTY:+%m%f }'
+PROMPT='%F{magenta}${SSH_TTY:+%m%f }'
 PROMPT+='%F{blue}%${prompt_length}<…<%~%<<%f '
 PROMPT+='${branch:+"%F{magenta}${branch}%f "}'
 PROMPT+='${VIRTUAL_ENV:+"%F{yellow}${VIRTUAL_ENV##*/}%f "}'
