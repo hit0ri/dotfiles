@@ -55,7 +55,12 @@
   "window.zoomLevel": 0,
   "workbench.sideBar.location": "right",
   "workbench.startupEditor": "none",
-  "workbench.colorTheme": "Dracula",
+  "workbench.colorTheme": "Nord",
   "gitlens.showWhatsNewAfterUpgrades": false,
-  "workbench.iconTheme": "material-icon-theme"
+  "workbench.iconTheme": "material-icon-theme",
+  "editor.tokenColorCustomizations": {
+    "[Nord]": {
+        "comments": "#6d7a96"
+    }
+  }
 }
