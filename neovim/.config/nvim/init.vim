@@ -34,7 +34,7 @@ Plug 'ntpeters/vim-better-whitespace'
 Plug 'AndrewRadev/splitjoin.vim'
 Plug 'airblade/vim-gitgutter'
 Plug 'mhinz/vim-signify'
-Plug 'dracula/vim', { 'as': 'dracula' }
+Plug 'arcticicestudio/nord-vim'
 Plug 'fcpg/vim-complimentary'
 Plug 'tpope/vim-eunuch'
 Plug 'sheerun/vim-polyglot'
@@ -51,8 +51,14 @@ call plug#end()
 " basic settings: ------------------------------------------------------
 set termguicolors
 set background=dark
+let g:nord_italic = 1
+let g:nord_italic_comments = 1
+let g:nord_underline = 1
+let g:nord_comment_brightness = 15
+let g:nord_cursor_line_number_background = 1
+let g:nord_uniform_diff_background = 1
 try
-    colorscheme dracula
+    colorscheme nord
 catch
     colorscheme desert
 endtry
@@ -85,7 +91,7 @@ set directory=/tmp//
 
 " plugins: -------------------------------------------------------------
 let g:lightline = {
-            \ 'colorscheme': 'Dracula',
+            \ 'colorscheme': 'nord',
             \ 'active': {
             \ 'left': [[ 'mode', 'paste' ], [ 'gitbranch', 'readonly', 'filename', 'modified' ]]
             \ },
