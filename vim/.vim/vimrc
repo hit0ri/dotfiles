@@ -11,6 +11,7 @@ endif
 " vim-plug: ------------------------------------------------------------
 call plug#begin('~/.vim/plugged')
 
+Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-commentary'
 "Plug 'tpope/vim-endwise'  " conflicts with ncm2
 Plug 'tpope/vim-fugitive'
