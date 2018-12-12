@@ -10,10 +10,10 @@ export GOPATH
 npm_config_prefix=$HOME/.node_modules
 export npm_config_prefix
 
-EDITOR=nvim
-VISUAL=nvim
-DIFFPROG='nvim -d'
-SUDO_EDITOR=nvim
+EDITOR=vim
+VISUAL=vim
+DIFFPROG='vim -d'
+SUDO_EDITOR=vim
 export EDITOR VISUAL DIFFPROG SUDO_EDITOR
 
 # readline
