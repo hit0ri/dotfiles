@@ -12,7 +12,7 @@ endif
 call plug#begin('~/.vim/plugged')
 
 Plug 'tpope/vim-commentary'
-Plug 'tpope/vim-endwise'
+"Plug 'tpope/vim-endwise'  " conflicts with ncm2
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-rhubarb'
@@ -21,8 +21,16 @@ Plug 'tpope/vim-speeddating'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-unimpaired'
 Plug 'itchyny/lightline.vim'
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'wellle/tmux-complete.vim'
+Plug 'roxma/nvim-yarp'
+Plug 'roxma/vim-hug-neovim-rpc'
+Plug 'ncm2/ncm2'
+Plug 'ncm2/ncm2-bufword'
+Plug 'ncm2/ncm2-tmux'
+Plug 'ncm2/ncm2-path'
+Plug 'autozimu/LanguageClient-neovim', {
+    \ 'branch': 'next',
+    \ 'do': 'bash install.sh',
+    \ }
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'w0rp/ale'
 Plug 'wincent/ferret'
@@ -35,7 +43,6 @@ Plug 'AndrewRadev/splitjoin.vim'
 Plug 'airblade/vim-gitgutter'
 Plug 'mhinz/vim-signify'
 Plug 'arcticicestudio/nord-vim'
-Plug 'fcpg/vim-complimentary'
 Plug 'tpope/vim-eunuch'
 Plug 'sheerun/vim-polyglot'
 Plug 'Firef0x/PKGBUILD.vim'
@@ -78,7 +85,6 @@ set shortmess+=I
 set mouse=h
 set path+=**
 set updatetime=500
-set completeopt+=menuone,longest,noinsert,noselect
 set shortmess+=c
 set noshowmode
 set guicursor=
@@ -108,17 +114,19 @@ let g:ale_echo_msg_error_str = 'E'
 let g:ale_echo_msg_warning_str = 'W'
 let g:ale_echo_msg_format = '[%linter%] [%severity%] %s'
 
-" --- deoplete.nvim
-let g:deoplete#enable_at_startup = 1
-
-" --- tmux-complete.vim
-let g:tmuxcomplete#trigger = ''
-
 " --- ctrlp.vim
 let g:ctrpl_show_hidden = 1
 let g:ctrlp_user_command = 'fd --type f --full-path --hidden --no-ignore-vcs %s'
 nnoremap <leader>p :CtrlP ~<cr>
 nnoremap <leader><cr> :CtrlPBuffer<cr>
+
+" --- ncm2
+autocmd BufEnter * call ncm2#enable_for_buffer()
+set completeopt=noinsert,menuone,noselect
+" When the <Enter> key is pressed while the popup menu is visible, it only
+" hides the menu. Use this mapping to close the menu and also start a new
+" line.
+inoremap <expr> <CR> (pumvisible() ? "\<c-y>\<cr>" : "\<CR>")
 
 " --- vim-easy-align
 " Exclude comments from the ignore groups
