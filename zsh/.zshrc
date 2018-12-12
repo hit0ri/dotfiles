@@ -160,7 +160,6 @@ alias dmesg='dmesg -exL'
 alias ip='ip --color'
 alias ips='ip --color --stats'
 
-alias vim='nvim'
 alias gap='git add --patch'
 alias gst='git status'
 alias lsports='ss -tunalp | column -t'
