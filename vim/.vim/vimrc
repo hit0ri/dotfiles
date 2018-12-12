@@ -77,7 +77,6 @@ set smartcase
 set shortmess+=I
 set mouse=h
 set path+=**
-set inccommand=split
 set updatetime=500
 set completeopt+=menuone,longest,noinsert,noselect
 set shortmess+=c
