@@ -74,6 +74,7 @@ set sidescroll=1
 set nowrap
 set ignorecase
 set smartcase
+set shortmess+=I
 set mouse=h
 set path+=**
 set inccommand=split
