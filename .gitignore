@@ -11,10 +11,10 @@
 # mpv
 **/mpv/watch_later/
 
-# neovim
+# vim/neovim
 **/nvim/.netrwhist
-**/nvim/autoload/
-**/nvim/plugged/
+**/autoload/
+**/plugged/
 
 # sublime-text
 **/sublime-text-3/
