@@ -66,7 +66,7 @@ qrencode() {
 }
 
 twitch() {
-  mpv "https://twitch.tv/$1" &> /dev/null &
+  mpv --no-terminal "https://twitch.tv/$1" &
   disown
 }
 
