@@ -71,3 +71,7 @@ fi
 
 FZF_CTRL_T_COMMAND=$FZF_DEFAULT_COMMAND
 export FZF_CTRL_T_COMMAND
+
+# Terraform
+TF_PLUGIN_CACHE_DIR=$HOME/.terraform.d/plugin-cache
+export TF_PLUGIN_CACHE_DIR
