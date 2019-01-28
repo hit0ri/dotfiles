@@ -181,10 +181,12 @@ compinit
 
 if [[ -f /usr/share/fzf/shell/key-bindings.zsh ]]; then
     . /usr/share/fzf/shell/key-bindings.zsh
-fi
-
-if [[ -f /usr/share/doc/fzf/examples/key-bindings.zsh ]]; then
+elif [[ -f /usr/share/fzf/key-bindings.bash ]]; then
+  . /usr/share/fzf/key-bindings.bash
+elif [[ -f /usr/share/doc/fzf/examples/key-bindings.zsh ]]; then
     . /usr/share/doc/fzf/examples/key-bindings.zsh
+elif [[ -f $HOME/.fzf.zsh ]]; then
+  . $HOME/.fzf.zsh
 fi
 
 # Colors for ls
