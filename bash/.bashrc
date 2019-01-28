@@ -118,8 +118,14 @@ alias gap='git add --patch'
 alias gst='git status'
 alias lsports='ss -tunalp | cat'
 
-[[ -r /usr/share/fzf/shell/key-bindings.bash ]] && . /usr/share/fzf/shell/key-bindings.bash
-[[ -r /usr/share/fzf/key-bindings.bash ]] && . /usr/share/fzf/key-bindings.bash
-[[ -r /usr/share/doc/fzf/examples/key-bindings.bash ]] && . /usr/share/doc/fzf/examples/key-bindings.bash
+if [[ -r /usr/share/fzf/shell/key-bindings.bash ]]; then
+  . /usr/share/fzf/shell/key-bindings.bash
+elif [[ -r /usr/share/fzf/key-bindings.bash ]]; then
+  . /usr/share/fzf/key-bindings.bash
+elif [[ -r /usr/share/doc/fzf/examples/key-bindings.bash ]]; then
+  . /usr/share/doc/fzf/examples/key-bindings.bash
+elif [[ -r $HOME/.fzf.bash ]]; then
+  . $HOME/.fzf.bash
+fi
 
 . "$HOME/.functions.sh"
