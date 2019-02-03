@@ -10,16 +10,20 @@ Xft.rgba:       rgb
 
 ! XTerm settings -------------------------------------------------------------
 
-XTerm.vt100.faceName: monospace:size=10
-XTerm.vt100.faceNameDoublesize: VL Gothic:size=10
-XTerm.termName: xterm-256color
-XTerm.vt100.geometry: 84x18
-XTerm.vt100.metaSendsEscape: true
-XTerm.vt100.scrollBar: false
-XTerm.vt100.fastScroll: true
-XTerm.vt100.internalBorder: 0
-XTerm.vt100.bellIsUrgent: true
-XTerm.vt100.translations: #override \n\
+XTerm*bellIsUrgent: true
+XTerm*borderWidth: 0
+XTerm*faceName: monospace:size=10
+XTerm*faceNameDoublesize: VL Gothic:size=10
+XTerm*fastScroll: true
+XTerm*geometry: 84x18
+XTerm*internalBorder: 0
+XTerm*jumpScroll: true
+XTerm*metaSendsEscape: true
+XTerm*multiScroll: true
+XTerm*saveLines: 10000
+XTerm*scrollBar: false
+XTerm*termName: xterm-256color
+XTerm*translations: #override \n\
     Ctrl Shift <Key>C: copy-selection(CLIPBOARD) \n\
     Ctrl Shift <Key>V: insert-selection(CLIPBOARD)
 
