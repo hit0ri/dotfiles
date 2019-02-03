@@ -53,53 +53,52 @@ URxvt*keysym.Shift-Control-C: perl:clipboard:copy
 URxvt*keysym.Shift-Control-V: perl:clipboard:paste
 
 ! Colors ---------------------------------------------------------------------
-! Base16 OceanicNext
-! Scheme: https://github.com/voronianski/oceanic-next-color-scheme
-
-#define base00 #1b2b34
-#define base01 #343d46
-#define base02 #4f5b66
-#define base03 #65737e
-#define base04 #a7adba
-#define base05 #c0c5ce
-#define base06 #cdd3de
-#define base07 #d8dee9
-#define base08 #ec5f67
-#define base09 #f99157
-#define base0A #fac863
-#define base0B #99c794
-#define base0C #5fb3b3
-#define base0D #6699cc
-#define base0E #c594c5
-#define base0F #ab7967
-
-*foreground:   base05
-#ifdef background_opacity
-*background:   [background_opacity]base00
-#else
-*background:   base00
-#endif
-*cursorColor:  base05
-
-*color0:       base00
-*color1:       base08
-*color2:       base0B
-*color3:       base0A
-*color4:       base0D
-*color5:       base0E
-*color6:       base0C
-*color7:       base05
-*color8:       base03
-*color9:       base08
-*color10:      base0B
-*color11:      base0A
-*color12:      base0D
-*color13:      base0E
-*color14:      base0C
-*color15:      base07
-*color16:      base09
-*color17:      base0F
-*color18:      base01
-*color19:      base02
-*color20:      base04
-*color21:      base06
+! gruvbox
+*background: #1d2021
+*foreground: #ebdbb2
+*color0:     #282828
+*color1:     #cc241d
+*color2:     #98971a
+*color3:     #d79921
+*color4:     #458588
+*color5:     #b16286
+*color6:     #689d6a
+*color7:     #a89984
+*color8:     #928374
+*color9:     #fb4934
+*color10:    #b8bb26
+*color11:    #fabd2f
+*color12:    #83a598
+*color13:    #d3869b
+*color14:    #8ec07c
+*color15:    #ebdbb2
+*color24:    #076678
+*color66:    #427b58
+*color88:    #9d0006
+*color96:    #8f3f71
+*color100:   #79740e
+*color108:   #8ec07c
+*color109:   #83a598
+*color130:   #af3a03
+*color136:   #b57614
+*color142:   #b8bb26
+*color167:   #fb4934
+*color175:   #d3869b
+*color208:   #fe8019
+*color214:   #fabd2f
+*color223:   #ebdbb2
+*color228:   #f2e5bc
+*color229:   #fbf1c7
+*color230:   #f9f5d7
+*color234:   #1d2021
+*color235:   #282828
+*color236:   #32302f
+*color237:   #3c3836
+*color239:   #504945
+*color241:   #665c54
+*color243:   #7c6f64
+*color244:   #928374
+*color245:   #928374
+*color246:   #a89984
+*color248:   #bdae93
+*color250:   #d5c4a1
