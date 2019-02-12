@@ -62,15 +62,16 @@ export LIBVIRT_DEFAULT_URI
 
 # fzf
 if [[ -f /etc/debian_version ]]; then
-  FZF_DEFAULT_COMMAND="fdfind --type file --follow --hidden --no-ignore-vcs --exclude .git"
-  export FZF_DEFAULT_COMMAND
+  _FZF_COMMAND=fdfind
 else
-  FZF_DEFAULT_COMMAND="fd --type file --follow --hidden --no-ignore-vcs --exclude .git"
-  export FZF_DEFAULT_COMMAND
+  _FZF_COMMAND=fd
 fi
-
+FZF_DEFAULT_COMMAND="${_FZF_COMMAND} --type file --follow --hidden --no-ignore-vcs --exclude .git"
 FZF_CTRL_T_COMMAND=$FZF_DEFAULT_COMMAND
-export FZF_CTRL_T_COMMAND
+FZF_ALT_C_COMMAND="${_FZF_COMMAND} --type directory --follow --hidden --no-ignore-vcs --exclude .git"
+export FZF_DEFAULT_COMMAND \
+       FZF_CTRL_T_COMMAND \
+       FZF_ALT_C_COMMAND
 
 # Terraform
 TF_PLUGIN_CACHE_DIR=$HOME/.terraform.d/plugin-cache
