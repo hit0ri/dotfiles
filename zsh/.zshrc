@@ -52,12 +52,12 @@ zstyle ':completion:*functions' ignored-patterns '_*'
 # Disable default venv prompt
 export VIRTUAL_ENV_DISABLE_PROMPT=1
 
-PROMPT='%F{magenta}${SSH_TTY:+%m%f }'
+PROMPT='%B%F{magenta}${SSH_TTY:+%m%f }'
 PROMPT+='%F{blue}%${prompt_length}<…<%~%<<%f '
 PROMPT+='${branch:+"%F{magenta}${branch}%f "}'
 PROMPT+='${VIRTUAL_ENV:+"%F{yellow}${VIRTUAL_ENV##*/}%f "}'
 PROMPT+='%F{white}%(1j.[%j] .)%f'
-PROMPT+='%(?.%F{green}.%F{red})%#%f '
+PROMPT+='%(?.%F{green}.%F{red})%#%f%b '
 
 precmd() {
     # Print current directory to the window title
