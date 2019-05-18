@@ -34,7 +34,7 @@ Plug 'ntpeters/vim-better-whitespace'
 Plug 'AndrewRadev/splitjoin.vim'
 Plug 'airblade/vim-gitgutter'
 Plug 'mhinz/vim-signify'
-Plug 'morhetz/gruvbox'
+Plug 'arcticicestudio/nord-vim'
 Plug 'fcpg/vim-complimentary'
 Plug 'tpope/vim-eunuch'
 Plug 'sheerun/vim-polyglot'
@@ -57,10 +57,8 @@ let g:nord_underline = 1
 let g:nord_comment_brightness = 15
 let g:nord_cursor_line_number_background = 1
 let g:nord_uniform_diff_background = 1
-let g:gruvbox_italic = 1
-let g:gruvbox_contrast_dark = 'hard'
 try
-    colorscheme gruvbox
+    colorscheme nord
 catch
     colorscheme desert
 endtry
@@ -93,7 +91,7 @@ set directory=/tmp//
 
 " plugins: -------------------------------------------------------------
 let g:lightline = {
-            \ 'colorscheme': 'gruvbox',
+            \ 'colorscheme': 'nord',
             \ 'active': {
             \ 'left': [[ 'mode', 'paste' ], [ 'gitbranch', 'readonly', 'filename', 'modified' ]]
             \ },
