@@ -24,6 +24,9 @@ Plug 'itchyny/lightline.vim'
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'wellle/tmux-complete.vim'
 Plug 'w0rp/ale'
+if !empty(glob('/etc/debian_version'))
+    Plug '/usr/share/doc/fzf/examples'
+endif
 Plug 'junegunn/fzf.vim'
 Plug 'wincent/ferret'
 Plug 'junegunn/vim-easy-align'
