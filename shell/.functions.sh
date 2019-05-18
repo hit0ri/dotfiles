@@ -18,31 +18,18 @@ mkdirf() {
 
 # Create paste from stdin or file
 pb() {
-  curl -sF "c=@${1:--}" 'https://ptpb.pw/'
+  curl -sF "file=@${1:--}" 'https://0x0.st'
 }
 
 # Create paste from stdin or file and copy url to the clipboard
 pbc() {
-  curl -sF "c=@${1:--}" \
-       -o /dev/stderr \
-       -w "%{redirect_url}" 'https://ptpb.pw/?r=1' \
+  curl -sF "file=@${1:--}" 'https://0x0.st' \
     | xsel -l /dev/null -b
-}
-
-# Create expiring paste from stdin or file.
-# Default paste lifetime is 30 minutes (1800 seconds)
-pbe() {
-  curl -sF "c=@${1:--}" -F "sunset=${2:-1800}" 'https://ptpb.pw/'
-}
-
-# Create paste from stdin or file (base66 id)
-pbp() {
-  curl -sF "c=@${1:--}" -F "p=1" 'https://ptpb.pw/'
 }
 
 # Create paste from selected text
 pbs() {
-  xsel -l /dev/null -p -o | curl -sF "c=@-" 'https://ptpb.pw/'
+  xsel -l /dev/null -p -o | curl -sF "file=@-" 'https://0x0.st'
 }
 
 # Create paste from ascinema and copy url to the clipboard
@@ -51,10 +38,8 @@ pba() {
 
   asciinema rec "${recfile}"
 
-  curl -sF "c=@${recfile}" \
-       -o /dev/stderr \
-       -w "%{redirect_url}" 'https://ptpb.pw/?r=1' \
-    | sed 's|w/|w/t/|' \
+  curl -sF "file=@${recfile}" \
+       -w "%{redirect_url}" 'https://0x0.st' \
     | xsel -l /dev/null -b
 
   rm "${recfile}"
