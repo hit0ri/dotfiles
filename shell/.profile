@@ -28,29 +28,13 @@ export BROWSER
 WINEDLLOVERRIDES=winemenubuilder.exe,mscoree,mshtml=
 export WINEDLLOVERRIDES
 
-# man (less) colors
-_esc=$(printf '\e')
+# man (less)
 PAGER=less
 LESS=-RX
-LESS_TERMCAP_md="${_esc}[1;31m"
-LESS_TERMCAP_mb="${_esc}[1;4;35m"
-LESS_TERMCAP_me="${_esc}[0m"
-LESS_TERMCAP_so="${_esc}[1;4;33m"
-LESS_TERMCAP_se="${_esc}[0m"
-LESS_TERMCAP_us="${_esc}[1;4;36m"
-LESS_TERMCAP_ue="${_esc}[0m"
 GROFF_NO_SGR=yes
 export PAGER \
        LESS \
-       LESS_TERMCAP_md \
-       LESS_TERMCAP_mb \
-       LESS_TERMCAP_me \
-       LESS_TERMCAP_so \
-       LESS_TERMCAP_se \
-       LESS_TERMCAP_us \
-       LESS_TERMCAP_ue \
        GROFF_NO_SGR
-unset _esc
 
 # sar
 S_COLORS=auto
