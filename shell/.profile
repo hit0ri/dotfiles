@@ -40,7 +40,6 @@ LESS_TERMCAP_se="${_esc}[0m"
 LESS_TERMCAP_us="${_esc}[1;4;36m"
 LESS_TERMCAP_ue="${_esc}[0m"
 GROFF_NO_SGR=yes
-unset _esc
 export PAGER \
        LESS \
        LESS_TERMCAP_md \
@@ -51,6 +50,7 @@ export PAGER \
        LESS_TERMCAP_us \
        LESS_TERMCAP_ue \
        GROFF_NO_SGR
+unset _esc
 
 # sar
 S_COLORS=auto
