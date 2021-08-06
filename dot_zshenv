@@ -1,4 +1,5 @@
 [[ -r ~/.profile ]] && . ~/.profile
 
 typeset -U PATH path
-path=($path ~/.local/bin ~/go/bin ~/.cargo/bin ~/.node_modules/bin)
+path=($path ~/.local/bin ~/go/bin ~/.cargo/bin ~/.node_modules/bin /usr/local/opt/mysql-client/bin)
+fpath=($fpath $HOME/.local/share/zsh/site-functions)

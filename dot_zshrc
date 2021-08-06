@@ -37,11 +37,15 @@ WORDCHARS='*?_[]~&;!#$%^(){}<>'
 
 
 
+
+autoload -Uz compinit
+compinit
+
 autoload -Uz bashcompinit
 bashcompinit
 
-autoload -Uz compinit
-complete -C 'aws_completer' aws
+complete -C /usr/local/bin/terraform terraform
+
 zmodload zsh/complist
 
 zstyle ':completion:*'          verbose true
@@ -145,25 +149,21 @@ alias ...='cd ../../'
 alias ....='cd ../../../'
 alias .....='cd ../../../../'
 
-alias rm='rm -vI'
+alias rm='rm -v'
 alias cp='cp -vi'
 alias mv='mv -vi'
 alias ln='ln -vi'
 alias mkdir='mkdir -v'
-
-alias chmod='chmod -c --preserve-root'
-alias chown='chown -c --preserve-root'
-alias chgrp='chgrp -c --preserve-root'
 
 alias grep='grep --color=auto'
 alias egrep='egrep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias zgrep='zgrep --color=auto'
 
-alias ls='ls --color=auto --show-control-chars --group-directories-first -XF'
-alias ll='ls --color=auto --show-control-chars --group-directories-first -lXF'
-alias lsa='ls --color=auto --show-control-chars --group-directories-first -AXF'
-alias lla='ls --color=auto --show-control-chars --group-directories-first -AlXF'
+alias ls='ls -F'
+alias ll='ls -lF'
+alias lsa='ls -AF'
+alias lla='ls -AlF'
 
 alias dmesg='dmesg -exL'
 alias ip='ip --color'
@@ -186,8 +186,6 @@ if [[ -f ~/.antibody-bundles ]]; then
 fi
 [[ -f ~/.zbundles ]] && . ~/.zbundles
 
-fpath=($fpath $HOME/.local/share/zsh/site-functions)
-compinit
 
 if [[ -f /usr/share/fzf/shell/key-bindings.zsh ]]; then
     . /usr/share/fzf/shell/key-bindings.zsh
@@ -199,11 +197,8 @@ elif [[ -f $HOME/.fzf.zsh ]]; then
   . $HOME/.fzf.zsh
 fi
 
-#[[ -f $HOME/.gopass.sh ]] && . $HOME/.gopass.sh
-[[ -f /usr/share/google-cloud-sdk/completion.zsh.inc ]] && . /usr/share/google-cloud-sdk/completion.zsh.inc
-
 # Colors for ls
-[[ -f $HOME/.dircolors ]] && eval "$(dircolors -b $HOME/.dircolors)"
+#[[ -f $HOME/.dircolors ]] && eval "$(dircolors -b $HOME/.dircolors)"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
