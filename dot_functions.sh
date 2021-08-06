@@ -70,3 +70,11 @@ twitch() {
 wttr() {
   curl -s "https://wttr.in/${1}?m"
 }
+
+p() {
+  gopass show -c $(gopass ls --flat | fzf --query="$1")
+}
+
+gi() {
+  curl -sLw '\n' https://www.toptal.com/developers/gitignore/api/$@
+}
