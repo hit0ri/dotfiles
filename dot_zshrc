@@ -10,13 +10,14 @@ setopt auto_cd \
        complete_aliases \
        no_nomatch \
        extended_glob \
+       share_history \
        hist_fcntl_lock \
+       hist_find_no_dups \
        hist_ignore_all_dups \
        hist_ignore_space \
        hist_reduce_blanks \
        hist_save_no_dups \
        hist_verify \
-       share_history \
        interactive_comments \
        prompt_subst \
        no_prompt_cr \
@@ -173,6 +174,8 @@ alias vim='nvim'
 alias gap='git add --patch'
 alias gst='git status'
 alias lsports='ss -tunalp | column -t'
+alias dig='dig +noall +answer'
+alias mysql_qa_stardust="mysql --defaults-group-suffix=qa_stardust"
 
 # BASH-like help
 autoload -Uz run-help
@@ -190,11 +193,15 @@ fi
 if [[ -f /usr/share/fzf/shell/key-bindings.zsh ]]; then
     . /usr/share/fzf/shell/key-bindings.zsh
 elif [[ -f /usr/share/fzf/key-bindings.bash ]]; then
-  . /usr/share/fzf/key-bindings.bash
+    . /usr/share/fzf/key-bindings.bash
 elif [[ -f /usr/share/doc/fzf/examples/key-bindings.zsh ]]; then
     . /usr/share/doc/fzf/examples/key-bindings.zsh
 elif [[ -f $HOME/.fzf.zsh ]]; then
-  . $HOME/.fzf.zsh
+    . $HOME/.fzf.zsh
+fi
+
+if [[ -f "$(brew --prefix)/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc" ]]; then
+    . "$(brew --prefix)/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.zsh.inc"
 fi
 
 # Colors for ls

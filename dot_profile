@@ -1,8 +1,9 @@
 # .profile
 
 
-PATH=$PATH:$HOME/.local/bin:$HOME/go/bin:$HOME/.cargo/bin:$HOME/.node_modules/bin
+PATH=$PATH:/usr/local/opt/libpq/bin:$HOME/.local/bin:$HOME/go/bin:$HOME/.cargo/bin:$HOME/.node_modules/bin
 export PATH
+
 
 GOPATH=$HOME/go
 export GOPATH
@@ -33,11 +34,13 @@ export WINEDLLOVERRIDES
 
 # man (less)
 PAGER=less
-LESS='--quit-if-one-screen --ignore-case --status-column --LONG-PROMPT --RAW-CONTROL-CHARS --tabs=4 --no-init'
+LESS='--quit-if-one-screen --ignore-case --LONG-PROMPT --RAW-CONTROL-CHARS --tabs=4 --no-init'
 GROFF_NO_SGR=yes
+AWS_PAGER=
 export PAGER \
        LESS \
-       GROFF_NO_SGR
+       GROFF_NO_SGR \
+       AWS_PAGER
 
 # sar
 S_COLORS=auto
@@ -83,3 +86,5 @@ export HOMEBREW_NO_ANALYTICS
 HOMEBREW_BUNDLE_FILE=~/.brewfile
 export HOMEBREW_BUNDLE_FILE
 
+# HOMEBREW_NO_AUTO_UPDATE=1
+# export HOMEBREW_NO_AUTO_UPDATE
