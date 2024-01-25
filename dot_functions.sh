@@ -1,6 +1,5 @@
 # .functions.sh
 
-
 cdl() {
   cd "$1" && ls
 }
@@ -35,8 +34,8 @@ pb() {
 
 # Create paste from stdin or file and copy url to the clipboard
 pbc() {
-  curl -sF "file=@${1:--}" 'https://0x0.st' \
-    | xsel -l /dev/null -b
+  curl -sF "file=@${1:--}" 'https://0x0.st' |
+    xsel -l /dev/null -b
 }
 
 # Create paste from selected text
@@ -51,8 +50,8 @@ pba() {
   asciinema rec "${recfile}"
 
   curl -sF "file=@${recfile}" \
-       -w "%{redirect_url}" 'https://0x0.st' \
-    | xsel -l /dev/null -b
+    -w "%{redirect_url}" 'https://0x0.st' |
+    xsel -l /dev/null -b
 
   rm "${recfile}"
 }
@@ -72,9 +71,32 @@ wttr() {
 }
 
 p() {
-  gopass show -c $(gopass ls --flat | fzf --query="$1")
+  gopass show -n $(gopass ls --flat | fzf --query="$1") | perl -p -e 'chomp if eof' | pbcopy
 }
 
 gi() {
   curl -sLw '\n' https://www.toptal.com/developers/gitignore/api/$@
+}
+
+b64() {
+  echo -n "$1" | base64
+}
+
+aws_profile() {
+  if [[ $1 == "unset" ]]; then
+    unset AWS_PROFILE
+  else
+    export AWS_PROFILE=$(sed -n "s/\[profile \(.*\)\]/\1/gp" ~/.aws/config | fzf --query="$1")
+  fi
+}
+
+httping() {
+  while :; do
+    curl --write-out "%{url_effective} - %{response_code} - %{time_total} - $(date +%T)\n" --silent --output /dev/null -L "$1"
+  done
+}
+
+jdk() {
+  export JAVA_HOME=$(/usr/libexec/java_home -v"$1")
+  java -version
 }
