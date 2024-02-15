@@ -26,6 +26,9 @@ zstyle ':z4h:autosuggestions' forward-char 'accept'
 # Recursively traverse directories when TAB-completing files.
 zstyle ':z4h:fzf-complete' recurse-dirs 'yes'
 
+# Enable fzf fuzziness
+zstyle ':z4h:*' fzf-flags --no-exact
+
 # Enable direnv to automatically source .envrc files.
 zstyle ':z4h:direnv'         enable 'no'
 # Show "loading" and "unloading" notifications from direnv.
@@ -110,8 +113,9 @@ compdef _directories md
 alias tree='tree -a -I .git'
 
 # Add flags to existing aliases.
-alias ls="${aliases[ls]:-gls} -A --color=auto"
-alias ll="${aliases[ls]:-gls} -l"
+alias ls="${aliases[ls]:-gls} --color=auto"
+alias lsa="${aliases[ls]:-gls} -A --color=auto"
+alias ll="${aliases[ls]:-gls} -l --color=auto"
 
 alias ..='cd ../'
 alias ...='cd ../../'
@@ -139,6 +143,8 @@ alias gst="${aliases[git]:-git} status"
 alias lsports="${aliases[ss]:-ss} -tunalp | column -t"
 alias dig="${aliases[dig]:-dig} +noall +answer"
 alias k="${aliases[kubectl]:-kubectl}"
+alias jq="${aliases[jaq]:-jaq}"
+alias lg="${aliases[lazygit]:-lazygit}"
 
 # Set shell options: http://zsh.sourceforge.net/Doc/Release/Options.html.
 setopt glob_dots     # no special treatment for file names with a leading dot
