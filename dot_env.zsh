@@ -82,3 +82,5 @@ export HOMEBREW_BUNDLE_FILE=~/.brewfile
 export USE_GKE_GCLOUD_AUTH_PLUGIN=True
 
 export VOLTA_HOME=~/.volta
+
+export BUILDKIT_PROGRESS=plain
