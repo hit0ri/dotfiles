@@ -50,14 +50,42 @@ export FZF_ALT_C_COMMAND="${_FZF_COMMAND} --type directory --follow --hidden --n
 # 	--color=fg+:#c0caf5,bg+:#1a1b26,hl+:#7dcfff
 # 	--color=info:#7aa2f7,prompt:#7dcfff,pointer:#7dcfff
 # 	--color=marker:#9ece6a,spinner:#9ece6a,header:#9ece6a'
-#
-# Dracula
+
+# Catppuccin Frappé
 # FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS'
-# --color=fg:#f8f8f2,bg:#282a36,hl:#bd93f9
-# --color=fg+:#f8f8f2,bg+:#44475a,hl+:#bd93f9
-# --color=info:#ffb86c,prompt:#50fa7b,pointer:#ff79c6
-# --color=marker:#ff79c6,spinner:#ffb86c,header:#6272a4'
-# export FZF_DEFAULT_OPTS
+#   --color=bg+:#414559,bg:#303446,spinner:#f2d5cf,hl:#e78284
+#   --color=fg:#c6d0f5,header:#e78284,info:#ca9ee6,pointer:#f2d5cf
+#   --color=marker:#f2d5cf,fg+:#c6d0f5,prompt:#ca9ee6,hl+:#e78284'
+
+# Catppuccin Mocha
+FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS'
+  --color=bg+:#313244,bg:#1e1e2e,spinner:#f5e0dc,hl:#f38ba8
+  --color=fg:#cdd6f4,header:#f38ba8,info:#cba6f7,pointer:#f5e0dc
+  --color=marker:#f5e0dc,fg+:#cdd6f4,prompt:#cba6f7,hl+:#f38ba8'
+
+# Catppuccin Macchiato
+# FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS'
+#   --color=bg+:#363a4f,bg:#24273a,spinner:#f4dbd6,hl:#ed8796
+#   --color=fg:#cad3f5,header:#ed8796,info:#c6a0f6,pointer:#f4dbd6
+#   --color=marker:#f4dbd6,fg+:#cad3f5,prompt:#c6a0f6,hl+:#ed8796'
+
+# Rose-Pine
+# FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS'
+#   --color=fg:#908caa,bg:#191724,hl:#ebbcba
+#   --color=fg+:#e0def4,bg+:#26233a,hl+:#ebbcba
+#   --color=border:#403d52,header:#31748f,gutter:#191724
+#   --color=spinner:#f6c177,info:#9ccfd8
+#   --color=pointer:#c4a7e7,marker:#eb6f92,prompt:#908caa'
+
+# Rose-Pine Moon
+# FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS'
+# 	--color=fg:#908caa,bg:#232136,hl:#ea9a97
+# 	--color=fg+:#e0def4,bg+:#393552,hl+:#ea9a97
+# 	--color=border:#44415a,header:#3e8fb0,gutter:#232136
+# 	--color=spinner:#f6c177,info:#9ccfd8
+# 	--color=pointer:#c4a7e7,marker:#eb6f92,prompt:#908caa'
+
+export FZF_DEFAULT_OPTS
 
 # Terraform
 export TF_PLUGIN_CACHE_DIR=~/.terraform.d/plugin-cache

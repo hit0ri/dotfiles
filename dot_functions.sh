@@ -13,14 +13,14 @@ ipinfo() {
 }
 
 man() {
-  LESS_TERMCAP_md=$'\e[1;31m'   \
-  LESS_TERMCAP_mb=$'\e[1;4;35m' \
-  LESS_TERMCAP_me=$'\e[0m'      \
-  LESS_TERMCAP_so=$'\e[1;4;33m' \
-  LESS_TERMCAP_se=$'\e[0m'      \
-  LESS_TERMCAP_us=$'\e[1;4;36m' \
-  LESS_TERMCAP_ue=$'\e[0m'      \
-  command man "$@"
+  LESS_TERMCAP_md=$'\e[1;31m' \
+    LESS_TERMCAP_mb=$'\e[1;4;35m' \
+    LESS_TERMCAP_me=$'\e[0m' \
+    LESS_TERMCAP_so=$'\e[1;4;33m' \
+    LESS_TERMCAP_se=$'\e[0m' \
+    LESS_TERMCAP_us=$'\e[1;4;36m' \
+    LESS_TERMCAP_ue=$'\e[0m' \
+    command man "$@"
 }
 
 mkdirf() {
@@ -93,6 +93,7 @@ aws_profile() {
 httping() {
   while :; do
     curl --write-out "%{url_effective} - %{response_code} - %{time_total} - $(date +%T)\n" --silent --output /dev/null -L "$1"
+    [[ -n $2 ]] && sleep "$2"
   done
 }
 

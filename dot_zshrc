@@ -27,7 +27,12 @@ zstyle ':z4h:autosuggestions' forward-char 'accept'
 zstyle ':z4h:fzf-complete' recurse-dirs 'yes'
 
 # Enable fzf fuzziness
-zstyle ':z4h:*' fzf-flags --no-exact
+# Catppuccin Mocha
+zstyle ':z4h:*' fzf-flags --no-exact '--color=hl:#f38ba8,hl+:#f38ba8'
+# Rose-Pine
+# zstyle ':z4h:*' fzf-flags --no-exact '--color=hl:#ebbcba,hl+:#ebbcba'
+# Rose-Pine Moon
+# zstyle ':z4h:*' fzf-flags --no-exact '--color=hl:#ea9a97,hl+:#ea9a97'
 
 # Enable direnv to automatically source .envrc files.
 zstyle ':z4h:direnv'         enable 'no'
@@ -132,6 +137,7 @@ alias egrep="${aliases[egrep]:-egrep} --color=auto"
 alias fgrep="${aliases[fgrep]:-fgrep} --color=auto"
 alias zgrep="${aliases[zgrep]:-zgrep} --color=auto"
 
+alias batp="${aliases[bat]:-bat} --paging=auto"
 
 alias dmesg="${aliases[dmesg]:-dmesg} -exL"
 alias ip="${aliases[ip]:-ip} --color"
@@ -145,6 +151,7 @@ alias dig="${aliases[dig]:-dig} +noall +answer"
 alias k="${aliases[kubectl]:-kubectl}"
 alias jq="${aliases[jaq]:-jaq}"
 alias lg="${aliases[lazygit]:-lazygit}"
+alias tar="${aliases[gtar]:-gtar}"
 
 # Set shell options: http://zsh.sourceforge.net/Doc/Release/Options.html.
 setopt glob_dots     # no special treatment for file names with a leading dot
