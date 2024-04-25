@@ -12,16 +12,16 @@ ipinfo() {
   ip -4 -o a | awk 'BEGIN { OFS=":\t " } { print $2, $4 }'
 }
 
-man() {
-  LESS_TERMCAP_md=$'\e[1;31m' \
-    LESS_TERMCAP_mb=$'\e[1;4;35m' \
-    LESS_TERMCAP_me=$'\e[0m' \
-    LESS_TERMCAP_so=$'\e[1;4;33m' \
-    LESS_TERMCAP_se=$'\e[0m' \
-    LESS_TERMCAP_us=$'\e[1;4;36m' \
-    LESS_TERMCAP_ue=$'\e[0m' \
-    command man "$@"
-}
+# man() {
+#   LESS_TERMCAP_md=$'\e[1;31m' \
+#     LESS_TERMCAP_mb=$'\e[1;4;35m' \
+#     LESS_TERMCAP_me=$'\e[0m' \
+#     LESS_TERMCAP_so=$'\e[1;4;33m' \
+#     LESS_TERMCAP_se=$'\e[0m' \
+#     LESS_TERMCAP_us=$'\e[1;4;36m' \
+#     LESS_TERMCAP_ue=$'\e[0m' \
+#     command man "$@"
+# }
 
 mkdirf() {
   mkdir -p "$1" && cd "$1"
