@@ -1,0 +1,21 @@
+# theme
+zmodule romkatv/powerlevel10k
+
+zmodule homebrew
+
+# FIXME: Doesn't work after a mise update
+# zmodule joke/zim-mise
+zmodule joke/zim-yq
+
+zmodule environment
+zmodule run-help
+zmodule fzf
+
+zmodule zsh-users/zsh-completions --fpath src
+zmodule zsh-users/zsh-autosuggestions
+# FIXME has broken comments for some themes
+# zmodule zsh-users/zsh-syntax-highlighting
+
+# completion must be initialized after all modules
+zmodule completion
+zmodule 99designs/aws-vault --source contrib/completions/zsh/aws-vault.zsh

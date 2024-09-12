@@ -1,0 +1,105 @@
+[user]
+	email = {{ .email }}
+	name = Taras Dyshkant
+	signingkey = {{ onepasswordRead "op://Personal/Source Signing Key/public key" }}
+
+[gpg]
+	format = ssh
+
+[gpg "ssh"]
+	program = /Applications/1Password.app/Contents/MacOS/op-ssh-sign
+	allowedSignersFile = {{ .chezmoi.homeDir }}/.ssh/allowed_signers
+
+[init]
+	defaultBranch = main
+
+[commit]
+	verbose = true
+	gpgSign = true
+
+[diff]
+	algorithm = patience
+	wsErrorHighlight = all
+  colorMoved = default
+
+[include]
+	path = ~/.catppuccin.gitconfig
+
+[delta]
+  features = catppuccin-mocha
+  dark = true
+  navigate = true
+  line-numbers = true
+  hyperlinks = true
+  hyperlinks-file-link-format = "vscode://file/{path}:{line}"
+
+[interactive]
+  diffFilter = delta --color-only --features=interactive
+
+[rerere]
+	enabled = true
+
+[branch]
+	sort = -committerdate
+
+[core]
+	commitGraph = false
+	excludesFile = {{ .chezmoi.homeDir }}/.gitignore
+  pager = delta
+
+[merge]
+    conflictstyle = diff3
+
+[pull]
+	ff = only
+
+[push]
+	default = simple
+
+[column]
+	ui = auto
+
+[log]
+	date = relative
+
+[format]
+	pretty = format:%C(bold blue)%h%C(reset) %C(green)%ad%C(reset) %s %C(dim white)%aN%C(reset) %C(yellow)%D%C(reset)
+
+[color]
+	branch = auto
+	diff = auto
+	status = auto
+
+[color "diff"]
+	meta = yellow bold
+	frag = magenta bold
+	old = red
+	new = cyan
+
+[alias]
+	pf = push --force-with-lease
+	co = checkout
+	cob = checkout -b
+	ap = add --patch
+	c = commit
+	cm = commit -m
+	ca = commit --amend
+	can = commit --amend --no-edit
+	cam = commit --amend -m
+	cloneb = clone --filter=blob:none
+	clonet = clone --filter=tree:0
+	d = diff --stat
+	ds = diff --staged --stat
+	dst = diff --staged
+	st = status -sb
+	br = branch
+	type = cat-file -t
+	dump = cat-file -p
+	last = log -1 HEAD
+	lastf = log --cc -1 HEAD
+	lastfs = log --stat --cc -1 HEAD
+	lg = log --graph --decorate
+	lgold = log --graph --decorate --abbrev-commit
+	lga = log --graph --decorate --abbrev-commit --all
+	graph = log --graph --decorate --oneline
+
