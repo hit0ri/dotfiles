@@ -1,0 +1,129 @@
+cask "iterm2"
+brew "chezmoi"
+# cask "alacritty"
+cask "wezterm"
+brew "mise"
+brew "uv"
+brew "vivid"
+brew "git"
+brew "git-delta"
+brew "tig"
+brew "git-cliff"
+brew "git-sizer"
+brew "fzf"
+brew "bfs"
+brew "fd"
+brew "ripgrep"
+brew "bat"
+brew "zellij"
+brew "tmux"
+brew "jq"
+brew "jless"
+brew "jaq"
+brew "yq"
+brew "fx"
+brew "telnet"
+brew "watch"
+brew "tree"
+brew "dos2unix"
+brew "dateutils"
+brew "ipcalc"
+brew "bcal"
+brew "hyperfine"
+brew "coreutils"
+brew "wget"
+brew "gnu-sed"
+brew "direnv"
+brew "zoxide"
+
+# Slow
+# brew "starship"
+
+brew "rustup"
+
+brew "gopass"
+brew "gopass-jsonapi"
+brew "gnupg"
+
+cask "1password"
+cask "1password-cli"
+cask "visual-studio-code"
+
+# AWS
+brew "awscli"
+cask "session-manager-plugin"
+brew "aws-vault"
+tap "aws/tap"
+brew "ec2-instance-selector"
+tap "lucagrulla/tap"
+brew "cw"
+
+# Terraform
+# brew "atmos"
+brew "terraform-docs"
+brew "tfsec"
+brew "tflint"
+brew "tfmigrate"
+brew "terragrunt"
+tap "busser/tap"
+brew "tfautomv"
+tap "warrensbox/tap"
+brew "tfswitch"
+
+# Neovim
+brew "neovim"
+# Astronvim deps
+brew "tree-sitter"
+brew "ripgrep"
+brew "lazygit"
+# conflicts with coreutils du (gdu) ?
+brew "gdu"
+brew "bottom"
+
+cask "firefox"
+cask "vitals"
+cask "skype"
+cask "slack"
+cask "zoom"
+
+
+# ZED
+# cask "zed"
+# brew "shellcheck"
+# brew "shfmt"
+
+
+cask "android-studio"
+cask "intellij-idea"
+
+brew "lima"
+brew "colima"
+# Required for colima
+brew "docker"
+brew "docker-buildx"
+
+
+# Kubernetes
+brew "k3d"
+brew "helm"
+brew "kubectx"
+brew "k9s"
+brew "yamllint"
+
+
+brew "ykman"
+cask "yubico-authenticator"
+brew "pinentry-mac"
+brew "openssh"
+
+
+# Grafana stack
+brew "logcli"
+brew "jsonnet"
+brew "jsonnet-bundler"
+
+
+cask "font-symbols-only-nerd-font"
+cask "font-jetbrains-mono-nerd-font"
+cask "font-meslo-lg-nerd-font"
+cask "font-inter"
