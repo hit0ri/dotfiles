@@ -8,6 +8,6 @@ return {
   "AstroNvim/astroui",
   ---@type AstroUIOpts
   opts = {
-    colorscheme = "catppuccin-mocha",
+    colorscheme = {{ .theme.name | quote }},
   },
 }

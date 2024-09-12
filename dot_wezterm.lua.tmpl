@@ -2,7 +2,7 @@ local wezterm = require("wezterm")
 local config = wezterm.config_builder()
 local mux = wezterm.mux
 local act = wezterm.action
-local font_name = "JetBrainsMono Nerd Font"
+local font_name = {{ .theme.font_name | quote }}
 
 config.initial_cols = 110
 config.initial_rows = 26
@@ -25,12 +25,12 @@ config.font_rules = {
 -- 	{
 -- 		italic = true,
 -- 		font = wezterm.font_with_fallback({
--- 			family = "JetBrainsMono Nerd Font",
+-- 			family = {{ .theme.font_name | quote }},
 -- 			italic = false,
 -- 		}),
 -- 	},
 -- }
-config.color_scheme = "catppuccin-mocha"
+config.color_scheme = {{ .theme.name | quote }}
 config.enable_scroll_bar = false
 config.scrollback_lines = 35000
 config.unzoom_on_switch_pane = true
