@@ -41,8 +41,6 @@ brew "zoxide"
 
 brew "rustup"
 
-brew "gopass"
-brew "gopass-jsonapi"
 brew "gnupg"
 
 cask "1password"
