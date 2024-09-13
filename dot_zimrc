@@ -15,4 +15,3 @@ zmodule zsh-users/zsh-autosuggestions
 
 # completion must be initialized after all modules
 zmodule completion
-zmodule 99designs/aws-vault --source contrib/completions/zsh/aws-vault.zsh
