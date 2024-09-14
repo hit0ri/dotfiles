@@ -23,6 +23,7 @@ return {
   { import = "astrocommunity.pack.json" },
   { import = "astrocommunity.bars-and-lines.vim-illuminate" },
   { import = "astrocommunity.editing-support.ultimate-autopair-nvim" },
+  { import = "astrocommunity.editing-support.conform-nvim" },
   { import = "astrocommunity.motion.mini-surround" },
   { import = "astrocommunity.motion.mini-move" },
   { import = "astrocommunity.motion.harpoon" },
