@@ -15,6 +15,9 @@ return {
         mouse = "r",
       },
     },
+    rooter = {
+      autochdir = true,
+    },
     mappings = {
       n = {
         ["<C-d>"] = { "<C-d>zz" },
