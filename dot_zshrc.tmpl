@@ -40,6 +40,8 @@ if ! zgenom saved; then
   zgenom compile "$HOME/.zshrc"
 fi
 
+ZSH_AUTOSUGGEST_MANUAL_REBIND=1
+
 export GOPATH=~/go
 export VOLTA_HOME=~/.volta
 
