@@ -1,7 +1,7 @@
 [user]
 	email = {{ .email }}
 	name = Taras Dyshkant
-	signingkey = {{ onepasswordRead "op://Personal/Source Signing Key/public key" }}
+	signingkey = {{ onepasswordRead "op://Personal/Source Signing Key/public key" .emailOnepassword }}
 
 [gpg]
 	format = ssh
