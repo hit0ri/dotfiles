@@ -3,6 +3,9 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
+CASE_SENSITIVE=true
+ZSH_AUTOSUGGEST_MANUAL_REBIND=1
+
 # install zgenom
 if [[ ! -e ~/.zgenom ]]; then
   git clone --filter=blob:none https://github.com/jandamm/zgenom.git ~/.zgenom
@@ -42,7 +45,6 @@ if ! zgenom saved; then
   zgenom compile "$HOME/.zshrc"
 fi
 
-ZSH_AUTOSUGGEST_MANUAL_REBIND=1
 
 export GOPATH=~/go
 export VOLTA_HOME=~/.volta
