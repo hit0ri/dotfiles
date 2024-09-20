@@ -22,20 +22,6 @@
 	wsErrorHighlight = all
   colorMoved = default
 
-[include]
-	path = ~/.catppuccin.gitconfig
-
-[delta]
-  features = {{ .theme.name }}
-  dark = true
-  navigate = true
-  line-numbers = true
-  hyperlinks = true
-  hyperlinks-file-link-format = "vscode://file/{path}:{line}"
-
-[interactive]
-  diffFilter = delta --color-only --features=interactive
-
 [rerere]
 	enabled = true
 
@@ -45,7 +31,6 @@
 [core]
 	commitGraph = false
 	excludesFile = {{ .chezmoi.homeDir }}/.gitignore
-  pager = delta
 
 [merge]
     conflictstyle = diff3
