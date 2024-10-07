@@ -45,7 +45,13 @@ if ! zgenom saved; then
   zgenom compile "$HOME/.zshrc"
 fi
 
+# ZSH history options
+HISTSIZE=50000
+SAVEHIST=$HISTSIZE
 
+# When searching for history entries in the line editor, do not display
+# duplicates of a line previously found, even if the duplicates are not contiguous.
+setopt histfindnodups
 export GOPATH=~/go
 export VOLTA_HOME=~/.volta
 
