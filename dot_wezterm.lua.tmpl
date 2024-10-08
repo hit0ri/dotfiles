@@ -47,6 +47,7 @@ config.keys = {
 	{ mods = "SUPER",       key = "d", action = act.SplitHorizontal({ domain = "CurrentPaneDomain" }) },
 	{ mods = "SUPER|SHIFT", key = "d", action = act.SplitVertical({ domain = "CurrentPaneDomain" }) },
 	{ mods = "SUPER|SHIFT", key = "z", action = act.TogglePaneZoomState },
+	{ mods = "SUPER",       key = "t", action = act.SpawnCommandInNewTab({ cwd = wezterm.home_dir }) },
 	{ mods = "SUPER",       key = "[", action = act.ActivatePaneDirection("Prev") },
 	{ mods = "SUPER",       key = "]", action = act.ActivatePaneDirection("Next") },
 }
