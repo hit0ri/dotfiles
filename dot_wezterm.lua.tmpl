@@ -31,6 +31,9 @@ config.font_rules = {
 -- 	},
 -- }
 config.color_scheme = {{ .theme.name | quote }}
+{{- if eq .theme.name "rose-pine-moon" }}
+config.colors = { selection_bg = "#44415a" }
+{{- end }}
 config.enable_scroll_bar = false
 config.scrollback_lines = 35000
 config.unzoom_on_switch_pane = true
