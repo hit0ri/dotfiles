@@ -1,6 +1,6 @@
 cask "iterm2"
 brew "chezmoi"
-# cask "alacritty"
+cask "alacritty"
 cask "wezterm"
 brew "mise"
 brew "uv"
@@ -82,6 +82,7 @@ cask "vitals"
 cask "skype"
 cask "slack"
 cask "zoom"
+cask "netnewswire"
 
 
 # ZED
