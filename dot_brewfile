@@ -79,7 +79,6 @@ brew "gdu"
 brew "bottom"
 
 cask "firefox"
-cask "microsoft-edge"
 cask "vitals"
 cask "skype"
 cask "slack"
