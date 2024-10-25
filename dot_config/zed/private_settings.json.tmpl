@@ -1,0 +1,22 @@
+// Zed settings
+//
+// For information on how to configure Zed, see the Zed
+// documentation: https://zed.dev/docs/configuring-zed
+//
+// To see all of Zed's default settings without changing your
+// custom settings, run the `open default settings` command
+// from the command palette or from `Zed` application menu.
+{
+  "theme": "{{ .theme.name | replaceAllRegex "-" " " | title }}",
+  "telemetry": {
+    "diagnostics": false,
+    "metrics": false
+  },
+  "buffer_font_family": "{{ .theme.font_name }}",
+  "buffer_font_size": 14,
+  "buffer_line_height": "comfortable",
+  "terminal": {
+    "line_height": "standard",
+    "font_fallbacks": ["Symbols Nerd Font"]
+  }
+}
