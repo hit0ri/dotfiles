@@ -2,7 +2,7 @@
 {{- $emailOnepassword := promptStringOnce . "emailOnepassword" "Email address for 1password" -}}
 
 [data]
-    email = {{ $email | quote }}
-    emailOnepassword = {{ $emailOnepassword | quote }}
+    email = "{{ $email }}"
+    emailOnepassword = "{{ $emailOnepassword }}"
 [diff]
     pager = ""

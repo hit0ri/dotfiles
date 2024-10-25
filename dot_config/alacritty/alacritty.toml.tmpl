@@ -1,4 +1,4 @@
-import = ["~/.config/alacritty/themes/{{ .theme.name }}.toml"]
+import = ["~/.config/alacritty/themes/{{ .theme_name }}.toml"]
 
 [window]
 dimensions = { columns = 110, lines = 26 }
@@ -11,7 +11,7 @@ decorations_theme_variant = "Dark"
 history = 50000
 
 [font]
-normal = { family = {{ .theme.font_name | quote }} }
+normal = { family = "{{ .font_name }}" }
 size = 14.0
 builtin_box_drawing = false
 
