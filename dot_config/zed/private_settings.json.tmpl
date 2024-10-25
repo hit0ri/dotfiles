@@ -7,12 +7,12 @@
 // custom settings, run the `open default settings` command
 // from the command palette or from `Zed` application menu.
 {
-  "theme": "{{ .theme.name | replaceAllRegex "-" " " | title }}",
+  "theme": "{{ .theme_name | replaceAllRegex "-" " " | title }}",
   "telemetry": {
     "diagnostics": false,
     "metrics": false
   },
-  "buffer_font_family": "{{ .theme.font_name }}",
+  "buffer_font_family": "{{ .font_name }}",
   "buffer_font_size": 14,
   "buffer_line_height": "comfortable",
   "terminal": {

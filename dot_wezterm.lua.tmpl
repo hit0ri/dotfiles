@@ -2,7 +2,7 @@ local wezterm = require("wezterm")
 local config = wezterm.config_builder()
 local mux = wezterm.mux
 local act = wezterm.action
-local font_name = {{ .theme.font_name | quote }}
+local font_name = "{{ .font_name }}"
 
 config.initial_cols = 110
 config.initial_rows = 26
@@ -25,13 +25,13 @@ config.font_rules = {
 -- 	{
 -- 		italic = true,
 -- 		font = wezterm.font_with_fallback({
--- 			family = {{ .theme.font_name | quote }},
+-- 			family = "{{ .font_name }}",
 -- 			italic = false,
 -- 		}),
 -- 	},
 -- }
-config.color_scheme = {{ .theme.name | quote }}
-{{- if eq .theme.name "rose-pine-moon" }}
+config.color_scheme = "{{ .theme_name }}"
+{{- if eq .theme_name "rose-pine-moon" }}
 config.colors = { selection_bg = "#44415a" }
 {{- end }}
 config.enable_scroll_bar = false
