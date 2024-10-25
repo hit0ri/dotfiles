@@ -78,6 +78,7 @@ brew "gdu"
 brew "bottom"
 
 cask "firefox"
+cask "microsoft-edge"
 cask "vitals"
 cask "skype"
 cask "slack"
@@ -86,9 +87,9 @@ cask "netnewswire"
 
 
 # ZED
-# cask "zed"
-# brew "shellcheck"
-# brew "shfmt"
+cask "zed"
+brew "shellcheck"
+brew "shfmt"
 
 
 cask "android-studio"
@@ -128,3 +129,4 @@ cask "font-fira-mono-nerd-font"
 cask "font-caskaydia-cove-nerd-font"
 cask "font-meslo-lg-nerd-font"
 cask "font-inter"
+cask "font-blex-mono-nerd-font"
