@@ -1,0 +1,44 @@
+include themes/{{ .theme_name }}.conf
+
+font_family {{ .font_name }}
+font_size 14.0
+disable_ligatures always
+macos_titlebar_color dark
+cursor_blink_interval 0
+cursor_shape block
+macos_option_as_alt yes
+scrollback_lines 20000
+tab_bar_edge bottom
+tab_title_template "{fmt.fg.red}{bell_symbol}{activity_symbol}{fmt.fg.tab}{index}: {title}"
+tab_bar_style powerline
+tab_powerline_style slanted
+active_tab_font_style bold
+
+shell_integration no-cursor
+
+# map ctrl+shift+f launch --type=overlay --stdin-source=@screen_scrollback fzf --no-sort --no-mouse --exact -i --tac
+map ctrl+shift+f combine : show_scrollback : send_text normal,application /
+
+
+map super+] next_window
+map super+[ previous_window
+
+map super+shift+] next_tab
+map super+shift+[ previous_tab
+
+map super+shift+left move_tab_backward
+map super+shift+right move_tab_forward
+
+map super+d new_window_with_cwd
+map super+shift+d new_window
+map super+shift+z toggle_layout stack
+
+map super+1 goto_tab 1
+map super+2 goto_tab 2
+map super+3 goto_tab 3
+map super+4 goto_tab 4
+map super+5 goto_tab 5
+map super+6 goto_tab 6
+map super+7 goto_tab 7
+map super+8 goto_tab 8
+map super+9 goto_tab 9
