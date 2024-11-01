@@ -1,6 +1,7 @@
 cask "iterm2"
 brew "chezmoi"
 cask "alacritty"
+cask "kitty"
 cask "wezterm"
 brew "mise"
 brew "uv"
