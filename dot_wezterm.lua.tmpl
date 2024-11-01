@@ -4,6 +4,7 @@ local mux = wezterm.mux
 local act = wezterm.action
 local font_name = "{{ .font_name }}"
 
+config.max_fps = 120
 config.initial_cols = 110
 config.initial_rows = 26
 config.font_size = 14
@@ -41,7 +42,6 @@ config.unzoom_on_switch_pane = true
 wezterm.on("gui-startup", function(cmd)
 	local _, _, window = mux.spawn_window(cmd or {})
 	window:gui_window():maximize()
-	window:gui_window():toggle_fullscreen()
 end)
 
 config.keys = {
