@@ -8,6 +8,6 @@ return {
   "AstroNvim/astroui",
   ---@type AstroUIOpts
   opts = {
-    colorscheme = "{{ .theme_name }}",
+    colorscheme = "{{ (index .theme .theme_name).nvim }}",
   },
 }
