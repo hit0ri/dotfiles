@@ -3,10 +3,8 @@ include themes/{{ (index .theme .theme_name).kitty }}.conf
 font_family {{ .font_name }}
 font_size 14.0
 disable_ligatures always
-macos_titlebar_color dark
 cursor_blink_interval 0
 cursor_shape block
-macos_option_as_alt yes
 scrollback_lines 20000
 tab_bar_edge bottom
 tab_title_template "{fmt.fg.red}{bell_symbol}{activity_symbol}{fmt.fg.tab}{index}: {title}"
@@ -15,6 +13,12 @@ tab_powerline_style slanted
 active_tab_font_style bold
 
 shell_integration no-cursor
+
+{{ if eq .chezmoi.os "darwin" -}}
+macos_option_as_alt yes
+macos_titlebar_color dark
+macos_show_window_title_in window
+{{- end }}
 
 # map ctrl+shift+f launch --type=overlay --stdin-source=@screen_scrollback fzf --no-sort --no-mouse --exact -i --tac
 map ctrl+shift+f combine : show_scrollback : send_text normal,application /
