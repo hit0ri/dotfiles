@@ -1,10 +1,11 @@
+if true then return {} end -- WARN: REMOVE THIS LINE TO ACTIVATE THIS FILE
 return {
-  "rose-pine/neovim",
-  name = "rose-pine",
-  lazy = true,
-  opts = {
-    styles = {
-      italic = true,
+  {
+    "rose-pine",
+    opts = {
+      styles = {
+        italic = false,
+      },
     },
   },
 }
