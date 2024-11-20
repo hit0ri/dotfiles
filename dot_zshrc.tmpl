@@ -3,51 +3,7 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-CASE_SENSITIVE=true
 ZSH_AUTOSUGGEST_MANUAL_REBIND=1
-
-# install zgenom
-if [[ ! -e ~/.zgenom ]]; then
-  git clone --filter=blob:none https://github.com/jandamm/zgenom.git ~/.zgenom
-fi
-
-# load zgenom
-source "${HOME}/.zgenom/zgenom.zsh"
-
-ZGEN_RESET_ON_CHANGE=(~/.zshrc)
-
-# Check for plugin and zgenom updates every 7 days
-# This does not increase the startup time.
-zgenom autoupdate
-
-
-# if the init script doesn't exist
-if ! zgenom saved; then
-
-  zgenom ohmyzsh
-  zgenom ohmyzsh plugins/brew
-  zgenom ohmyzsh plugins/fzf
-  zgenom ohmyzsh plugins/volta
-  zgenom ohmyzsh plugins/direnv
-  zgenom ohmyzsh plugins/mise
-  zgenom ohmyzsh plugins/zoxide
-  zgenom ohmyzsh plugins/1password
-
-  zgenom load romkatv/powerlevel10k powerlevel10k
-  ## zgenom load zsh-users/zsh-syntax-highlighting
-  zgenom load zsh-users/zsh-autosuggestions
-  zgenom load jkavan/terragrunt-oh-my-zsh-plugin
-
-  # generate the init script from plugins above
-  zgenom save
-
-  # Compile your zsh files
-  zgenom compile "$HOME/.zshrc"
-fi
-
-# ZSH history options
-HISTSIZE=50000
-SAVEHIST=$HISTSIZE
 
 # When searching for history entries in the line editor, do not display
 # duplicates of a line previously found, even if the duplicates are not contiguous.
@@ -67,6 +23,51 @@ path=(
   $path
 )
 export PATH
+
+eval "$(/opt/homebrew/bin/brew shellenv)"
+
+# Must be called before Zim is initialized
+fpath+=("$HOMEBREW_PREFIX/share/zsh/site-functions")
+
+# ----------------------------------------------------------------------
+# Zim
+# use degit tool by default to install modules
+zstyle ':zim:zmodule' use 'degit'
+zstyle ':zim:input' double-dot-expand yes
+zstyle ':zim:*' case-sensitivity sensitive
+
+# Completion styling
+# zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
+# zstyle ':completion:*' menu no
+# zstyle ':completion:*' menu no
+zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
+
+export ZIM_HOME=~/.zim
+
+# Download zimfw plugin manager if missing.
+if [[ ! -e ${ZIM_HOME}/zimfw.zsh ]]; then
+  curl -fsSL --create-dirs -o ${ZIM_HOME}/zimfw.zsh \
+      https://github.com/zimfw/zimfw/releases/latest/download/zimfw.zsh
+fi
+
+# Install missing modules, and update ${ZIM_HOME}/init.zsh if missing or outdated.
+if [[ ! ${ZIM_HOME}/init.zsh -nt ${ZDOTDIR:-${HOME}}/.zimrc ]]; then
+  source ${ZIM_HOME}/zimfw.zsh init -q
+fi
+
+# Initialize modules.
+source ${ZIM_HOME}/init.zsh
+# ----------------------------------------------------------------------
+
+# Disable ambiguous completion
+#zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' '+r:|?=**'
+zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
+
+
+# Bash completion
+autoload -Uz bashcompinit && bashcompinit
+complete -C aws_completer aws
+
 
 export HOMEBREW_NO_ANALYTICS=1
 export HOMEBREW_BAT=1
@@ -145,8 +146,54 @@ export TERRAGRUNT_PROVIDER_CACHE=1
 
 export BUILDKIT_PROGRESS=plain
 
+eval "$(logcli --completion-script-zsh | tail -n +6)"
+
+
 # Zellij
 export ZELLIJ_AUTO_EXIT=true
+
+# Use EMACS emulation mode
+bindkey -e
+
+KEYTIMEOUT=10
+WORDCHARS='*?_[]~&;!#$%^(){}<>'
+
+bindkey ' ' magic-space
+
+# Backspace
+bindkey $terminfo[kbs]   backward-delete-char
+
+# Insert
+bindkey $terminfo[kich1] overwrite-mode
+
+# Delete
+bindkey $terminfo[kdch1] delete-char
+
+# Home
+bindkey $terminfo[khome] beginning-of-line
+bindkey '^[[H'           beginning-of-line
+
+# End
+bindkey $terminfo[kend]  end-of-line
+bindkey '^[[F'           end-of-line
+
+# Home
+bindkey $terminfo[kpp]   beginning-of-buffer-or-history
+
+# End
+bindkey $terminfo[knp]   end-of-buffer-or-history
+
+# Up
+autoload -Uz up-line-or-beginning-search
+zle -N up-line-or-beginning-search
+bindkey $terminfo[kcuu1] up-line-or-beginning-search
+bindkey '^[[A'           up-line-or-beginning-search
+
+# Down
+autoload -Uz down-line-or-beginning-search
+zle -N down-line-or-beginning-search
+bindkey $terminfo[kcud1] down-line-or-beginning-search
+bindkey '^[[B'           down-line-or-beginning-search
 
 # Aliases
 alias ...='cd ../..'
