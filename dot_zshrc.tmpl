@@ -146,11 +146,17 @@ export TERRAGRUNT_PROVIDER_CACHE=1
 
 export BUILDKIT_PROGRESS=plain
 
+# Loki CLI
 eval "$(logcli --completion-script-zsh | tail -n +6)"
 
 
 # Zellij
 export ZELLIJ_AUTO_EXIT=true
+
+{{ if eq .chezmoi.os "darwin" -}}
+# Android Studio
+export ANDROID_HOME=$HOME/Library/Android/sdk
+{{- end }}
 
 # Use EMACS emulation mode
 bindkey -e
