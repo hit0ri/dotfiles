@@ -101,7 +101,6 @@ brew "colima"
 # Required for colima
 brew "docker"
 brew "docker-buildx"
-cask "orbstack"
 
 
 # Kubernetes
