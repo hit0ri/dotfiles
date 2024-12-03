@@ -9,13 +9,11 @@ ZSH_AUTOSUGGEST_MANUAL_REBIND=1
 # duplicates of a line previously found, even if the duplicates are not contiguous.
 setopt histfindnodups
 
-export GOPATH=~/go
 export VOLTA_HOME=~/.volta
 
 typeset -U path PATH
 path=(
   $VOLTA_HOME/bin
-  $GOPATH/bin
   ~/.cargo/bin
   ~/.local/bin
   ~/.rd/bin
