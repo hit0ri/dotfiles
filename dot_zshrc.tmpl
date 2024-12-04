@@ -27,6 +27,10 @@ eval "$(/opt/homebrew/bin/brew shellenv)"
 # Must be called before Zim is initialized
 fpath+=("$HOMEBREW_PREFIX/share/zsh/site-functions")
 
+# granted
+fpath+=($HOME/.granted/zsh_autocomplete/assume/)
+fpath+=($HOMNE/.granted/zsh_autocomplete/granted/)
+
 # ----------------------------------------------------------------------
 # Zim
 # use degit tool by default to install modules
@@ -223,6 +227,7 @@ alias lsports='ss -tunalp | column -t'
 alias mv='mv -v'
 alias rm='rm -v'
 alias vim='nvim'
+alias assume='. assume'
 
 
 [[ -f ~/.functions.sh ]] && source ~/.functions.sh
