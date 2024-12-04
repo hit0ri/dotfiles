@@ -52,6 +52,8 @@ cask "visual-studio-code"
 # AWS
 brew "awscli"
 cask "session-manager-plugin"
+tap "common-fate/granted"
+brew "granted"
 tap "aws/tap"
 brew "ec2-instance-selector"
 tap "lucagrulla/tap"
