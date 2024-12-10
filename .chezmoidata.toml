@@ -3,6 +3,7 @@ font_name = "JetBrainsMono Nerd Font"
 
 [theme.catppuccin-mocha]
 alacritty = "catppuccin-mocha"
+ghostty = "catppuccin-mocha"
 bat = "catppuccin-mocha"
 fzf = "CATPPUCCIN_MOCHA"
 k9s = "catppuccin-mocha"
@@ -15,6 +16,7 @@ zellij = "catppuccin-mocha"
 
 [theme.rose-pine-moon]
 alacritty = "rose-pine-moon"
+ghostty = "rose-pine-moon"
 bat = "rose-pine-moon"
 k9s = "rose-pine"
 fzf = "ROSE_PINE_MOON"
@@ -26,7 +28,8 @@ zed = "Rosé Pine Moon"
 zellij = "rose-pine-moon"
 
 [theme.tokyonight-moon]
-alacritty = "tokyonight_moon"
+alacritty = "tokyonight-moon"
+ghostty = "tokyonight_moon"
 bat = "tokyonight_moon"
 k9s = "rose-pine"
 fzf = "TOKYONIGHT_MOON"
@@ -36,3 +39,16 @@ vivid = "tokyonight-moon"
 wezterm = "tokyonight_moon"
 zed = "Tokyo Night"
 zellij = "tokyonight_moon"
+
+[theme.tokyonight-night]
+alacritty = "tokyonight-night"
+ghostty = "tokyonight_night"
+bat = "tokyonight_night"
+k9s = "rose-pine"
+fzf = "TOKYONIGHT_NIGHT"
+kitty = "tokyonight_night"
+nvim = "tokyonight"
+vivid = "tokyonight-night"
+wezterm = "tokyonight_night"
+zed = "Tokyo Night"
+zellij = "tokyonight_night"
