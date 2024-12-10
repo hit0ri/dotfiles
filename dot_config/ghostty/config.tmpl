@@ -1,0 +1,13 @@
+font-family = {{ .font_name }}
+font-size = 14
+
+theme = {{ (index .theme .theme_name).ghostty }}
+cursor-style-blink = false
+shell-integration-features = no-cursor
+mouse-hide-while-typing = true
+
+{{ if eq .chezmoi.os "darwin" -}}
+# macOS specific options
+macos-option-as-alt = left
+mouse-scroll-multiplier = 1.5
+{{- end }}
