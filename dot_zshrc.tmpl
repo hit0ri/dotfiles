@@ -5,6 +5,8 @@ fi
 
 ZSH_AUTOSUGGEST_MANUAL_REBIND=1
 
+WORDCHARS=''
+
 # When searching for history entries in the line editor, do not display
 # duplicates of a line previously found, even if the duplicates are not contiguous.
 setopt histfindnodups
@@ -249,32 +251,6 @@ export K9S_CONFIG_DIR=$HOME/.config/k9s
 bindkey -e
 
 KEYTIMEOUT=10
-WORDCHARS='*?_[]~&;!#$%^(){}<>'
-
-bindkey ' ' magic-space
-
-# Backspace
-bindkey $terminfo[kbs]   backward-delete-char
-
-# Insert
-bindkey $terminfo[kich1] overwrite-mode
-
-# Delete
-bindkey $terminfo[kdch1] delete-char
-
-# Home
-bindkey $terminfo[khome] beginning-of-line
-bindkey '^[[H'           beginning-of-line
-
-# End
-bindkey $terminfo[kend]  end-of-line
-bindkey '^[[F'           end-of-line
-
-# Home
-bindkey $terminfo[kpp]   beginning-of-buffer-or-history
-
-# End
-bindkey $terminfo[knp]   end-of-buffer-or-history
 
 # Up
 autoload -Uz up-line-or-beginning-search
