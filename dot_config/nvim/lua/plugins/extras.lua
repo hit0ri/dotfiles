@@ -7,7 +7,6 @@ return {
   { import = "lazyvim.plugins.extras.lang.yaml" },
   { import = "lazyvim.plugins.extras.lang.toml" },
   -- { import = "lazyvim.plugins.extras.lang.ansible" },
-  { import = "lazyvim.plugins.extras.coding.blink" },
   { import = "lazyvim.plugins.extras.coding.neogen" },
   { import = "lazyvim.plugins.extras.coding.mini-comment" },
   { import = "lazyvim.plugins.extras.coding.mini-surround" },
@@ -16,4 +15,5 @@ return {
   { import = "lazyvim.plugins.extras.editor.navic" },
   { import = "lazyvim.plugins.extras.editor.inc-rename" },
   { import = "lazyvim.plugins.extras.ui.treesitter-context" },
+  { import = "lazyvim.plugins.extras.util.dot" },
 }
