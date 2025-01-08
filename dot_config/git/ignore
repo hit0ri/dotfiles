@@ -1,6 +1,7 @@
-.envrc
-.DS_Store
 .venv/
 venv/
 .vscode/
 .idea/
+.DS_Store
+.envrc
+.terraformrc
