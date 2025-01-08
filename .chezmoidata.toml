@@ -1,5 +1,5 @@
-font_name = "JetBrainsMono Nerd Font"
 theme_name = "rose-pine-moon"
+font_name = "CommitMono Nerd Font"
 
 [theme.catppuccin-mocha]
 alacritty = "catppuccin-mocha"
