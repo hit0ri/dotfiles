@@ -83,7 +83,6 @@ cask "vitals"
 cask "skype"
 cask "slack"
 cask "zoom"
-cask "netnewswire"
 
 
 # ZED
