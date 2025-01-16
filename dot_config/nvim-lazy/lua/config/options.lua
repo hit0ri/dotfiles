@@ -5,6 +5,7 @@
 local opt = vim.opt
 
 vim.g.snacks_animate = false
+vim.g.lazyvim_picker = "snacks"
 
 opt.clipboard = ""
 opt.mouse = "r"
