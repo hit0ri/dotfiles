@@ -1,4 +1,5 @@
 font_name = "JetBrainsMono Nerd Font"
+font_size = 15
 theme_name = "rose-pine-moon"
 
 [theme.catppuccin-mocha]

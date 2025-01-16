@@ -1,7 +1,7 @@
 include themes/{{ (index .theme .theme_name).kitty }}.conf
 
-font_size 14.0
 font_family {{ trimSuffix " Mono" .font_name }} Mono
+font_size {{ .font_size }}.0
 disable_ligatures always
 cursor_blink_interval 0
 cursor_shape block
