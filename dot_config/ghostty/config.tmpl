@@ -2,6 +2,10 @@ auto-update-channel = tip
 
 font-size = {{ .font_size }}
 font-family = {{ .font_name }}
+{{ if eq .font_name "Maple Mono NF" -}}
+font-feature = cv34
+font-feature = cv35
+{{- end }}
 
 theme = {{ (index .theme .theme_name).ghostty }}
 cursor-style-blink = false
