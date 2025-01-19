@@ -75,3 +75,17 @@ ssm-connect() {
   echo "Connecting to instance $id"
   aws ssm start-session --target "$id"
 }
+
+ssm-port-forward() {
+  if [[ $1 == i-* ]]; then
+    local -r id=$1
+  else
+    local -r id=$(ec2-id-from-name "$1")
+  fi
+  local remote=$2
+  local local=${3:-$remote}
+  echo "Forwarding port $remote from instance $id to port $local"
+  aws ssm start-session --target "$id" \
+    --document-name AWS-StartPortForwardingSession \
+    --parameters '{"portNumber":["'"$remote"'"],"localPortNumber":["'"$local"'"]}'
+}
