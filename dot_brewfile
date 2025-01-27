@@ -32,7 +32,6 @@ brew "hyperfine"
 brew "coreutils"
 brew "wget"
 brew "gnu-sed"
-brew "direnv"
 brew "zoxide"
 brew "yazi"
 
