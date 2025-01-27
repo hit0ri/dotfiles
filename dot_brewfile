@@ -95,12 +95,7 @@ brew "shfmt"
 cask "android-studio"
 cask "intellij-idea"
 
-brew "lima"
-brew "colima"
-# Required for colima
-brew "docker"
-brew "docker-buildx"
-
+cask "orbstack"
 
 # Kubernetes
 brew "k3d"
