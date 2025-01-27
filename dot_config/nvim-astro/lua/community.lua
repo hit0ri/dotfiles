@@ -22,6 +22,8 @@ return {
   { import = "astrocommunity.pack.swift" },
   { import = "astrocommunity.pack.toml" },
   { import = "astrocommunity.pack.yaml" },
+  { import = "astrocommunity.pack.java" },
+  { import = "astrocommunity.pack.kotlin" },
   { import = "astrocommunity.pack.json" },
   { import = "astrocommunity.pack.xml" },
   { import = "astrocommunity.bars-and-lines.vim-illuminate" },
