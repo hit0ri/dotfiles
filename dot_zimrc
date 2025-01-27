@@ -2,7 +2,6 @@
 zmodule romkatv/powerlevel10k
 zmodule homebrew
 zmodule input
-zmodule direnv
 zmodule joke/zim-mise
 zmodule joke/zim-yq
 zmodule kiesman99/zim-zoxide
