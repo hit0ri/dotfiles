@@ -7,6 +7,7 @@ return {
   { import = "lazyvim.plugins.extras.editor.inc-rename" },
   { import = "lazyvim.plugins.extras.editor.mini-move" },
   { import = "lazyvim.plugins.extras.editor.navic" },
+  { import = "lazyvim.plugins.extras.editor.snacks_explorer" },
   { import = "lazyvim.plugins.extras.lang.ansible" },
   { import = "lazyvim.plugins.extras.lang.docker" },
   { import = "lazyvim.plugins.extras.lang.go" },
