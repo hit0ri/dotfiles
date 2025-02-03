@@ -8,6 +8,9 @@ font-feature = cv35
 {{- end }}
 
 theme = {{ (index .theme .theme_name).ghostty }}
+{{ if eq (index .theme .theme_name).ghostty "catppuccin-mocha" -}}
+cursor-text = 1e1e2e
+{{- end }}
 cursor-style-blink = false
 shell-integration-features = no-cursor
 mouse-hide-while-typing = true
