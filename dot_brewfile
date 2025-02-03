@@ -120,4 +120,5 @@ brew "jsonnet-bundler"
 # Fonts
 cask "font-symbols-only-nerd-font"
 cask "font-jetbrains-mono-nerd-font"
+cask "font-m+-nerd-font"
 cask "font-inter"
