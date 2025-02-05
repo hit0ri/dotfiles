@@ -1,5 +1,5 @@
-font_name = "M+1Code Nerd Font"
-font_size = 15
+font_name = "JetBrainsMono Nerd Font"
+font_size = 14
 theme_name = "catppuccin-mocha"
 
 [theme.catppuccin-mocha]
