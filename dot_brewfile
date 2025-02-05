@@ -35,6 +35,7 @@ brew "gnu-sed"
 brew "zoxide"
 brew "yazi"
 brew "btop"
+brew "just"
 
 brew "mise"
 brew "uv"
