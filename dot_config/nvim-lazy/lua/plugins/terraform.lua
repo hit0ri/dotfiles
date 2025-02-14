@@ -1,6 +1,4 @@
 return {
-  { import = "lazyvim.plugins.extras.lang.terraform" },
-
   {
     "mfussenegger/nvim-lint",
     optional = true,
