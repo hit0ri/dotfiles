@@ -2,7 +2,7 @@ auto-update-channel = tip
 
 font-size = {{ .font_size }}
 font-family = {{ .font_name }}
-{{ if eq .font_name "Maple Mono NF" -}}
+{{ if hasPrefix "Maple Mono" .font_name -}}
 font-feature = cv34
 font-feature = cv35
 {{- end }}
