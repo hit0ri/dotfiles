@@ -21,7 +21,7 @@
   },
   "buffer_font_family": "{{ .font_name }}",
   "buffer_font_size": {{ .font_size }},
-  {{ if eq .font_name "Maple Mono NF" -}}
+  {{ if hasPrefix "Maple Mono" .font_name -}}
   "buffer_font_features": {
     "cv34": true,
     "cv35": true
