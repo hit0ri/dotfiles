@@ -109,4 +109,6 @@
 	lgold = log --graph --decorate --abbrev-commit
 	lga = log --graph --decorate --abbrev-commit --all
 	graph = log --graph --decorate --oneline
+  gone = ! git fetch -p && git branch -vv | grep ': gone]' | awk '{print $1}' | xargs -r git branch -d
+  gonef = ! git fetch -p && git branch -vv | grep ': gone]' | awk '{print $1}' | xargs -r git branch -D
 
