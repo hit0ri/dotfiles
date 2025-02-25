@@ -10,6 +10,9 @@
 	program = /Applications/1Password.app/Contents/MacOS/op-ssh-sign
 	allowedSignersFile = {{ .chezmoi.homeDir }}/.ssh/allowed_signers
 
+[core]
+	commitGraph = false
+
 [init]
 	defaultBranch = main
 
@@ -17,29 +20,48 @@
 	verbose = true
 	gpgSign = true
 
+[help]
+  autocorrect = prompt
+
 [diff]
-	algorithm = patience
-	wsErrorHighlight = all
-  colorMoved = default
+	algorithm = histogram
+  colorMoved = plain
   colorMovedWS = allow-indentation-change
+  mnemonicPrefix = true
+  renames = true
+	wsErrorHighlight = all
 
 [rerere]
 	enabled = true
+  autoupdate = true
+
+[rebase]
+  autoSquash = true
+  autoStash = true
+  updateRefs = true
 
 [branch]
 	sort = -committerdate
 
-[core]
-	commitGraph = false
+[tag]
+  sort = version:refname
 
 [merge]
-    conflictstyle = diff3
+    conflictstyle = zdiff3
 
 [pull]
 	ff = only
+  rebase = true
 
 [push]
 	default = simple
+  autoSetupRemote = true
+  followTags = true
+
+[fetch]
+  prune = true
+  pruneTags = true
+  all = true
 
 [column]
 	ui = auto
