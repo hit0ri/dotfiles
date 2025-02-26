@@ -72,8 +72,13 @@ ssm-connect() {
   else
     local -r id=$(ec2-id-from-name "$1")
   fi
-  echo "Connecting to instance $id"
-  aws ssm start-session --target "$id"
+  if [[ ${2:-false} == "ssh" ]]; then
+    echo "Connecting to instance $id via ssh"
+    ssh "$id"
+  else
+    echo "Connecting to instance $id"
+    aws ssm start-session --target "$id"
+  fi
 }
 
 ssm-port-forward() {
