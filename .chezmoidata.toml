@@ -1,6 +1,6 @@
 font_name = "CommitMono Nerd Font"
 font_size = 14
-theme_name = "tokyonight-night"
+theme_name = "catppuccin-mocha"
 
 [theme.catppuccin-mocha]
 alacritty = "catppuccin-mocha"
