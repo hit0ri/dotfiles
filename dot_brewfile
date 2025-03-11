@@ -84,7 +84,6 @@ brew "viu"
 
 cask "firefox"
 cask "vitals"
-cask "skype"
 cask "slack"
 cask "zoom"
 
