@@ -102,6 +102,7 @@ brew "colima"
 # Required for colima
 brew "docker"
 brew "docker-buildx"
+brew "docker-compose"
 
 
 # Kubernetes
