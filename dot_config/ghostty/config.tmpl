@@ -2,10 +2,11 @@ auto-update-channel = stable
 
 font-size = {{ .font_size }}
 font-family = {{ .font_name }}
-font-family = Symbols Nerd Font Mono
+font-family = Symbols Nerd Font
 {{ if hasPrefix "Maple Mono" .font_name -}}
 font-feature = cv34
 font-feature = cv35
+font-feature = ss02
 {{- end }}
 
 theme = {{ (index .theme .theme_name).ghostty }}
