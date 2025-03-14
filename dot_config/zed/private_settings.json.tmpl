@@ -35,5 +35,15 @@
   "terminal": {
     "line_height": "standard",
     "font_fallbacks": ["Symbols Nerd Font"]
+  },
+  "languages": {
+    "HCL": {
+      "formatter": {
+        "external": {
+          "command": "terragrunt",
+          "arguments": ["hclfmt", "--stdin"]
+        }
+      }
+    }
   }
 }
