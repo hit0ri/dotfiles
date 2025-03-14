@@ -1,6 +1,6 @@
 font_name = "Maple Mono NF CN"
 font_size = 14
-theme_name = "catppuccin-mocha"
+theme_name = "catppuccin-macchiato"
 
 [theme.catppuccin-mocha]
 alacritty = "catppuccin-mocha"
@@ -14,6 +14,19 @@ vivid = "catppuccin-mocha"
 wezterm = "catppuccin-mocha"
 zed = "Catppuccin Mocha"
 zellij = "catppuccin-mocha"
+
+[theme.catppuccin-macchiato]
+alacritty = "catppuccin-macchiato"
+ghostty = "catppuccin-macchiato"
+bat = "catppuccin-macchiato"
+fzf = "CATPPUCCIN_macchiato"
+k9s = "catppuccin-macchiato"
+kitty = "catppuccin-macchiato"
+nvim = "catppuccin-macchiato"
+vivid = "catppuccin-macchiato"
+wezterm = "catppuccin-macchiato"
+zed = "Catppuccin Macchiato"
+zellij = "catppuccin-macchiato"
 
 [theme.rose-pine-moon]
 alacritty = "rose-pine-moon"
