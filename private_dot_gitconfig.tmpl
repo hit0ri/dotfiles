@@ -1,10 +1,10 @@
 [user]
   email = {{ .email }}
   name = Taras Dyshkant
-  signingkey = key::{{ onepasswordRead "op://Personal/Source Signing Key/public key" .emailOnepassword }}
+  signingkey = BE2C3F16500C8C33
 
 [gpg]
-  format = ssh
+  format = openpgp
 
 [gpg "ssh"]
   program = /Applications/1Password.app/Contents/MacOS/op-ssh-sign
