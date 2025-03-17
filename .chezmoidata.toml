@@ -1,6 +1,6 @@
 font_name = "Maple Mono NF CN"
 font_size = 14
-theme_name = "catppuccin-macchiato"
+theme_name = "catppuccin-mocha"
 
 [theme.catppuccin-mocha]
 alacritty = "catppuccin-mocha"
