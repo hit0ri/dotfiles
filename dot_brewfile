@@ -95,7 +95,6 @@ brew "shfmt"
 
 
 cask "android-studio"
-cask "intellij-idea"
 
 brew "lima"
 brew "colima"
