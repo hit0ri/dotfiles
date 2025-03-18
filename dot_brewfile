@@ -37,6 +37,7 @@ brew "zoxide"
 brew "yazi"
 brew "btop"
 brew "just"
+brew "miniserve"
 
 brew "mise"
 brew "uv"
