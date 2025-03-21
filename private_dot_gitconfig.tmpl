@@ -93,7 +93,7 @@
   type = cat-file -t
   dump = cat-file -p
   last = log -1 HEAD
-  lastf = log --cc -1 HEAD
+  lastf = log --cc --pretty=fuller -1 HEAD
   lastfs = log --stat --cc -1 HEAD
   lg = log --graph --decorate
   lgold = log --graph --decorate --abbrev-commit
