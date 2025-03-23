@@ -1,6 +1,6 @@
-font_name = "JetBrainsMono Nerd Font"
+font_name = "BlexMono Nerd Font"
 font_size = 14
-theme_name = "catppuccin-macchiato"
+theme_name = "tokyonight-night"
 
 [theme.catppuccin-mocha]
 alacritty = "catppuccin-mocha"
