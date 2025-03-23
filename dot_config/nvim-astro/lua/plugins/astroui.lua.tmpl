@@ -11,7 +11,7 @@ return {
   ---@type AstroUIOpts
   opts = {
     -- change colorscheme
-    colorscheme = "{{ (index .theme .theme_name).nvim.name }}",
+    colorscheme = "{{ (index .theme .current_theme).nvim.name }}",
     -- AstroUI allows you to easily modify highlight groups easily for any and all colorschemes
     highlights = {
       init = { -- this table overrides highlights in all themes

@@ -6,7 +6,7 @@ k9s:
   readOnly: false
   noExitOnCtrlC: false
   ui:
-    skin: {{ (index .theme .theme_name).k9s }}
+    skin: {{ (index .theme .current_theme).k9s }}
     enableMouse: false
     headless: false
     logoless: true

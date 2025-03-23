@@ -1,4 +1,4 @@
-include themes/{{ (index .theme .theme_name).kitty }}.conf
+include themes/{{ (index .theme .current_theme).kitty }}.conf
 
 font_family {{ trimSuffix " Mono" .font_name }} Mono
 font_size {{ .font_size }}.0

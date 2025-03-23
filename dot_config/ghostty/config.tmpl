@@ -7,8 +7,8 @@ font-family = Symbols Nerd Font
 font-feature = ss02
 {{- end }}
 
-theme = {{ (index .theme .theme_name).ghostty }}
-{{ if eq (index .theme .theme_name).ghostty "catppuccin-mocha" -}}
+theme = {{ (index .theme .current_theme).ghostty }}
+{{ if eq (index .theme .current_theme).ghostty "catppuccin-mocha" -}}
 cursor-text = 1e1e2e
 {{- end }}
 cursor-style-blink = false
