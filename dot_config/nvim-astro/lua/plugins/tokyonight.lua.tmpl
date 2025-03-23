@@ -1,0 +1,11 @@
+return {
+  {
+    "folke/tokyonight.nvim",
+    lazy = true,
+    {{- if hasPrefix "tokyonight" .theme_name }}
+    opts = {
+      style = "{{ (index .theme .theme_name).nvim.style }}",
+    },
+    {{- end }}
+  },
+}
