@@ -99,7 +99,7 @@ export AWS_PAGER=
 # sar
 export S_COLORS=auto
 
-export LS_COLORS="$(vivid generate {{ (index .theme .theme_name).vivid }})"
+export LS_COLORS="$(vivid generate {{ (index .theme .current_theme).vivid }})"
 
 # less
 export LESS_TERMCAP_mb=$'\E[1;31m'  # Begins blinking.
@@ -222,7 +222,7 @@ FZF_THEME_ROSE_PINE_MOON='
 	--color=spinner:#f6c177,info:#9ccfd8,separator:#44415a
 	--color=pointer:#c4a7e7,marker:#eb6f92,prompt:#908caa'
 
-export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS$FZF_THEME_{{ (index .theme .theme_name).fzf }}
+export FZF_DEFAULT_OPTS=$FZF_DEFAULT_OPTS$FZF_THEME_{{ (index .theme .current_theme).fzf }}
 
 # TF
 export TG_TF_FORWARD_STDOUT=true

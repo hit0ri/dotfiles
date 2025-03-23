@@ -31,8 +31,8 @@ config.font_rules = {
 -- 		}),
 -- 	},
 -- }
-config.color_scheme = "{{ (index .theme .theme_name).wezterm }}"
-{{- if eq (index .theme .theme_name).wezterm "rose-pine-moon" }}
+config.color_scheme = "{{ (index .theme .current_theme).wezterm }}"
+{{- if eq (index .theme .current_theme).wezterm "rose-pine-moon" }}
 config.colors = { selection_bg = "#44415a" }
 {{- end }}
 config.enable_scroll_bar = false
