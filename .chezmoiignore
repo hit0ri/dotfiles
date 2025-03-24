@@ -1,2 +1,8 @@
 README.md
 LICENSE
+{{ if ne .chezmoi.os "darwin" }}
+Library/Application Support/lazygit/config.yml
+{{ end }}
+{{ if ne .chezmoi.os "linux" }}
+.config/lazygit/config.yml
+{{ end }}
