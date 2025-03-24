@@ -1,0 +1,3 @@
+{{- $theme := index .theme .current_theme -}}
+{{- $lazygit_template_file := joinPath "lazygit" $theme.lazygit | printf "%s.yml" -}}
+{{- includeTemplate $lazygit_template_file -}}
