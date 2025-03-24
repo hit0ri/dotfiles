@@ -55,7 +55,7 @@ lazygit = "tokyonight_moon"
 nvim = { name = "tokyonight", style = "moon" }
 vivid = "tokyonight-moon"
 wezterm = "tokyonight_moon"
-zed = "Tokyo Night"
+zed = "Tokyo Night Storm"
 zellij = "tokyonight_moon"
 
 [theme.tokyonight-night]
