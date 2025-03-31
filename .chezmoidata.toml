@@ -63,7 +63,7 @@ alacritty = "tokyonight-night"
 bat = "tokyonight_night"
 fzf = "TOKYONIGHT_NIGHT"
 ghostty = "tokyonight_night"
-k9s = "rose-pine"
+k9s = "stock"
 kitty = "tokyonight_night"
 lazygit = "tokyonight_night"
 nvim = { name = "tokyonight", style = "night" }
