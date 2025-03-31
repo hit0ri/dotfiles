@@ -239,8 +239,10 @@ export ZELLIJ_AUTO_EXIT=true
 {{ if eq .chezmoi.os "darwin" -}}
 # Android Studio
 export ANDROID_HOME=$HOME/Library/Android/sdk
-{{- end }}
 
+# k3d
+export K3D_FIX_DNS=0
+{{- end }}
 
 # k9s
 export K9S_CONFIG_DIR=$HOME/.config/k9s
