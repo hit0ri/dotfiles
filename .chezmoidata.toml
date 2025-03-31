@@ -1,6 +1,6 @@
 font_name = "JetBrainsMono Nerd Font"
 font_size = 14
-current_theme = "tokyonight-night"
+current_theme = "rose-pine-moon"
 
 [theme.catppuccin-mocha]
 alacritty = "catppuccin-mocha"
@@ -35,7 +35,7 @@ alacritty = "rose-pine-moon"
 bat = "rose-pine-moon"
 fzf = "ROSE_PINE_MOON"
 ghostty = "rose-pine-moon"
-k9s = "rose-pine"
+k9s = "rose-pine-moon"
 kitty = "rose-pine-moon"
 lazygit = "tokyonight_moon"
 nvim = { name = "rose-pine-moon", style = "" }
