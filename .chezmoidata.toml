@@ -1,6 +1,20 @@
 font_name = "JetBrainsMono Nerd Font"
 font_size = 14
-current_theme = "rose-pine-moon"
+current_theme = "catppuccin-latte"
+
+[theme.catppuccin-latte]
+alacritty = "catppuccin-latte"
+bat = "catppuccin-latte"
+fzf = "CATPPUCCIN_LATTE"
+ghostty = "catppuccin-latte"
+k9s = "catppuccin-latte"
+kitty = "catppuccin-latte"
+lazygit = "catppuccin_latte"
+nvim = { name = "catppuccin-latte", style = "" }
+vivid = "catppuccin-latte"
+wezterm = "catppuccin-latte"
+zed = "Catppuccin Latte"
+zellij = "catppuccin-latte"
 
 [theme.catppuccin-mocha]
 alacritty = "catppuccin-mocha"
@@ -9,7 +23,7 @@ fzf = "CATPPUCCIN_MOCHA"
 ghostty = "catppuccin-mocha"
 k9s = "catppuccin-mocha"
 kitty = "catppuccin-mocha"
-lazygit = "tokyonight_moon"
+lazygit = "catppuccin_mocha"
 nvim = { name = "catppuccin-mocha", style = "" }
 vivid = "catppuccin-mocha"
 wezterm = "catppuccin-mocha"
@@ -23,7 +37,7 @@ fzf = "CATPPUCCIN_MACCHIATO"
 ghostty = "catppuccin-macchiato"
 k9s = "catppuccin-macchiato"
 kitty = "catppuccin-macchiato"
-lazygit = "tokyonight_storm"
+lazygit = "catppuccin_macchiato"
 nvim = { name = "catppuccin-macchiato", style = "" }
 vivid = "catppuccin-macchiato"
 wezterm = "catppuccin-macchiato"
