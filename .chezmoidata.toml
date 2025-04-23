@@ -1,6 +1,6 @@
 font_name = "JetBrainsMono Nerd Font"
 font_size = 14
-current_theme = "catppuccin-latte"
+current_theme = "catppuccin-mocha"
 
 [theme.catppuccin-latte]
 alacritty = "catppuccin-latte"
