@@ -57,6 +57,8 @@ tap "aws/tap"
 brew "ec2-instance-selector"
 tap "lucagrulla/tap"
 brew "cw"
+tap "keidarcy/tap"
+brew "e1s"
 
 # Terraform
 # brew "atmos"
