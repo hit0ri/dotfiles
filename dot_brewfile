@@ -2,6 +2,8 @@ cask "iterm2"
 brew "chezmoi"
 brew "vivid"
 brew "git"
+brew "cocogitto"
+brew "git-cliff"
 brew "tig"
 brew "git-cliff"
 brew "git-sizer"
@@ -95,7 +97,6 @@ brew "shfmt"
 
 cask "android-studio"
 
-brew "lima"
 brew "colima"
 # Required for colima
 brew "docker"
