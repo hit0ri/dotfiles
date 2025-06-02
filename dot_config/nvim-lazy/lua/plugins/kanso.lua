@@ -1,3 +1,0 @@
-return {
-  "webhooked/kanso.nvim",
-}
