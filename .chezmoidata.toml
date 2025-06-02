@@ -1,54 +1,6 @@
 font_name = "GoMono Nerd Font"
 font_size = 14
-current_theme = "kanso-ink"
-
-[theme.kanso-ink]
-alacritty = "kanso_ink"
-bat = "catppuccin-mocha"
-fzf = "CATPPUCCIN_MOCHA"
-ghostty = "kanso-ink"
-k9s = "catppuccin-mocha"
-e1s = "catppuccin_mocha"
-kitty = "kanso_ink"
-lazygit = "catppuccin_mocha"
-nvim = { name = "kanso-ink", style = "" }
-vivid = "catppuccin-mocha"
-# TODO: Import kanso https://github.com/webhooked/kanso.nvim/tree/main/extras/wezterm
-wezterm = "catppuccin-mocha"
-zed = "Kanso Ink"
-zellij = "kanso-ink"
-
-[theme.kanso-zen]
-alacritty = "kanso_zen"
-bat = "catppuccin-mocha"
-fzf = "CATPPUCCIN_MOCHA"
-ghostty = "kanso-zen"
-k9s = "catppuccin-mocha"
-e1s = "catppuccin_mocha"
-kitty = "kanso_zen"
-lazygit = "catppuccin_mocha"
-nvim = { name = "kanso-zen", style = "" }
-vivid = "catppuccin-mocha"
-# TODO: Import kanso https://github.com/webhooked/kanso.nvim/tree/main/extras/wezterm
-wezterm = "catppuccin-mocha"
-zed = "Kanso Zen"
-zellij = "kanso-zen"
-
-[theme.kanso-pearl]
-alacritty = "kanso_pearl"
-bat = "catppuccin-mocha"
-fzf = "CATPPUCCIN_MOCHA"
-ghostty = "kanso-pearl"
-k9s = "catppuccin-mocha"
-e1s = "catppuccin_mocha"
-kitty = "kanso_pearl"
-lazygit = "catppuccin_mocha"
-nvim = { name = "kanso-pearl", style = "" }
-vivid = "catppuccin-mocha"
-# TODO: Import kanso https://github.com/webhooked/kanso.nvim/tree/main/extras/wezterm
-wezterm = "catppuccin-mocha"
-zed = "Kanso Pearl"
-zellij = "kanso-pearl"
+current_theme = "catppuccin-mocha"
 
 [theme.catppuccin-latte]
 alacritty = "catppuccin-latte"
