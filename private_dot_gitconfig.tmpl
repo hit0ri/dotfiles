@@ -20,6 +20,7 @@
   autocorrect = prompt
 
 [diff]
+  external = difft
   algorithm = histogram
   colorMoved = plain
   colorMovedWS = allow-indentation-change
@@ -89,11 +90,12 @@
   ds = diff --staged --stat
   dst = diff --staged
   st = status -sb
+  s = show --ext-diff
   br = branch
   type = cat-file -t
   dump = cat-file -p
   last = log -1 HEAD
-  lastf = log --cc --pretty=fuller -1 HEAD
+  lastf = log --ext-diff --cc --pretty=fuller -1 HEAD
   lastfs = log --stat --cc -1 HEAD
   lg = log --graph --decorate
   lgold = log --graph --decorate --abbrev-commit
