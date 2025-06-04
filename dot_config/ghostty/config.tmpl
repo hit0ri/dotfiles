@@ -6,6 +6,8 @@ font-family = Symbols Nerd Font
 font-feature = -calt
 {{ if hasPrefix "Maple Mono" .font_name -}}
 font-feature = ss02
+{{ else if hasPrefix "JetBrainsMono" .font_name -}}
+font-feature = zero
 {{- end }}
 
 theme = {{ (index .theme .current_theme).ghostty }}
