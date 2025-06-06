@@ -99,6 +99,7 @@ brew "gitlab-ci-ls"
 
 
 cask "android-studio"
+brew "gradle-profiler"
 
 brew "colima"
 # Required for colima
