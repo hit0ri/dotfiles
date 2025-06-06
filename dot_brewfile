@@ -94,6 +94,8 @@ cask "zoom"
 cask "zed"
 brew "shellcheck"
 brew "shfmt"
+tap "alesbrelih/gitlab-ci-ls"
+brew "gitlab-ci-ls"
 
 
 cask "android-studio"
