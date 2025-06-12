@@ -45,6 +45,7 @@ brew "rustup"
 
 brew "gnupg"
 
+cask "ghostty"
 cask "1password"
 cask "1password-cli"
 cask "visual-studio-code"
