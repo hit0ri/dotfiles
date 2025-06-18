@@ -73,6 +73,7 @@ tap "busser/tap"
 brew "tfautomv"
 tap "warrensbox/tap"
 brew "tfswitch"
+brew "hcl2json"
 
 # Neovim
 brew "neovim"
