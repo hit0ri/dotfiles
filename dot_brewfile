@@ -39,6 +39,8 @@ brew "btop"
 brew "just"
 brew "miniserve"
 
+brew "glab"
+
 brew "mise"
 brew "uv"
 brew "rustup"
