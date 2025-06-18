@@ -9,7 +9,7 @@ return {
     -- vim options can be configured here
     options = {
       opt = { -- vim.opt.<key>
-        clipboard = "unnamed", -- do not send text into system clipboard
+        clipboard = "", -- do not send text into system clipboard
       },
     },
     mappings = {
