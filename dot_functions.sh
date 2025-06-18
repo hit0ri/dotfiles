@@ -14,7 +14,7 @@ mkdirf() {
 
 # Create paste from stdin or file
 pb() {
-  curl -sF "file=@${1:--}" 'https://0x0.st'
+  curl -sF "file=@${1:--}" -A foo 'https://0x0.st'
 }
 
 # Generate QR code from stdin or file
