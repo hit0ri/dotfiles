@@ -7,7 +7,6 @@ zmodule joke/zim-yq
 zmodule kiesman99/zim-zoxide
 zmodule environment
 zmodule run-help
-zmodule fzf
 zmodule zsh-users/zsh-completions --fpath src
 zmodule zsh-users/zsh-autosuggestions
 # zmodule zdharma-continuum/fast-syntax-highlighting
