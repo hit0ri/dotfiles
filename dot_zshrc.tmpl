@@ -107,6 +107,8 @@ export LESS_TERMCAP_us=$'\E[1;32m'  # Begins underline.
 # FZF
 [[ -f ~/.config/fzf/themees/{{ (index .theme .current_theme).fzf }}.sh ]] && source ~/.config/fzf/themees/{{ (index .theme .current_theme).fzf }}.sh
 
+# sk (skim)
+[[ -f ~/.config/sk/themes/{{ (index .theme .current_theme).sk }}.sh ]] && source ~/.config/sk/themes/{{ (index .theme .current_theme).sk }}.sh
 
 # TF
 export TG_TF_FORWARD_STDOUT=true
