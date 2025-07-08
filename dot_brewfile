@@ -38,6 +38,7 @@ brew "yazi"
 brew "btop"
 brew "just"
 brew "miniserve"
+brew "certigo"
 
 brew "glab"
 
