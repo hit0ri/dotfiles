@@ -1,6 +1,6 @@
 include themes/{{ (index .theme .current_theme).kitty }}.conf
 
-font_family {{ trimSuffix " Mono" .font_name }}
+font_family {{ trimSuffix " Mono" .font_name }} Mono
 font_size {{ .font_size }}.0
 font_features +ss19 +zero
 cursor_blink_interval 0
