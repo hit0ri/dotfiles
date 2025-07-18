@@ -1,0 +1,14 @@
+[tools]
+usage = 'latest'
+node = 'latest'
+python = 'latest'
+go = 'latest'
+java = 'corretto-21'
+zig = '0.14'
+kubectl = '1.33'
+packer = 'latest'
+
+
+[settings]
+experimental = true
+idiomatic_version_file_enable_tools = []
