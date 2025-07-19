@@ -62,6 +62,21 @@ wezterm = "rose-pine-moon"
 zed = "Rosé Pine Moon"
 zellij = "rose-pine-moon"
 
+[theme.rose-pine-dawn]
+alacritty = "rose-pine-dawn"
+bat = "rose-pine-dawn"
+fzf = "rose-pine-dawn"
+ghostty = "rose-pine-dawn"
+k9s = "rose-pine-dawn"
+e1s = "rose-pine-dawn"
+kitty = "rose-pine-dawn"
+lazygit = "tokyonight_day"
+nvim = { name = "rose-pine-dawn", style = "" }
+vivid = "rose-pine-dawn"
+wezterm = "rose-pine-dawn"
+zed = "Rosé Pine Dawn"
+zellij = "rose-pine-dawn"
+
 [theme.tokyonight-moon]
 alacritty = "tokyonight-moon"
 bat = "tokyonight_moon"
