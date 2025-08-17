@@ -40,7 +40,7 @@ brew "btop"
 brew "just"
 brew "miniserve"
 brew "certigo"
-
+brew "boxes"
 brew "glab"
 
 brew "mise"
@@ -117,8 +117,10 @@ brew "k3d"
 brew "helm"
 brew "kubectx"
 brew "k9s"
-cask "lens"
+cask "headlamp"
 brew "yamllint"
+tap "fluxcd/tap"
+brew "fluxcd/tap/flux"
 
 
 brew "ykman"
