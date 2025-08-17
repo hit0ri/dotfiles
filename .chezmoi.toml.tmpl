@@ -1,8 +1,8 @@
 {{- $email := promptStringOnce . "email" "Email address" -}}
-{{- $emailOnepassword := promptStringOnce . "emailOnepassword" "Email address for 1password" -}}
+{{- $fullname := promptStringOnce . "fullname" "Full name" -}}
 
 [data]
     email = "{{ $email }}"
-    emailOnepassword = "{{ $emailOnepassword }}"
+    fullname = "{{ $fullname }}"
 [diff]
     pager = ""
