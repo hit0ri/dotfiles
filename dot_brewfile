@@ -82,13 +82,15 @@ brew "hcl2json"
 # Neovim
 brew "neovim"
 # Astronvim deps
-brew "tree-sitter"
+brew "tree-sitter-cli"
 brew "ripgrep"
 brew "lazygit"
 # conflicts with coreutils du (gdu) ?
 brew "gdu"
 brew "bottom"
 brew "viu"
+brew "ast-grep"
+brew "imagemagick"
 
 cask "firefox"
 cask "vitals"

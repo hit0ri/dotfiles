@@ -5,7 +5,7 @@ return {
   },
 
   {
-    "williamboman/mason.nvim",
+    "mason-org/mason.nvim",
     opts = { ensure_installed = { "npm-groovy-lint", "groovy-language-server" } },
   },
 

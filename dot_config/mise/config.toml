@@ -7,7 +7,7 @@ java = 'corretto-21'
 zig = '0.14'
 kubectl = '1.33'
 packer = 'latest'
-
+lua = '5.1'
 
 [settings]
 experimental = true
