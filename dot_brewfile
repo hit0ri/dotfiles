@@ -42,10 +42,9 @@ brew "just"
 brew "miniserve"
 brew "certigo"
 brew "boxes"
-brew "glab"
+brew "goaccess"
 
 brew "mise"
-brew "uv"
 brew "rustup"
 
 brew "gnupg"
@@ -92,9 +91,9 @@ brew "viu"
 brew "ast-grep"
 brew "imagemagick"
 
-cask "firefox"
 cask "vitals"
 cask "zoom"
+cask "microsoft-edge"
 
 
 # ZED
