@@ -1,14 +1,17 @@
 [tools]
-usage = 'latest'
-node = 'latest'
-python = 'latest'
-go = 'latest'
-java = 'corretto-21'
-zig = '0.14'
-kubectl = '1.33'
-packer = 'latest'
-lua = '5.1'
+usage = "latest"
+node = "latest"
+uv = "latest"
+python = "latest"
+go = "latest"
+java = "corretto-21"
+zig = "latest"
+kubectl = "latest"
+packer = "latest"
+lua = "latest"
 
 [settings]
 experimental = true
 idiomatic_version_file_enable_tools = []
+python.uv_venv_create_args = ["--seed"]
+python.compile = false
