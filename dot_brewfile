@@ -67,7 +67,7 @@ brew "e1s"
 # Terraform
 # brew "atmos"
 brew "terraform-docs"
-brew "tfsec"
+brew "trivy"
 brew "tflint"
 brew "tfmigrate"
 brew "terramate"
