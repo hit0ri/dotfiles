@@ -65,17 +65,11 @@ tap "keidarcy/tap"
 brew "e1s"
 
 # Terraform
-# brew "atmos"
+brew "tenv"
 brew "terraform-docs"
 brew "trivy"
 brew "tflint"
 brew "tfmigrate"
-brew "terramate"
-brew "terragrunt"
-tap "busser/tap"
-brew "tfautomv"
-tap "warrensbox/tap"
-brew "tfswitch"
 brew "hcl2json"
 
 # Neovim
