@@ -11,11 +11,8 @@ WORDCHARS=''
 # duplicates of a line previously found, even if the duplicates are not contiguous.
 setopt histfindnodups
 
-export VOLTA_HOME=~/.volta
-
 typeset -U path PATH
 path=(
-  $VOLTA_HOME/bin
   ~/.cargo/bin
   ~/.local/bin
   ~/.rd/bin
