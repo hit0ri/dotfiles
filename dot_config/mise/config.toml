@@ -9,6 +9,7 @@ zig = "latest"
 kubectl = "latest"
 packer = "latest"
 lua = "latest"
+tf-summarize = "latest"
 
 [settings]
 experimental = true
