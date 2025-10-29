@@ -1,20 +1,28 @@
 [tools]
 usage = "latest"
 node = "latest"
+bun = "latest"
 uv = "latest"
 python = "latest"
 go = "latest"
 java = "temurin-17"
+lua = "latest"
 zig = "latest"
 kubectl = "latest"
 krew = "latest"
 packer = "latest"
-lua = "latest"
 tf-summarize = "latest"
 
 [settings]
 experimental = true
 idiomatic_version_file_enable_tools = []
-python.uv_venv_create_args = ["--seed"]
-python.compile = false
-node.compile = false
+
+[settings.python]
+compile = false
+uv_venv_create_args = ["--seed"]
+
+[settings.node]
+compile = false
+
+[settings.npm]
+bun = true
