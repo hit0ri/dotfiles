@@ -112,10 +112,7 @@ brew "k3d"
 brew "helm"
 brew "kubectx"
 brew "k9s"
-cask "headlamp"
 brew "yamllint"
-tap "fluxcd/tap"
-brew "fluxcd/tap/flux"
 
 
 brew "ykman"
