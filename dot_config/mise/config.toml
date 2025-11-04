@@ -1,5 +1,6 @@
 [tools]
 usage = "latest"
+fnox = "latest"
 node = "latest"
 bun = "latest"
 uv = "latest"

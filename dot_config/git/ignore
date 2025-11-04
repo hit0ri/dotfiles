@@ -6,3 +6,4 @@ venv/
 .envrc
 .terraformrc
 live/**/.mise.toml
+live/**/fnox.toml

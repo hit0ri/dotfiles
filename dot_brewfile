@@ -122,6 +122,7 @@ brew "ykman"
 cask "yubico-authenticator"
 brew "pinentry-mac"
 brew "openssh"
+brew "age"
 
 
 # Grafana stack
