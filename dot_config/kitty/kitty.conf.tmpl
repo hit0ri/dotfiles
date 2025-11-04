@@ -1,8 +1,9 @@
 include themes/{{ (index .theme .current_theme).kitty }}.conf
 
-font_family family='{{ trimSuffix " Mono" .font_name }} Mono' style=Light
-bold_font family='{{ trimSuffix " Mono" .font_name }} Mono' style=Bold
-bold_italic_font family='{{ trimSuffix " Mono" .font_name }} Mono' style='Bold Italic'
+font_family family='{{ trimSuffix " Mono" .font_name }} Mono'
+bold_font auto
+bold_italic_font auto
+italic_font auto
 font_size {{ .font_size }}.0
 font_features +ss19 +zero
 cursor_blink_interval 0
