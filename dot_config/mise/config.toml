@@ -13,6 +13,7 @@ kubectl = "latest"
 krew = "latest"
 packer = "latest"
 tf-summarize = "latest"
+"go:github.com/maaslalani/confetty" = "latest"
 
 [settings]
 experimental = true
