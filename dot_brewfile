@@ -100,6 +100,7 @@ brew "gitlab-ci-ls"
 cask "android-studio"
 brew "gradle-profiler"
 
+brew "container"
 brew "colima"
 # Required for colima
 brew "docker"
