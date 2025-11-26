@@ -7,6 +7,7 @@ uv = "latest"
 python = "latest"
 go = "latest"
 java = "corretto"
+android-sdk = "latest"
 flutter = "latest"
 lua = "latest"
 zig = "latest"
@@ -14,7 +15,7 @@ kubectl = "latest"
 krew = "latest"
 packer = "latest"
 tf-summarize = "latest"
-"go:github.com/maaslalani/confetty" = "latest"
+"github:unhappychoice/gitlogue" = "latest"
 
 [settings]
 experimental = true
