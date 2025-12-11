@@ -43,6 +43,7 @@ brew "miniserve"
 brew "certigo"
 brew "boxes"
 brew "goaccess"
+brew "tealdeer"
 
 brew "mise"
 brew "rustup"
