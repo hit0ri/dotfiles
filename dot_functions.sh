@@ -36,7 +36,7 @@ b64() {
 
 httping() {
   while :; do
-    curl --write-out "%{url_effective} - %{response_code} - %{time_total} - $(date +%T)\n" --silent --output /dev/null -L "$1"
+    curl -k --write-out "%{url_effective} - %{response_code} - %{time_total} - $(date +%T)\n" --silent --output /dev/null -L "$1"
     [[ -n $2 ]] && sleep "$2"
   done
 }
