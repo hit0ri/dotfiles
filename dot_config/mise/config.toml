@@ -1,5 +1,8 @@
 [tools]
 usage = "latest"
+aws = { version = "latest", symlink_bins = "true" }
+"aqua:aws/session-manager-plugin" = "latest"
+"aqua:synfinatic/aws-sso-cli" = "latest"
 fnox = "latest"
 node = "latest"
 bun = "latest"
@@ -7,6 +10,8 @@ uv = "latest"
 python = "latest"
 go = "latest"
 java = "corretto"
+terragrunt = "latest"
+terraform = "latest"
 android-sdk = "latest"
 flutter = "latest"
 lua = "latest"

@@ -8,13 +8,11 @@ brew "git-filter-repo"
 brew "cocogitto"
 brew "git-cliff"
 brew "tig"
-brew "git-cliff"
 brew "git-sizer"
 brew "pre-commit"
 brew "fzf"
 brew "bfs"
 brew "fd"
-brew "ripgrep"
 brew "bat"
 brew "tokei"
 brew "zellij"
@@ -48,25 +46,25 @@ brew "tealdeer"
 brew "mise"
 brew "rustup"
 
-brew "gnupg"
-
 cask "1password"
 cask "1password-cli"
+brew "gnupg"
+brew "ykman"
+cask "yubico-authenticator"
+brew "pinentry-mac"
+brew "openssh"
+brew "age"
+
 cask "visual-studio-code"
+cask "kiro"
 
 # AWS
-brew "awscli"
-cask "session-manager-plugin"
-brew "aws-sso-cli"
-tap "aws/tap"
-brew "ec2-instance-selector"
 tap "lucagrulla/tap"
 brew "cw"
 tap "keidarcy/tap"
 brew "e1s"
 
 # Terraform
-brew "tenv"
 brew "terraform-docs"
 brew "trivy"
 brew "tflint"
@@ -89,7 +87,6 @@ brew "imagemagick"
 cask "vitals"
 cask "zoom"
 
-
 # ZED
 cask "zed"
 brew "shellcheck"
@@ -97,32 +94,16 @@ brew "shfmt"
 tap "alesbrelih/gitlab-ci-ls"
 brew "gitlab-ci-ls"
 
-
 cask "android-studio"
 brew "gradle-profiler"
 
+# Containers
 brew "podman"
-
-# Kubernetes
 brew "k3d"
 brew "helm"
 brew "kubectx"
 brew "k9s"
 brew "yamllint"
-
-
-brew "ykman"
-cask "yubico-authenticator"
-brew "pinentry-mac"
-brew "openssh"
-brew "age"
-
-
-# Grafana stack
-brew "logcli"
-brew "jsonnet"
-brew "jsonnet-bundler"
-
 
 # Fonts
 cask "font-symbols-only-nerd-font"
