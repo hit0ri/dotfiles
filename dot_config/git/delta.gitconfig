@@ -1,0 +1,11 @@
+[include]
+	path = delta-themes/catppuccin.gitconfig
+[include]
+	path = delta-themes/tokyonight_moon.gitconfig
+[include]
+	path = delta-themes/tokyonight_day.gitconfig
+[include]
+	path = delta-themes/tokyonight_storm.gitconfig
+[include]
+	path = delta-themes/tokyonight_night.gitconfig
+
