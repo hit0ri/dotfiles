@@ -109,6 +109,8 @@ brew "yamllint"
 # Fonts
 cask "font-symbols-only-nerd-font"
 cask "font-jetbrains-mono"
+cask "font-cascadia-mono"
+cask "font-cascadia-code"
 cask "font-ibm-plex-mono"
 cask "font-maple-mono"
 cask "font-fira-mono"
