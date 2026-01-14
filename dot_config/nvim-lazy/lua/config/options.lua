@@ -5,6 +5,7 @@
 local opt = vim.opt
 
 vim.g.snacks_animate = false
+vim.g.lazyvim_python_lsp = "basedpyright"
 
 opt.clipboard = ""
 opt.mouse = "r"
