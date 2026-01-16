@@ -50,11 +50,24 @@ tls-pin-sha256() {
 }
 
 awsudo() {
-  if [[ $1 == "unset" ]]; then
+  local selection
+
+  selection=$(sed -n "s/\[profile \(.*\)\]/\1/gp" ~/.aws/config |
+    fzf --query="$1" \
+      --select-1 \
+      --header="CTRL-X to unset" \
+      --bind 'ctrl-x:become(echo unset)')
+
+  if [[ -z $selection ]]; then
+    return
+  fi
+
+  if [[ $selection == "unset" ]]; then
     unset AWS_PROFILE
+    printf 'AWS_PROFILE unset.\n'
   else
-    AWS_PROFILE=$(sed -n "s/\[profile \(.*\)\]/\1/gp" ~/.aws/config | fzf --query="$1")
-    export AWS_PROFILE
+    export AWS_PROFILE="$selection"
+    printf 'AWS_PROFILE set to %s\n' "$AWS_PROFILE"
   fi
 }
 
