@@ -50,24 +50,56 @@ tls-pin-sha256() {
 }
 
 awsudo() {
-  local selection
+  local profile sso_session sso_url
 
-  selection=$(sed -n "s/\[profile \(.*\)\]/\1/gp" ~/.aws/config |
+  profile=$(sed -n -E 's/^\[profile (.*)\]/\1/p' ~/.aws/config |
     fzf --query="$1" \
       --select-1 \
       --header="CTRL-X to unset" \
       --bind 'ctrl-x:become(echo unset)')
 
-  if [[ -z $selection ]]; then
-    return
+  [[ -z $profile ]] && return
+
+  unset AWS_PROFILE AWS_ACCESS_KEY_ID AWS_SECRET_ACCESS_KEY AWS_SESSION_TOKEN
+
+  [[ $profile == "unset" ]] && return
+
+  export AWS_PROFILE="$profile"
+
+  eval "$(awk -v section="profile $profile" '
+    $0 ~ "^\\[" section "\\]" { in_sec=1; next }
+    in_sec && /^\[/ { in_sec=0 }
+    in_sec && /sso_session/ { sub(/.*=[ \t]*/, ""); printf "sso_session=\"%s\";", $0 }
+    in_sec && /sso_start_url/ { sub(/.*=[ \t]*/, ""); printf "sso_url=\"%s\";", $0 }
+  ' ~/.aws/config)"
+
+  if [[ -n $sso_session && -z $sso_url ]]; then
+    sso_url=$(awk -v sess="sso-session $sso_session" '
+      $0 ~ "^\\[" sess "\\]" { in_sec=1; next }
+      in_sec && /^\[/ { in_sec=0; exit }
+      in_sec && /sso_start_url/ { sub(/.*=[ \t]*/, ""); print; exit }
+    ' ~/.aws/config)
   fi
 
-  if [[ $selection == "unset" ]]; then
-    unset AWS_PROFILE
-    printf 'AWS_PROFILE unset.\n'
+  local now expired=true
+  if [[ -n $sso_url ]]; then
+    now=$(date -u +"%Y-%m-%dT%H:%M:%SZ")
+    if jq -e --arg url "$sso_url" --arg now "$now" '
+      .startUrl == $url and .expiresAt > $now
+    ' ~/.aws/sso/cache/*.json >/dev/null 2>&1; then
+      expired=false
+    fi
+  fi
+
+  if $expired; then
+    printf 'Session expired. Triggering AWS SSO Login...\n'
+    if [[ -n $sso_session ]]; then
+      aws sso login --sso-session "$sso_session"
+    else
+      aws sso login
+    fi
   else
-    export AWS_PROFILE="$selection"
-    printf 'AWS_PROFILE set to %s\n' "$AWS_PROFILE"
+    printf 'AWS_PROFILE: %s\n' "$AWS_PROFILE"
   fi
 }
 
