@@ -81,14 +81,18 @@ awsudo() {
     ' ~/.aws/config)
   fi
 
-  local now expired=true
+  local now expired=true cache_file
   if [[ -n $sso_url ]]; then
     now=$(date -u +"%Y-%m-%dT%H:%M:%SZ")
-    if jq -e --arg url "$sso_url" --arg now "$now" '
-      .startUrl == $url and .expiresAt > $now
-    ' ~/.aws/sso/cache/*.json >/dev/null 2>&1; then
-      expired=false
-    fi
+    for cache_file in ~/.aws/sso/cache/*.json; do
+      [[ -f $cache_file ]] || continue
+      if jq -e --arg url "$sso_url" --arg now "$now" '
+        .startUrl == $url and .expiresAt > $now
+      ' "$cache_file" >/dev/null 2>&1; then
+        expired=false
+        break
+      fi
+    done
   fi
 
   if $expired; then
