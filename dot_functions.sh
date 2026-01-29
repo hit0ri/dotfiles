@@ -50,7 +50,9 @@ tls-pin-sha256() {
 }
 
 awsudo() {
-  local profile sso_session sso_url
+  setopt local_options null_glob
+  local cache_files=("$HOME"/.aws/sso/cache/*.json)
+  local profile expired=true now
 
   profile=$(sed -n -E 's/^\[profile (.*)\]/\1/p' ~/.aws/config |
     fzf --query="$1" \
@@ -61,50 +63,26 @@ awsudo() {
   [[ -z $profile ]] && return
 
   unset AWS_PROFILE AWS_ACCESS_KEY_ID AWS_SECRET_ACCESS_KEY AWS_SESSION_TOKEN
-
   [[ $profile == "unset" ]] && return
 
   export AWS_PROFILE="$profile"
 
-  eval "$(awk -v section="profile $profile" '
-    $0 ~ "^\\[" section "\\]" { in_sec=1; next }
-    in_sec && /^\[/ { in_sec=0 }
-    in_sec && /sso_session/ { sub(/.*=[ \t]*/, ""); printf "sso_session=\"%s\";", $0 }
-    in_sec && /sso_start_url/ { sub(/.*=[ \t]*/, ""); printf "sso_url=\"%s\";", $0 }
-  ' ~/.aws/config)"
-
-  if [[ -n $sso_session && -z $sso_url ]]; then
-    sso_url=$(awk -v sess="sso-session $sso_session" '
-      $0 ~ "^\\[" sess "\\]" { in_sec=1; next }
-      in_sec && /^\[/ { in_sec=0; exit }
-      in_sec && /sso_start_url/ { sub(/.*=[ \t]*/, ""); print; exit }
-    ' ~/.aws/config)
-  fi
-
-  local now expired=true cache_file
-  if [[ -n $sso_url ]]; then
-    now=$(date -u +"%Y-%m-%dT%H:%M:%SZ")
-    for cache_file in ~/.aws/sso/cache/*.json; do
-      [[ -f $cache_file ]] || continue
-      if jq -e --arg url "$sso_url" --arg now "$now" '
-        .startUrl == $url and .expiresAt > $now
-      ' "$cache_file" >/dev/null 2>&1; then
+  now=$(date -u +"%Y-%m-%dT%H:%M:%SZ")
+  if ((${#cache_files[@]} > 0)); then
+    for cache_file in "${cache_files[@]}"; do
+      if jq -e --arg now "$now" '.expiresAt > $now' "$cache_file" &>/dev/null; then
         expired=false
         break
       fi
     done
   fi
 
-  if $expired; then
-    printf 'Session expired. Triggering AWS SSO Login...\n'
-    if [[ -n $sso_session ]]; then
-      aws sso login --sso-session "$sso_session"
-    else
-      aws sso login
-    fi
-  else
-    printf 'AWS_PROFILE: %s\n' "$AWS_PROFILE"
+  if $expired && ! aws sts get-caller-identity --profile "$AWS_PROFILE" &>/dev/null; then
+    printf 'SSO session expired. Triggering login for profile "%s"...\n' "$AWS_PROFILE"
+    aws sso login --profile "$AWS_PROFILE"
   fi
+
+  printf 'AWS_PROFILE: %s\n' "$AWS_PROFILE"
 }
 
 ec2-id-from-name() {
