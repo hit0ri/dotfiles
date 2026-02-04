@@ -50,9 +50,7 @@ tls-pin-sha256() {
 }
 
 awsudo() {
-  setopt local_options null_glob
-  local cache_files=("$HOME"/.aws/sso/cache/*.json)
-  local profile expired=true now
+  local profile
 
   profile=$(sed -n -E 's/^\[profile (.*)\]/\1/p' ~/.aws/config |
     fzf --query="$1" \
@@ -67,19 +65,9 @@ awsudo() {
 
   export AWS_PROFILE="$profile"
 
-  now=$(date -u +"%Y-%m-%dT%H:%M:%SZ")
-  if ((${#cache_files[@]} > 0)); then
-    for cache_file in "${cache_files[@]}"; do
-      if jq -e --arg now "$now" '.expiresAt > $now' "$cache_file" &>/dev/null; then
-        expired=false
-        break
-      fi
-    done
-  fi
-
-  if $expired && ! aws sts get-caller-identity --profile "$AWS_PROFILE" &>/dev/null; then
+  if ! aws sts get-caller-identity --no-cli-pager &>/dev/null; then
     printf 'SSO session expired. Triggering login for profile "%s"...\n' "$AWS_PROFILE"
-    aws sso login --profile "$AWS_PROFILE"
+    aws sso login
   fi
 
   printf 'AWS_PROFILE: %s\n' "$AWS_PROFILE"
