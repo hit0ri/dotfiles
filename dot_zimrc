@@ -1,5 +1,4 @@
 # theme
-zmodule romkatv/powerlevel10k
 zmodule homebrew
 zmodule input
 zmodule joke/zim-mise

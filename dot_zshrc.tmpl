@@ -1,8 +1,3 @@
-## Activate Powerlevel10k Instant Prompt.
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
-
 ZSH_AUTOSUGGEST_MANUAL_REBIND=1
 
 WORDCHARS=''
@@ -176,5 +171,4 @@ alias docker='podman'
 # 1password shell plugins
 [[ -f ~/.config/op/plugins.sh ]] && source ~/.config/op/plugins.sh
 
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+eval "$(starship init zsh)"
