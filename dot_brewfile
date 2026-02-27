@@ -102,6 +102,7 @@ brew "gradle-profiler"
 
 # Containers
 brew "podman"
+brew "podman-compose"
 brew "k3d"
 brew "helm"
 brew "kubectx"
