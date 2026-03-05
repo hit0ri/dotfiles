@@ -171,4 +171,8 @@ alias docker='podman'
 # 1password shell plugins
 [[ -f ~/.config/op/plugins.sh ]] && source ~/.config/op/plugins.sh
 
+if (( $+commands[zoxide] )); then
+  eval "$(zoxide init zsh)"
+fi
+
 eval "$(starship init zsh)"

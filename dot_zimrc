@@ -3,7 +3,6 @@ zmodule homebrew
 zmodule input
 zmodule joke/zim-mise
 zmodule joke/zim-yq
-zmodule kiesman99/zim-zoxide
 zmodule environment
 zmodule run-help
 zmodule fzf
