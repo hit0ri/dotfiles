@@ -68,7 +68,6 @@ brew "e1s"
 
 # Terraform
 brew "terraform-docs"
-brew "trivy"
 brew "tflint"
 brew "tfmigrate"
 brew "hcl2json"
