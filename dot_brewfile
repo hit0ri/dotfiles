@@ -1,3 +1,4 @@
+cask "ghostty"
 cask "kitty"
 brew "chezmoi"
 brew "starship"

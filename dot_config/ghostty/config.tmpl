@@ -1,0 +1,34 @@
+auto-update-channel = stable
+
+font-size = {{ .font_size }}
+font-family = {{ .font_name }}
+font-feature = ss19
+{{ if hasPrefix "Maple Mono" .font_name -}}
+font-feature = ss02
+font-feature = cv35
+{{ else if hasPrefix "JetBrainsMono" .font_name -}}
+font-feature = zero
+{{- end }}
+
+theme = {{ (index .theme .current_theme).ghostty }}
+cursor-style-blink = false
+custom-shader = cursor-shaders/cursor_warp.glsl
+shell-integration-features = no-cursor,ssh-env
+window-inherit-working-directory = false
+tab-inherit-working-directory = false
+split-inherit-working-directory = true
+mouse-hide-while-typing = true
+scrollback-limit = 50000000
+alpha-blending = linear-corrected
+palette-generate = false
+
+{{ if eq .chezmoi.os "darwin" -}}
+# macOS specific options
+macos-option-as-alt = left
+macos-titlebar-style = tabs
+window-colorspace = display-p3
+maximize = true
+{{- end }}
+
+# Fix printing `^[[27;5;13~` on Ctrl+enter
+keybind = ctrl+enter=text:\r
