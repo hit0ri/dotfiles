@@ -2,9 +2,13 @@ ZSH_AUTOSUGGEST_MANUAL_REBIND=1
 
 WORDCHARS=''
 
-# When searching for history entries in the line editor, do not display
-# duplicates of a line previously found, even if the duplicates are not contiguous.
-setopt histfindnodups
+setopt hist_find_no_dups \
+  hist_fcntl_lock \
+  hist_ignore_all_dups \
+  hist_ignore_space \
+  hist_reduce_blanks \
+  hist_save_no_dups \
+  hist_verify
 
 typeset -U path PATH
 path=(
