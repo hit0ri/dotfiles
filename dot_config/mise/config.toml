@@ -1,9 +1,8 @@
 [tools]
 usage = "latest"
-aws = { version = "latest", symlink_bins = "true" }
+aws = "latest"
 "aqua:aws/session-manager-plugin" = "latest"
 node = "latest"
-bun = "latest"
 uv = "latest"
 python = "latest"
 go = "latest"
@@ -29,6 +28,3 @@ uv_venv_create_args = ["--seed"]
 
 [settings.node]
 compile = false
-
-[settings.npm]
-bun = true
