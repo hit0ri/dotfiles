@@ -16,6 +16,7 @@ kubectl = "latest"
 krew = "latest"
 packer = "latest"
 tf-summarize = "latest"
+"github:caarlos0/svu" = "latest"
 "github:unhappychoice/gitlogue" = "latest"
 
 [settings]
