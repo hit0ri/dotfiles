@@ -1,14 +1,34 @@
+# ~/.zshrc - Interactive shell configuration
+# Load order: zshenv -> zprofile (login) -> zshrc (interactive)
+
+
+#-------------------------------------------------
+# Shell options
+#-------------------------------------------------
+
+# Prevents zsh-autosuggestions from rebinding widgets on every precmd
 ZSH_AUTOSUGGEST_MANUAL_REBIND=1
 
-WORDCHARS=''
+# ctrl+w stops at path separators, dots, hyphens but treats _ as part of a word
+WORDCHARS='*?_[]~&;!#$%^(){}<>'
 
-setopt hist_find_no_dups \
-  hist_fcntl_lock \
-  hist_ignore_all_dups \
-  hist_ignore_space \
-  hist_reduce_blanks \
-  hist_save_no_dups \
-  hist_verify
+HISTFILE="${ZDOTDIR:-$HOME}/.zsh_history"
+HISTSIZE=50000
+SAVEHIST=50000
+
+setopt hist_ignore_all_dups
+setopt hist_ignore_space
+setopt hist_reduce_blanks
+setopt hist_verify
+setopt hist_save_no_dups
+setopt hist_fcntl_lock
+setopt share_history
+setopt interactive_comments
+setopt no_beep
+
+#-------------------------------------------------
+# PATH
+#-------------------------------------------------
 
 typeset -U path PATH
 path=(
@@ -16,167 +36,257 @@ path=(
   ~/.cargo/bin
   ~/.local/bin
   ~/.rd/bin
-  ~/.node_modules/bin
   $path
 )
 export PATH
 
+{{ if eq .chezmoi.os "darwin" -}}
 eval "$(/opt/homebrew/bin/brew shellenv)"
+{{- end }}
 
-# Must be called before Zim is initialized
+#-------------------------------------------------
+# Tool init caching
+#-------------------------------------------------
+
+# Caches tool init output to files, regenerates when the binary is updated.
+# Avoids running `eval "$(tool init zsh)"` on every shell start.
+ZSH_CACHE_DIR="${XDG_CACHE_HOME:-$HOME/.cache}/zsh"
+[[ -d "$ZSH_CACHE_DIR" ]] || mkdir -p "$ZSH_CACHE_DIR"
+
+_cache_tool_init() {
+  local tool_name="$1"
+  shift
+  local tool_bin="${commands[$tool_name]}"
+  [[ -z "$tool_bin" ]] && return 1
+
+  local cache_file="$ZSH_CACHE_DIR/${tool_name}.zsh"
+  if [[ ! -f "$cache_file" || "$tool_bin" -nt "$cache_file" ]]; then
+    local tmp="${cache_file}.tmp"
+    if "$@" >| "$tmp"; then
+      mv "$tmp" "$cache_file"
+    else
+      rm -f "$tmp"
+      return 1
+    fi
+  fi
+  source "$cache_file"
+}
+
+{
+  local -a _missing_tools=()
+  for _tool in starship vivid sheldon; do
+    (( $+commands[$_tool] )) || _missing_tools+=("$_tool")
+  done
+  if (( ${#_missing_tools} )); then
+    printf '%s\n' "zshrc: missing required tools: ${_missing_tools[*]}" >&2
+    printf '%s\n' "zshrc: install with: brew install ${_missing_tools[*]}" >&2
+  fi
+}
+
+#-------------------------------------------------
+# Plugins
+#-------------------------------------------------
+
+if (( $+commands[sheldon] )); then
+  eval "$(sheldon source)"
+fi
+
+#-------------------------------------------------
+# Completion
+#-------------------------------------------------
+
+{{ if eq .chezmoi.os "darwin" -}}
 fpath+=("$HOMEBREW_PREFIX/share/zsh/site-functions")
+{{- end }}
 
+# Must be set before zstyle list-colors references it
+(( $+commands[vivid] )) && export LS_COLORS="$(vivid generate {{ (index .theme .current_theme).vivid }})"
 
-# ----------------------------------------------------------------------
-# Zim
-# use degit tool by default to install modules
-zstyle ':zim:zmodule' use 'degit'
-zstyle ':zim:input' double-dot-expand no
-zstyle ':zim:*' case-sensitivity sensitive
-
-# Completion styling
-# zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
-# zstyle ':completion:*' menu no
-# zstyle ':completion:*' menu no
-zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
-
-export ZIM_HOME=~/.zim
-
-# Download zimfw plugin manager if missing.
-if [[ ! -e ${ZIM_HOME}/zimfw.zsh ]]; then
-  curl -fsSL --create-dirs -o ${ZIM_HOME}/zimfw.zsh \
-      https://github.com/zimfw/zimfw/releases/latest/download/zimfw.zsh
-fi
-
-# Install missing modules, and update ${ZIM_HOME}/init.zsh if missing or outdated.
-if [[ ! ${ZIM_HOME}/init.zsh -nt ${ZDOTDIR:-${HOME}}/.zimrc ]]; then
-  source ${ZIM_HOME}/zimfw.zsh init -q
-fi
-
-# Initialize modules.
-source ${ZIM_HOME}/init.zsh
-# ----------------------------------------------------------------------
-
-# Disable ambiguous completion
-#zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}' '+r:|?=**'
+zmodload zsh/complist
+zstyle ':completion:*' completer _extensions _complete
 zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
+zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
+zstyle ':completion:*' menu select
+zstyle ':completion:*' use-cache true
+zstyle ':completion:*' cache-path "$ZSH_CACHE_DIR/zcompcache"
+zstyle ':completion:*' group-name ''
+zstyle ':completion:*' verbose true
+zstyle ':completion:*' squeeze-slashes true
+zstyle ':completion:*' special-dirs true
+zstyle ':completion:*' rehash true
+zstyle ':completion:*:descriptions' format '%F{yellow}-- %d --%f'
+zstyle ':completion:*:warnings' format '%F{red}-- no matches found --%f'
+zstyle ':completion:*:default' list-prompt '%S%M matches%s'
+zstyle ':completion:*:functions' ignored-patterns '_*'
 
+# Regenerates the dump when fpath changes (new tools, plugins added).
+# Uses -C (skip security check) when unchanged.
+autoload -Uz compinit
+() {
+  local zcompdump="$ZSH_CACHE_DIR/.zcompdump"
+  local fpath_hash="${(j.:.)fpath}"
+  local stored_hash=""
+  local hashfile="$ZSH_CACHE_DIR/.zcompdump.fpath"
+  [[ -f "$hashfile" ]] && stored_hash="$(<$hashfile)"
+  if [[ ! -f "$zcompdump" || "$fpath_hash" != "$stored_hash" ]]; then
+    compinit -d "$zcompdump"
+    echo "$fpath_hash" > "$hashfile"
+  else
+    compinit -d "$zcompdump" -C
+  fi
+}
 
-# Bash completion
-autoload -Uz bashcompinit && bashcompinit
-complete -C aws_completer aws
+#-------------------------------------------------
+# Keybindings
+#-------------------------------------------------
 
+bindkey -e
+KEYTIMEOUT=10
+
+autoload -Uz up-line-or-beginning-search down-line-or-beginning-search
+zle -N up-line-or-beginning-search
+zle -N down-line-or-beginning-search
+
+# Both terminfo and hardcoded ANSI for portability across terminals
+bindkey "${terminfo[kcuu1]}" up-line-or-beginning-search
+bindkey '^[[A' up-line-or-beginning-search
+bindkey "${terminfo[kcud1]}" down-line-or-beginning-search
+bindkey '^[[B' down-line-or-beginning-search
+bindkey "${terminfo[kcbt]}" reverse-menu-complete
+bindkey '^[[Z' reverse-menu-complete
+
+#-------------------------------------------------
+# Environment
+#-------------------------------------------------
 
 export HOMEBREW_NO_ANALYTICS=1
 export HOMEBREW_BAT=1
 export HOMEBREW_NO_ENV_HINTS=1
 export HOMEBREW_BUNDLE_FILE=~/.brewfile
 
-export npm_config_prefix=~/.node_modules
-
-export EDITOR=nvim
-export VISUAL=nvim
+export npm_config_prefix=~/.node_modules  # keep npm -g out of /usr/local
+export NVIM_APPNAME=nvim-lazy
+export K9S_CONFIG_DIR="$HOME/.config/k9s"
 export DIFFPROG='nvim -d'
-export SUDO_EDITOR=nvim
-
-export CLICOLOR=YES
-
-export BROWSER=open
-
-# Parevent creation of desktop files and file associations for wine applications
-export WINEDLLOVERRIDES=winemenubuilder.exe,mscoree,mshtml=
-
 export GROFF_NO_SGR=yes
 export AWS_PAGER=
 
-# sar
-export S_COLORS=auto
-
-export LS_COLORS="$(vivid generate {{ (index .theme .current_theme).vivid }})"
-
-# less
-export LESS_TERMCAP_mb=$'\E[1;31m'  # Begins blinking.
-export LESS_TERMCAP_md=$'\E[1;31m'  # Begins bold.
-export LESS_TERMCAP_me=$'\E[0m'     # Ends mode.
-export LESS_TERMCAP_ue=$'\E[0m'     # Ends underline.
-export LESS_TERMCAP_us=$'\E[1;32m'  # Begins underline.
-
-# FZF
-[[ -f ~/.config/fzf/themes/{{ (index .theme .current_theme).fzf }}.sh ]] && source ~/.config/fzf/themes/{{ (index .theme .current_theme).fzf }}.sh
-
-
-# TF
 export TG_PROVIDER_CACHE=true
 export TG_EXPERIMENT=dependency-fetch-output-from-state
-
 export BUILDKIT_PROGRESS=plain
-
-# Zellij
 export ZELLIJ_AUTO_EXIT=true
+export WINEDLLOVERRIDES='winemenubuilder.exe,mscoree,mshtml='
 
 {{ if eq .chezmoi.os "darwin" -}}
-# Android Studio
-export ANDROID_HOME=$HOME/Library/Android/sdk
-
-# k3d
+export CLICOLOR=1
+export BROWSER=open
+export ANDROID_HOME="$HOME/Library/Android/sdk"
 export K3D_FIX_DNS=0
 {{- end }}
+{{ if eq .chezmoi.os "linux" -}}
+export S_COLORS=auto
+{{- end }}
 
-# k9s
-export K9S_CONFIG_DIR=$HOME/.config/k9s
+# Colored man pages via less
+export LESS_TERMCAP_mb=$'\e[1;31m'
+export LESS_TERMCAP_md=$'\e[1;31m'
+export LESS_TERMCAP_me=$'\e[0m'
+export LESS_TERMCAP_ue=$'\e[0m'
+export LESS_TERMCAP_us=$'\e[1;32m'
 
-# Specify which neovim configuration folder to use
-export NVIM_APPNAME=nvim-lazy
+#-------------------------------------------------
+# fzf
+#-------------------------------------------------
 
-# Use EMACS emulation mode
-bindkey -e
+[[ -f ~/.config/fzf/themes/{{ (index .theme .current_theme).fzf }}.sh ]] && source ~/.config/fzf/themes/{{ (index .theme .current_theme).fzf }}.sh
 
-KEYTIMEOUT=10
-HISTSIZE=50000
-SAVEHIST=25000
+() {
+  local -a _excludes=(.git node_modules .venv venv .terraform .terragrunt-cache)
 
-# Up
-autoload -Uz up-line-or-beginning-search
-zle -N up-line-or-beginning-search
-bindkey $terminfo[kcuu1] up-line-or-beginning-search
-bindkey '^[[A'           up-line-or-beginning-search
+  if (( $+commands[bfs] )); then
+    local _bfs_exclude=${(j: -o -name :)_excludes}
+    export FZF_DEFAULT_COMMAND="bfs . -mindepth 1 \( -type f -o -type d \) -exclude \( -name ${_bfs_exclude} \) -printf '%P\n' 2>/dev/null"
+    export FZF_ALT_C_COMMAND="bfs . -mindepth 1 -type d -exclude \( -name ${_bfs_exclude} \) -printf '%P\n' 2>/dev/null"
+  elif (( $+commands[fd] )); then
+    local _fd_exclude=${(j: --exclude :)_excludes}
+    export FZF_DEFAULT_COMMAND="fd --hidden --exclude ${_fd_exclude} --type file --type directory"
+    export FZF_ALT_C_COMMAND="fd --hidden --exclude ${_fd_exclude} --type directory"
+  fi
 
-# Down
-autoload -Uz down-line-or-beginning-search
-zle -N down-line-or-beginning-search
-bindkey $terminfo[kcud1] down-line-or-beginning-search
-bindkey '^[[B'           down-line-or-beginning-search
+  if (( ${+commands[lsd]} )); then
+    local _ls='lsd --group-directories-first --color=always --icon=always'
+  else
+    local _ls='ls --color=always'
+  fi
 
+  export FZF_CTRL_T_OPTS="--bind ctrl-/:toggle-preview --preview 'if [[ -d {} ]]; then ${_ls} -1F {}; else bat --color=always --line-range :500 {}; fi' ${FZF_CTRL_T_OPTS}"
+  export FZF_ALT_C_OPTS="--bind ctrl-/:toggle-preview --preview '${_ls} -1F {}' ${FZF_ALT_C_OPTS}"
+}
+
+(( ${+FZF_DEFAULT_COMMAND} )) && export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+
+#-------------------------------------------------
+# Tool initializations
+#-------------------------------------------------
+
+_cache_tool_init fzf fzf --zsh
+_cache_tool_init starship starship init zsh
+_cache_tool_init mise mise activate zsh
+_cache_tool_init kubectl kubectl completion zsh
+_cache_tool_init uv uv generate-shell-completion zsh
+_cache_tool_init zoxide zoxide init zsh --no-cmd
+# --no-cmd: zoxide only defines internal functions, we alias them ourselves
+(( $+commands[zoxide] )) && { alias z='__zoxide_z'; alias zi='__zoxide_zi'; }
+
+#-------------------------------------------------
 # Aliases
+#-------------------------------------------------
+
+alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
 alias .....='cd ../../../..'
-alias batp='bat --paging=auto'
-alias chmod='chmod -v'
-alias chown='chown -v'
-alias cp='cp -v'
-alias dig='dig +noall +answer +stats'
-alias gap='git add --patch'
-alias grep='grep --color=auto'
+
+alias vim='nvim'
+alias docker='podman'
 alias jq='jaq'
 alias k='kubectl'
 alias lg='lazygit'
-alias ls='gls --color=auto'
-alias ll='ls -lh'
-alias lsports='ss -tunalp | column -t'
-alias mv='mv -v'
-alias rm='rm -v'
-alias vim='nvim'
-alias docker='podman'
 
+alias rm='rm -v'
+alias cp='cp -v'
+alias mv='mv -v'
+alias chmod='chmod -v'
+alias chown='chown -v'
+
+if (( $+commands[lsd] )); then
+  alias ls='lsd --group-directories-first'
+else
+  alias ls='ls --color=auto'
+fi
+alias ll='ls -lh'
+
+alias batp='bat --paging=auto'
+alias dig='dig +noall +answer +stats'
+alias gap='git add --patch'
+alias grep='grep --color=auto'
+{{ if eq .chezmoi.os "linux" -}}
+alias lsports='ss -tunalp | column -t'
+{{ else -}}
+alias lsports='lsof -iTCP -sTCP:LISTEN -nP'
+{{- end }}
+
+#-------------------------------------------------
+# Integrations
+#-------------------------------------------------
 
 [[ -f ~/.functions.sh ]] && source ~/.functions.sh
-
-# 1password shell plugins
 [[ -f ~/.config/op/plugins.sh ]] && source ~/.config/op/plugins.sh
 
-if (( $+commands[zoxide] )); then
-  eval "$(zoxide init zsh)"
-fi
-
-eval "$(starship init zsh)"
+# Tools that don't ship zsh completion files and instead use the binary
+# itself as the completion handler (requires bashcompinit)
+autoload -Uz bashcompinit && bashcompinit
+(( $+commands[aws_completer] )) && complete -C aws_completer aws
+(( $+commands[terraform] )) && complete -C terraform terraform
+(( $+commands[terragrunt] )) && complete -C terragrunt terragrunt
+(( $+commands[packer] )) && complete -C packer packer

@@ -1,1 +1,4 @@
-export LANG=en_US.UTF-8
+# ~/.zprofile - sourced for LOGIN shells only, after zshenv
+# Load order: zshenv → zprofile (login) → zshrc (interactive)
+# Purpose: login-session setup (locale overrides, session-specific env).
+# Kept minimal - base locale (LANG) is set in zshenv for all shell types.

@@ -1,6 +1,8 @@
 cask "ghostty"
 cask "kitty"
 brew "chezmoi"
+brew "sheldon"
+brew "lsd"
 brew "starship"
 brew "vivid"
 brew "jj"
