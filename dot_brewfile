@@ -89,8 +89,6 @@ brew "imagemagick"
 cask "vitals"
 cask "zoom"
 
-cask "microsoft-edge"
-
 # ZED
 cask "zed"
 brew "shellcheck"
