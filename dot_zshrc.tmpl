@@ -1,7 +1,6 @@
 # ~/.zshrc - Interactive shell configuration
 # Load order: zshenv -> zprofile (login) -> zshrc (interactive)
 
-
 #-------------------------------------------------
 # Shell options
 #-------------------------------------------------
@@ -62,7 +61,7 @@ _cache_tool_init() {
   local cache_file="$ZSH_CACHE_DIR/${tool_name}.zsh"
   if [[ ! -f "$cache_file" || "$tool_bin" -nt "$cache_file" ]]; then
     local tmp="${cache_file}.tmp"
-    if "$@" >| "$tmp"; then
+    if "$@" >|"$tmp"; then
       mv "$tmp" "$cache_file"
     else
       rm -f "$tmp"
@@ -75,9 +74,9 @@ _cache_tool_init() {
 {
   local -a _missing_tools=()
   for _tool in starship vivid sheldon; do
-    (( $+commands[$_tool] )) || _missing_tools+=("$_tool")
+    (($+commands[$_tool])) || _missing_tools+=("$_tool")
   done
-  if (( ${#_missing_tools} )); then
+  if ((${#_missing_tools})); then
     printf '%s\n' "zshrc: missing required tools: ${_missing_tools[*]}" >&2
     printf '%s\n' "zshrc: install with: brew install ${_missing_tools[*]}" >&2
   fi
@@ -87,7 +86,7 @@ _cache_tool_init() {
 # Plugins
 #-------------------------------------------------
 
-if (( $+commands[sheldon] )); then
+if (($+commands[sheldon])); then
   eval "$(sheldon source)"
 fi
 
@@ -100,7 +99,7 @@ fpath+=("$HOMEBREW_PREFIX/share/zsh/site-functions")
 {{- end }}
 
 # Must be set before zstyle list-colors references it
-(( $+commands[vivid] )) && export LS_COLORS="$(vivid generate {{ (index .theme .current_theme).vivid }})"
+(($+commands[vivid])) && export LS_COLORS="$(vivid generate {{ (index .theme .current_theme).vivid }})"
 
 zmodload zsh/complist
 zstyle ':completion:*' completer _extensions _complete
@@ -130,7 +129,7 @@ autoload -Uz compinit
   [[ -f "$hashfile" ]] && stored_hash="$(<$hashfile)"
   if [[ ! -f "$zcompdump" || "$fpath_hash" != "$stored_hash" ]]; then
     compinit -d "$zcompdump"
-    echo "$fpath_hash" > "$hashfile"
+    echo "$fpath_hash" >"$hashfile"
   else
     compinit -d "$zcompdump" -C
   fi
@@ -164,8 +163,8 @@ export HOMEBREW_BAT=1
 export HOMEBREW_NO_ENV_HINTS=1
 export HOMEBREW_BUNDLE_FILE=~/.brewfile
 
-export npm_config_prefix=~/.node_modules  # keep npm -g out of /usr/local
-export NVIM_APPNAME=nvim-lazy
+export npm_config_prefix=~/.node_modules # keep npm -g out of /usr/local
+export NVIM_APPNAME=nvim-astro
 export K9S_CONFIG_DIR="$HOME/.config/k9s"
 export DIFFPROG='nvim -d'
 export GROFF_NO_SGR=yes
@@ -186,7 +185,6 @@ export K3D_FIX_DNS=0
 {{ if eq .chezmoi.os "linux" -}}
 export S_COLORS=auto
 {{- end }}
-
 # Colored man pages via less
 export LESS_TERMCAP_mb=$'\e[1;31m'
 export LESS_TERMCAP_md=$'\e[1;31m'
@@ -203,17 +201,17 @@ export LESS_TERMCAP_us=$'\e[1;32m'
 () {
   local -a _excludes=(.git node_modules .venv venv .terraform .terragrunt-cache)
 
-  if (( $+commands[bfs] )); then
+  if (($+commands[bfs])); then
     local _bfs_exclude=${(j: -o -name :)_excludes}
     export FZF_DEFAULT_COMMAND="bfs . -mindepth 1 \( -type f -o -type d \) -exclude \( -name ${_bfs_exclude} \) -printf '%P\n' 2>/dev/null"
     export FZF_ALT_C_COMMAND="bfs . -mindepth 1 -type d -exclude \( -name ${_bfs_exclude} \) -printf '%P\n' 2>/dev/null"
-  elif (( $+commands[fd] )); then
+  elif (($+commands[fd])); then
     local _fd_exclude=${(j: --exclude :)_excludes}
     export FZF_DEFAULT_COMMAND="fd --hidden --exclude ${_fd_exclude} --type file --type directory"
     export FZF_ALT_C_COMMAND="fd --hidden --exclude ${_fd_exclude} --type directory"
   fi
 
-  if (( ${+commands[lsd]} )); then
+  if ((${+commands[lsd]})); then
     local _ls='lsd --group-directories-first --color=always --icon=always'
   else
     local _ls='ls --color=always'
@@ -223,7 +221,7 @@ export LESS_TERMCAP_us=$'\e[1;32m'
   export FZF_ALT_C_OPTS="--bind ctrl-/:toggle-preview --preview '${_ls} -1F {}' ${FZF_ALT_C_OPTS}"
 }
 
-(( ${+FZF_DEFAULT_COMMAND} )) && export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
+((${+FZF_DEFAULT_COMMAND})) && export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
 #-------------------------------------------------
 # Tool initializations
@@ -236,7 +234,10 @@ _cache_tool_init kubectl kubectl completion zsh
 _cache_tool_init uv uv generate-shell-completion zsh
 _cache_tool_init zoxide zoxide init zsh --no-cmd
 # --no-cmd: zoxide only defines internal functions, we alias them ourselves
-(( $+commands[zoxide] )) && { alias z='__zoxide_z'; alias zi='__zoxide_zi'; }
+(($+commands[zoxide])) && {
+  alias z='__zoxide_z'
+  alias zi='__zoxide_zi'
+}
 
 #-------------------------------------------------
 # Aliases
@@ -259,7 +260,7 @@ alias mv='mv -v'
 alias chmod='chmod -v'
 alias chown='chown -v'
 
-if (( $+commands[lsd] )); then
+if (($+commands[lsd])); then
   alias ls='lsd --group-directories-first'
 else
   alias ls='ls --color=auto'
@@ -286,7 +287,7 @@ alias lsports='lsof -iTCP -sTCP:LISTEN -nP'
 # Tools that don't ship zsh completion files and instead use the binary
 # itself as the completion handler (requires bashcompinit)
 autoload -Uz bashcompinit && bashcompinit
-(( $+commands[aws_completer] )) && complete -C aws_completer aws
-(( $+commands[terraform] )) && complete -C terraform terraform
-(( $+commands[terragrunt] )) && complete -C terragrunt terragrunt
-(( $+commands[packer] )) && complete -C packer packer
+(($+commands[aws_completer])) && complete -C aws_completer aws
+(($+commands[terraform])) && complete -C terraform terraform
+(($+commands[terragrunt])) && complete -C terragrunt terragrunt
+(($+commands[packer])) && complete -C packer packer
