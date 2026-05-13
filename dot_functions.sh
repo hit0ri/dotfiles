@@ -5,11 +5,15 @@ cheatsh() {
 }
 
 ipinfo() {
-  ip -4 -o a | awk 'BEGIN { OFS=":\t " } { print $2, $4 }'
+  if (($+commands[ip])); then
+    ip -4 -o a | awk 'BEGIN { OFS=":\t " } { print $2, $4 }'
+  else
+    ifconfig | awk '/inet / && !/127.0.0.1/ { print $2 }'
+  fi
 }
 
 mkdirf() {
-  mkdir -p "$1" && cd "$1"
+  mkdir -p "$1" && cd "$1" || exit
 }
 
 # Create paste from stdin or file
@@ -31,7 +35,7 @@ gi() {
 }
 
 b64() {
-  echo -n "$1" | base64
+  echo -n "${1:-$(cat)}" | base64
 }
 
 httping() {
@@ -102,10 +106,10 @@ ssm-port-forward() {
   else
     local -r id=$(ec2-id-from-name "$1")
   fi
-  local remote=$2
-  local local=${3:-$remote}
-  echo "Forwarding port $remote from instance $id to port $local"
+  local remote_port=$2
+  local local_port=${3:-$remote_port}
+  echo "Forwarding port $remote_port from instance $id to port $local_port"
   aws ssm start-session --target "$id" \
     --document-name AWS-StartPortForwardingSession \
-    --parameters '{"portNumber":["'"$remote"'"],"localPortNumber":["'"$local"'"]}'
+    --parameters '{"portNumber":["'"$remote_port"'"],"localPortNumber":["'"$local_port"'"]}'
 }
