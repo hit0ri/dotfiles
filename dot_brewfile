@@ -49,7 +49,6 @@ brew "goaccess"
 brew "tealdeer"
 
 brew "mise"
-brew "rustup"
 
 cask "1password"
 cask "1password-cli"
