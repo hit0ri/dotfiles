@@ -1,14 +1,14 @@
-# ~/.zshrc - Interactive shell configuration
-# Load order: zshenv -> zprofile (login) -> zshrc (interactive)
+# ~/.zshrc - interactive shell config
+# Load order: zshenv -> zprofile (login) -> zshrc (interactive) -> zlogin (login)
 
 #-------------------------------------------------
 # Shell options
 #-------------------------------------------------
 
-# Prevents zsh-autosuggestions from rebinding widgets on every precmd
+# Stops zsh-autosuggestions rebinding widgets on every precmd
 ZSH_AUTOSUGGEST_MANUAL_REBIND=1
 
-# ctrl+w stops at path separators, dots, hyphens but treats _ as part of a word
+# ctrl+w stops at path separators, dots, hyphens; treats _ as part of a word
 WORDCHARS='*?_[]~&;!#$%^(){}<>'
 
 HISTFILE="${ZDOTDIR:-$HOME}/.zsh_history"
@@ -44,115 +44,16 @@ eval "$(/opt/homebrew/bin/brew shellenv)"
 {{- end }}
 
 #-------------------------------------------------
-# Tool init caching
+# zinit
 #-------------------------------------------------
 
-# Caches tool init output to files, regenerates when the binary is updated.
-# Avoids running `eval "$(tool init zsh)"` on every shell start.
-ZSH_CACHE_DIR="${XDG_CACHE_HOME:-$HOME/.cache}/zsh"
-[[ -d "$ZSH_CACHE_DIR" ]] || mkdir -p "$ZSH_CACHE_DIR"
+# Cache .zcompdump under XDG_CACHE_HOME and use `compinit -C` to skip the
+# security check on each startup (cache is regenerated on plugin updates).
+typeset -A ZINIT
+ZINIT[ZCOMPDUMP_PATH]="${XDG_CACHE_HOME:-$HOME/.cache}/zsh/.zcompdump"
+ZINIT[COMPINIT_OPTS]="-C"
 
-_cache_tool_init() {
-  local tool_name="$1"
-  shift
-  local tool_bin="${commands[$tool_name]}"
-  [[ -z "$tool_bin" ]] && return 1
-
-  local cache_file="$ZSH_CACHE_DIR/${tool_name}.zsh"
-  if [[ ! -f "$cache_file" || "$tool_bin" -nt "$cache_file" ]]; then
-    local tmp="${cache_file}.tmp"
-    if "$@" >|"$tmp"; then
-      mv "$tmp" "$cache_file"
-    else
-      rm -f "$tmp"
-      return 1
-    fi
-  fi
-  source "$cache_file"
-}
-
-{
-  local -a _missing_tools=()
-  for _tool in starship vivid sheldon; do
-    (($+commands[$_tool])) || _missing_tools+=("$_tool")
-  done
-  if ((${#_missing_tools})); then
-    printf '%s\n' "zshrc: missing required tools: ${_missing_tools[*]}" >&2
-    printf '%s\n' "zshrc: install with: brew install ${_missing_tools[*]}" >&2
-  fi
-}
-
-#-------------------------------------------------
-# Plugins
-#-------------------------------------------------
-
-if (($+commands[sheldon])); then
-  eval "$(sheldon source)"
-fi
-
-#-------------------------------------------------
-# Completion
-#-------------------------------------------------
-
-{{ if eq .chezmoi.os "darwin" -}}
-fpath+=("$HOMEBREW_PREFIX/share/zsh/site-functions")
-{{- end }}
-
-# Must be set before zstyle list-colors references it
-(($+commands[vivid])) && export LS_COLORS="$(vivid generate {{ (index .theme .current_theme).vivid }})"
-
-zmodload zsh/complist
-zstyle ':completion:*' completer _extensions _complete _files
-zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
-zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
-zstyle ':completion:*' menu select
-zstyle ':completion:*' use-cache true
-zstyle ':completion:*' cache-path "$ZSH_CACHE_DIR/zcompcache"
-zstyle ':completion:*' group-name ''
-zstyle ':completion:*' verbose true
-zstyle ':completion:*' squeeze-slashes true
-zstyle ':completion:*' special-dirs true
-zstyle ':completion:*' rehash true
-zstyle ':completion:*:descriptions' format '%F{yellow}-- %d --%f'
-zstyle ':completion:*:warnings' format '%F{red}-- no matches found --%f'
-zstyle ':completion:*:default' list-prompt '%S%M matches%s'
-zstyle ':completion:*:functions' ignored-patterns '_*'
-
-# Regenerates the dump when fpath changes (new tools, plugins added).
-# Uses -C (skip security check) when unchanged.
-autoload -Uz compinit
-() {
-  local zcompdump="$ZSH_CACHE_DIR/.zcompdump"
-  local fpath_hash="${(j.:.)fpath}"
-  local stored_hash=""
-  local hashfile="$ZSH_CACHE_DIR/.zcompdump.fpath"
-  [[ -f "$hashfile" ]] && stored_hash="$(<$hashfile)"
-  if [[ ! -f "$zcompdump" || "$fpath_hash" != "$stored_hash" ]]; then
-    compinit -d "$zcompdump"
-    echo "$fpath_hash" >"$hashfile"
-  else
-    compinit -d "$zcompdump" -C
-  fi
-}
-
-#-------------------------------------------------
-# Keybindings
-#-------------------------------------------------
-
-bindkey -e
-KEYTIMEOUT=10
-
-autoload -Uz up-line-or-beginning-search down-line-or-beginning-search
-zle -N up-line-or-beginning-search
-zle -N down-line-or-beginning-search
-
-# Both terminfo and hardcoded ANSI for portability across terminals
-bindkey "${terminfo[kcuu1]}" up-line-or-beginning-search
-bindkey '^[[A' up-line-or-beginning-search
-bindkey "${terminfo[kcud1]}" down-line-or-beginning-search
-bindkey '^[[B' down-line-or-beginning-search
-bindkey "${terminfo[kcbt]}" reverse-menu-complete
-bindkey '^[[Z' reverse-menu-complete
+source ~/.local/share/zinit/zinit.git/zinit.zsh
 
 #-------------------------------------------------
 # Environment
@@ -163,7 +64,7 @@ export HOMEBREW_BAT=1
 export HOMEBREW_NO_ENV_HINTS=1
 export HOMEBREW_BUNDLE_FILE=~/.brewfile
 
-export npm_config_prefix=~/.node_modules # keep npm -g out of /usr/local
+export npm_config_prefix=~/.node_modules # keeps npm -g out of /usr/local
 export NVIM_APPNAME=nvim-lazy
 export K9S_CONFIG_DIR="$HOME/.config/k9s"
 export DIFFPROG='nvim -d'
@@ -185,7 +86,8 @@ export K3D_FIX_DNS=0
 {{ if eq .chezmoi.os "linux" -}}
 export S_COLORS=auto
 {{- end }}
-# Colored man pages via less
+
+# Coloured man pages via less
 export LESS_TERMCAP_mb=$'\e[1;31m'
 export LESS_TERMCAP_md=$'\e[1;31m'
 export LESS_TERMCAP_me=$'\e[0m'
@@ -224,20 +126,90 @@ export LESS_TERMCAP_us=$'\e[1;32m'
 ((${+FZF_DEFAULT_COMMAND})) && export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
 #-------------------------------------------------
-# Tool initializations
+# Tool initialisations
 #-------------------------------------------------
 
-_cache_tool_init fzf fzf --zsh
-_cache_tool_init starship starship init zsh
-_cache_tool_init mise mise activate zsh
-_cache_tool_init kubectl kubectl completion zsh
-_cache_tool_init uv uv generate-shell-completion zsh
-_cache_tool_init zoxide zoxide init zsh --no-cmd
-# --no-cmd: zoxide only defines internal functions, we alias them ourselves
-(($+commands[zoxide])) && {
-  alias z='__zoxide_z'
-  alias zi='__zoxide_zi'
+# p10k and mise must be synchronous: p10k renders the prompt,
+# mise sets up PATH for all managed tools.
+# p10k config must be sourced before the plugin loads.
+[[ -f ~/.p10k.zsh ]] && source ~/.p10k.zsh
+zinit ice depth=1; zinit light romkatv/powerlevel10k
+eval "$(mise activate zsh)"
+
+#-------------------------------------------------
+# Completion zstyles
+#-------------------------------------------------
+
+{{ if eq .chezmoi.os "darwin" -}}
+fpath+=("$HOMEBREW_PREFIX/share/zsh/site-functions")
+{{- end }}
+
+# Must be set before the zstyle list-colors below references it
+(($+commands[vivid])) && export LS_COLORS="$(vivid generate {{ (index .theme .current_theme).vivid }})"
+
+zmodload zsh/complist
+zstyle ':completion:*' completer _extensions _complete _files
+zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
+zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
+zstyle ':completion:*' menu select
+zstyle ':completion:*' use-cache true
+zstyle ':completion:*' cache-path "${XDG_CACHE_HOME:-$HOME/.cache}/zsh/zcompcache"
+zstyle ':completion:*' group-name ''
+zstyle ':completion:*' verbose true
+zstyle ':completion:*' squeeze-slashes true
+zstyle ':completion:*' special-dirs true
+zstyle ':completion:*' rehash true
+zstyle ':completion:*:descriptions' format '%F{yellow}-- %d --%f'
+zstyle ':completion:*:warnings' format '%F{red}-- no matches found --%f'
+zstyle ':completion:*:default' list-prompt '%S%M matches%s'
+zstyle ':completion:*:functions' ignored-patterns '_*'
+
+#-------------------------------------------------
+# Plugins & completion (zinit turbo)
+#-------------------------------------------------
+
+# Load order matters here:
+# - zsh-autosuggestions runs zicompinit + zicdreplay in atinit, so compdef
+#   exists before any later entry needs it
+# - zsh-completions follows with blockf to extend fpath
+# - tool inits and bashcompinit run last; their compdef calls now resolve
+_init_bash_completions() {
+  autoload -Uz bashcompinit && bashcompinit
+  (($+commands[aws_completer])) && complete -C aws_completer aws
+  (($+commands[terraform]))     && complete -C terraform terraform
+  (($+commands[terragrunt]))    && complete -C terragrunt terragrunt
+  (($+commands[packer]))        && complete -C packer packer
 }
+
+zinit wait lucid light-mode for \
+  atinit'zicompinit; zicdreplay' atload'_zsh_autosuggest_start' \
+    zsh-users/zsh-autosuggestions \
+  blockf atpull'zinit creinstall -q .' \
+    zsh-users/zsh-completions \
+  id-as'fzf-init'     has'fzf'      nocompile  atload'eval "$(fzf --zsh)"'                        zdharma-continuum/null \
+  id-as'zoxide-init'  has'zoxide'   nocompile  atload'eval "$(zoxide init zsh)"'                  zdharma-continuum/null \
+  id-as'kubectl-comp' has'kubectl'  nocompile  atload'eval "$(kubectl completion zsh)"'           zdharma-continuum/null \
+  id-as'uv-comp'      has'uv'       nocompile  atload'eval "$(uv generate-shell-completion zsh)"' zdharma-continuum/null \
+  id-as'bash-comp'                  nocompile  atload'_init_bash_completions'                     zdharma-continuum/null
+
+#-------------------------------------------------
+# Keybindings
+#-------------------------------------------------
+
+bindkey -e
+KEYTIMEOUT=10
+
+autoload -Uz up-line-or-beginning-search down-line-or-beginning-search
+zle -N up-line-or-beginning-search
+zle -N down-line-or-beginning-search
+
+# Both terminfo and hardcoded ANSI for portability across terminals
+bindkey "${terminfo[kcuu1]}" up-line-or-beginning-search
+bindkey '^[[A' up-line-or-beginning-search
+bindkey "${terminfo[kcud1]}" down-line-or-beginning-search
+bindkey '^[[B' down-line-or-beginning-search
+bindkey "${terminfo[kcbt]}" reverse-menu-complete
+bindkey '^[[Z' reverse-menu-complete
 
 #-------------------------------------------------
 # Aliases
@@ -275,13 +247,7 @@ alias lsports='lsof -iTCP -sTCP:LISTEN -nP'
 # Integrations
 #-------------------------------------------------
 
-[[ -f ~/.functions.sh ]] && source ~/.functions.sh
-[[ -f ~/.config/op/plugins.sh ]] && source ~/.config/op/plugins.sh
-
-# Tools that don't ship zsh completion files and instead use the binary
-# itself as the completion handler (requires bashcompinit)
-autoload -Uz bashcompinit && bashcompinit
-(($+commands[aws_completer])) && complete -C aws_completer aws
-(($+commands[terraform])) && complete -C terraform terraform
-(($+commands[terragrunt])) && complete -C terragrunt terragrunt
-(($+commands[packer])) && complete -C packer packer
+zinit wait lucid for \
+  id-as'functions'  has'curl'  nocompile  atload'source ~/.functions.sh'            zdharma-continuum/null \
+  id-as'op-plugins'            nocompile  if'[[ -f ~/.config/op/plugins.sh ]]' \
+                                          atload'source ~/.config/op/plugins.sh'    zdharma-continuum/null

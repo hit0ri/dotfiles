@@ -1,4 +1,4 @@
-# ~/.zprofile - sourced for LOGIN shells only, after zshenv
-# Load order: zshenv → zprofile (login) → zshrc (interactive)
-# Purpose: login-session setup (locale overrides, session-specific env).
-# Kept minimal - base locale (LANG) is set in zshenv for all shell types.
+# ~/.zprofile - sourced for login shells only, after zshenv
+# Load order: zshenv -> zprofile (login) -> zshrc (interactive) -> zlogin (login)
+# Purpose: login-session setup that must run before zshrc (e.g. PATH or
+# environment overrides specific to login shells, ssh sessions, tmux).

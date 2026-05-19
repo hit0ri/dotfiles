@@ -1,3 +1,7 @@
 [".config/ghostty/cursor-shaders"]
 type = "git-repo"
 url = "https://github.com/sahaj-b/ghostty-cursor-shaders.git"
+
+[".local/share/zinit/zinit.git"]
+type = "git-repo"
+url = "https://github.com/zdharma-continuum/zinit.git"
