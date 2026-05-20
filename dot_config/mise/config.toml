@@ -2,6 +2,7 @@
 usage = "latest"
 aws = "latest"
 "aqua:aws/session-manager-plugin" = "latest"
+"pipx:mludvig/aws-ssm-tools" = "v2.2.1"
 node = "latest"
 uv = "latest"
 python = "latest"
