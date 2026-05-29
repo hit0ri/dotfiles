@@ -4,6 +4,8 @@ aws = "latest"
 "aqua:aws/session-manager-plugin" = "latest"
 "pipx:mludvig/aws-ssm-tools" = "v2.2.1"
 node = "latest"
+aube = "latest"
+"npm:aws-cdk" = "latest"
 uv = "latest"
 python = "latest"
 go = "latest"
@@ -19,6 +21,7 @@ packer = "latest"
 tf-summarize = "latest"
 "github:caarlos0/svu" = "latest"
 "github:unhappychoice/gitlogue" = "latest"
+"gitlab:gitlab-org/cli" = "latest"
 
 [settings]
 experimental = true
