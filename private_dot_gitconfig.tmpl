@@ -2,111 +2,111 @@
 	path = ~/.config/git/delta.gitconfig
 
 [user]
-  email = {{ .email }}
-  name = {{ .fullname }}
-  signingkey = BE2C3F16500C8C33
+	email = {{ .email }}
+	name = {{ .fullname }}
+	signingkey = BE2C3F16500C8C33
 
 [gpg]
-  format = openpgp
+	format = openpgp
 
 [core]
-  commitGraph = true
-  untrackedCache = true
+	commitGraph = true
+	untrackedCache = true
 
 [delta]
-  features = {{ (index .theme .current_theme).delta }}
-  navigate = true
-  line-numbers = true
-  hyperlinks = true
-  hyperlinks-file-link-format = "zed://file/{path}:{line}"
+	features = {{ (index .theme .current_theme).delta }}
+	navigate = true
+	line-numbers = true
+	hyperlinks = true
+	hyperlinks-file-link-format = "zed://file/{path}:{line}"
 
 [init]
-  defaultBranch = main
+	defaultBranch = main
 
 [commit]
-  verbose = true
-  gpgSign = true
+	verbose = true
+	gpgSign = true
 
 [help]
-  autocorrect = prompt
+	autocorrect = prompt
 
 [diff]
-  algorithm = histogram
-  colorMoved = plain
-  colorMovedWS = allow-indentation-change
-  mnemonicPrefix = true
-  renames = true
-  wsErrorHighlight = all
+	algorithm = histogram
+	colorMoved = plain
+	colorMovedWS = allow-indentation-change
+	mnemonicPrefix = true
+	renames = true
+	wsErrorHighlight = all
 
 [merge]
-  conflictStyle = zdiff3
+	conflictStyle = zdiff3
 
 [rerere]
-  enabled = true
-  autoupdate = true
+	enabled = true
+	autoupdate = true
 
 [rebase]
-  autoSquash = true
-  autoStash = true
-  updateRefs = true
+	autoSquash = true
+	autoStash = true
+	updateRefs = true
 
 [branch]
-  sort = -committerdate
+	sort = -committerdate
 
 [tag]
-  sort = version:refname
+	sort = version:refname
 
 [pull]
-  ff = only
+	ff = only
 
 [push]
-  default = simple
-  autoSetupRemote = true
-  followTags = true
+	default = simple
+	autoSetupRemote = true
+	followTags = true
 
 [fetch]
-  all = true
-  writeCommitGraph = true
+	all = true
+	writeCommitGraph = true
 
 [column]
-  ui = auto
+	ui = auto
 
 [log]
-  date = relative
+	date = relative
 
 [format]
-  pretty = format:%C(bold blue)%h%C(reset) %C(green)%ad%C(reset) %s %C(dim white)%aN%C(reset) %C(yellow)%D%C(reset)
+	pretty = format:%C(bold blue)%h%C(reset) %C(green)%ad%C(reset) %s %C(dim white)%aN%C(reset) %C(yellow)%D%C(reset)
 
 [color]
-  branch = auto
-  diff = auto
-  status = auto
+	branch = auto
+	diff = auto
+	status = auto
 
 [alias]
-  pf = push --force-with-lease
-  co = checkout
-  cob = checkout -b
-  ap = add --patch
-  c = commit
-  cm = commit -m
-  ca = commit --amend
-  can = commit --amend --no-edit
-  cam = commit --amend -m
-  cloneb = clone --filter=blob:none
-  clonet = clone --filter=tree:0
-  d = diff --stat
-  ds = diff --staged --stat
-  dst = diff --staged
-  st = status -sb
-  br = branch
-  type = cat-file -t
-  dump = cat-file -p
-  last = log -1 HEAD
-  lastf = log --cc --pretty=fuller -1 HEAD
-  lastfs = log --stat --cc -1 HEAD
-  lg = log --graph --decorate
-  lgold = log --graph --decorate --abbrev-commit
-  lga = log --graph --decorate --abbrev-commit --all
-  graph = log --graph --decorate --oneline
-  gone = ! git fetch -p && git branch -vv | grep ': gone]' | awk '{print $1}' | xargs -r git branch -d
-  gonef = ! git fetch -p && git branch -vv | grep ': gone]' | awk '{print $1}' | xargs -r git branch -D
+	pf = push --force-with-lease
+	co = checkout
+	cob = checkout -b
+	ap = add --patch
+	c = commit
+	cm = commit -m
+	ca = commit --amend
+	can = commit --amend --no-edit
+	cam = commit --amend -m
+	cloneb = clone --filter=blob:none
+	clonet = clone --filter=tree:0
+	d = diff --stat
+	ds = diff --staged --stat
+	dst = diff --staged
+	st = status -sb
+	br = branch
+	type = cat-file -t
+	dump = cat-file -p
+	last = log -1 HEAD
+	lastf = log --cc --pretty=fuller -1 HEAD
+	lastfs = log --stat --cc -1 HEAD
+	lg = log --graph --decorate
+	lgold = log --graph --decorate --abbrev-commit
+	lga = log --graph --decorate --abbrev-commit --all
+	graph = log --graph --decorate --oneline
+	gone = ! git fetch -p && git branch -vv | grep ': gone]' | awk '{print $1}' | xargs -r git branch -d
+	gonef = ! git fetch -p && git branch -vv | grep ': gone]' | awk '{print $1}' | xargs -r git branch -D
