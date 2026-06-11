@@ -60,8 +60,6 @@ cask "visual-studio-code"
 cask "kiro"
 
 # AWS
-tap "lucagrulla/tap"
-brew "cw"
 tap "keidarcy/tap"
 brew "e1s"
 
@@ -87,12 +85,13 @@ brew "imagemagick"
 cask "vitals"
 cask "zoom"
 
+cask "firefox"
+cask "brave-browser"
+
 # ZED
 cask "zed"
 brew "shellcheck"
 brew "shfmt"
-tap "alesbrelih/gitlab-ci-ls"
-brew "gitlab-ci-ls"
 
 cask "android-studio"
 brew "gradle-profiler"
