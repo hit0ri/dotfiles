@@ -20,6 +20,7 @@ brew "tokei"
 brew "zellij"
 brew "tmux"
 brew "jq"
+brew "jd"
 brew "jless"
 brew "jaq"
 brew "yq"
@@ -60,7 +61,7 @@ cask "visual-studio-code"
 cask "kiro"
 
 # AWS
-tap "keidarcy/tap"
+tap "keidarcy/tap", trusted: true
 brew "e1s"
 
 # Terraform
