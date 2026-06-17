@@ -1,8 +1,5 @@
 git:
   overrideGpg: true
-  pagers:
-    - colorArg: always
-      pager: delta --dark --paging=never
 
 {{ $theme := index .theme .current_theme -}}
 {{- $lazygit_template_file := joinPath "lazygit" $theme.lazygit | printf "%s.yml" -}}
