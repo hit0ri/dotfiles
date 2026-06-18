@@ -1,5 +1,6 @@
 [tools]
 usage = "latest"
+fnox = "latest"
 go = "latest"
 rust = "latest"
 uv = "latest"
@@ -25,6 +26,7 @@ android-sdk = "latest"
 [settings]
 experimental = true
 idiomatic_version_file_enable_tools = []
+minimum_release_age_excludes = ["fnox"]
 
 [settings.python]
 compile = false

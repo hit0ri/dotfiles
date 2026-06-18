@@ -1,0 +1,12 @@
+#:schema https://fnox.jdx.dev/schema.json
+
+default_provider = "age"
+
+[providers.keychain]
+type = "keychain"
+service = "fnox"
+
+[providers.age]
+type = "age"
+recipients = ["age1kmg9c92y7x4wu4n8ecdd8y9w2z367erlgck4gls9euwu9q8gk32suh2566"]
+identity = { provider = "keychain", value = "age-key" }
