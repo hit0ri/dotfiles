@@ -48,6 +48,7 @@ brew "tealdeer"
 
 brew "mise"
 
+cask "secretive"
 cask "1password"
 cask "1password-cli"
 brew "gnupg"
