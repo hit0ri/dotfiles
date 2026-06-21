@@ -5,5 +5,5 @@ venv/
 .DS_Store
 .envrc
 .terraformrc
+fnox.local.toml
 live/**/.mise.toml
-live/**/fnox.toml
