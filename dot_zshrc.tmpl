@@ -184,11 +184,17 @@ _init_bash_completions() {
   (($+commands[packer]))        && complete -C packer packer
 }
 
-zinit wait lucid light-mode for \
+# Load core completion and suggestion plugins SYNCHRONOUSLY
+# This prevents IDE shell integrations from tracking the background 'cd'
+# into the plugin directories when opening new panes.
+zinit light-mode for \
   atinit'zicompinit; zicdreplay' atload'_zsh_autosuggest_start' \
     zsh-users/zsh-autosuggestions \
   blockf atpull'zinit creinstall -q .' \
-    zsh-users/zsh-completions \
+    zsh-users/zsh-completions
+
+# Load the rest of the tools ASYNCHRONOUSLY
+zinit wait lucid light-mode for \
   id-as'fzf-init'     has'fzf'      nocompile  atload'eval "$(fzf --zsh)"'                        zdharma-continuum/null \
   id-as'zoxide-init'  has'zoxide'   nocompile  atload'eval "$(zoxide init zsh)"'                  zdharma-continuum/null \
   id-as'kubectl-comp' has'kubectl'  nocompile  atload'eval "$(kubectl completion zsh)"'           zdharma-continuum/null \
