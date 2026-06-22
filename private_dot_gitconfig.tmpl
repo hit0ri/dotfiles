@@ -1,13 +1,10 @@
 [user]
 	email = {{ .email }}
 	name = {{ .fullname }}
-	signingkey = ~/Library/Containers/com.maxgoedjen.Secretive.SecretAgent/Data/PublicKeys/ab2bebcef4b36ce4185dfe0d8d70d652.pub
+	signingkey = BE2C3F16500C8C33
 
 [gpg]
-	format = ssh
-
-[gpg "ssh"]
-	allowedSignersFile = ~/.gitallowedsigners
+	format = openpgp
 
 [core]
 	commitGraph = true
