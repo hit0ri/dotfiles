@@ -45,6 +45,7 @@ brew "certigo"
 brew "boxes"
 brew "goaccess"
 brew "tealdeer"
+brew "dua-cli"
 
 brew "mise"
 
@@ -99,8 +100,12 @@ cask "android-studio"
 brew "gradle-profiler"
 
 # Containers
-brew "podman"
-brew "podman-compose"
+brew "colima"
+# Required for colima
+brew "docker"
+brew "docker-buildx"
+brew "docker-compose"
+
 brew "k3d"
 brew "helm"
 brew "kubectx"
