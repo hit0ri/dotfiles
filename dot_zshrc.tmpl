@@ -168,6 +168,15 @@ zstyle ':completion:*:default' list-prompt '%S%M matches%s'
 zstyle ':completion:*:functions' ignored-patterns '_*'
 
 #-------------------------------------------------
+# History search
+#-------------------------------------------------
+
+# Must be defined before zsh-autosuggestions.
+autoload -Uz up-line-or-beginning-search down-line-or-beginning-search
+zle -N up-line-or-beginning-search
+zle -N down-line-or-beginning-search
+
+#-------------------------------------------------
 # Plugins & completion (zinit turbo)
 #-------------------------------------------------
 
@@ -209,10 +218,6 @@ zinit wait lucid light-mode for \
 
 bindkey -e
 KEYTIMEOUT=10
-
-autoload -Uz up-line-or-beginning-search down-line-or-beginning-search
-zle -N up-line-or-beginning-search
-zle -N down-line-or-beginning-search
 
 # Both terminfo and hardcoded ANSI for portability across terminals
 bindkey "${terminfo[kcuu1]}" up-line-or-beginning-search
