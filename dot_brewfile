@@ -88,9 +88,6 @@ brew "imagemagick"
 cask "vitals"
 cask "zoom"
 
-cask "firefox"
-cask "brave-browser"
-
 # ZED
 cask "zed"
 brew "shellcheck"
