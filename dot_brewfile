@@ -58,7 +58,6 @@ cask "yubico-authenticator"
 brew "pinentry-mac"
 brew "openssh"
 brew "age"
-brew "age-plugin-yubikey"
 
 cask "visual-studio-code"
 cask "kiro"
