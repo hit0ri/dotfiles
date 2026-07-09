@@ -61,6 +61,7 @@ brew "age"
 
 cask "visual-studio-code"
 cask "kiro"
+cask "kiro-cli"
 
 # AWS
 tap "keidarcy/tap", trusted: true
