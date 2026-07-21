@@ -23,6 +23,7 @@ aws = "latest"
 "gitlab:dev-exp/other/tui-cli" = { version = "latest", api_url = "https://source.tui/api/v4" }
 java = "corretto"
 android-sdk = "latest"
+apm = "latest"
 
 [settings]
 experimental = true
