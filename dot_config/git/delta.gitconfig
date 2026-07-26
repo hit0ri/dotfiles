@@ -7,3 +7,8 @@
 [include]
 	path = delta-themes/tokyonight-storm.gitconfig
 [include]
+	path = delta-themes/tokyonight-night.gitconfig
+[include]
+	path = delta-themes/kanagawa-paper-ink.gitconfig
+[include]
+	path = delta-themes/kanagawa-paper-canvas.gitconfig

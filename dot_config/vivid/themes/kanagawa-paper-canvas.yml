@@ -1,0 +1,128 @@
+# -----------------------------------------------------------------------------
+# Kanagawa Paper Canvas
+# Upstream: https://github.com/thesimonho/kanagawa-paper.nvim/master/extras/vivid/kanagawa-paper-canvas.yml
+# URL: https://github.com/sharkdp/vivid
+# -----------------------------------------------------------------------------
+colors:
+  background_color: 'e1e1de'
+  white: 'aeaea6'
+  red: 'c27672'
+  green: '7b958e'
+  yellow: 'a7956a'
+  blue: '809ba7'
+  pink: '9e7e98'
+  cyan: '7e8faf'
+
+  light_red: 'c68582'
+  light_green: '84a098'
+  light_blue: '91b0bd'
+  light_pink: 'a989a3'
+  light_cyan: '8a9ab8'
+
+  black: '8e8a80'
+  gray: 'd1cfc5'
+  darkgray: 'cbc8bc'
+  darkergray: 'aeaea6'
+
+core:
+  normal_text: {}
+  regular_file: {}
+  reset_to_normal: {}
+
+  directory:
+    foreground: light_blue
+
+  symlink:
+    foreground: light_pink
+
+  multi_hard_link: {}
+
+  fifo:
+    foreground: black
+    background: blue
+
+  socket:
+    foreground: black
+    background: light_pink
+
+  door:
+    foreground: black
+    background: light_pink
+
+  block_device:
+    foreground: light_cyan
+    background: darkergray
+
+  character_device:
+    foreground: light_pink
+    background: darkergray
+
+  broken_symlink:
+    foreground: black
+    background: red
+
+  missing_symlink_target:
+    foreground: black
+    background: red
+
+  setuid: {}
+
+  setgid: {}
+
+  file_with_capability: {}
+
+  sticky_other_writable: {}
+
+  other_writable: {}
+
+  sticky: {}
+
+  executable_file:
+    foreground: light_red
+
+text:
+  special:
+    foreground: background_color
+    background: yellow
+
+  todo:
+    font-style: bold
+
+  licenses:
+    foreground: gray
+
+  configuration:
+    foreground: yellow
+
+  other:
+    foreground: yellow
+
+markup:
+  foreground: yellow
+
+programming:
+  source:
+    foreground: green
+
+  tooling:
+    foreground: light_green
+
+    continuous-integration:
+      foreground: green
+
+media:
+  foreground: pink
+
+office:
+  foreground: cyan
+
+archives:
+  foreground: light_cyan
+  font-style: underline
+
+executable:
+  foreground: light_red
+  font-style: bold
+
+unimportant:
+  foreground: darkgray

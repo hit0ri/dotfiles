@@ -1,0 +1,116 @@
+k9s:
+  body:
+    fgColor: "#C5C9C5"
+    bgColor: "#1F1F28"
+    logoColor: "#8992A7"
+    logoColorMsg: "#C5C9C5"
+    logoColorInfo: "#699469"
+    logoColorWarn: "#C4B28A"
+    logoColorError: "#C4746E"
+  prompt:
+    fgColor: "#C5C9C5"
+    bgColor: "#16161D"
+    suggestColor: "#859FAC"
+    border:
+      command: "#C4B28A"
+      default: "#699469"
+  help:
+    fgColor: "#C5C9C5"
+    bgColor: "#1F1F28"
+    sectionColor: "#699469"
+    keyColor: "#C4B28A"
+    numKeyColor: "#859FAC"
+  frame:
+    title:
+      fgColor: "#8EA49E"
+      bgColor: "#1F1F28"
+      highlightColor: "#A292A3"
+      counterColor: "#C4B28A"
+      filterColor: "#699469"
+    border:
+      fgColor: "#737C73"
+      focusColor: "#C4B28A"
+    menu:
+      fgColor: "#C5C9C5"
+      keyColor: "#C4B28A"
+      numKeyColor: "#859FAC"
+    crumbs:
+      fgColor: "#1F1F28"
+      bgColor: "#859FAC"
+      activeColor: "#C4B28A"
+    status:
+      newColor: "#859FAC"
+      modifyColor: "#8992A7"
+      addColor: "#699469"
+      pendingColor: "#B6927B"
+      errorColor: "#C4746E"
+      highlightColor: "#C4B28A"
+      killColor: "#A292A3"
+      completedColor: "#737C73"
+  info:
+    fgColor: "#B6927B"
+    sectionColor: "#C5C9C5"
+    cpuColor: "#699469"
+    memColor: "#8992A7"
+    k9sRevColor: "#737C73"
+  views:
+    table:
+      fgColor: "#C5C9C5"
+      bgColor: "#1F1F28"
+      cursorFgColor: "#2A2A37"
+      cursorBgColor: "#363646"
+      markColor: "#C4B28A"
+      header:
+        fgColor: "#C4B28A"
+        bgColor: "#1F1F28"
+        sorterColor: "#8EA49E"
+    xray:
+      fgColor: "#C5C9C5"
+      bgColor: "#1F1F28"
+      cursorColor: "#363646"
+      cursorTextColor: "#1F1F28"
+      graphicColor: "#A292A3"
+    charts:
+      bgColor: "#1F1F28"
+      chartBgColor: "#1F1F28"
+      dialBgColor: "#1F1F28"
+      focusFgColor: "#C5C9C5"
+      focusBgColor: "#B6927B"
+      defaultDialColors:
+        - "#699469"
+        - "#C4746E"
+      defaultChartColors:
+        - "#699469"
+        - "#C4746E"
+      resourceColors:
+        cpu:
+          - "#8992A7"
+          - "#859FAC"
+        mem:
+          - "#C4B28A"
+          - "#B6927B"
+    picker:
+      mainColor: "#C5C9C5"
+      focusColor: "#C4B28A"
+      shortcutColor: "#859FAC"
+    yaml:
+      keyColor: "#859FAC"
+      valueColor: "#C5C9C5"
+      colonColor: "#737C73"
+    logs:
+      fgColor: "#C5C9C5"
+      bgColor: "#1F1F28"
+      indicator:
+        fgColor: "#8992A7"
+        bgColor: "#1F1F28"
+        toggleOnColor: "#699469"
+        toggleOffColor: "#737C73"
+  dialog:
+    fgColor: "#C4B28A"
+    bgColor: "#363646"
+    buttonFgColor: "#1F1F28"
+    buttonBgColor: "#737C73"
+    buttonFocusFgColor: "#1F1F28"
+    buttonFocusBgColor: "#A292A3"
+    labelFgColor: "#C5C9C5"
+    fieldFgColor: "#C5C9C5"

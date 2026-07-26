@@ -1,0 +1,32 @@
+[delta "kanagawa-paper-ink"]
+    dark = true
+    syntax-theme = Kanagawa-Paper-Ink
+
+    # Diff content
+    zero-style = syntax
+    minus-style = syntax "#43242B"
+    minus-emph-style = syntax bold "#6B2E35"
+    plus-style = syntax "#2B3328"
+    plus-emph-style = syntax bold "#3F5238"
+    whitespace-error-style = "#C4746E" reverse
+
+    # Files and hunks
+    file-style = bold "#859FAC"
+    file-decoration-style = "#54546D" ul
+    hunk-header-style = file line-number syntax
+    hunk-header-decoration-style = "#363646" box
+    hunk-header-file-style = "#859FAC"
+    hunk-header-line-number-style = "#C4B28A"
+
+    # Line numbers
+    line-numbers = true
+    line-numbers-left-style = "#737C73"
+    line-numbers-minus-style = "#C4746E"
+    line-numbers-plus-style = "#699469"
+    line-numbers-right-style = "#737C73"
+    line-numbers-zero-style = "#54546D"
+
+    # Commits and navigation
+    commit-style = bold "#A292A3"
+    commit-decoration-style = "#54546D" box
+    navigate = true
