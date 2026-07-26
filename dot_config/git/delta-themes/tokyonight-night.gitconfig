@@ -1,4 +1,4 @@
-[delta]
+[delta "tokyonight-night"]
   minus-style                   = syntax "#4a272f"
   minus-non-emph-style          = syntax "#4a272f"
   minus-emph-style              = syntax "#713137"

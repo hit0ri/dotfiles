@@ -85,7 +85,7 @@ zellij = "rose-pine-dawn"
 [theme.tokyonight-moon]
 alacritty = "tokyonight-moon"
 bat = "tokyonight_moon"
-delta = "tokyonight_moon"
+delta = "tokyonigh-moon"
 fzf = "tokyonight-moon"
 ghostty = "TokyoNight Moon"
 k9s = "rose-pine"
