@@ -1,6 +1,6 @@
 font_name = "Berkeley Mono"
 font_size = 14
-current_theme = "kanagawa-paper-ink"
+current_theme = "tokyonight-night"
 
 [theme.catppuccin-latte]
 alacritty = "catppuccin-latte"
