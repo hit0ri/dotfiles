@@ -62,6 +62,7 @@ brew "age"
 cask "visual-studio-code"
 cask "kiro"
 cask "kiro-cli"
+brew "herdr"
 
 # AWS
 tap "keidarcy/tap", trusted: true
@@ -89,6 +90,7 @@ brew "imagemagick"
 cask "vitals"
 cask "zoom"
 cask "zen"
+cask "microsoft-edge"
 
 # ZED
 cask "zed"

@@ -6,6 +6,7 @@ rust = "latest"
 uv = "latest"
 python = "latest"
 node = "latest"
+pnpm = "latest"
 aube = "latest"
 lua = "latest"
 "github:unhappychoice/gitlogue" = "latest"
@@ -24,6 +25,7 @@ aws = "latest"
 java = "corretto"
 android-sdk = "latest"
 apm = "latest"
+"npm:@marp-team/marp-cli" = "latest"
 
 [settings]
 experimental = true
