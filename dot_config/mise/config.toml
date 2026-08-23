@@ -23,7 +23,7 @@ aws = "latest"
 "gitlab:gitlab-org/cli" = "latest"
 "gitlab:dev-exp/other/tui-cli" = { version = "latest", api_url = "https://source.tui/api/v4" }
 java = "corretto"
-android-sdk = "latest"
+android-cli = "latest"
 apm = "latest"
 "npm:@marp-team/marp-cli" = "latest"
 
