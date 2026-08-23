@@ -30,19 +30,25 @@ setopt auto_cd
 # PATH
 #-------------------------------------------------
 
+{{ if eq .chezmoi.os "darwin" -}}
+export HOMEBREW_PREFIX="/opt/homebrew"
+export MANPATH="/opt/homebrew/share/man${MANPATH+:$MANPATH}:"
+export INFOPATH="/opt/homebrew/share/info:${INFOPATH:-}"
+{{- end }}
+
 typeset -U path PATH
 path=(
   ~/.krew/bin
   ~/.cargo/bin
   ~/.local/bin
   ~/.rd/bin
+{{ if eq .chezmoi.os "darwin" -}}
+  $HOMEBREW_PREFIX/bin
+  $HOMEBREW_PREFIX/sbin
+{{- end }}
   $path
 )
 export PATH
-
-{{ if eq .chezmoi.os "darwin" -}}
-eval "$(/opt/homebrew/bin/brew shellenv)"
-{{- end }}
 
 #-------------------------------------------------
 # zinit
@@ -59,11 +65,6 @@ source ~/.local/share/zinit/zinit.git/zinit.zsh
 #-------------------------------------------------
 # Environment
 #-------------------------------------------------
-
-export HOMEBREW_NO_ANALYTICS=1
-export HOMEBREW_BAT=1
-export HOMEBREW_NO_ENV_HINTS=1
-export HOMEBREW_BUNDLE_FILE=~/.brewfile
 
 export npm_config_prefix=~/.node_modules # keeps npm -g out of /usr/local
 export NVIM_APPNAME=nvim-lazy
@@ -209,6 +210,7 @@ zinit wait lucid light-mode for \
   id-as'zoxide-init'  has'zoxide'   nocompile  atload'eval "$(zoxide init zsh)"'                  zdharma-continuum/null \
   id-as'kubectl-comp' has'kubectl'  nocompile  atload'eval "$(kubectl completion zsh)"'           zdharma-continuum/null \
   id-as'uv-comp'      has'uv'       nocompile  atload'eval "$(uv generate-shell-completion zsh)"' zdharma-continuum/null \
+  id-as'mise-comp'    has'mise'     nocompile  atload'eval "$(mise completion zsh)"'              zdharma-continuum/null \
   id-as'fnox-comp'    has'fnox'     nocompile  atload'eval "$(fnox completion zsh)"'              zdharma-continuum/null \
   id-as'fnox-init'    has'fnox'     nocompile  atload'eval "$(fnox activate zsh)"'                zdharma-continuum/null \
   id-as'bash-comp'                  nocompile  atload'_init_bash_completions'                     zdharma-continuum/null
