@@ -149,6 +149,40 @@ eval "$(mise activate zsh)"
 fpath+=("$HOMEBREW_PREFIX/share/zsh/site-functions")
 {{- end }}
 
+# Completions bundled with mise-installed tools
+# Adds cached _<cmd> symlinks to fpath; rebuilt asynchronously via zinit turbo.
+_mise_tool_comp() {
+  local cache_dir=${1:-${XDG_CACHE_HOME:-$HOME/.cache}/zsh/mise-completions}
+  local mise_base="${MISE_DATA_DIR:-$HOME/.local/share/mise}/installs"
+  [[ -d $mise_base ]] || return 0
+  local -a comp_files=(
+    $mise_base/*/latest/completions/*.zsh(N)
+    $mise_base/*/latest/*/completions/*.zsh(N)
+    $mise_base/*/latest/*/autocomplete/*.zsh(N)
+  )
+  mkdir -p "$cache_dir"
+  local before=("$cache_dir"/_*(N))
+  command rm -f "$cache_dir"/_*(N)
+  local f line cmd
+  for f in "${comp_files[@]}"; do
+    IFS= read -r line < "$f"
+    [[ $line == "#compdef "* && $line != *"{"* ]] || continue
+    cmd=${line#\#compdef }
+    cmd=${cmd%%[[:space:]]*}
+    command ln -sf "$f" "$cache_dir/_$cmd"
+  done
+  local after=("$cache_dir"/_*(N))
+  # Invalidate zcompdump when the set of completions changed
+  if [[ "${before[*]}" != "${after[*]}" ]]; then
+    command rm -f "${ZINIT[ZCOMPDUMP_PATH]:-${ZDOTDIR:-$HOME}/.zcompdump}"
+  fi
+}
+() {
+  local cache_dir="${XDG_CACHE_HOME:-$HOME/.cache}/zsh/mise-completions"
+  [[ -d $cache_dir ]] || { mkdir -p "$cache_dir" && _mise_tool_comp "$cache_dir" }
+  fpath=("$cache_dir" $fpath)
+}
+
 # Must be set before the zstyle list-colors below references it
 (($+commands[vivid])) && export LS_COLORS="$(vivid generate {{ (index .theme .current_theme).vivid }})"
 
@@ -206,14 +240,15 @@ zinit light-mode for \
 
 # Load the rest of the tools ASYNCHRONOUSLY
 zinit wait lucid light-mode for \
-  id-as'fzf-init'     has'fzf'      nocompile  atload'eval "$(fzf --zsh)"'                        zdharma-continuum/null \
-  id-as'zoxide-init'  has'zoxide'   nocompile  atload'eval "$(zoxide init zsh)"'                  zdharma-continuum/null \
-  id-as'kubectl-comp' has'kubectl'  nocompile  atload'eval "$(kubectl completion zsh)"'           zdharma-continuum/null \
-  id-as'uv-comp'      has'uv'       nocompile  atload'eval "$(uv generate-shell-completion zsh)"' zdharma-continuum/null \
-  id-as'mise-comp'    has'mise'     nocompile  atload'eval "$(mise completion zsh)"'              zdharma-continuum/null \
-  id-as'fnox-comp'    has'fnox'     nocompile  atload'eval "$(fnox completion zsh)"'              zdharma-continuum/null \
-  id-as'fnox-init'    has'fnox'     nocompile  atload'eval "$(fnox activate zsh)"'                zdharma-continuum/null \
-  id-as'bash-comp'                  nocompile  atload'_init_bash_completions'                     zdharma-continuum/null
+  id-as'fzf-init'       has'fzf'      nocompile  atload'eval "$(fzf --zsh)"'                        zdharma-continuum/null \
+  id-as'zoxide-init'    has'zoxide'   nocompile  atload'eval "$(zoxide init zsh)"'                  zdharma-continuum/null \
+  id-as'kubectl-comp'   has'kubectl'  nocompile  atload'eval "$(kubectl completion zsh)"'           zdharma-continuum/null \
+  id-as'uv-comp'        has'uv'       nocompile  atload'eval "$(uv generate-shell-completion zsh)"' zdharma-continuum/null \
+  id-as'mise-comp'      has'mise'     nocompile  atload'eval "$(mise completion zsh)"'              zdharma-continuum/null \
+  id-as'fnox-comp'      has'fnox'     nocompile  atload'eval "$(fnox completion zsh)"'              zdharma-continuum/null \
+  id-as'fnox-init'      has'fnox'     nocompile  atload'eval "$(fnox activate zsh)"'                zdharma-continuum/null \
+  id-as'mise-tool-comp' has'mise'     nocompile  atload'_mise_tool_comp'                            zdharma-continuum/null \
+  id-as'bash-comp'                    nocompile  atload'_init_bash_completions'                     zdharma-continuum/null
 
 #-------------------------------------------------
 # Keybindings
