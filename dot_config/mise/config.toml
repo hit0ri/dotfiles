@@ -17,7 +17,7 @@ terraform = "latest"
 terragrunt = "latest"
 tf-summarize = "latest"
 packer = "latest"
-aws = "latest"
+aws-cli = { version = "latest", symlink_bins = true }
 "aqua:aws/session-manager-plugin" = "latest"
 "pipx:mludvig/aws-ssm-tools" = "v2.2.1"
 "npm:aws-cdk" = "latest"
@@ -27,6 +27,7 @@ java = "corretto"
 android-cli = "latest"
 apm = "latest"
 "npm:@marp-team/marp-cli" = "latest"
+glow = "latest"
 
 # CLI tools (previously in Brewfile)
 lsd = "latest"
@@ -110,6 +111,7 @@ adopt = true
 "brew:bcal" = "latest"
 "brew:gradle-profiler" = "latest"
 "brew:ykman" = "latest"
+"brew:trippy" = "latest"
 
 # GUI apps
 "brew-cask:ghostty" = "latest"
