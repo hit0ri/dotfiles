@@ -20,6 +20,13 @@
       "model": "gpt-5-mini",
     },
   },
+  "agent_servers": {
+    "kiro-cli": {
+      "type": "custom",
+      "command": "~/.local/bin/kiro-cli",
+      "args": ["acp"],
+    },
+  },
   "theme": "{{ (index .theme .current_theme).zed }}",
   "telemetry": {
     "diagnostics": false,
