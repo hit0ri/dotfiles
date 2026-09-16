@@ -1,7 +1,7 @@
 [tools]
 usage = "latest"
 chezmoi = "latest"
-fnox = "latest"
+"packslip:github.com/jdx/fnox" = "latest"
 go = "latest"
 rust = "latest"
 uv = "latest"
