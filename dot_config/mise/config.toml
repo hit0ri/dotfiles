@@ -111,6 +111,7 @@ adopt = true
 "brew:gradle-profiler" = "latest"
 "brew:ykman" = "latest"
 "brew:trippy" = "latest"
+"brew:datadog-labs/pack/pup" = "latest"
 
 # GUI apps
 "brew-cask:ghostty" = "latest"
