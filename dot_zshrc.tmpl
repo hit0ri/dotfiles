@@ -229,17 +229,15 @@ _init_bash_completions() {
   (($+commands[packer]))        && complete -C packer packer
 }
 
-# Load core completion and suggestion plugins SYNCHRONOUSLY
-# This prevents IDE shell integrations from tracking the background 'cd'
-# into the plugin directories when opening new panes.
+# zinit runs atinit/atload inside the plugin directory unless `nocd` is set.
+# Without it, IDE terminals (Zed) can capture the plugin directory as the cwd.
 zinit light-mode for \
-  atinit'zicompinit; zicdreplay' atload'_zsh_autosuggest_start' \
+  nocd atinit'zicompinit; zicdreplay' atload'_zsh_autosuggest_start' \
     zsh-users/zsh-autosuggestions \
-  blockf atpull'zinit creinstall -q .' \
+  blockf atpull'zinit cclear >/dev/null; zinit creinstall -q .' \
     zsh-users/zsh-completions
 
-# Load the rest of the tools ASYNCHRONOUSLY
-zinit wait lucid light-mode for \
+zinit wait lucid light-mode nocd for \
   id-as'fzf-init'       has'fzf'      nocompile  atload'eval "$(fzf --zsh)"'                        zdharma-continuum/null \
   id-as'zoxide-init'    has'zoxide'   nocompile  atload'eval "$(zoxide init zsh)"'                  zdharma-continuum/null \
   id-as'kubectl-comp'   has'kubectl'  nocompile  atload'eval "$(kubectl completion zsh)"'           zdharma-continuum/null \
@@ -300,7 +298,7 @@ alias lsports='lsof -iTCP -sTCP:LISTEN -nP'
 # Integrations
 #-------------------------------------------------
 
-zinit wait lucid for \
+zinit wait lucid nocd for \
   id-as'functions'  has'curl'  nocompile  atload'source ~/.functions.sh'            zdharma-continuum/null \
   id-as'op-plugins'            nocompile  if'[[ -f ~/.config/op/plugins.sh ]]' \
                                           atload'source ~/.config/op/plugins.sh'    zdharma-continuum/null
