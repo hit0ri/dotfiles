@@ -1,6 +1,12 @@
 # ~/.zshrc - interactive shell config
 # Load order: zshenv -> zprofile (login) -> zshrc (interactive) -> zlogin (login)
 
+# p10k instant prompt must stay at the top. Code above it must not read input
+# or print output.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
 #-------------------------------------------------
 # Shell options
 #-------------------------------------------------
@@ -30,17 +36,21 @@ setopt auto_cd
 # PATH
 #-------------------------------------------------
 
+typeset -U path PATH manpath MANPATH fpath FPATH
+
 {{ if eq .chezmoi.os "darwin" -}}
 export HOMEBREW_PREFIX="/opt/homebrew"
-export MANPATH="/opt/homebrew/share/man${MANPATH+:$MANPATH}:"
-export INFOPATH="/opt/homebrew/share/info:${INFOPATH:-}"
+typeset -TUx INFOPATH infopath
+infopath=("$HOMEBREW_PREFIX/share/info" $infopath)
+manpath=("$HOMEBREW_PREFIX/share/man" $manpath '')
+export MANPATH
 {{- end }}
 
-typeset -U path PATH
 path=(
   ~/.krew/bin
   ~/.cargo/bin
   ~/.local/bin
+  ~/.node_modules/bin
   ~/.rd/bin
 {{ if eq .chezmoi.os "darwin" -}}
   $HOMEBREW_PREFIX/bin
@@ -50,17 +60,12 @@ path=(
 )
 export PATH
 
-#-------------------------------------------------
-# zinit
-#-------------------------------------------------
+# Cache helpers. Must come before `mise activate`.
+source "${XDG_CONFIG_HOME:-$HOME/.config}/zsh/cache.zsh"
 
-# Cache .zcompdump under XDG_CACHE_HOME and use `compinit -C` to skip the
-# security check on each startup (cache is regenerated on plugin updates).
-typeset -A ZINIT
-ZINIT[ZCOMPDUMP_PATH]="${XDG_CACHE_HOME:-$HOME/.cache}/zsh/.zcompdump"
-ZINIT[COMPINIT_OPTS]="-C"
-
-source ~/.local/share/zinit/zinit.git/zinit.zsh
+# mise puts all managed tools on PATH. Everything below that checks for a
+# command depends on it.
+(($+commands[mise])) && eval "$(mise activate zsh)"
 
 #-------------------------------------------------
 # Environment
@@ -84,6 +89,7 @@ export CLICOLOR=1
 export BROWSER=open
 export ANDROID_HOME="$HOME/Library/Android/sdk"
 export K3D_FIX_DNS=0
+export SSH_AUTH_SOCK=~/Library/Containers/com.maxgoedjen.Secretive.SecretAgent/Data/socket.ssh
 {{- end }}
 {{ if eq .chezmoi.os "linux" -}}
 export S_COLORS=auto
@@ -96,12 +102,14 @@ export LESS_TERMCAP_me=$'\e[0m'
 export LESS_TERMCAP_ue=$'\e[0m'
 export LESS_TERMCAP_us=$'\e[1;32m'
 
-# secretive
-export SSH_AUTH_SOCK=~/Library/Containers/com.maxgoedjen.Secretive.SecretAgent/Data/socket.ssh
+#-------------------------------------------------
+# Colours and fzf
+#-------------------------------------------------
 
-#-------------------------------------------------
-# fzf
-#-------------------------------------------------
+if _zsh_cached "$ZSH_CACHE_DIR/init/ls_colors" vivid generate {{ (index .theme .current_theme).vivid }}; then
+  IFS= read -r LS_COLORS <"$ZSH_CACHE_DIR/init/ls_colors"
+  export LS_COLORS
+fi
 
 [[ -f ~/.config/fzf/themes/{{ (index .theme .current_theme).fzf }}.sh ]] && source ~/.config/fzf/themes/{{ (index .theme .current_theme).fzf }}.sh
 
@@ -118,73 +126,50 @@ export SSH_AUTH_SOCK=~/Library/Containers/com.maxgoedjen.Secretive.SecretAgent/D
     export FZF_ALT_C_COMMAND="fd --hidden --exclude ${_fd_exclude} --type directory"
   fi
 
-  if ((${+commands[lsd]})); then
+  if (($+commands[lsd])); then
     local _ls='lsd --group-directories-first --color=always --icon=always'
   else
     local _ls='ls --color=always'
   fi
 
-  export FZF_CTRL_T_OPTS="--bind ctrl-/:toggle-preview --preview 'if [[ -d {} ]]; then ${_ls} -1F {}; else bat --color=always --line-range :500 {}; fi' ${FZF_CTRL_T_OPTS}"
-  export FZF_ALT_C_OPTS="--bind ctrl-/:toggle-preview --preview '${_ls} -1F {}' ${FZF_ALT_C_OPTS}"
+  export FZF_CTRL_T_OPTS="--bind ctrl-/:toggle-preview --preview 'if [[ -d {} ]]; then ${_ls} -1F {}; else bat --color=always --line-range :500 {}; fi'"
+  export FZF_ALT_C_OPTS="--bind ctrl-/:toggle-preview --preview '${_ls} -1F {}'"
 }
 
 ((${+FZF_DEFAULT_COMMAND})) && export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 
 #-------------------------------------------------
-# Tool initialisations
+# Completion
 #-------------------------------------------------
 
-# p10k and mise must be synchronous: p10k renders the prompt,
-# mise sets up PATH for all managed tools.
-# p10k config must be sourced before the plugin loads.
-[[ -f ~/.p10k.zsh ]] && source ~/.p10k.zsh
-zinit ice depth=1; zinit light romkatv/powerlevel10k
-eval "$(mise activate zsh)"
+# Completions that tools print on request. mise hook-env already provides
+# completions for tools installed with packslip (fnox, usage).
+_zsh_cached_comp kubectl completion zsh
+_zsh_cached_comp uv generate-shell-completion zsh
+_zsh_cached_comp mise completion zsh
 
-#-------------------------------------------------
-# Completion zstyles
-#-------------------------------------------------
+_zsh_mise_comp_sync
 
+ZSH_PLUGIN_DIR="${XDG_DATA_HOME:-$HOME/.local/share}/zsh/plugins"
+
+fpath=(
+  "$ZSH_CACHE_DIR/completions"
+  "$ZSH_CACHE_DIR/mise-completions"
+  "$ZSH_PLUGIN_DIR/zsh-completions/src"
 {{ if eq .chezmoi.os "darwin" -}}
-fpath+=("$HOMEBREW_PREFIX/share/zsh/site-functions")
+  "$HOMEBREW_PREFIX/share/zsh/site-functions"
 {{- end }}
+  $fpath
+)
 
-# Completions bundled with mise-installed tools
-# Adds cached _<cmd> symlinks to fpath; rebuilt asynchronously via zinit turbo.
-_mise_tool_comp() {
-  local cache_dir=${1:-${XDG_CACHE_HOME:-$HOME/.cache}/zsh/mise-completions}
-  local mise_base="${MISE_DATA_DIR:-$HOME/.local/share/mise}/installs"
-  [[ -d $mise_base ]] || return 0
-  local -a comp_files=(
-    $mise_base/*/latest/completions/*.zsh(N)
-    $mise_base/*/latest/*/completions/*.zsh(N)
-    $mise_base/*/latest/*/autocomplete/*.zsh(N)
-  )
-  mkdir -p "$cache_dir"
-  local before=("$cache_dir"/_*(N))
-  command rm -f "$cache_dir"/_*(N)
-  local f line cmd
-  for f in "${comp_files[@]}"; do
-    IFS= read -r line < "$f"
-    [[ $line == "#compdef "* && $line != *"{"* ]] || continue
-    cmd=${line#\#compdef }
-    cmd=${cmd%%[[:space:]]*}
-    command ln -sf "$f" "$cache_dir/_$cmd"
-  done
-  local after=("$cache_dir"/_*(N))
-  # Invalidate zcompdump when the set of completions changed
-  if [[ "${before[*]}" != "${after[*]}" ]]; then
-    command rm -f "${ZINIT[ZCOMPDUMP_PATH]:-${ZDOTDIR:-$HOME}/.zcompdump}"
-  fi
-}
-() {
-  local cache_dir="${XDG_CACHE_HOME:-$HOME/.cache}/zsh/mise-completions"
-  [[ -d $cache_dir ]] || { mkdir -p "$cache_dir" && _mise_tool_comp "$cache_dir" }
-  fpath=("$cache_dir" $fpath)
-}
+_zsh_compinit
 
-# Must be set before the zstyle list-colors below references it
-(($+commands[vivid])) && export LS_COLORS="$(vivid generate {{ (index .theme .current_theme).vivid }})"
+# Tools that use the binary itself as the completion handler
+autoload -Uz bashcompinit && bashcompinit
+(($+commands[aws_completer])) && complete -C aws_completer aws
+(($+commands[terraform]))     && complete -C terraform terraform
+(($+commands[terragrunt]))    && complete -C terragrunt terragrunt
+(($+commands[packer]))        && complete -C packer packer
 
 zmodload zsh/complist
 zstyle ':completion:*' completer _extensions _complete _files
@@ -192,7 +177,7 @@ zstyle ':completion:*' matcher-list 'm:{a-zA-Z}={A-Za-z}'
 zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
 zstyle ':completion:*' menu select
 zstyle ':completion:*' use-cache true
-zstyle ':completion:*' cache-path "${XDG_CACHE_HOME:-$HOME/.cache}/zsh/zcompcache"
+zstyle ':completion:*' cache-path "$ZSH_CACHE_DIR/zcompcache"
 zstyle ':completion:*' group-name ''
 zstyle ':completion:*' verbose true
 zstyle ':completion:*' squeeze-slashes true
@@ -204,56 +189,15 @@ zstyle ':completion:*:default' list-prompt '%S%M matches%s'
 zstyle ':completion:*:functions' ignored-patterns '_*'
 
 #-------------------------------------------------
-# History search
-#-------------------------------------------------
-
-# Must be defined before zsh-autosuggestions.
-autoload -Uz up-line-or-beginning-search down-line-or-beginning-search
-zle -N up-line-or-beginning-search
-zle -N down-line-or-beginning-search
-
-#-------------------------------------------------
-# Plugins & completion (zinit turbo)
-#-------------------------------------------------
-
-# Load order matters here:
-# - zsh-autosuggestions runs zicompinit + zicdreplay in atinit, so compdef
-#   exists before any later entry needs it
-# - zsh-completions follows with blockf to extend fpath
-# - tool inits and bashcompinit run last; their compdef calls now resolve
-_init_bash_completions() {
-  autoload -Uz bashcompinit && bashcompinit
-  (($+commands[aws_completer])) && complete -C aws_completer aws
-  (($+commands[terraform]))     && complete -C terraform terraform
-  (($+commands[terragrunt]))    && complete -C terragrunt terragrunt
-  (($+commands[packer]))        && complete -C packer packer
-}
-
-# zinit runs atinit/atload inside the plugin directory unless `nocd` is set.
-# Without it, IDE terminals (Zed) can capture the plugin directory as the cwd.
-zinit light-mode for \
-  nocd atinit'zicompinit; zicdreplay' atload'_zsh_autosuggest_start' \
-    zsh-users/zsh-autosuggestions \
-  blockf atpull'zinit cclear >/dev/null; zinit creinstall -q .' \
-    zsh-users/zsh-completions
-
-zinit wait lucid light-mode nocd for \
-  id-as'fzf-init'       has'fzf'      nocompile  atload'eval "$(fzf --zsh)"'                        zdharma-continuum/null \
-  id-as'zoxide-init'    has'zoxide'   nocompile  atload'eval "$(zoxide init zsh)"'                  zdharma-continuum/null \
-  id-as'kubectl-comp'   has'kubectl'  nocompile  atload'eval "$(kubectl completion zsh)"'           zdharma-continuum/null \
-  id-as'uv-comp'        has'uv'       nocompile  atload'eval "$(uv generate-shell-completion zsh)"' zdharma-continuum/null \
-  id-as'mise-comp'      has'mise'     nocompile  atload'eval "$(mise completion zsh)"'              zdharma-continuum/null \
-  id-as'fnox-comp'      has'fnox'     nocompile  atload'eval "$(fnox completion zsh)"'              zdharma-continuum/null \
-  id-as'fnox-init'      has'fnox'     nocompile  atload'eval "$(fnox activate zsh)"'                zdharma-continuum/null \
-  id-as'mise-tool-comp' has'mise'     nocompile  atload'_mise_tool_comp'                            zdharma-continuum/null \
-  id-as'bash-comp'                    nocompile  atload'_init_bash_completions'                     zdharma-continuum/null
-
-#-------------------------------------------------
 # Keybindings
 #-------------------------------------------------
 
 bindkey -e
 KEYTIMEOUT=10
+
+autoload -Uz up-line-or-beginning-search down-line-or-beginning-search
+zle -N up-line-or-beginning-search
+zle -N down-line-or-beginning-search
 
 # Both terminfo and hardcoded ANSI for portability across terminals
 bindkey "${terminfo[kcuu1]}" up-line-or-beginning-search
@@ -262,6 +206,16 @@ bindkey "${terminfo[kcud1]}" down-line-or-beginning-search
 bindkey '^[[B' down-line-or-beginning-search
 bindkey "${terminfo[kcbt]}" reverse-menu-complete
 bindkey '^[[Z' reverse-menu-complete
+
+#-------------------------------------------------
+# Tool integrations
+#-------------------------------------------------
+
+_zsh_cached_source fzf --zsh
+_zsh_cached_source fnox activate zsh
+
+source "${XDG_CONFIG_HOME:-$HOME/.config}/zsh/functions.zsh"
+[[ -f ~/.config/op/plugins.sh ]] && source ~/.config/op/plugins.sh
 
 #-------------------------------------------------
 # Aliases
@@ -295,10 +249,14 @@ alias lsports='lsof -iTCP -sTCP:LISTEN -nP'
 {{- end }}
 
 #-------------------------------------------------
-# Integrations
+# Plugins and prompt
 #-------------------------------------------------
 
-zinit wait lucid nocd for \
-  id-as'functions'  has'curl'  nocompile  atload'source ~/.functions.sh'            zdharma-continuum/null \
-  id-as'op-plugins'            nocompile  if'[[ -f ~/.config/op/plugins.sh ]]' \
-                                          atload'source ~/.config/op/plugins.sh'    zdharma-continuum/null
+# zsh-autosuggestions binds widgets on the first prompt, so it also wraps
+# widgets defined above (fzf).
+[[ -r "$ZSH_PLUGIN_DIR/zsh-autosuggestions/zsh-autosuggestions.zsh" ]] && source "$ZSH_PLUGIN_DIR/zsh-autosuggestions/zsh-autosuggestions.zsh"
+[[ -r "$ZSH_PLUGIN_DIR/powerlevel10k/powerlevel10k.zsh-theme" ]] && source "$ZSH_PLUGIN_DIR/powerlevel10k/powerlevel10k.zsh-theme"
+[[ -f ~/.p10k.zsh ]] && source ~/.p10k.zsh
+
+# zoxide must be initialised last
+_zsh_cached_source zoxide init zsh

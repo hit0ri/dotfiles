@@ -1,4 +1,4 @@
-# .functions.sh
+# ~/.config/zsh/functions.zsh - interactive helper functions, sourced by ~/.zshrc
 
 cheatsh() {
   curl -s "cheat.sh/$1?style=rrt"
@@ -13,7 +13,7 @@ ipinfo() {
 }
 
 mkdirf() {
-  mkdir -p "$1" && cd "$1" || exit
+  mkdir -p "$1" && cd "$1" || return
 }
 
 # Create paste from stdin or file
@@ -41,7 +41,7 @@ b64() {
 httping() {
   while :; do
     curl -k --write-out "%{url_effective} - %{response_code} - %{time_total} - $(date +%T)\n" --silent --output /dev/null -L "$1"
-    [[ -n $2 ]] && sleep "$2"
+    sleep "${2:-1}"
   done
 }
 

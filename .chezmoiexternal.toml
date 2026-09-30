@@ -2,6 +2,23 @@
 type = "git-repo"
 url = "https://github.com/sahaj-b/ghostty-cursor-shaders.git"
 
-[".local/share/zinit/zinit.git"]
+[".local/share/zsh/plugins/powerlevel10k"]
 type = "git-repo"
-url = "https://github.com/zdharma-continuum/zinit.git"
+url = "https://github.com/romkatv/powerlevel10k.git"
+refreshPeriod = "168h"
+clone.args = ["--depth", "1"]
+pull.args = ["--ff-only"]
+
+[".local/share/zsh/plugins/zsh-autosuggestions"]
+type = "git-repo"
+url = "https://github.com/zsh-users/zsh-autosuggestions.git"
+refreshPeriod = "168h"
+clone.args = ["--depth", "1"]
+pull.args = ["--ff-only"]
+
+[".local/share/zsh/plugins/zsh-completions"]
+type = "git-repo"
+url = "https://github.com/zsh-users/zsh-completions.git"
+refreshPeriod = "168h"
+clone.args = ["--depth", "1"]
+pull.args = ["--ff-only"]
