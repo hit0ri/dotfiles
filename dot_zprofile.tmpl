@@ -1,4 +1,7 @@
 # ~/.zprofile - sourced for login shells only, after zshenv
 # Load order: zshenv -> zprofile (login) -> zshrc (interactive) -> zlogin (login)
-# Purpose: login-session setup that must run before zshrc (e.g. PATH or
-# environment overrides specific to login shells, ssh sessions, tmux).
+
+# The system zprofile can change the PATH set in zshenv: macOS runs path_helper,
+# which moves system dirs to the front, and many Linux distros source
+# /etc/profile and /etc/profile.d/*. Apply it again to restore the order.
+source "${XDG_CONFIG_HOME:-$HOME/.config}/zsh/path.zsh"

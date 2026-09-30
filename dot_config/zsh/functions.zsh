@@ -45,8 +45,11 @@ httping() {
   done
 }
 
+# Prints the base64 SHA-256 pin of the public key of a TLS server: <host>[:port]
 tls-pin-sha256() {
-  openssl s_client -connect "$1:443" </dev/null 2>/dev/null |
+  local target=$1
+  [[ $target == *:* ]] || target="$target:443"
+  openssl s_client -connect "$target" </dev/null 2>/dev/null |
     openssl x509 -noout -pubkey |
     openssl pkey -pubin -outform der |
     openssl dgst -sha256 -binary |
@@ -82,5 +85,4 @@ ec2-id-from-name() {
     --filter "Name=tag:Name,Values=$1" \
     --query "Reservations[].Instances[].InstanceId[]" \
     --output text
-  # --query "Reservations[].Instances[?State.Name == 'running'].InstanceId[]" \
 }

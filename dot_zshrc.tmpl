@@ -25,7 +25,6 @@ setopt hist_ignore_all_dups
 setopt hist_ignore_space
 setopt hist_reduce_blanks
 setopt hist_verify
-setopt hist_save_no_dups
 setopt hist_fcntl_lock
 setopt share_history
 setopt interactive_comments
@@ -36,60 +35,28 @@ setopt auto_cd
 # PATH
 #-------------------------------------------------
 
+# PATH itself is set in ~/.config/zsh/path.zsh (via zshenv and zprofile)
 typeset -U path PATH manpath MANPATH fpath FPATH
-
-{{ if eq .chezmoi.os "darwin" -}}
-export HOMEBREW_PREFIX="/opt/homebrew"
 typeset -TUx INFOPATH infopath
-infopath=("$HOMEBREW_PREFIX/share/info" $infopath)
-manpath=("$HOMEBREW_PREFIX/share/man" $manpath '')
+infopath=("$HOMEBREW_PREFIX/share/info"(N-/) $infopath)
+manpath=("$HOMEBREW_PREFIX/share/man"(N-/) $manpath '')
 export MANPATH
-{{- end }}
-
-path=(
-  ~/.krew/bin
-  ~/.cargo/bin
-  ~/.local/bin
-  ~/.node_modules/bin
-  ~/.rd/bin
-{{ if eq .chezmoi.os "darwin" -}}
-  $HOMEBREW_PREFIX/bin
-  $HOMEBREW_PREFIX/sbin
-{{- end }}
-  $path
-)
-export PATH
 
 # Cache helpers. Must come before `mise activate`.
 source "${XDG_CONFIG_HOME:-$HOME/.config}/zsh/cache.zsh"
 
-# mise puts all managed tools on PATH. Everything below that checks for a
-# command depends on it.
+# mise puts the real dirs of all managed tools on PATH, in front of the shims.
+# Everything below that checks for a command depends on it.
 (($+commands[mise])) && eval "$(mise activate zsh)"
 
 #-------------------------------------------------
 # Environment
 #-------------------------------------------------
 
-export npm_config_prefix=~/.node_modules # keeps npm -g out of /usr/local
-export NVIM_APPNAME=nvim-lazy
-export K9S_CONFIG_DIR="$HOME/.config/k9s"
-export DIFFPROG='nvim -d'
-export GROFF_NO_SGR=yes
-export AWS_PAGER=
-
-export TG_PROVIDER_CACHE=true
-export TG_EXPERIMENT=dependency-fetch-output-from-state
-export BUILDKIT_PROGRESS=plain
-export ZELLIJ_AUTO_EXIT=true
-export WINEDLLOVERRIDES='winemenubuilder.exe,mscoree,mshtml='
+# Variables that non-interactive shells also need are in ~/.zshenv
 
 {{ if eq .chezmoi.os "darwin" -}}
 export CLICOLOR=1
-export BROWSER=open
-export ANDROID_HOME="$HOME/Library/Android/sdk"
-export K3D_FIX_DNS=0
-export SSH_AUTH_SOCK=~/Library/Containers/com.maxgoedjen.Secretive.SecretAgent/Data/socket.ssh
 {{- end }}
 {{ if eq .chezmoi.os "linux" -}}
 export S_COLORS=auto
@@ -156,9 +123,7 @@ fpath=(
   "$ZSH_CACHE_DIR/completions"
   "$ZSH_CACHE_DIR/mise-completions"
   "$ZSH_PLUGIN_DIR/zsh-completions/src"
-{{ if eq .chezmoi.os "darwin" -}}
   "$HOMEBREW_PREFIX/share/zsh/site-functions"
-{{- end }}
   $fpath
 )
 
@@ -260,3 +225,5 @@ alias lsports='lsof -iTCP -sTCP:LISTEN -nP'
 
 # zoxide must be initialised last
 _zsh_cached_source zoxide init zsh
+
+_zsh_cache_prune

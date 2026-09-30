@@ -2,8 +2,31 @@
 # Load order: zshenv -> zprofile (login) -> zshrc (interactive) -> zlogin (login)
 # Keep minimal: only variables needed by non-interactive shells and scripts.
 
+# Child shells inherit PATH from their parent, so only the first shell sets it.
+[[ -n $ZSH_PATH_INIT ]] || source "${XDG_CONFIG_HOME:-$HOME/.config}/zsh/path.zsh"
+
 export LANG=en_US.UTF-8
 
 export EDITOR=nvim
 export VISUAL=nvim
 export SUDO_EDITOR=nvim
+export DIFFPROG='nvim -d'
+export NVIM_APPNAME=nvim-lazy
+
+export npm_config_prefix=~/.node_modules # keeps npm -g out of /usr/local
+export K9S_CONFIG_DIR="$HOME/.config/k9s"
+export GROFF_NO_SGR=yes
+export AWS_PAGER=
+
+export TG_PROVIDER_CACHE=true
+export TG_EXPERIMENT=dependency-fetch-output-from-state
+export BUILDKIT_PROGRESS=plain
+export ZELLIJ_AUTO_EXIT=true
+export WINEDLLOVERRIDES='winemenubuilder.exe,mscoree,mshtml='
+
+{{ if eq .chezmoi.os "darwin" -}}
+export BROWSER=open
+export ANDROID_HOME="$HOME/Library/Android/sdk"
+export K3D_FIX_DNS=0
+export SSH_AUTH_SOCK=~/Library/Containers/com.maxgoedjen.Secretive.SecretAgent/Data/socket.ssh
+{{- end }}

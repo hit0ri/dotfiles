@@ -18,6 +18,8 @@ zf_mkdir -p "$ZSH_CACHE_DIR"/{init,keys,completions,mise-completions}
 typeset -ga _zsh_compdef_queue
 compdef() { _zsh_compdef_queue+=("${(j: :)${(qq)@}}") }
 
+typeset -ga _zsh_cache_used
+
 #-------------------------------------------------
 # Cache keys
 #-------------------------------------------------
@@ -63,6 +65,7 @@ _zsh_cache_write() {
 _zsh_cached() {
   local file=$1 name=${1:t}
   shift
+  _zsh_cache_used+=("$file")
   if ! _zsh_tool_key "$@"; then
     zf_rm -f "$file" "$ZSH_CACHE_DIR/keys/$name"
     return 1
@@ -81,6 +84,16 @@ _zsh_cached_source() {
 # Caches the output of <cmd...> as the completion function _<cmd>
 _zsh_cached_comp() {
   _zsh_cached "$ZSH_CACHE_DIR/completions/_$1" "$@"
+}
+
+# Deletes cached files that no _zsh_cached call used in this startup.
+# Call once, after the last _zsh_cached call.
+_zsh_cache_prune() {
+  local f
+  for f in "$ZSH_CACHE_DIR"/{init,completions}/*(N); do
+    ((${_zsh_cache_used[(Ie)$f]})) || zf_rm -f "$f" "$ZSH_CACHE_DIR/keys/${f:t}"
+  done
+  unset _zsh_cache_used
 }
 
 #-------------------------------------------------
@@ -162,6 +175,7 @@ _zsh_compinit() {
     compinit -C -d "$dump"
   else
     compinit -i -d "$dump"
+    zcompile -- "$dump"
     _zsh_key_write zcompdump "$key"
   fi
   _zsh_compdef_replay
