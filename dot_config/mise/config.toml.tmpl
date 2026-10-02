@@ -1,3 +1,20 @@
+# $schema: https://mise.jdx.dev/schema/mise.json
+
+[settings]
+cache_prune_age = "24h"
+{{- if contains "catppuccin" .current_theme }}
+color_theme = "catppuccin"
+{{- else }}
+color_theme = "auto"
+{{- end }}
+
+[settings.python]
+uv_venv_auto = "create|source"
+uv_venv_create_args = ["--seed"]
+
+[settings.pypi]
+uvx = true
+
 [tools]
 usage = "latest"
 chezmoi = "latest"
@@ -23,7 +40,7 @@ aws-cli = { version = "latest", symlink_bins = true }
 "npm:aws-cdk" = "latest"
 "gitlab:gitlab-org/cli" = "latest"
 "gitlab:dev-exp/other/tui-cli" = { version = "latest", api_url = "https://source.tui/api/v4" }
-java = "corretto"
+java = "prefix:corretto"
 android-cli = "latest"
 apm = "latest"
 "npm:@marp-team/marp-cli" = "latest"
@@ -139,15 +156,3 @@ adopt = true
 "brew-cask:font-fira-mono" = "latest"
 "brew-cask:font-inter" = "latest"
 "brew-cask:font-go-mono-nerd-font" = "latest"
-
-[settings]
-experimental = true
-idiomatic_version_file_enable_tools = []
-minimum_release_age_excludes = ["fnox"]
-
-[settings.python]
-compile = false
-uv_venv_create_args = ["--seed"]
-
-[settings.node]
-compile = false
