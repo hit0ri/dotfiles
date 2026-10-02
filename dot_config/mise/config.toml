@@ -80,6 +80,7 @@ bfs = "latest"
 "github:github/git-sizer" = "latest"
 "github:atanunq/viu" = "latest"
 "github:DataDog/pup" = "latest"
+"github:bitrise-io/bitrise" = "latest"
 "pipx:git-filter-repo" = "latest"
 
 [bootstrap.brew]
