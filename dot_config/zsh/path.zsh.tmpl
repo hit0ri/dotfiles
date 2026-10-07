@@ -3,12 +3,14 @@
 # mise shims give non-interactive shells the mise tools. Interactive shells run
 # `mise activate` later, which puts the real tool dirs in front of the shims.
 
-# Prefix where `mise bootstrap` installs brew: packages
 {{ if eq .chezmoi.os "darwin" -}}
 export HOMEBREW_PREFIX=/opt/homebrew
+export HOMEBREW_REPOSITORY="$HOMEBREW_PREFIX"
 {{- else -}}
 export HOMEBREW_PREFIX=/home/linuxbrew/.linuxbrew
+export HOMEBREW_REPOSITORY="$HOMEBREW_PREFIX/Homebrew"
 {{- end }}
+export HOMEBREW_CELLAR="$HOMEBREW_PREFIX/Cellar"
 
 export ZSH_PATH_INIT=1
 

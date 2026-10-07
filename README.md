@@ -3,12 +3,15 @@
 ## Bootstrap
 
 ```sh
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+eval "$(/opt/homebrew/bin/brew shellenv)"
 curl https://mise.run | sh
 export PATH="$HOME/.local/bin:$PATH"
 mise use -g chezmoi@latest
 chezmoi init -a git@github.com:hit0ri/dotfiles.git
+brew bundle -g
 mise trust
-mise bootstrap -y
+mise install
 ```
 
 ## Update zsh plugins
