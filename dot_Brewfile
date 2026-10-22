@@ -38,6 +38,7 @@ cask "kiro-cli"
 cask "zoom"
 cask "zed"
 cask "android-studio"
+cask "microsoft-edge"
 
 # Fonts
 cask "font-symbols-only-nerd-font"
