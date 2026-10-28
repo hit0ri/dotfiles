@@ -19,6 +19,7 @@ brew "bcal"
 brew "gradle-profiler"
 brew "ykman"
 brew "trippy"
+brew "kakoune"
 
 # Containers
 brew "colima"
