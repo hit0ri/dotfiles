@@ -1,0 +1,124 @@
+"$schema" = "https://starship.rs/config-schema.json"
+
+# Line 1 has no $fill. A line that spans the full width wraps when the pane
+# gets narrower, and then zsh redraws the prompt on the wrong row.
+format = """
+$os$directory$git_branch$git_commit$git_state$git_status\
+$jobs$direnv$python$kubernetes$terraform$aws$username$hostname
+$character"""
+right_format = "$status$cmd_duration$time"
+
+add_newline = false
+
+[os]
+disabled = false
+format = "[$symbol]($style) "
+style = "white"
+
+[os.symbols]
+Macos = ""
+Linux = ""
+Ubuntu = ""
+Debian = ""
+Arch = ""
+Fedora = ""
+
+[directory]
+format = "[$read_only]($read_only_style)[$path]($style) "
+style = "bold blue"
+truncation_length = 8
+truncate_to_repo = false
+truncation_symbol = "…/"
+read_only = " "
+
+[git_branch]
+format = "[$symbol$branch(:$remote_branch)]($style) "
+symbol = " "
+style = "green"
+
+[git_commit]
+tag_disabled = false
+tag_symbol = " "
+
+[git_status]
+format = "([$ahead_behind$stashed$conflicted$staged$modified$renamed$deleted$untracked]($style) )"
+style = "yellow"
+ahead = "⇡${count} "
+behind = "⇣${count} "
+diverged = "⇣${behind_count}⇡${ahead_count} "
+stashed = "*${count} "
+conflicted = "~${count} "
+staged = "+${count} "
+modified = "!${count} "
+renamed = "»${count} "
+deleted = "✘${count} "
+untracked = "?${count} "
+
+[jobs]
+format = "[$symbol$number]($style) "
+symbol = " "
+style = "green"
+
+[direnv]
+disabled = false
+format = "[$symbol$loaded]($style) "
+symbol = " "
+style = "yellow"
+loaded_msg = ""
+unloaded_msg = "unloaded"
+
+# Show only an active virtualenv, not the Python version of every project.
+[python]
+format = "[$symbol$virtualenv]($style) "
+symbol = " "
+style = "cyan"
+detect_extensions = []
+detect_files = []
+detect_folders = []
+
+# Enable to always show the current context.
+[kubernetes]
+disabled = true
+format = "[$symbol$context( \\($namespace\\))]($style) "
+symbol = "󱃾 "
+style = "blue"
+
+[terraform]
+format = "[$symbol$workspace]($style) "
+symbol = "󱁢 "
+style = "purple"
+
+[aws]
+format = "[$symbol$profile( \\($duration\\))]($style) "
+symbol = " "
+style = "yellow"
+
+[username]
+format = "[$user]($style)"
+style_user = "bright-black"
+
+[hostname]
+format = "[@$hostname]($style) "
+style = "bright-black"
+
+[character]
+success_symbol = "[❯](green)"
+error_symbol = "[❯](red)"
+vimcmd_symbol = "[❮](green)"
+
+[status]
+disabled = false
+format = "[$symbol$status]($style) "
+symbol = "✘ "
+style = "red"
+
+[cmd_duration]
+format = "[ $duration]($style) "
+min_time = 3_000
+style = "yellow"
+
+[time]
+disabled = false
+format = "[$time]($style)"
+time_format = "%H:%M:%S"
+style = "bright-black"

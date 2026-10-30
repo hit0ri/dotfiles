@@ -2,13 +2,6 @@
 type = "git-repo"
 url = "https://github.com/sahaj-b/ghostty-cursor-shaders.git"
 
-[".local/share/zsh/plugins/powerlevel10k"]
-type = "git-repo"
-url = "https://github.com/romkatv/powerlevel10k.git"
-refreshPeriod = "168h"
-clone.args = ["--depth", "1"]
-pull.args = ["--ff-only"]
-
 [".local/share/zsh/plugins/zsh-autosuggestions"]
 type = "git-repo"
 url = "https://github.com/zsh-users/zsh-autosuggestions.git"
