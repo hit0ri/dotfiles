@@ -111,6 +111,8 @@ _zsh_comp_name() {
 }
 
 # Replaces the links in <dir> with links to <files...>
+# Writes only the links that differ. An unchanged set keeps the mtime of <dir>,
+# so _zsh_compinit does not rebuild the dump.
 _zsh_comp_link() {
   local dir=$1 f tmp="$1/.tmp.$$"
   local -A want
@@ -119,6 +121,7 @@ _zsh_comp_link() {
     _zsh_comp_name "$f" && want[$REPLY]=${f:A}
   done
   for f in ${(k)want}; do
+    [[ ${${:-$dir/$f}:A} == "${want[$f]}" ]] && continue
     zf_ln -sfn "${want[$f]}" "$tmp" && zf_mv -f "$tmp" "$dir/$f"
   done
   for f in "$dir"/_*(N@); do
