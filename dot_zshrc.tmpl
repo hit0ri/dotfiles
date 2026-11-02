@@ -1,6 +1,12 @@
 # ~/.zshrc - interactive shell config
 # Load order: zshenv -> zprofile (login) -> zshrc (interactive) -> zlogin (login)
 
+# p10k instant prompt must stay at the top. Code above it must not read input
+# or print output.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
 #-------------------------------------------------
 # Shell options
 #-------------------------------------------------
@@ -214,10 +220,8 @@ alias lsports='lsof -iTCP -sTCP:LISTEN -nP'
 # zsh-autosuggestions binds widgets on the first prompt, so it also wraps
 # widgets defined above (fzf).
 [[ -r "$ZSH_PLUGIN_DIR/zsh-autosuggestions/zsh-autosuggestions.zsh" ]] && source "$ZSH_PLUGIN_DIR/zsh-autosuggestions/zsh-autosuggestions.zsh"
-
-# `starship init zsh` prints only a stub that runs starship again, so cache
-# the full script instead.
-_zsh_cached_source starship init zsh --print-full-init
+[[ -r "$ZSH_PLUGIN_DIR/powerlevel10k/powerlevel10k.zsh-theme" ]] && source "$ZSH_PLUGIN_DIR/powerlevel10k/powerlevel10k.zsh-theme"
+[[ -f ~/.p10k.zsh ]] && source ~/.p10k.zsh
 
 # zoxide must be initialised last
 _zsh_cached_source zoxide init zsh
