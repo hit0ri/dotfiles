@@ -17,12 +17,12 @@ format = "[$symbol]($style) "
 style = "white"
 
 [os.symbols]
-Macos = ""
-Linux = ""
-Ubuntu = ""
-Debian = ""
-Arch = ""
-Fedora = ""
+Macos = "\uF179"
+Linux = "\uF17C"
+Ubuntu = "\uF31B"
+Debian = "\uF306"
+Arch = "\uF303"
+Fedora = "\uF30A"
 
 [directory]
 format = "[$read_only]($read_only_style)[$path]($style) "
@@ -30,16 +30,16 @@ style = "bold blue"
 truncation_length = 8
 truncate_to_repo = false
 truncation_symbol = "…/"
-read_only = " "
+read_only = "\uF023 "
 
 [git_branch]
 format = "[$symbol$branch(:$remote_branch)]($style) "
-symbol = " "
+symbol = "\uF418 "
 style = "green"
 
 [git_commit]
 tag_disabled = false
-tag_symbol = " "
+tag_symbol = "\uF412 "
 
 [git_status]
 format = "([$ahead_behind$stashed$conflicted$staged$modified$renamed$deleted$untracked]($style) )"
@@ -57,13 +57,13 @@ untracked = "?${count} "
 
 [jobs]
 format = "[$symbol$number]($style) "
-symbol = " "
+symbol = "\uF013 "
 style = "green"
 
 [direnv]
 disabled = false
 format = "[$symbol$loaded]($style) "
-symbol = " "
+symbol = "\uE615 "
 style = "yellow"
 loaded_msg = ""
 unloaded_msg = "unloaded"
@@ -71,7 +71,7 @@ unloaded_msg = "unloaded"
 # Show only an active virtualenv, not the Python version of every project.
 [python]
 format = "[$symbol$virtualenv]($style) "
-symbol = " "
+symbol = "\uE606 "
 style = "cyan"
 detect_extensions = []
 detect_files = []
@@ -91,7 +91,7 @@ style = "purple"
 
 [aws]
 format = "[$symbol$profile( \\($duration\\))]($style) "
-symbol = " "
+symbol = "\uF270 "
 style = "yellow"
 
 [username]
@@ -114,7 +114,7 @@ symbol = "✘ "
 style = "red"
 
 [cmd_duration]
-format = "[ $duration]($style) "
+format = "[\uF017 $duration]($style) "
 min_time = 3_000
 style = "yellow"
 
