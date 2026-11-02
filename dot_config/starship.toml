@@ -9,6 +9,7 @@ $character"""
 right_format = "$status$cmd_duration$time"
 
 add_newline = false
+command_timeout = 1000
 
 [os]
 disabled = false
